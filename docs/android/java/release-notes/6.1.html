@@ -1,0 +1,294 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Scandit Data Capture SDK 6.1 Release Notes (November 6, 2019) &mdash; Data Capture SDK 6.24.0-rc.2 documentation</title>
+      <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/custom.css" type="text/css" />
+  <!--[if lt IE 9]>
+    <script src="../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
+        <script src="../_static/jquery.js"></script>
+        <script src="../_static/underscore.js"></script>
+        <script src="../_static/doctools.js"></script>
+    <script src="../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Scandit Data Capture SDK 6.0 Release Notes (July 1, 2019)" href="6.0.html" />
+    <link rel="prev" title="Scandit Data Capture SDK 6.2 Release Notes (March 20, 2020)" href="6.2.html" />
+  <!-- Google Tag Manager -->
+  <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+  new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+  j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+  'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+  })(window,document,'script','dataLayer','GTM-THQQFD7');</script>
+  <!-- End Google Tag Manager -->
+</head>
+
+<body class="wy-body-for-nav">
+  <!-- Google Tag Manager (noscript) -->
+  <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-THQQFD7"
+  height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+  <!-- End Google Tag Manager (noscript) -->
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+            <a href="../index.html" class="icon icon-home"> Data Capture SDK
+          </a>
+              <div class="version">
+                6.24.0-rc.2
+              </div>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">First Steps</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../samples/run-samples.html">Run Samples</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../add-sdk.html">Add the SDK to Your App</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../best-practices-for-usability.html">Best Practices for Usability</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Pre-Built Components</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../high-speed-single-scanning.html">High-Speed Single Scanning</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../batch-counting-and-receiving.html">Batch Counting And Receiving</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../selecting-one-of-many.html">Selecting One Of Many Barcodes</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../ar-assisted-search-and-find.html">AR-Assisted Search And Find</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Fully-Customizable API</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../id-scanning-and-verification.html">ID Scanning And Verification</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../batch-scanning-and-ar.html">Batch Scanning And AR</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../single-scanning.html">Single Scanning</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../text-capture.html">Text Capture</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../parse-barcode-data.html">Parse Barcode Data</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../advanced-topics.html">Advanced Topics</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">API Reference</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../core/overview.html">ScanditCaptureCore</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../barcode-capture/overview.html">ScanditBarcodeCapture</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../id-capture/overview.html">ScanditIdCapture</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../text-capture/overview.html">ScanditTextCapture</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../label-capture/overview.html">ScanditLabelCapture</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../parser/overview.html">ScanditParser</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../genindex.html">Index</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">More Resources</span></p>
+<ul class="current">
+<li class="toctree-l1 current"><a class="reference internal" href="../release-notes.html">Release Notes</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="6.24.html">6.24</a></li>
+<li class="toctree-l2"><a class="reference internal" href="6.23.html">6.23</a></li>
+<li class="toctree-l2"><a class="reference internal" href="6.22.html">6.22</a></li>
+<li class="toctree-l2"><a class="reference internal" href="6.21.html">6.21</a></li>
+<li class="toctree-l2"><a class="reference internal" href="6.20.html">6.20</a></li>
+<li class="toctree-l2"><a class="reference internal" href="6.19.html">6.19</a></li>
+<li class="toctree-l2"><a class="reference internal" href="6.18.html">6.18</a></li>
+<li class="toctree-l2"><a class="reference internal" href="6.17.html">6.17</a></li>
+<li class="toctree-l2"><a class="reference internal" href="6.16.html">6.16</a></li>
+<li class="toctree-l2"><a class="reference internal" href="6.15.html">6.15</a></li>
+<li class="toctree-l2"><a class="reference internal" href="6.14.html">6.14</a></li>
+<li class="toctree-l2"><a class="reference internal" href="6.13.html">6.13</a></li>
+<li class="toctree-l2"><a class="reference internal" href="6.12.html">6.12</a></li>
+<li class="toctree-l2"><a class="reference internal" href="6.11.html">6.11</a></li>
+<li class="toctree-l2"><a class="reference internal" href="6.10.html">6.10</a></li>
+<li class="toctree-l2"><a class="reference internal" href="6.9.html">6.9</a></li>
+<li class="toctree-l2"><a class="reference internal" href="6.8.html">6.8</a></li>
+<li class="toctree-l2"><a class="reference internal" href="6.7.html">6.7</a></li>
+<li class="toctree-l2"><a class="reference internal" href="6.6.html">6.6</a></li>
+<li class="toctree-l2"><a class="reference internal" href="6.5.html">6.5</a></li>
+<li class="toctree-l2"><a class="reference internal" href="6.4.html">6.4</a></li>
+<li class="toctree-l2"><a class="reference internal" href="6.3.html">6.3</a></li>
+<li class="toctree-l2"><a class="reference internal" href="6.2.html">6.2</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">6.1</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#new-features">New Features</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#performance-improvements">Performance Improvements</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#bug-fixes">Bug Fixes</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#deprecations">Deprecations</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#updates">Updates</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#sdk-6-1-1-bug-fixes-november-27-2019">Scandit Data Capture SDK 6.1.1 Bug Fixes (November 27, 2019)</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#sdk-6-1-2-bug-fixes-december-10-2019">Scandit Data Capture SDK 6.1.2 Bug Fixes (December 10, 2019)</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="6.0.html">6.0</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../barcode-symbologies.html">Barcode Symbologies</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../requirements.html">System Requirements</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../support.html">Support &amp; FAQ</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../features-by-platform.html">Features By Framework</a></li>
+<li class="toctree-l1"><a class="reference external" href="https://docs.scandit.com/barcode-scanner-sdk.html">SDK 5.x Documentation [Deprecated]</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../migrate-to-6.html">Migrate from Barcode Scanner 5.x</a></li>
+<li class="toctree-l1"><a class="reference external" href="http://ssl.scandit.com">Your Developer Dashboard</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">Data Capture SDK</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation" class="navbar">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../index.html" class="icon icon-home" aria-label="Home"></a></li>
+          <li class="breadcrumb-item"><a href="../release-notes.html">Scandit Data Capture SDK Release Notes</a></li>
+      <li class="breadcrumb-item active">Scandit Data Capture SDK 6.1 Release Notes (November 6, 2019)</li>
+      <li class="wy-breadcrumbs-aside">
+      </li>
+  </ul>
+  <div class="auth-link-container">
+    <a class="signup-link signup-link--mobile" rel="noopener" target="_blank" href="https://ssl.scandit.com/dashboard/sign-up?p=test&utm_source=documentation">Sign up</a>
+    <a class="signup-link" target="_blank" rel="noopener" href="https://ssl.scandit.com/dashboard/sign-up?p=test&utm_source=documentation">Sign up for your developer account</a>
+    <a class="signin-link" target="_blank" rel="noopener" href="https://ssl.scandit.com/dashboard/sign-in">Log in</a>
+  </div>
+</div>
+<hr/>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <div class="section" id="sdk-6-1-release-notes-november-6-2019">
+<h1>Scandit Data Capture SDK 6.1 Release Notes (November 6, 2019)<a class="headerlink" href="#sdk-6-1-release-notes-november-6-2019" title="Permalink to this headline"></a></h1>
+<p>See also the <a class="reference internal" href="../requirements/6.1.html"><span class="doc">System Requirements</span></a> of the Scandit Data Capture SDK across all platforms.</p>
+<div class="section" id="new-features">
+<h2>New Features<a class="headerlink" href="#new-features" title="Permalink to this headline"></a></h2>
+<ul class="simple">
+<li><p>Added <a class="reference internal" href="../text-capture/api/text-capture.html#class-scandit.datacapture.text.TextCapture" title="TextCapture class">TextCapture</a> as a new capture mode for text recognition. Read up on <a class="reference internal" href="../get-started-text-capture.html"><span class="doc">how to get started with text capture</span></a>. As the text recognition was previously part of the Label Capture module, this split means that the Label Capture module now depends on Text Capture.</p></li>
+<li><p>Added <a class="reference internal" href="../parser/api/parser.html#class-scandit.datacapture.parser.Parser" title="Parser class">Parser</a> for parsing many <a class="reference internal" href="../parser/formats.html"><span class="doc">data formats</span></a> data formats. Read up on <a class="reference internal" href="../get-started-parser.html"><span class="doc">how to get started with the parser</span></a>.</p></li>
+<li><p>Lowered minimum supported Android version to 4.4 (API Level 19). The prior minimum version was 5.0 (API Level 21).</p></li>
+<li><p>The camera now focuses and adjusts exposure on the <a class="reference internal" href="../core/api/ui/data-capture-view.html#property-scandit.datacapture.core.ui.DataCaptureView.PointOfInterest" title="point of interest property">point of interest</a> for all devices that support it, previously it always focused on the center.</p></li>
+<li><p>Added <a class="reference internal" href="../barcode-capture/api/barcode-capture.html#property-scandit.datacapture.barcode.BarcodeCapture.PointOfInterest" title="BarcodeCapture.pointOfInterest property">BarcodeCapture.pointOfInterest</a> to overwrite the <a class="reference internal" href="../core/api/ui/data-capture-view.html#property-scandit.datacapture.core.ui.DataCaptureView.PointOfInterest" title="data capture view's point of interest property">data capture view's point of interest</a> in cases where multiple capture modes are used that need individual points of interest.</p></li>
+<li><p>Added <a class="reference internal" href="../core/api/frame-data.html#method-scandit.datacapture.core.ImageBuffer.ToBitmap" title="ImageBuffer.toBitmap() method">ImageBuffer.toBitmap()</a> method for converting the video frame to an RGB bitmap.</p></li>
+<li><p>Added the possibility to set an <a class="reference internal" href="../core/api/data-capture-context-builder.html#method-scandit.datacapture.core.DataCaptureContextBuilder.ExternalId" title="external ID method">external ID</a> for resellers of the Scandit Data Capture SDK.</p></li>
+<li><p>Added a MRZScannerSample demonstrating how to capture text and parse it with the <a class="reference internal" href="../parser/api/parser.html#class-scandit.datacapture.parser.Parser" title="Parser class">Parser</a> in order to reject occasional false positive reads returned by <a class="reference internal" href="../text-capture/api/text-capture.html#class-scandit.datacapture.text.TextCapture" title="TextCapture class">TextCapture</a>.</p></li>
+<li><p>Added a TextRecognitionSample demonstrating how to capture text for different text types and different recognition area positions.</p></li>
+<li><p>SwissQr parser: Added support for parsing standard 2.0 and 2.1 codes.</p></li>
+<li><p>The creation of capture modes like <a class="reference internal" href="../barcode-capture/api/barcode-capture.html#class-scandit.datacapture.barcode.BarcodeCapture" title="barcode capture class">barcode capture</a>, <a class="reference internal" href="../barcode-capture/api/barcode-tracking.html#class-scandit.datacapture.barcode.tracking.BarcodeTracking" title="barcode tracking class">barcode tracking</a>, <a class="reference internal" href="../label-capture/api/label-capture.html#class-scandit.datacapture.label.LabelCapture" title="label capture class">label capture</a> and <a class="reference internal" href="../text-capture/api/text-capture.html#class-scandit.datacapture.text.TextCapture" title="text capture class">text capture</a> no longer expects a non-null <a class="reference internal" href="../core/api/data-capture-context.html#class-scandit.datacapture.core.DataCaptureContext" title="data capture context class">data capture context</a>. If a null context is provided, the capture mode is created without immediately being added to a context.</p></li>
+</ul>
+</div>
+<div class="section" id="performance-improvements">
+<h2>Performance Improvements<a class="headerlink" href="#performance-improvements" title="Permalink to this headline"></a></h2>
+<ul class="simple">
+<li><p>Improved Data Matrix scan performance in case of rotations and damaged borders.</p></li>
+<li><p>Improved highlighting accuracy for 1d barcodes.</p></li>
+</ul>
+</div>
+<div class="section" id="bug-fixes">
+<h2>Bug Fixes<a class="headerlink" href="#bug-fixes" title="Permalink to this headline"></a></h2>
+<ul class="simple">
+<li><p>Fixed an issue that could prevent uploading applications to the iTunes Store using beta versions of the frameworks. <strong>It is not recommended to use beta builds for production ready applications</strong>.</p></li>
+<li><p>Fixed a rare crash caused by a division-by-zero.</p></li>
+<li><p>Fixed a bug that caused upside down barcodes not to be recognized when using the front facing camera.</p></li>
+<li><p><a class="reference internal" href="../core/api/data-capture-context.html#method-scandit.datacapture.core.DataCaptureContext.Dispose" title="DataCaptureContext.release() method">DataCaptureContext.release()</a> now frees all memory allocated by the Scandit Data Capture SDK.</p></li>
+<li><p>Fixed an issue, where sometimes <a class="reference internal" href="../core/api/ui/data-capture-view.html#class-scandit.datacapture.core.ui.DataCaptureView" title="DataCaptureView class">DataCaptureView</a> would draw a black camera preview after returning to a screen.</p></li>
+<li><p>Fixed an issue where the camera preview could be rotated when switching between fragments that both contain a data capture view.</p></li>
+<li><p>All overlays are now frame source aware and reset themselves if the frame source is stopped and restarted.</p></li>
+<li><p>VIN parser: Fixed issue with parsing VIN codes with optional prefix/suffix added to Code39 codes.</p></li>
+</ul>
+</div>
+<div class="section" id="deprecations">
+<h2>Deprecations<a class="headerlink" href="#deprecations" title="Permalink to this headline"></a></h2>
+<ul class="simple">
+<li><p>Deprecated <a class="reference internal" href="../core/api/data-capture-context.html#method-scandit.datacapture.core.DataCaptureContext.ForLicenseKeyAndDeviceName" title="DataCaptureContext.forLicenseKey() method">DataCaptureContext.forLicenseKey()</a> in favor of a <a class="reference internal" href="../core/api/data-capture-context-builder.html#class-scandit.datacapture.core.DataCaptureContextBuilder" title="builder class">builder</a> to set additional properties on the context. It is constructed through <a class="reference internal" href="../core/api/data-capture-context.html#method-scandit.datacapture.core.DataCaptureContext.Builder" title="DataCaptureContext.builder() method">DataCaptureContext.builder()</a>.</p></li>
+<li><p>Deprecated <a class="reference internal" href="../barcode-capture/api/symbology-description.html#method-scandit.datacapture.barcode.SymbologyDescription.SymbologyFromIdentifier" title="SymbologyDescription.symbologyFromIdentifier() method">SymbologyDescription.symbologyFromIdentifier()</a> in favor of <a class="reference internal" href="../barcode-capture/api/symbology-description.html#method-scandit.datacapture.barcode.SymbologyDescription.ForIdentifier" title="SymbologyDescription.forIdentifier() method">SymbologyDescription.forIdentifier()</a> and <a class="reference internal" href="../barcode-capture/api/symbology-description.html#property-scandit.datacapture.barcode.SymbologyDescription.Symbology" title="SymbologyDescription.symbology property">SymbologyDescription.symbology</a>.</p></li>
+<li><p>Deprecated <a class="reference internal" href="../core/api/feedback.html#property-scandit.datacapture.core.Vibration.VibrateTime" title="Vibration.vibrateTime property">Vibration.vibrateTime</a> in favor of <a class="reference internal" href="../core/api/feedback.html#property-scandit.datacapture.core.Vibration.Duration" title="Vibration.duration property">Vibration.duration</a>.</p></li>
+</ul>
+</div>
+<div class="section" id="updates">
+<h2>Updates<a class="headerlink" href="#updates" title="Permalink to this headline"></a></h2>
+<div class="section" id="sdk-6-1-1-bug-fixes-november-27-2019">
+<h3>Scandit Data Capture SDK 6.1.1 Bug Fixes (November 27, 2019)<a class="headerlink" href="#sdk-6-1-1-bug-fixes-november-27-2019" title="Permalink to this headline"></a></h3>
+<ul class="simple">
+<li><p>Fixed setting the device name and external id on the <a class="reference internal" href="../core/api/data-capture-context-builder.html#class-scandit.datacapture.core.DataCaptureContextBuilder" title="DataCaptureContextBuilder class">DataCaptureContextBuilder</a>, setting the device name would set the external id and vice versa.</p></li>
+<li><p>Setting a <a class="reference internal" href="../core/api/rectangular-location-selection.html#class-scandit.datacapture.core.RectangularLocationSelection" title="rectangular location selection class">rectangular location selection</a> with width or height of zero no longer causes a crash.</p></li>
+<li><p>Fixed a crash when calling <a class="reference internal" href="../core/api/camera.html#method-scandit.datacapture.core.Camera.GetDefaultCamera" title="Camera.getDefaultCamera() method">Camera.getDefaultCamera()</a> if the device reported no available cameras.</p></li>
+<li><p>Fixed an issue where tracked barcodes are not removed immediately after disabling and enabling the <a class="reference internal" href="../barcode-capture/api/barcode-tracking.html#class-scandit.datacapture.barcode.tracking.BarcodeTracking" title="BarcodeTracking class">BarcodeTracking</a>.</p></li>
+<li><p>Fixed an issue with the <a class="reference internal" href="../barcode-capture/api/ui/barcode-tracking-advanced-overlay.html#class-scandit.datacapture.barcode.tracking.ui.BarcodeTrackingAdvancedOverlay" title="BarcodeTrackingAdvancedOverlay class">BarcodeTrackingAdvancedOverlay</a> trying to add a view twice or never removing a view.</p></li>
+</ul>
+</div>
+<div class="section" id="sdk-6-1-2-bug-fixes-december-10-2019">
+<h3>Scandit Data Capture SDK 6.1.2 Bug Fixes (December 10, 2019)<a class="headerlink" href="#sdk-6-1-2-bug-fixes-december-10-2019" title="Permalink to this headline"></a></h3>
+<p>Contains no bug fixes for this platform.</p>
+</div>
+</div>
+</div>
+
+
+           </div>
+          </div>
+          <footer>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2024, Scandit AG.</p>
+  </div>
+
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+  <!-- Start of scandit Zendesk Widget script -->
+  <script id="ze-snippet" src="https://static.zdassets.com/ekr/snippet.js?key=df0234ee-7451-4189-8d1c-17c8a624b5f1">
+  </script>
+<script>
+      function getPlatformSuffix() {
+        const platform = 'android'
+        switch (platform) {
+          case 'android':         return 'for Android'
+          case 'ios':             return 'for iOS'
+          case 'cordova':         return 'for Cordova'
+          case 'react-native':    return 'for React Native'
+          case 'xamarin.ios':     return 'for Xamarin.iOS'
+          case 'xamarin.android': return 'for Xamarin.Android'
+          case 'xamarin.forms':   return 'for Xamarin.Forms'
+          case 'flutter':         return 'for Flutter'
+          case 'capacitor':       return 'for Capacitor'
+          case 'titanium':        return 'for Titanium'
+          case 'web':             return 'for the Web'
+          case 'dotnet.ios':      return 'for .NET for iOS'
+          case 'dotnet.android':  return 'for .NET for Android'
+          default:                return ''
+        }
+      }
+
+      const platformSuffix = getPlatformSuffix()
+      const headerTitle = document.querySelector(".icon-home")
+      headerTitle.insertAdjacentHTML('beforeend', ` ${platformSuffix}`)
+
+      const [major, minor] = DOCUMENTATION_OPTIONS.VERSION.split('.')
+      const version = document.querySelector(".version")
+      version.innerHTML = `
+        <div class="version">
+          <a href="${DOCUMENTATION_OPTIONS.URL_ROOT}release-notes/${major}.${minor}.html">Release Notes</a> 
+        </div>
+        <br>
+      `
+  </script>
+  <!-- End of scandit Zendesk Widget script -->
+
+</body>
+</html>

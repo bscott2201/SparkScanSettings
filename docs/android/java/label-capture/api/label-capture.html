@@ -1,0 +1,331 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Label Capture &mdash; Data Capture SDK 6.24.0-rc.2 documentation</title>
+      <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
+    <link rel="stylesheet" href="../../_static/custom.css" type="text/css" />
+  <!--[if lt IE 9]>
+    <script src="../../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script data-url_root="../../" id="documentation_options" src="../../_static/documentation_options.js"></script>
+        <script src="../../_static/jquery.js"></script>
+        <script src="../../_static/underscore.js"></script>
+        <script src="../../_static/doctools.js"></script>
+    <script src="../../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
+    <link rel="next" title="Label Capture Listener" href="label-capture-listener.html" />
+    <link rel="prev" title="IMEI Two Barcode Builder" href="imei-two-barcode-builder.html" />
+  <!-- Google Tag Manager -->
+  <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+  new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+  j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+  'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+  })(window,document,'script','dataLayer','GTM-THQQFD7');</script>
+  <!-- End Google Tag Manager -->
+</head>
+
+<body class="wy-body-for-nav">
+  <!-- Google Tag Manager (noscript) -->
+  <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-THQQFD7"
+  height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+  <!-- End Google Tag Manager (noscript) -->
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+            <a href="../../index.html" class="icon icon-home"> Data Capture SDK
+          </a>
+              <div class="version">
+                6.24.0-rc.2
+              </div>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">First Steps</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../samples/run-samples.html">Run Samples</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../add-sdk.html">Add the SDK to Your App</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../best-practices-for-usability.html">Best Practices for Usability</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Pre-Built Components</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../high-speed-single-scanning.html">High-Speed Single Scanning</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../batch-counting-and-receiving.html">Batch Counting And Receiving</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../selecting-one-of-many.html">Selecting One Of Many Barcodes</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../ar-assisted-search-and-find.html">AR-Assisted Search And Find</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Fully-Customizable API</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../id-scanning-and-verification.html">ID Scanning And Verification</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../batch-scanning-and-ar.html">Batch Scanning And AR</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../single-scanning.html">Single Scanning</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../text-capture.html">Text Capture</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../parse-barcode-data.html">Parse Barcode Data</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../advanced-topics.html">Advanced Topics</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">API Reference</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../../core/overview.html">ScanditCaptureCore</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../barcode-capture/overview.html">ScanditBarcodeCapture</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../id-capture/overview.html">ScanditIdCapture</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../text-capture/overview.html">ScanditTextCapture</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../overview.html">ScanditLabelCapture</a><ul class="current">
+<li class="toctree-l2 current"><a class="reference internal" href="../api.html">API</a><ul class="current">
+<li class="toctree-l3"><a class="reference internal" href="barcode-field.html">Barcode Field</a></li>
+<li class="toctree-l3"><a class="reference internal" href="barcode-field-builder.html">Barcode Field Builder</a></li>
+<li class="toctree-l3"><a class="reference internal" href="captured-label.html">Captured Label</a></li>
+<li class="toctree-l3"><a class="reference internal" href="custom-barcode.html">Custom Barcode</a></li>
+<li class="toctree-l3"><a class="reference internal" href="custom-barcode-builder.html">Custom Barcode Builder</a></li>
+<li class="toctree-l3"><a class="reference internal" href="custom-text.html">Custom Text</a></li>
+<li class="toctree-l3"><a class="reference internal" href="custom-text-builder.html">Custom Text Builder</a></li>
+<li class="toctree-l3"><a class="reference internal" href="enums.html">Label Capture Enumerations</a></li>
+<li class="toctree-l3"><a class="reference internal" href="expiry-date-text.html">Expiry Date Text</a></li>
+<li class="toctree-l3"><a class="reference internal" href="expiry-date-text-builder.html">Expiry Date Text Builder</a></li>
+<li class="toctree-l3"><a class="reference internal" href="imei-one-barcode.html">IMEI One Barcode</a></li>
+<li class="toctree-l3"><a class="reference internal" href="imei-one-barcode-builder.html">IMEI One Barcode Builder</a></li>
+<li class="toctree-l3"><a class="reference internal" href="imei-two-barcode.html">IMEI Two Barcode</a></li>
+<li class="toctree-l3"><a class="reference internal" href="imei-two-barcode-builder.html">IMEI Two Barcode Builder</a></li>
+<li class="toctree-l3 current"><a class="current reference internal" href="#">Label Capture</a></li>
+<li class="toctree-l3"><a class="reference internal" href="label-capture-listener.html">Label Capture Listener</a></li>
+<li class="toctree-l3"><a class="reference internal" href="label-capture-session.html">Label Capture Session</a></li>
+<li class="toctree-l3"><a class="reference internal" href="label-capture-settings.html">Label Capture Settings</a></li>
+<li class="toctree-l3"><a class="reference internal" href="label-capture-settings-builder.html">Label Capture Settings Builder</a></li>
+<li class="toctree-l3"><a class="reference internal" href="label-definition.html">Label Definition</a></li>
+<li class="toctree-l3"><a class="reference internal" href="label-definition-builder.html">Label Definition Builder</a></li>
+<li class="toctree-l3"><a class="reference internal" href="label-field.html">Captured Field</a></li>
+<li class="toctree-l3"><a class="reference internal" href="label-field-definition.html">Label Field Definition</a></li>
+<li class="toctree-l3"><a class="reference internal" href="label-field-definition-builder.html">Label Field Definition Builder</a></li>
+<li class="toctree-l3"><a class="reference internal" href="label-field-location.html">Label Field Location</a></li>
+<li class="toctree-l3"><a class="reference internal" href="label-field-location-type.html">Label Field Location Type</a></li>
+<li class="toctree-l3"><a class="reference internal" href="packing-date-text.html">Packing Date Text</a></li>
+<li class="toctree-l3"><a class="reference internal" href="packing-date-text-builder.html">Packing Date Text Builder</a></li>
+<li class="toctree-l3"><a class="reference internal" href="part-number-barcode.html">Part Number Barcode</a></li>
+<li class="toctree-l3"><a class="reference internal" href="part-number-barcode-builder.html">Part Number Barcode Builder</a></li>
+<li class="toctree-l3"><a class="reference internal" href="serial-number-barcode.html">Serial Number Barcode</a></li>
+<li class="toctree-l3"><a class="reference internal" href="serial-number-barcode-builder.html">Serial Number Barcode Builder</a></li>
+<li class="toctree-l3"><a class="reference internal" href="text-field.html">Text Field</a></li>
+<li class="toctree-l3"><a class="reference internal" href="text-field-builder.html">Text Field Builder</a></li>
+<li class="toctree-l3"><a class="reference internal" href="total-price-text.html">Total Price Text</a></li>
+<li class="toctree-l3"><a class="reference internal" href="total-price-text-builder.html">Total Price Text Builder</a></li>
+<li class="toctree-l3"><a class="reference internal" href="unit-price-text.html">Unit Price Text</a></li>
+<li class="toctree-l3"><a class="reference internal" href="unit-price-text-builder.html">Unit Price Text Builder</a></li>
+<li class="toctree-l3"><a class="reference internal" href="weight-text.html">Weight Text</a></li>
+<li class="toctree-l3"><a class="reference internal" href="weight-text-builder.html">Weight Text Builder</a></li>
+<li class="toctree-l3"><a class="reference internal" href="ui/label-capture-advanced-overlay.html">Label Capture Advanced Overlay</a></li>
+<li class="toctree-l3"><a class="reference internal" href="ui/label-capture-advanced-overlay-listener.html">Label Capture Advanced Overlay Listener</a></li>
+<li class="toctree-l3"><a class="reference internal" href="ui/label-capture-advanced-overlay-view.html">Label Capture Advanced Overlay View</a></li>
+<li class="toctree-l3"><a class="reference internal" href="ui/label-capture-basic-overlay.html">Label Capture Basic Overlay</a></li>
+<li class="toctree-l3"><a class="reference internal" href="ui/label-capture-basic-overlay-listener.html">Label Capture Basic Overlay Listener</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../parser/overview.html">ScanditParser</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../genindex.html">Index</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">More Resources</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../release-notes.html">Release Notes</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../barcode-symbologies.html">Barcode Symbologies</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../requirements.html">System Requirements</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../support.html">Support &amp; FAQ</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../features-by-platform.html">Features By Framework</a></li>
+<li class="toctree-l1"><a class="reference external" href="https://docs.scandit.com/barcode-scanner-sdk.html">SDK 5.x Documentation [Deprecated]</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../migrate-to-6.html">Migrate from Barcode Scanner 5.x</a></li>
+<li class="toctree-l1"><a class="reference external" href="http://ssl.scandit.com">Your Developer Dashboard</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../index.html">Data Capture SDK</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation" class="navbar">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../../index.html" class="icon icon-home" aria-label="Home"></a></li>
+          <li class="breadcrumb-item"><a href="../overview.html">ScanditLabelCapture</a></li>
+          <li class="breadcrumb-item"><a href="../api.html">ScanditLabelCapture API</a></li>
+      <li class="breadcrumb-item active">Label Capture</li>
+      <li class="wy-breadcrumbs-aside">
+      </li>
+  </ul>
+  <div class="auth-link-container">
+    <a class="signup-link signup-link--mobile" rel="noopener" target="_blank" href="https://ssl.scandit.com/dashboard/sign-up?p=test&utm_source=documentation">Sign up</a>
+    <a class="signup-link" target="_blank" rel="noopener" href="https://ssl.scandit.com/dashboard/sign-up?p=test&utm_source=documentation">Sign up for your developer account</a>
+    <a class="signin-link" target="_blank" rel="noopener" href="https://ssl.scandit.com/dashboard/sign-in">Log in</a>
+  </div>
+</div>
+<hr/>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <div class="section" id="label-capture">
+<h1>Label Capture<a class="headerlink" href="#label-capture" title="Permalink to this headline"></a></h1>
+<p>Defined in package <em>com.scandit.datacapture.label.capture</em></p>
+<dl>
+<dt class="sig sig-object unilang" id="class-scandit.datacapture.label.LabelCapture">
+<span class="sig-name descname"><span class="pre">LabelCapture</span></span><a class="headerlink" href="#class-scandit.datacapture.label.LabelCapture" title="Permalink to this definition"></a></dt>
+<dd><pre class="full-signature"><span class="sig-name descname">class LabelCapture</span> : <a class="reference internal" href="../../core/api/data-capture-mode.html#interface-scandit.datacapture.core.IDataCaptureMode" title="DataCaptureMode interface">DataCaptureMode</a></pre><p><span class="versionmodified versionadded">Added in version 6.0.0</span></p>
+<p>Data capture mode to scan labels, e.g. groups of barcodes, or a combination of text and barcode in a fixed spatial arrangement.</p>
+<dl>
+<dt class="sig sig-object unilang" id="method-scandit.datacapture.label.LabelCapture.ForDataCaptureContext">
+<span class="sig-name descname"><span class="pre">forDataCaptureContext(dataCaptureContext,</span> <span class="pre">labelCaptureSettings)</span></span><a class="headerlink" href="#method-scandit.datacapture.label.LabelCapture.ForDataCaptureContext" title="Permalink to this definition"></a></dt>
+<dd><pre class="full-signature">static &#64;NonNull <a class="reference internal" href="#class-scandit.datacapture.label.LabelCapture" title="LabelCapture class">LabelCapture</a> <span class="sig-name descname">forDataCaptureContext</span>(
+        &#64;Nullable <a class="reference internal" href="../../core/api/data-capture-context.html#class-scandit.datacapture.core.DataCaptureContext" title="DataCaptureContext class">DataCaptureContext</a> <em>dataCaptureContext</em>,
+        &#64;NonNull <a class="reference internal" href="label-capture-settings.html#class-scandit.datacapture.label.LabelCaptureSettings" title="LabelCaptureSettings class">LabelCaptureSettings</a> <em>labelCaptureSettings</em>)</pre><p><span class="versionmodified versionadded">Added in version 6.0.0</span></p>
+<p>Construct a new label capture mode with the provided context and settings. When the context is not <em>null</em>, the capture mode is automatically added to the context.</p>
+</dd></dl>
+
+<dl>
+<dt class="sig sig-object unilang" id="method-scandit.datacapture.label.LabelCapture.FromJson">
+<span class="sig-name descname"><span class="pre">fromJson(dataCaptureContext,</span> <span class="pre">jsonData)</span></span><a class="headerlink" href="#method-scandit.datacapture.label.LabelCapture.FromJson" title="Permalink to this definition"></a></dt>
+<dd><pre class="full-signature">static &#64;NonNull <a class="reference internal" href="#class-scandit.datacapture.label.LabelCapture" title="LabelCapture class">LabelCapture</a> <span class="sig-name descname">fromJson</span>(&#64;NonNull <a class="reference internal" href="../../core/api/data-capture-context.html#class-scandit.datacapture.core.DataCaptureContext" title="DataCaptureContext class">DataCaptureContext</a> <em>dataCaptureContext</em>,
+        &#64;NonNull <a class="reference external" href="https://developer.android.com/reference/java/lang/String.html" title="String">String</a> <em>jsonData</em>)</pre><p><span class="versionmodified versionadded">Added in version 6.4.0</span></p>
+<p>Construct a new label capture mode with the provided JSON serialization. See <a class="reference internal" href="../../core/serialization.html"><span class="doc">Serialization</span></a> for details. The capture mode is automatically added to the context.</p>
+</dd></dl>
+
+<dl>
+<dt class="sig sig-object unilang" id="property-scandit.datacapture.label.LabelCapture.IsEnabled">
+<span class="sig-name descname"><span class="pre">isEnabled</span></span><a class="headerlink" href="#property-scandit.datacapture.label.LabelCapture.IsEnabled" title="Permalink to this definition"></a></dt>
+<dd><pre class="full-signature"><code class="docutils literal notranslate"><span class="pre">boolean</span></code> <span class="sig-name descname">isEnabled</span>()
+<code class="docutils literal notranslate"><span class="pre">void</span></code> <span class="sig-name descname">setEnabled</span>(<code class="docutils literal notranslate"><span class="pre">boolean</span></code> <em>value</em>)
+</pre><p><span class="versionmodified versionadded">Added in version 6.0.0</span></p>
+<p>Implemented from <a class="reference internal" href="../../core/api/data-capture-mode.html#interface-scandit.datacapture.core.IDataCaptureMode" title="DataCaptureMode interface">DataCaptureMode</a>. See <a class="reference internal" href="../../core/api/data-capture-mode.html#property-scandit.datacapture.core.IDataCaptureMode.IsEnabled" title="DataCaptureMode.isEnabled property">DataCaptureMode.isEnabled</a>.</p>
+</dd></dl>
+
+<dl>
+<dt class="sig sig-object unilang" id="method-scandit.datacapture.label.LabelCapture.ApplySettingsAsync">
+<span class="sig-name descname"><span class="pre">applySettings(settings,</span> <span class="pre">whenDone)</span></span><a class="headerlink" href="#method-scandit.datacapture.label.LabelCapture.ApplySettingsAsync" title="Permalink to this definition"></a></dt>
+<dd><pre class="full-signature"><code class="docutils literal notranslate"><span class="pre">void</span></code> <span class="sig-name descname">applySettings</span>(&#64;NonNull <a class="reference internal" href="label-capture-settings.html#class-scandit.datacapture.label.LabelCaptureSettings" title="LabelCaptureSettings class">LabelCaptureSettings</a> <em>settings</em>, &#64;Nullable <a class="reference external" href="https://developer.android.com/reference/java/lang/Runnable.html" title="Runnable">Runnable</a> <em>whenDone</em>)</pre><p><span class="versionmodified versionadded">Added in version 6.0.0</span></p>
+<p>Asynchronously apply the new settings to label capture. If label capture is currently running, the task will complete when the next frame is processed, and will use the new settings for that frame. If label capture is currently <em>not</em> running, the task will complete as soon as the settings have been stored and won’t wait until the next frame is going to be processed.</p>
+</dd></dl>
+
+<dl>
+<dt class="sig sig-object unilang" id="method-scandit.datacapture.label.LabelCapture.ApplySettings">
+<span class="sig-name descname"><span class="pre">applySettings(settings)</span></span><a class="headerlink" href="#method-scandit.datacapture.label.LabelCapture.ApplySettings" title="Permalink to this definition"></a></dt>
+<dd><pre class="full-signature"><code class="docutils literal notranslate"><span class="pre">void</span></code> <span class="sig-name descname">applySettings</span>(&#64;NonNull <a class="reference internal" href="label-capture-settings.html#class-scandit.datacapture.label.LabelCaptureSettings" title="LabelCaptureSettings class">LabelCaptureSettings</a> <em>settings</em>)</pre><p><span class="versionmodified versionadded">Added in version 6.0.0</span></p>
+<p>Same as <a class="reference internal" href="#method-scandit.datacapture.label.LabelCapture.ApplySettingsAsync" title="applySettings() method">applySettings()</a> with the second argument set to <em>null</em>.</p>
+</dd></dl>
+
+<dl>
+<dt class="sig sig-object unilang" id="method-scandit.datacapture.label.LabelCapture.AddListener">
+<span class="sig-name descname"><span class="pre">addListener(listener)</span></span><a class="headerlink" href="#method-scandit.datacapture.label.LabelCapture.AddListener" title="Permalink to this definition"></a></dt>
+<dd><pre class="full-signature"><code class="docutils literal notranslate"><span class="pre">void</span></code> <span class="sig-name descname">addListener</span>(&#64;NonNull <a class="reference internal" href="label-capture-listener.html#interface-scandit.datacapture.label.ILabelCaptureListener" title="LabelCaptureListener interface">LabelCaptureListener</a> <em>listener</em>)</pre><p><span class="versionmodified versionadded">Added in version 6.0.0</span></p>
+<p>Adds the listener to this label capture instance to observe the label capture mode and get notified when a label or some of its fields got scanned.</p>
+<p>In case the same listener is already observing this instance, calling this method will not add the listener again.</p>
+</dd></dl>
+
+<dl>
+<dt class="sig sig-object unilang" id="method-scandit.datacapture.label.LabelCapture.RemoveListener">
+<span class="sig-name descname"><span class="pre">removeListener(listener)</span></span><a class="headerlink" href="#method-scandit.datacapture.label.LabelCapture.RemoveListener" title="Permalink to this definition"></a></dt>
+<dd><pre class="full-signature"><code class="docutils literal notranslate"><span class="pre">void</span></code> <span class="sig-name descname">removeListener</span>(&#64;NonNull <a class="reference internal" href="label-capture-listener.html#interface-scandit.datacapture.label.ILabelCaptureListener" title="LabelCaptureListener interface">LabelCaptureListener</a> <em>listener</em>)</pre><p><span class="versionmodified versionadded">Added in version 6.0.0</span></p>
+<p>Removes a previously added listener from this label capture instance.</p>
+<p>In case the listener is not currently observing this instance, calling this method has no effect.</p>
+</dd></dl>
+
+<dl>
+<dt class="sig sig-object unilang" id="method-scandit.datacapture.label.LabelCapture.CreateRecommendedCameraSettings">
+<span class="sig-name descname"><span class="pre">createRecommendedCameraSettings()</span></span><a class="headerlink" href="#method-scandit.datacapture.label.LabelCapture.CreateRecommendedCameraSettings" title="Permalink to this definition"></a></dt>
+<dd><pre class="full-signature">static &#64;NonNull <a class="reference internal" href="../../core/api/camera-settings.html#class-scandit.datacapture.core.CameraSettings" title="CameraSettings class">CameraSettings</a> <span class="sig-name descname">createRecommendedCameraSettings</span>()</pre><p><span class="versionmodified versionadded">Added in version 6.0.0</span></p>
+<p>Returns the recommended camera settings for use with label capture.</p>
+</dd></dl>
+
+<dl>
+<dt class="sig sig-object unilang" id="property-scandit.datacapture.label.LabelCapture.Context">
+<span class="sig-name descname"><span class="pre">dataCaptureContext</span></span><a class="headerlink" href="#property-scandit.datacapture.label.LabelCapture.Context" title="Permalink to this definition"></a></dt>
+<dd><pre class="full-signature">&#64;Nullable <a class="reference internal" href="../../core/api/data-capture-context.html#class-scandit.datacapture.core.DataCaptureContext" title="DataCaptureContext class">DataCaptureContext</a> <span class="sig-name descname">getDataCaptureContext</span>()
+</pre><p><span class="versionmodified versionadded">Added in version 6.0.0</span></p>
+<p>Implemented from <a class="reference internal" href="../../core/api/data-capture-mode.html#interface-scandit.datacapture.core.IDataCaptureMode" title="DataCaptureMode interface">DataCaptureMode</a>. See <a class="reference internal" href="../../core/api/data-capture-mode.html#property-scandit.datacapture.core.IDataCaptureMode.Context" title="DataCaptureMode.dataCaptureContext property">DataCaptureMode.dataCaptureContext</a>.</p>
+</dd></dl>
+
+<dl>
+<dt class="sig sig-object unilang" id="method-scandit.datacapture.label.LabelCapture.UpdateFromJson">
+<span class="sig-name descname"><span class="pre">updateFromJson(jsonData)</span></span><a class="headerlink" href="#method-scandit.datacapture.label.LabelCapture.UpdateFromJson" title="Permalink to this definition"></a></dt>
+<dd><pre class="full-signature"><code class="docutils literal notranslate"><span class="pre">void</span></code> <span class="sig-name descname">updateFromJson</span>(&#64;NonNull <a class="reference external" href="https://developer.android.com/reference/java/lang/String.html" title="String">String</a> <em>jsonData</em>)</pre><p><span class="versionmodified versionadded">Added in version 6.4.0</span></p>
+<p>Updates the mode according to a JSON serialization. See <a class="reference internal" href="../../core/serialization.html"><span class="doc">Serialization</span></a> for details.</p>
+</dd></dl>
+
+</dd></dl>
+
+</div>
+
+
+           </div>
+          </div>
+          <footer>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2024, Scandit AG.</p>
+  </div>
+
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+  <!-- Start of scandit Zendesk Widget script -->
+  <script id="ze-snippet" src="https://static.zdassets.com/ekr/snippet.js?key=df0234ee-7451-4189-8d1c-17c8a624b5f1">
+  </script>
+<script>
+      function getPlatformSuffix() {
+        const platform = 'android'
+        switch (platform) {
+          case 'android':         return 'for Android'
+          case 'ios':             return 'for iOS'
+          case 'cordova':         return 'for Cordova'
+          case 'react-native':    return 'for React Native'
+          case 'xamarin.ios':     return 'for Xamarin.iOS'
+          case 'xamarin.android': return 'for Xamarin.Android'
+          case 'xamarin.forms':   return 'for Xamarin.Forms'
+          case 'flutter':         return 'for Flutter'
+          case 'capacitor':       return 'for Capacitor'
+          case 'titanium':        return 'for Titanium'
+          case 'web':             return 'for the Web'
+          case 'dotnet.ios':      return 'for .NET for iOS'
+          case 'dotnet.android':  return 'for .NET for Android'
+          default:                return ''
+        }
+      }
+
+      const platformSuffix = getPlatformSuffix()
+      const headerTitle = document.querySelector(".icon-home")
+      headerTitle.insertAdjacentHTML('beforeend', ` ${platformSuffix}`)
+
+      const [major, minor] = DOCUMENTATION_OPTIONS.VERSION.split('.')
+      const version = document.querySelector(".version")
+      version.innerHTML = `
+        <div class="version">
+          <a href="${DOCUMENTATION_OPTIONS.URL_ROOT}release-notes/${major}.${minor}.html">Release Notes</a> 
+        </div>
+        <br>
+      `
+  </script>
+  <!-- End of scandit Zendesk Widget script -->
+
+</body>
+</html>

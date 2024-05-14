@@ -1,0 +1,535 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>SparkScan View Defaults &mdash; Data Capture SDK 6.24.0-rc.2 documentation</title>
+      <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
+    <link rel="stylesheet" href="../../_static/custom.css" type="text/css" />
+  <!--[if lt IE 9]>
+    <script src="../../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script data-url_root="../../" id="documentation_options" src="../../_static/documentation_options.js"></script>
+        <script src="../../_static/jquery.js"></script>
+        <script src="../../_static/underscore.js"></script>
+        <script src="../../_static/doctools.js"></script>
+    <script src="../../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
+  <!-- Google Tag Manager -->
+  <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+  new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+  j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+  'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+  })(window,document,'script','dataLayer','GTM-THQQFD7');</script>
+  <!-- End Google Tag Manager -->
+</head>
+
+<body class="wy-body-for-nav">
+  <!-- Google Tag Manager (noscript) -->
+  <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-THQQFD7"
+  height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+  <!-- End Google Tag Manager (noscript) -->
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+            <a href="../../index.html" class="icon icon-home"> Data Capture SDK
+          </a>
+              <div class="version">
+                6.24.0-rc.2
+              </div>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">First Steps</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../samples/run-samples.html">Run Samples</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../add-sdk.html">Add the SDK to Your App</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../best-practices-for-usability.html">Best Practices for Usability</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Pre-Built Components</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../high-speed-single-scanning.html">High-Speed Single Scanning</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../batch-counting-and-receiving.html">Batch Counting And Receiving</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../selecting-one-of-many.html">Selecting One Of Many Barcodes</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../ar-assisted-search-and-find.html">AR-Assisted Search And Find</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Fully-Customizable API</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../id-scanning-and-verification.html">ID Scanning And Verification</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../batch-scanning-and-ar.html">Batch Scanning And AR</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../single-scanning.html">Single Scanning</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../text-capture.html">Text Capture</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../parse-barcode-data.html">Parse Barcode Data</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../advanced-topics.html">Advanced Topics</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">API Reference</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../core/overview.html">ScanditCaptureCore</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../overview.html">ScanditBarcodeCapture</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../id-capture/overview.html">ScanditIdCapture</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../text-capture/overview.html">ScanditTextCapture</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../label-capture/overview.html">ScanditLabelCapture</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../parser/overview.html">ScanditParser</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../genindex.html">Index</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">More Resources</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../release-notes.html">Release Notes</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../barcode-symbologies.html">Barcode Symbologies</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../requirements.html">System Requirements</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../support.html">Support &amp; FAQ</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../features-by-platform.html">Features By Framework</a></li>
+<li class="toctree-l1"><a class="reference external" href="https://docs.scandit.com/barcode-scanner-sdk.html">SDK 5.x Documentation [Deprecated]</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../migrate-to-6.html">Migrate from Barcode Scanner 5.x</a></li>
+<li class="toctree-l1"><a class="reference external" href="http://ssl.scandit.com">Your Developer Dashboard</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../index.html">Data Capture SDK</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation" class="navbar">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../../index.html" class="icon icon-home" aria-label="Home"></a></li>
+      <li class="breadcrumb-item active">SparkScan View Defaults</li>
+      <li class="wy-breadcrumbs-aside">
+      </li>
+  </ul>
+  <div class="auth-link-container">
+    <a class="signup-link signup-link--mobile" rel="noopener" target="_blank" href="https://ssl.scandit.com/dashboard/sign-up?p=test&utm_source=documentation">Sign up</a>
+    <a class="signup-link" target="_blank" rel="noopener" href="https://ssl.scandit.com/dashboard/sign-up?p=test&utm_source=documentation">Sign up for your developer account</a>
+    <a class="signin-link" target="_blank" rel="noopener" href="https://ssl.scandit.com/dashboard/sign-in">Log in</a>
+  </div>
+</div>
+<hr/>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <div class="section" id="sparkscan-view-defaults">
+<h1>SparkScan View Defaults<a class="headerlink" href="#sparkscan-view-defaults" title="Permalink to this headline"></a></h1>
+<p>Defined in package <em>com.scandit.datacapture.barcode.spark.capture</em></p>
+<dl>
+<dt class="sig sig-object unilang" id="class-scandit.datacapture.barcode.SparkScanViewDefaults">
+<span class="sig-name descname"><span class="pre">SparkScanViewDefaults</span></span><a class="headerlink" href="#class-scandit.datacapture.barcode.SparkScanViewDefaults" title="Permalink to this definition"></a></dt>
+<dd><pre class="full-signature"><span class="sig-name descname">class SparkScanViewDefaults</span></pre><p><span class="versionmodified versionadded">Added in version 6.16.0</span></p>
+<p>Contains the default values for <a class="reference internal" href="ui/spark-scan-view.html#class-scandit.datacapture.barcode.spark.ui.SparkScanView" title="SparkScanView class">SparkScanView</a> properties.</p>
+<dl>
+<dt class="sig sig-object unilang" id="property-scandit.datacapture.barcode.SparkScanViewDefaults.DefaultScanningBehaviorButtonVisible">
+<span class="sig-name descname"><span class="pre">defaultScanningBehaviorButtonVisible</span></span><a class="headerlink" href="#property-scandit.datacapture.barcode.SparkScanViewDefaults.DefaultScanningBehaviorButtonVisible" title="Permalink to this definition"></a></dt>
+<dd><pre class="full-signature"><code class="docutils literal notranslate"><span class="pre">boolean</span></code> <span class="sig-name descname">getDefaultScanningBehaviorButtonVisible</span>()
+</pre><p><span class="versionmodified versionadded">Added in version 6.16.0</span></p>
+<p>Default is <em>true</em>.</p>
+</dd></dl>
+
+<dl>
+<dt class="sig sig-object unilang" id="property-scandit.datacapture.barcode.SparkScanViewDefaults.DefaultHandModeButtonVisible">
+<span class="sig-name descname"><span class="pre">defaultHandModeButtonVisible</span></span><a class="headerlink" href="#property-scandit.datacapture.barcode.SparkScanViewDefaults.DefaultHandModeButtonVisible" title="Permalink to this definition"></a></dt>
+<dd><pre class="full-signature"><code class="docutils literal notranslate"><span class="pre">boolean</span></code> <span class="sig-name descname">getDefaultHandModeButtonVisible</span>()
+</pre><p><span class="versionmodified versionadded">Added in version 6.16.0</span></p>
+<p>Default is <em>true</em>.</p>
+</dd></dl>
+
+<dl>
+<dt class="sig sig-object unilang" id="property-scandit.datacapture.barcode.SparkScanViewDefaults.DefaultTorchButtonVisible">
+<span class="sig-name descname"><span class="pre">defaultTorchButtonVisible</span></span><a class="headerlink" href="#property-scandit.datacapture.barcode.SparkScanViewDefaults.DefaultTorchButtonVisible" title="Permalink to this definition"></a></dt>
+<dd><pre class="full-signature"><code class="docutils literal notranslate"><span class="pre">boolean</span></code> <span class="sig-name descname">getDefaultTorchButtonVisible</span>()
+</pre><p><span class="versionmodified versionadded">Added in version 6.16.0</span></p>
+<p>Default is <em>true</em>.</p>
+</dd></dl>
+
+<dl>
+<dt class="sig sig-object unilang" id="property-scandit.datacapture.barcode.SparkScanViewDefaults.DefaultBarcodeCountButtonVisible">
+<span class="sig-name descname"><span class="pre">defaultBarcodeCountButtonVisible</span></span><a class="headerlink" href="#property-scandit.datacapture.barcode.SparkScanViewDefaults.DefaultBarcodeCountButtonVisible" title="Permalink to this definition"></a></dt>
+<dd><pre class="full-signature"><code class="docutils literal notranslate"><span class="pre">boolean</span></code> <span class="sig-name descname">getDefaultBarcodeCountButtonVisible</span>()
+</pre><p><span class="versionmodified versionadded">Added in version 6.16.0</span></p>
+<p>Default is <em>false</em>.</p>
+</dd></dl>
+
+<dl>
+<dt class="sig sig-object unilang" id="property-scandit.datacapture.barcode.SparkScanViewDefaults.DefaultFastFindButtonVisible">
+<span class="sig-name descname"><span class="pre">defaultFastFindButtonVisible</span></span><a class="headerlink" href="#property-scandit.datacapture.barcode.SparkScanViewDefaults.DefaultFastFindButtonVisible" title="Permalink to this definition"></a></dt>
+<dd><pre class="full-signature"><code class="docutils literal notranslate"><span class="pre">boolean</span></code> <span class="sig-name descname">getDefaultFastFindButtonVisible</span>()
+</pre><p><span class="versionmodified versionadded">Added in version 6.16.0</span></p>
+<p>Default is <em>false</em>.</p>
+</dd></dl>
+
+<dl>
+<dt class="sig sig-object unilang" id="property-scandit.datacapture.barcode.SparkScanViewDefaults.DefaultTargetModeButtonVisible">
+<span class="sig-name descname"><span class="pre">defaultTargetModeButtonVisible</span></span><a class="headerlink" href="#property-scandit.datacapture.barcode.SparkScanViewDefaults.DefaultTargetModeButtonVisible" title="Permalink to this definition"></a></dt>
+<dd><pre class="full-signature"><code class="docutils literal notranslate"><span class="pre">boolean</span></code> <span class="sig-name descname">getDefaultTargetModeButtonVisible</span>()
+</pre><p><span class="versionmodified versionadded">Added in version 6.16.0</span></p>
+<p>Default is <em>true</em>.</p>
+</dd></dl>
+
+<dl>
+<dt class="sig sig-object unilang" id="property-scandit.datacapture.barcode.SparkScanViewDefaults.DefaultSoundModeButtonVisible">
+<span class="sig-name descname"><span class="pre">defaultSoundModeButtonVisible</span></span><a class="headerlink" href="#property-scandit.datacapture.barcode.SparkScanViewDefaults.DefaultSoundModeButtonVisible" title="Permalink to this definition"></a></dt>
+<dd><pre class="full-signature"><code class="docutils literal notranslate"><span class="pre">boolean</span></code> <span class="sig-name descname">getDefaultSoundModeButtonVisible</span>()
+</pre><p><span class="versionmodified versionadded">Added in version 6.16.0</span></p>
+<p>Default is <em>true</em>.</p>
+</dd></dl>
+
+<dl>
+<dt class="sig sig-object unilang" id="property-scandit.datacapture.barcode.SparkScanViewDefaults.DefaultHapticModeButtonVisible">
+<span class="sig-name descname"><span class="pre">defaultHapticModeButtonVisible</span></span><a class="headerlink" href="#property-scandit.datacapture.barcode.SparkScanViewDefaults.DefaultHapticModeButtonVisible" title="Permalink to this definition"></a></dt>
+<dd><pre class="full-signature"><code class="docutils literal notranslate"><span class="pre">boolean</span></code> <span class="sig-name descname">getDefaultHapticModeButtonVisible</span>()
+</pre><p><span class="versionmodified versionadded">Added in version 6.16.0</span></p>
+<p>Default is <em>true</em>.</p>
+</dd></dl>
+
+<dl>
+<dt class="sig sig-object unilang" id="property-scandit.datacapture.barcode.SparkScanViewDefaults.DefaultStopCapturingText">
+<span class="sig-name descname"><span class="pre">defaultStopCapturingText</span></span><a class="headerlink" href="#property-scandit.datacapture.barcode.SparkScanViewDefaults.DefaultStopCapturingText" title="Permalink to this definition"></a></dt>
+<dd><pre class="full-signature">&#64;Nullable <a class="reference external" href="https://developer.android.com/reference/java/lang/String.html" title="String">String</a> <span class="sig-name descname">getDefaultStopCapturingText</span>()
+</pre><p><span class="versionmodified versionadded">Added in version 6.16.0</span></p>
+<p>Default is <em>null</em>.</p>
+</dd></dl>
+
+<dl>
+<dt class="sig sig-object unilang" id="property-scandit.datacapture.barcode.SparkScanViewDefaults.DefaultStartCapturingText">
+<span class="sig-name descname"><span class="pre">defaultStartCapturingText</span></span><a class="headerlink" href="#property-scandit.datacapture.barcode.SparkScanViewDefaults.DefaultStartCapturingText" title="Permalink to this definition"></a></dt>
+<dd><pre class="full-signature">&#64;Nullable <a class="reference external" href="https://developer.android.com/reference/java/lang/String.html" title="String">String</a> <span class="sig-name descname">getDefaultStartCapturingText</span>()
+</pre><p><span class="versionmodified versionadded">Added in version 6.16.0</span></p>
+<p>Default is <em>null</em>.</p>
+</dd></dl>
+
+<dl>
+<dt class="sig sig-object unilang" id="property-scandit.datacapture.barcode.SparkScanViewDefaults.DefaultResumeCapturingText">
+<span class="sig-name descname"><span class="pre">defaultResumeCapturingText</span></span><a class="headerlink" href="#property-scandit.datacapture.barcode.SparkScanViewDefaults.DefaultResumeCapturingText" title="Permalink to this definition"></a></dt>
+<dd><pre class="full-signature">&#64;Nullable <a class="reference external" href="https://developer.android.com/reference/java/lang/String.html" title="String">String</a> <span class="sig-name descname">getDefaultResumeCapturingText</span>()
+</pre><p><span class="versionmodified versionadded">Added in version 6.16.0</span></p>
+<p>Default is <em>null</em>.</p>
+</dd></dl>
+
+<dl>
+<dt class="sig sig-object unilang" id="property-scandit.datacapture.barcode.SparkScanViewDefaults.DefaultScanningCapturingText">
+<span class="sig-name descname"><span class="pre">defaultScanningCapturingText</span></span><a class="headerlink" href="#property-scandit.datacapture.barcode.SparkScanViewDefaults.DefaultScanningCapturingText" title="Permalink to this definition"></a></dt>
+<dd><pre class="full-signature">&#64;Nullable <a class="reference external" href="https://developer.android.com/reference/java/lang/String.html" title="String">String</a> <span class="sig-name descname">getDefaultScanningCapturingText</span>()
+</pre><p><span class="versionmodified versionadded">Added in version 6.16.0</span></p>
+<p>Default is <em>null</em>.</p>
+</dd></dl>
+
+<dl>
+<dt class="sig sig-object unilang" id="property-scandit.datacapture.barcode.SparkScanViewDefaults.DefaultCaptureButtonActiveBackgroundColor">
+<span class="sig-name descname"><span class="pre">defaultCaptureButtonActiveBackgroundColor</span></span><a class="headerlink" href="#property-scandit.datacapture.barcode.SparkScanViewDefaults.DefaultCaptureButtonActiveBackgroundColor" title="Permalink to this definition"></a></dt>
+<dd><pre class="full-signature">&#64;Nullable <a class="reference external" href="https://developer.android.com/reference/java/lang/Integer.html" title="Integer">Integer</a> <span class="sig-name descname">getDefaultCaptureButtonActiveBackgroundColor</span>()
+</pre><p><span class="versionmodified versionadded">Added in version 6.16.0</span></p>
+<p>Default is <em>null</em>.</p>
+</dd></dl>
+
+<dl>
+<dt class="sig sig-object unilang" id="property-scandit.datacapture.barcode.SparkScanViewDefaults.DefaultCaptureButtonBackgroundColor">
+<span class="sig-name descname"><span class="pre">defaultCaptureButtonBackgroundColor</span></span><a class="headerlink" href="#property-scandit.datacapture.barcode.SparkScanViewDefaults.DefaultCaptureButtonBackgroundColor" title="Permalink to this definition"></a></dt>
+<dd><pre class="full-signature">&#64;Nullable <a class="reference external" href="https://developer.android.com/reference/java/lang/Integer.html" title="Integer">Integer</a> <span class="sig-name descname">getDefaultCaptureButtonBackgroundColor</span>()
+</pre><p><span class="versionmodified versionadded">Added in version 6.16.0</span></p>
+<p>Default is <em>null</em>.</p>
+</dd></dl>
+
+<dl>
+<dt class="sig sig-object unilang" id="property-scandit.datacapture.barcode.SparkScanViewDefaults.DefaultCaptureButtonTintColor">
+<span class="sig-name descname"><span class="pre">defaultCaptureButtonTintColor</span></span><a class="headerlink" href="#property-scandit.datacapture.barcode.SparkScanViewDefaults.DefaultCaptureButtonTintColor" title="Permalink to this definition"></a></dt>
+<dd><pre class="full-signature">&#64;Nullable <a class="reference external" href="https://developer.android.com/reference/java/lang/Integer.html" title="Integer">Integer</a> <span class="sig-name descname">getDefaultCaptureButtonTintColor</span>()
+</pre><p><span class="versionmodified versionadded">Added in version 6.16.0</span></p>
+<p>Default is <em>null</em>.</p>
+</dd></dl>
+
+<dl>
+<dt class="sig sig-object unilang" id="property-scandit.datacapture.barcode.SparkScanViewDefaults.DefaultToolbarBackgroundColor">
+<span class="sig-name descname"><span class="pre">defaultToolbarBackgroundColor</span></span><a class="headerlink" href="#property-scandit.datacapture.barcode.SparkScanViewDefaults.DefaultToolbarBackgroundColor" title="Permalink to this definition"></a></dt>
+<dd><pre class="full-signature">&#64;Nullable <a class="reference external" href="https://developer.android.com/reference/java/lang/Integer.html" title="Integer">Integer</a> <span class="sig-name descname">getDefaultToolbarBackgroundColor</span>()
+</pre><p><span class="versionmodified versionadded">Added in version 6.16.0</span></p>
+<p>Default is <em>null</em>.</p>
+</dd></dl>
+
+<dl>
+<dt class="sig sig-object unilang" id="property-scandit.datacapture.barcode.SparkScanViewDefaults.DefaultToolbarIconActiveTintColor">
+<span class="sig-name descname"><span class="pre">defaultToolbarIconActiveTintColor</span></span><a class="headerlink" href="#property-scandit.datacapture.barcode.SparkScanViewDefaults.DefaultToolbarIconActiveTintColor" title="Permalink to this definition"></a></dt>
+<dd><pre class="full-signature">&#64;Nullable <a class="reference external" href="https://developer.android.com/reference/java/lang/Integer.html" title="Integer">Integer</a> <span class="sig-name descname">getDefaultToolbarIconActiveTintColor</span>()
+</pre><p><span class="versionmodified versionadded">Added in version 6.16.0</span></p>
+<p>Default is <em>null</em>.</p>
+</dd></dl>
+
+<dl>
+<dt class="sig sig-object unilang" id="property-scandit.datacapture.barcode.SparkScanViewDefaults.DefaultToolbarIconInactiveTintColor">
+<span class="sig-name descname"><span class="pre">defaultToolbarIconInactiveTintColor</span></span><a class="headerlink" href="#property-scandit.datacapture.barcode.SparkScanViewDefaults.DefaultToolbarIconInactiveTintColor" title="Permalink to this definition"></a></dt>
+<dd><pre class="full-signature">&#64;Nullable <a class="reference external" href="https://developer.android.com/reference/java/lang/Integer.html" title="Integer">Integer</a> <span class="sig-name descname">getDefaultToolbarIconInactiveTintColor</span>()
+</pre><p><span class="versionmodified versionadded">Added in version 6.16.0</span></p>
+<p>Default is <em>null</em>.</p>
+</dd></dl>
+
+<dl>
+<dt class="sig sig-object unilang" id="property-scandit.datacapture.barcode.SparkScanViewDefaults.DefaultBrush">
+<span class="sig-name descname"><span class="pre">defaultBrush</span></span><a class="headerlink" href="#property-scandit.datacapture.barcode.SparkScanViewDefaults.DefaultBrush" title="Permalink to this definition"></a></dt>
+<dd><pre class="full-signature">&#64;NonNull <a class="reference internal" href="../../core/api/ui/brush.html#class-scandit.datacapture.core.ui.Brush" title="Brush class">Brush</a> <span class="sig-name descname">getDefaultBrush</span>()
+</pre><p><span class="versionmodified versionadded">Added in version 6.16.0</span></p>
+<p>Returns the default brush used by the overlay.</p>
+</dd></dl>
+
+<dl>
+<dt class="sig sig-object unilang" id="property-scandit.datacapture.barcode.SparkScanViewDefaults.DefaultErrorBrush">
+<span class="sig-name descname"><span class="pre">defaultErrorBrush</span></span><a class="headerlink" href="#property-scandit.datacapture.barcode.SparkScanViewDefaults.DefaultErrorBrush" title="Permalink to this definition"></a></dt>
+<dd><pre class="full-signature">&#64;NonNull <a class="reference internal" href="../../core/api/ui/brush.html#class-scandit.datacapture.core.ui.Brush" title="Brush class">Brush</a> <span class="sig-name descname">getDefaultErrorBrush</span>()
+</pre><p><span class="versionmodified versionadded">Added in version 6.18.0</span></p>
+<p>Returns the default error brush used by the overlay.</p>
+</dd></dl>
+
+<dl>
+<dt class="sig sig-object unilang" id="property-scandit.datacapture.barcode.SparkScanViewDefaults.DefaultTargetModeHintText">
+<span class="sig-name descname"><span class="pre">defaultTargetModeHintText</span></span><a class="headerlink" href="#property-scandit.datacapture.barcode.SparkScanViewDefaults.DefaultTargetModeHintText" title="Permalink to this definition"></a></dt>
+<dd><pre class="full-signature">&#64;Nullable <a class="reference external" href="https://developer.android.com/reference/java/lang/String.html" title="String">String</a> <span class="sig-name descname">getDefaultTargetModeHintText</span>()
+</pre><p><span class="versionmodified versionadded">Added in version 6.18.0</span></p>
+<p>Default is <em>null</em>.</p>
+</dd></dl>
+
+<dl>
+<dt class="sig sig-object unilang" id="property-scandit.datacapture.barcode.SparkScanViewDefaults.DefaultShouldShowTargetModeHint">
+<span class="sig-name descname"><span class="pre">defaultShouldShowTargetModeHint</span></span><a class="headerlink" href="#property-scandit.datacapture.barcode.SparkScanViewDefaults.DefaultShouldShowTargetModeHint" title="Permalink to this definition"></a></dt>
+<dd><pre class="full-signature"><code class="docutils literal notranslate"><span class="pre">boolean</span></code> <span class="sig-name descname">getDefaultShouldShowTargetModeHint</span>()
+</pre><p><span class="versionmodified versionadded">Added in version 6.18.0</span></p>
+<p>Default is <em>true</em>.</p>
+</dd></dl>
+
+<dl>
+<dt class="sig sig-object unilang" id="property-scandit.datacapture.barcode.SparkScanViewDefaults.DefaultToastEnabled">
+<span class="sig-name descname"><span class="pre">defaultToastEnabled</span></span><a class="headerlink" href="#property-scandit.datacapture.barcode.SparkScanViewDefaults.DefaultToastEnabled" title="Permalink to this definition"></a></dt>
+<dd><pre class="full-signature"><code class="docutils literal notranslate"><span class="pre">boolean</span></code> <span class="sig-name descname">getDefaultToastEnabled</span>()
+</pre><p><span class="versionmodified versionadded">Added in version 6.18.0</span></p>
+<p>Default is <em>true</em>.</p>
+</dd></dl>
+
+<dl>
+<dt class="sig sig-object unilang" id="property-scandit.datacapture.barcode.SparkScanViewDefaults.DefaultToastBackgroundColor">
+<span class="sig-name descname"><span class="pre">defaultToastBackgroundColor</span></span><a class="headerlink" href="#property-scandit.datacapture.barcode.SparkScanViewDefaults.DefaultToastBackgroundColor" title="Permalink to this definition"></a></dt>
+<dd><pre class="full-signature">&#64;Nullable <a class="reference external" href="https://developer.android.com/reference/java/lang/Integer.html" title="Integer">Integer</a> <span class="sig-name descname">getDefaultToastBackgroundColor</span>()
+</pre><p><span class="versionmodified versionadded">Added in version 6.18.0</span></p>
+<p>Default is <em>null</em>.</p>
+</dd></dl>
+
+<dl>
+<dt class="sig sig-object unilang" id="property-scandit.datacapture.barcode.SparkScanViewDefaults.DefaultToastTextColor">
+<span class="sig-name descname"><span class="pre">defaultToastTextColor</span></span><a class="headerlink" href="#property-scandit.datacapture.barcode.SparkScanViewDefaults.DefaultToastTextColor" title="Permalink to this definition"></a></dt>
+<dd><pre class="full-signature">&#64;Nullable <a class="reference external" href="https://developer.android.com/reference/java/lang/Integer.html" title="Integer">Integer</a> <span class="sig-name descname">getDefaultToastTextColor</span>()
+</pre><p><span class="versionmodified versionadded">Added in version 6.18.0</span></p>
+<p>Default is <em>null</em>.</p>
+</dd></dl>
+
+<dl>
+<dt class="sig sig-object unilang" id="property-scandit.datacapture.barcode.SparkScanViewDefaults.DefaultTargetModeEnabledMessage">
+<span class="sig-name descname"><span class="pre">defaultTargetModeEnabledMessage</span></span><a class="headerlink" href="#property-scandit.datacapture.barcode.SparkScanViewDefaults.DefaultTargetModeEnabledMessage" title="Permalink to this definition"></a></dt>
+<dd><pre class="full-signature">&#64;Nullable <a class="reference external" href="https://developer.android.com/reference/java/lang/String.html" title="String">String</a> <span class="sig-name descname">getDefaultTargetModeEnabledMessage</span>()
+</pre><p><span class="versionmodified versionadded">Added in version 6.18.0</span></p>
+<p>Default is <em>null</em>.</p>
+</dd></dl>
+
+<dl>
+<dt class="sig sig-object unilang" id="property-scandit.datacapture.barcode.SparkScanViewDefaults.DefaultTargetModeDisabledMessage">
+<span class="sig-name descname"><span class="pre">defaultTargetModeDisabledMessage</span></span><a class="headerlink" href="#property-scandit.datacapture.barcode.SparkScanViewDefaults.DefaultTargetModeDisabledMessage" title="Permalink to this definition"></a></dt>
+<dd><pre class="full-signature">&#64;Nullable <a class="reference external" href="https://developer.android.com/reference/java/lang/String.html" title="String">String</a> <span class="sig-name descname">getDefaultTargetModeDisabledMessage</span>()
+</pre><p><span class="versionmodified versionadded">Added in version 6.18.0</span></p>
+<p>Default is <em>null</em>.</p>
+</dd></dl>
+
+<dl>
+<dt class="sig sig-object unilang" id="property-scandit.datacapture.barcode.SparkScanViewDefaults.DefaultContinuousModeEnabledMessage">
+<span class="sig-name descname"><span class="pre">defaultContinuousModeEnabledMessage</span></span><a class="headerlink" href="#property-scandit.datacapture.barcode.SparkScanViewDefaults.DefaultContinuousModeEnabledMessage" title="Permalink to this definition"></a></dt>
+<dd><pre class="full-signature">&#64;Nullable <a class="reference external" href="https://developer.android.com/reference/java/lang/String.html" title="String">String</a> <span class="sig-name descname">getDefaultContinuousModeEnabledMessage</span>()
+</pre><p><span class="versionmodified versionadded">Added in version 6.18.0</span></p>
+<p>Default is <em>null</em>.</p>
+</dd></dl>
+
+<dl>
+<dt class="sig sig-object unilang" id="property-scandit.datacapture.barcode.SparkScanViewDefaults.DefaultContinuousModeDisabledMessage">
+<span class="sig-name descname"><span class="pre">defaultContinuousModeDisabledMessage</span></span><a class="headerlink" href="#property-scandit.datacapture.barcode.SparkScanViewDefaults.DefaultContinuousModeDisabledMessage" title="Permalink to this definition"></a></dt>
+<dd><pre class="full-signature">&#64;Nullable <a class="reference external" href="https://developer.android.com/reference/java/lang/String.html" title="String">String</a> <span class="sig-name descname">getDefaultContinuousModeDisabledMessage</span>()
+</pre><p><span class="versionmodified versionadded">Added in version 6.18.0</span></p>
+<p>Default is <em>null</em>.</p>
+</dd></dl>
+
+<dl>
+<dt class="sig sig-object unilang" id="property-scandit.datacapture.barcode.SparkScanViewDefaults.DefaultCameraTimeOutMessage">
+<span class="sig-name descname"><span class="pre">defaultCameraTimeOutMessage</span></span><a class="headerlink" href="#property-scandit.datacapture.barcode.SparkScanViewDefaults.DefaultCameraTimeOutMessage" title="Permalink to this definition"></a></dt>
+<dd><pre class="full-signature">&#64;Nullable <a class="reference external" href="https://developer.android.com/reference/java/lang/String.html" title="String">String</a> <span class="sig-name descname">getDefaultCameraTimeOutMessage</span>()
+</pre><p><span class="versionmodified versionadded">Added in version 6.18.0</span></p>
+<p>Default is <em>null</em>.</p>
+</dd></dl>
+
+<dl>
+<dt class="sig sig-object unilang" id="property-scandit.datacapture.barcode.SparkScanViewDefaults.DefaultZoomSwitchControlVisible">
+<span class="sig-name descname"><span class="pre">defaultZoomSwitchControlVisible</span></span><a class="headerlink" href="#property-scandit.datacapture.barcode.SparkScanViewDefaults.DefaultZoomSwitchControlVisible" title="Permalink to this definition"></a></dt>
+<dd><pre class="full-signature"><code class="docutils literal notranslate"><span class="pre">boolean</span></code> <span class="sig-name descname">getDefaultZoomSwitchControlVisible</span>()
+</pre><p><span class="versionmodified versionadded">Added in version 6.18.0</span></p>
+<p>Default is <em>true</em>.</p>
+</dd></dl>
+
+<dl>
+<dt class="sig sig-object unilang" id="property-scandit.datacapture.barcode.SparkScanViewDefaults.DefaultPreviewSizeControlVisible">
+<span class="sig-name descname"><span class="pre">defaultPreviewSizeControlVisible</span></span><a class="headerlink" href="#property-scandit.datacapture.barcode.SparkScanViewDefaults.DefaultPreviewSizeControlVisible" title="Permalink to this definition"></a></dt>
+<dd><pre class="full-signature"><code class="docutils literal notranslate"><span class="pre">boolean</span></code> <span class="sig-name descname">getDefaultPreviewSizeControlVisible</span>()
+</pre><p><span class="versionmodified versionadded">Added in version 6.23.0</span></p>
+<p>Default is <em>true</em>.</p>
+</dd></dl>
+
+<dl>
+<dt class="sig sig-object unilang" id="property-scandit.datacapture.barcode.SparkScanViewDefaults.DefaultVisualFeedbackSuccessColor">
+<span class="sig-name descname"><span class="pre">defaultVisualFeedbackSuccessColor</span></span><a class="headerlink" href="#property-scandit.datacapture.barcode.SparkScanViewDefaults.DefaultVisualFeedbackSuccessColor" title="Permalink to this definition"></a></dt>
+<dd><pre class="full-signature"><code class="docutils literal notranslate"><span class="pre">int</span></code> <span class="sig-name descname">getDefaultVisualFeedbackSuccessColor</span>()
+</pre><p><span class="versionmodified versionadded">Added in version 6.23.0</span></p>
+<p>Default is #FF2EC1CE.</p>
+</dd></dl>
+
+<dl>
+<dt class="sig sig-object unilang" id="property-scandit.datacapture.barcode.SparkScanViewDefaults.DefaultVisualFeedbackErrorColor">
+<span class="sig-name descname"><span class="pre">defaultVisualFeedbackErrorColor</span></span><a class="headerlink" href="#property-scandit.datacapture.barcode.SparkScanViewDefaults.DefaultVisualFeedbackErrorColor" title="Permalink to this definition"></a></dt>
+<dd><pre class="full-signature"><code class="docutils literal notranslate"><span class="pre">int</span></code> <span class="sig-name descname">getDefaultVisualFeedbackErrorColor</span>()
+</pre><p><span class="versionmodified versionadded">Added in version 6.23.0</span></p>
+<p>Default is #FFFA4446.</p>
+</dd></dl>
+
+<dl>
+<dt class="sig sig-object unilang" id="property-scandit.datacapture.barcode.SparkScanViewDefaults.DefaultZoomedInMessage">
+<span class="sig-name descname"><span class="pre">defaultZoomedInMessage</span></span><a class="headerlink" href="#property-scandit.datacapture.barcode.SparkScanViewDefaults.DefaultZoomedInMessage" title="Permalink to this definition"></a></dt>
+<dd><pre class="full-signature">&#64;Nullable <a class="reference external" href="https://developer.android.com/reference/java/lang/String.html" title="String">String</a> <span class="sig-name descname">getDefaultZoomedInMessage</span>()
+</pre><p><span class="versionmodified versionadded">Added in version 6.23.0</span></p>
+<p>Default is <em>null</em>.</p>
+</dd></dl>
+
+<dl>
+<dt class="sig sig-object unilang" id="property-scandit.datacapture.barcode.SparkScanViewDefaults.DefaultZoomedOutMessage">
+<span class="sig-name descname"><span class="pre">defaultZoomedOutMessage</span></span><a class="headerlink" href="#property-scandit.datacapture.barcode.SparkScanViewDefaults.DefaultZoomedOutMessage" title="Permalink to this definition"></a></dt>
+<dd><pre class="full-signature">&#64;Nullable <a class="reference external" href="https://developer.android.com/reference/java/lang/String.html" title="String">String</a> <span class="sig-name descname">getDefaultZoomedOutMessage</span>()
+</pre><p><span class="versionmodified versionadded">Added in version 6.23.0</span></p>
+<p>Default is <em>null</em>.</p>
+</dd></dl>
+
+<dl>
+<dt class="sig sig-object unilang" id="property-scandit.datacapture.barcode.SparkScanViewDefaults.DefaultTorchEnabledMessage">
+<span class="sig-name descname"><span class="pre">defaultTorchEnabledMessage</span></span><a class="headerlink" href="#property-scandit.datacapture.barcode.SparkScanViewDefaults.DefaultTorchEnabledMessage" title="Permalink to this definition"></a></dt>
+<dd><pre class="full-signature">&#64;Nullable <a class="reference external" href="https://developer.android.com/reference/java/lang/String.html" title="String">String</a> <span class="sig-name descname">getDefaultTorchEnabledMessage</span>()
+</pre><p><span class="versionmodified versionadded">Added in version 6.23.0</span></p>
+<p>Default is <em>null</em>.</p>
+</dd></dl>
+
+<dl>
+<dt class="sig sig-object unilang" id="property-scandit.datacapture.barcode.SparkScanViewDefaults.DefaultTorchDisabledMessage">
+<span class="sig-name descname"><span class="pre">defaultTorchDisabledMessage</span></span><a class="headerlink" href="#property-scandit.datacapture.barcode.SparkScanViewDefaults.DefaultTorchDisabledMessage" title="Permalink to this definition"></a></dt>
+<dd><pre class="full-signature">&#64;Nullable <a class="reference external" href="https://developer.android.com/reference/java/lang/String.html" title="String">String</a> <span class="sig-name descname">getDefaultTorchDisabledMessage</span>()
+</pre><p><span class="versionmodified versionadded">Added in version 6.23.0</span></p>
+<p>Default is <em>null</em>.</p>
+</dd></dl>
+
+<dl>
+<dt class="sig sig-object unilang" id="property-scandit.datacapture.barcode.SparkScanViewDefaults.DefaultScanPausedMessage">
+<span class="sig-name descname"><span class="pre">defaultScanPausedMessage</span></span><a class="headerlink" href="#property-scandit.datacapture.barcode.SparkScanViewDefaults.DefaultScanPausedMessage" title="Permalink to this definition"></a></dt>
+<dd><pre class="full-signature">&#64;Nullable <a class="reference external" href="https://developer.android.com/reference/java/lang/String.html" title="String">String</a> <span class="sig-name descname">getDefaultScanPausedMessage</span>()
+</pre><p><span class="versionmodified versionadded">Added in version 6.23.0</span></p>
+<p>Default is <em>null</em>.</p>
+</dd></dl>
+
+<dl>
+<dt class="sig sig-object unilang" id="property-scandit.datacapture.barcode.SparkScanViewDefaults.DefaultCameraSwitchButtonVisible">
+<span class="sig-name descname"><span class="pre">defaultCameraSwitchButtonVisible</span></span><a class="headerlink" href="#property-scandit.datacapture.barcode.SparkScanViewDefaults.DefaultCameraSwitchButtonVisible" title="Permalink to this definition"></a></dt>
+<dd><pre class="full-signature"><code class="docutils literal notranslate"><span class="pre">boolean</span></code> <span class="sig-name descname">getDefaultCameraSwitchButtonVisible</span>()
+</pre><p><span class="versionmodified versionadded">Added in version 6.24.0</span></p>
+<p>Default is <em>false</em>.</p>
+</dd></dl>
+
+<dl>
+<dt class="sig sig-object unilang" id="property-scandit.datacapture.barcode.SparkScanViewDefaults.DefaultWorldFacingCameraEnabledMessage">
+<span class="sig-name descname"><span class="pre">defaultWorldFacingCameraEnabledMessage</span></span><a class="headerlink" href="#property-scandit.datacapture.barcode.SparkScanViewDefaults.DefaultWorldFacingCameraEnabledMessage" title="Permalink to this definition"></a></dt>
+<dd><pre class="full-signature">&#64;Nullable <a class="reference external" href="https://developer.android.com/reference/java/lang/String.html" title="String">String</a> <span class="sig-name descname">getDefaultWorldFacingCameraEnabledMessage</span>()
+</pre><p><span class="versionmodified versionadded">Added in version 6.24.0</span></p>
+<p>Default is <em>null</em>.</p>
+</dd></dl>
+
+<dl>
+<dt class="sig sig-object unilang" id="property-scandit.datacapture.barcode.SparkScanViewDefaults.DefaultUserFacingCameraEnabledMessage">
+<span class="sig-name descname"><span class="pre">defaultUserFacingCameraEnabledMessage</span></span><a class="headerlink" href="#property-scandit.datacapture.barcode.SparkScanViewDefaults.DefaultUserFacingCameraEnabledMessage" title="Permalink to this definition"></a></dt>
+<dd><pre class="full-signature">&#64;Nullable <a class="reference external" href="https://developer.android.com/reference/java/lang/String.html" title="String">String</a> <span class="sig-name descname">getDefaultUserFacingCameraEnabledMessage</span>()
+</pre><p><span class="versionmodified versionadded">Added in version 6.24.0</span></p>
+<p>Default is <em>null</em>.</p>
+</dd></dl>
+
+</dd></dl>
+
+</div>
+
+
+           </div>
+          </div>
+          <footer>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2024, Scandit AG.</p>
+  </div>
+
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+  <!-- Start of scandit Zendesk Widget script -->
+  <script id="ze-snippet" src="https://static.zdassets.com/ekr/snippet.js?key=df0234ee-7451-4189-8d1c-17c8a624b5f1">
+  </script>
+<script>
+      function getPlatformSuffix() {
+        const platform = 'android'
+        switch (platform) {
+          case 'android':         return 'for Android'
+          case 'ios':             return 'for iOS'
+          case 'cordova':         return 'for Cordova'
+          case 'react-native':    return 'for React Native'
+          case 'xamarin.ios':     return 'for Xamarin.iOS'
+          case 'xamarin.android': return 'for Xamarin.Android'
+          case 'xamarin.forms':   return 'for Xamarin.Forms'
+          case 'flutter':         return 'for Flutter'
+          case 'capacitor':       return 'for Capacitor'
+          case 'titanium':        return 'for Titanium'
+          case 'web':             return 'for the Web'
+          case 'dotnet.ios':      return 'for .NET for iOS'
+          case 'dotnet.android':  return 'for .NET for Android'
+          default:                return ''
+        }
+      }
+
+      const platformSuffix = getPlatformSuffix()
+      const headerTitle = document.querySelector(".icon-home")
+      headerTitle.insertAdjacentHTML('beforeend', ` ${platformSuffix}`)
+
+      const [major, minor] = DOCUMENTATION_OPTIONS.VERSION.split('.')
+      const version = document.querySelector(".version")
+      version.innerHTML = `
+        <div class="version">
+          <a href="${DOCUMENTATION_OPTIONS.URL_ROOT}release-notes/${major}.${minor}.html">Release Notes</a> 
+        </div>
+        <br>
+      `
+  </script>
+  <!-- End of scandit Zendesk Widget script -->
+
+</body>
+</html>

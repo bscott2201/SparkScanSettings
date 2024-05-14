@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="GradleMigrationSettings" migrationVersion="1" />
+  <component name="GradleSettings">
+    <option name="linkedExternalProjectsSettings">
+      <GradleProjectSettings>
+        <option name="testRunner" value="GRADLE" />
+        <option name="distributionType" value="DEFAULT_WRAPPED" />
+        <option name="externalProjectPath" value="$PROJECT_DIR$" />
+        <option name="gradleJvm" value="jbr-17" />
+        <option name="modules">
+          <set>
+            <option value="$PROJECT_DIR$" />
+            <option value="$PROJECT_DIR$/AgeVerifiedDeliverySample" />
+            <option value="$PROJECT_DIR$/BarcodeCaptureRejectSample" />
+            <option value="$PROJECT_DIR$/BarcodeCaptureSettingsSample" />
+            <option value="$PROJECT_DIR$/BarcodeCaptureSimpleSample" />
+            <option value="$PROJECT_DIR$/BarcodeCaptureViewsSample" />
+            <option value="$PROJECT_DIR$/BarcodeSelectionSettingsSample" />
+            <option value="$PROJECT_DIR$/ExpiryManagementSample" />
+            <option value="$PROJECT_DIR$/GS1ParserSample" />
+            <option value="$PROJECT_DIR$/IdCaptureExtendedSample" />
+            <option value="$PROJECT_DIR$/IdCaptureSettingsSample" />
+            <option value="$PROJECT_DIR$/IdCaptureSimpleSample" />
+            <option value="$PROJECT_DIR$/InventoryAuditSample" />
+            <option value="$PROJECT_DIR$/ListBuildingSample" />
+            <option value="$PROJECT_DIR$/MatrixScanBubblesSample" />
+            <option value="$PROJECT_DIR$/MatrixScanCountSimpleSample" />
+            <option value="$PROJECT_DIR$/MatrixScanRejectSample" />
+            <option value="$PROJECT_DIR$/MatrixScanSimpleSample" />
+            <option value="$PROJECT_DIR$/ReceivingSample" />
+            <option value="$PROJECT_DIR$/ReorderFromCatalogSample" />
+            <option value="$PROJECT_DIR$/RestockingSample" />
+            <option value="$PROJECT_DIR$/SearchAndFindSample" />
+            <option value="$PROJECT_DIR$/TextCaptureSample" />
+            <option value="$PROJECT_DIR$/USDLVerificationSample" />
+            <option value="$PROJECT_DIR$/VINCodesSample" />
+          </set>
+        </option>
+      </GradleProjectSettings>
+    </option>
+  </component>
+</project>

@@ -1,0 +1,57 @@
+plugins {
+    id("com.android.application")
+}
+
+android {
+    ndkVersion sdk.ndk
+    compileSdkVersion sdk.compile
+    namespace = "com.scandit.datacapture.vincodessample"
+
+    defaultConfig {
+        applicationId "com.scandit.datacapture.vincodessample"
+        minSdkVersion sdk.min
+        targetSdkVersion sdk.target
+        versionCode 1
+        versionName "1.0"
+
+        vectorDrawables.useSupportLibrary = true
+    }
+
+    compileOptions {
+        sourceCompatibility versions.java
+        targetCompatibility versions.java
+    }
+
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile("proguard-android.txt"), "proguard-rules.pro"
+        }
+    }
+
+    packagingOptions {
+        jniLibs {
+            pickFirsts += "**/*.so"
+        }
+    }
+}
+
+repositories {
+    flatDir {
+        dirs '../../library'
+    }
+}
+
+dependencies {
+    api(name:"ScanditCaptureCore", ext:"aar")
+    api(name:"ScanditBarcodeCapture", ext:"aar")
+    api(name:"ScanditParser", ext:"aar")
+    api(name:"ScanditTextCapture", ext:"aar")
+    api(name:"ScanditTextCaptureBackend", ext:"aar")
+
+    implementation("org.jetbrains.kotlin:kotlin-stdlib-jdk8:${versions.kotlin}")
+
+    implementation("androidx.appcompat:appcompat:${versions.androidx_appcompat}")
+    implementation("androidx.constraintlayout:constraintlayout:${versions.androidx_constraintlayout}")
+    implementation("com.google.android.material:material:${versions.material}")
+}

@@ -1,0 +1,527 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Single Scanning &mdash; Data Capture SDK 6.24.0-rc.2 documentation</title>
+      <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+    <link rel="stylesheet" href="_static/custom.css" type="text/css" />
+  <!--[if lt IE 9]>
+    <script src="_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
+        <script src="_static/jquery.js"></script>
+        <script src="_static/underscore.js"></script>
+        <script src="_static/doctools.js"></script>
+    <script src="_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="Text Capture" href="text-capture.html" />
+    <link rel="prev" title="Batch Scanning And AR" href="batch-scanning-and-ar.html" />
+  <!-- Google Tag Manager -->
+  <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+  new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+  j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+  'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+  })(window,document,'script','dataLayer','GTM-THQQFD7');</script>
+  <!-- End Google Tag Manager -->
+</head>
+
+<body class="wy-body-for-nav">
+  <!-- Google Tag Manager (noscript) -->
+  <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-THQQFD7"
+  height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+  <!-- End Google Tag Manager (noscript) -->
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+            <a href="index.html" class="icon icon-home"> Data Capture SDK
+          </a>
+              <div class="version">
+                6.24.0-rc.2
+              </div>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">First Steps</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="samples/run-samples.html">Run Samples</a></li>
+<li class="toctree-l1"><a class="reference internal" href="add-sdk.html">Add the SDK to Your App</a></li>
+<li class="toctree-l1"><a class="reference internal" href="best-practices-for-usability.html">Best Practices for Usability</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Pre-Built Components</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="high-speed-single-scanning.html">High-Speed Single Scanning</a></li>
+<li class="toctree-l1"><a class="reference internal" href="batch-counting-and-receiving.html">Batch Counting And Receiving</a></li>
+<li class="toctree-l1"><a class="reference internal" href="selecting-one-of-many.html">Selecting One Of Many Barcodes</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ar-assisted-search-and-find.html">AR-Assisted Search And Find</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Fully-Customizable API</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="id-scanning-and-verification.html">ID Scanning And Verification</a></li>
+<li class="toctree-l1"><a class="reference internal" href="batch-scanning-and-ar.html">Batch Scanning And AR</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Single Scanning</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#get-started-with-barcode-capture">Get Started With Barcode Capture</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#prerequisites">Prerequisites</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#external-dependencies">External dependencies</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#internal-dependencies">Internal dependencies</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#create-the-data-capture-context">Create the Data Capture Context</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#configure-the-barcode-scanning-behavior">Configure the Barcode Scanning Behavior</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#register-the-barcode-capture-listener">Register the Barcode Capture Listener</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#use-the-built-in-camera">Use the Built-in Camera</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#use-a-capture-view-to-visualize-the-scan-process">Use a Capture View to Visualize the Scan Process</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#disabling-barcode-capture">Disabling Barcode Capture</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#configure-which-barcodes-are-read">Configure Which Barcodes Are Read</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#enable-the-symbologies-you-want-to-read">Enable the Symbologies You Want to Read</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#configure-the-active-symbol-count">Configure the Active Symbol Count</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#how-to-calculate-the-active-symbol-count">How to Calculate the Active Symbol Count</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#read-bright-on-dark-barcodes">Read Bright-on-Dark Barcodes</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#enforce-checksums">Enforce Checksums</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#enable-symbology-specific-extensions">Enable Symbology-Specific Extensions</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="text-capture.html">Text Capture</a></li>
+<li class="toctree-l1"><a class="reference internal" href="parse-barcode-data.html">Parse Barcode Data</a></li>
+<li class="toctree-l1"><a class="reference internal" href="advanced-topics.html">Advanced Topics</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">API Reference</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="core/overview.html">ScanditCaptureCore</a></li>
+<li class="toctree-l1"><a class="reference internal" href="barcode-capture/overview.html">ScanditBarcodeCapture</a></li>
+<li class="toctree-l1"><a class="reference internal" href="id-capture/overview.html">ScanditIdCapture</a></li>
+<li class="toctree-l1"><a class="reference internal" href="text-capture/overview.html">ScanditTextCapture</a></li>
+<li class="toctree-l1"><a class="reference internal" href="label-capture/overview.html">ScanditLabelCapture</a></li>
+<li class="toctree-l1"><a class="reference internal" href="parser/overview.html">ScanditParser</a></li>
+<li class="toctree-l1"><a class="reference internal" href="genindex.html">Index</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">More Resources</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="release-notes.html">Release Notes</a></li>
+<li class="toctree-l1"><a class="reference internal" href="barcode-symbologies.html">Barcode Symbologies</a></li>
+<li class="toctree-l1"><a class="reference internal" href="requirements.html">System Requirements</a></li>
+<li class="toctree-l1"><a class="reference internal" href="support.html">Support &amp; FAQ</a></li>
+<li class="toctree-l1"><a class="reference internal" href="features-by-platform.html">Features By Framework</a></li>
+<li class="toctree-l1"><a class="reference external" href="https://docs.scandit.com/barcode-scanner-sdk.html">SDK 5.x Documentation [Deprecated]</a></li>
+<li class="toctree-l1"><a class="reference internal" href="migrate-to-6.html">Migrate from Barcode Scanner 5.x</a></li>
+<li class="toctree-l1"><a class="reference external" href="http://ssl.scandit.com">Your Developer Dashboard</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">Data Capture SDK</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation" class="navbar">
+  <ul class="wy-breadcrumbs">
+      <li><a href="index.html" class="icon icon-home" aria-label="Home"></a></li>
+      <li class="breadcrumb-item active">Single Scanning</li>
+      <li class="wy-breadcrumbs-aside">
+      </li>
+  </ul>
+  <div class="auth-link-container">
+    <a class="signup-link signup-link--mobile" rel="noopener" target="_blank" href="https://ssl.scandit.com/dashboard/sign-up?p=test&utm_source=documentation">Sign up</a>
+    <a class="signup-link" target="_blank" rel="noopener" href="https://ssl.scandit.com/dashboard/sign-up?p=test&utm_source=documentation">Sign up for your developer account</a>
+    <a class="signin-link" target="_blank" rel="noopener" href="https://ssl.scandit.com/dashboard/sign-in">Log in</a>
+  </div>
+</div>
+<hr/>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <div class="section" id="single-scanning">
+<h1>Single Scanning<a class="headerlink" href="#single-scanning" title="Permalink to this headline"></a></h1>
+<div class="section" id="get-started-with-barcode-capture">
+<h2>Get Started With Barcode Capture<a class="headerlink" href="#get-started-with-barcode-capture" title="Permalink to this headline"></a></h2>
+<p>In this guide you will learn step by step how to add barcode capture to your application. Roughly, the steps are:</p>
+<ul class="simple">
+<li><p>Include the <cite>ScanditBarcodeCapture</cite> library and its dependencies to your project, if any.</p></li>
+<li><p>Create a new <a class="reference internal" href="core/api/data-capture-context.html#class-scandit.datacapture.core.DataCaptureContext" title="data capture context class">data capture context</a> instance, initialized with your license key.</p></li>
+<li><p>Create a <a class="reference internal" href="barcode-capture/api/barcode-capture-settings.html#class-scandit.datacapture.barcode.BarcodeCaptureSettings" title="barcode capture settings class">barcode capture settings</a> and enable the <a class="reference internal" href="barcode-capture/api/symbology.html#enum-scandit.datacapture.barcode.Symbology" title="barcode symbologies enum">barcode symbologies</a> you want to read in your application.</p></li>
+<li><p>Create a new <a class="reference internal" href="barcode-capture/api/barcode-capture.html#class-scandit.datacapture.barcode.BarcodeCapture" title="barcode capture mode class">barcode capture mode</a> instance and initialize it with the settings created above.</p></li>
+<li><p>Register a <a class="reference internal" href="barcode-capture/api/barcode-capture-listener.html#interface-scandit.datacapture.barcode.IBarcodeCaptureListener" title="barcode capture listener interface">barcode capture listener</a> to receive scan events. Process the successful scans according to your application’s needs, e.g. by looking up information in a database. After a successful scan, decide whether more codes will be scanned, or the scanning process should be stopped.</p></li>
+<li><p>Obtain a <a class="reference internal" href="core/api/camera.html#class-scandit.datacapture.core.Camera" title="camera class">camera</a> instance and set it as the frame source on the data capture context.</p></li>
+<li><p>Display the camera preview by creating a <a class="reference internal" href="core/api/ui/data-capture-view.html#class-scandit.datacapture.core.ui.DataCaptureView" title="data capture view class">data capture view</a>.</p></li>
+<li><p>If displaying a preview, optionally create a new <a class="reference internal" href="barcode-capture/api/ui/barcode-capture-overlay.html#class-scandit.datacapture.barcode.ui.BarcodeCaptureOverlay" title="overlay class">overlay</a> and add it to <a class="reference internal" href="core/api/ui/data-capture-view.html#class-scandit.datacapture.core.ui.DataCaptureView" title="data capture view class">data capture view</a> for a better visual feedback.</p></li>
+</ul>
+<div class="section" id="prerequisites">
+<h3>Prerequisites<a class="headerlink" href="#prerequisites" title="Permalink to this headline"></a></h3>
+<p>Before starting with adding a capture mode, make sure that you have a valid Scandit Data Capture SDK license key and that you added the necessary dependencies.
+If you have not done that yet, check out <a class="reference internal" href="add-sdk.html"><span class="doc">this guide</span></a>.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>You can retrieve your Scandit Data Capture SDK license key, by signing in to your account at <a class="reference external" href="https://ssl.scandit.com/dashboard/sign-in">ssl.scandit.com/dashboard/sign-in</a>.</p>
+</div>
+<div class="section" id="external-dependencies">
+<h4>External dependencies<a class="headerlink" href="#external-dependencies" title="Permalink to this headline"></a></h4>
+<p>The Scandit Data Capture SDK modules depend on a few standard libraries that you can find listed below. If you are including the Scandit Data Capture SDK through Gradle or Maven, all of these dependencies are automatically pulled in and there is no need for you to do anything further. If on the other hand you are directly adding the AAR files to the project, you will have to add these dependencies yourself.</p>
+<table class="docutils align-default">
+<colgroup>
+<col style="width: 37%" />
+<col style="width: 63%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>Module</p></th>
+<th class="head"><p>Dependencies</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><cite>ScanditCaptureCore.aar</cite></p></td>
+<td><ul class="simple">
+<li><p>org.jetbrains.kotlin:kotlin-stdlib:[version]</p></li>
+<li><p>androidx.annotation:annotation:[version]</p></li>
+<li><p>com.squareup.okhttp3:okhttp:4.9.2</p>
+<ul>
+<li><p><strong>Not needed if using version 6.22 or newer of the Scandit Data Capture SDK</strong></p></li>
+</ul>
+</li>
+</ul>
+</td>
+</tr>
+<tr class="row-odd"><td><p><cite>ScanditBarcodeCapture.aar</cite></p></td>
+<td><ul class="simple">
+<li><p>org.jetbrains.kotlin:kotlin-stdlib:[version]</p></li>
+<li><p>androidx.annotation:annotation:[version]</p></li>
+</ul>
+</td>
+</tr>
+<tr class="row-even"><td><p><cite>ScanditParser.aar</cite></p></td>
+<td><p>No dependencies</p></td>
+</tr>
+<tr class="row-odd"><td><p><cite>ScanditTextCapture.aar</cite></p></td>
+<td><ul class="simple">
+<li><p>org.jetbrains.kotlin:kotlin-stdlib:[version]</p></li>
+<li><p>androidx.annotation:annotation:[version]</p></li>
+</ul>
+</td>
+</tr>
+<tr class="row-even"><td><p><cite>ScanditIdCapture.aar</cite></p></td>
+<td><ul class="simple">
+<li><p>org.jetbrains.kotlin:kotlin-stdlib:[version]</p></li>
+<li><p>androidx.annotation:annotation:[version]</p></li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="section" id="internal-dependencies">
+<h4>Internal dependencies<a class="headerlink" href="#internal-dependencies" title="Permalink to this headline"></a></h4>
+<p>Some of the Scandit Data Capture SDK modules depend on others to work:</p>
+<table class="docutils align-default">
+<colgroup>
+<col style="width: 49%" />
+<col style="width: 51%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>Module</p></th>
+<th class="head"><p>Dependencies</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><cite>ScanditCaptureCore</cite></p></td>
+<td><p>No dependencies</p></td>
+</tr>
+<tr class="row-odd"><td><p><cite>ScanditBarcodeCapture</cite></p></td>
+<td><ul class="simple">
+<li><p><cite>ScanditCaptureCore</cite></p></li>
+</ul>
+</td>
+</tr>
+<tr class="row-even"><td><p><cite>ScanditParser</cite></p></td>
+<td><p>No dependencies</p></td>
+</tr>
+<tr class="row-odd"><td><p><cite>ScanditTextCapture</cite></p></td>
+<td><ul class="simple">
+<li><p><cite>ScanditCaptureCore</cite></p></li>
+<li><p><cite>ScanditTextCaptureBackend</cite></p></li>
+</ul>
+</td>
+</tr>
+<tr class="row-even"><td><p><cite>ScanditIdCapture</cite></p></td>
+<td><ul class="simple">
+<li><p><cite>ScanditCaptureCore</cite></p></li>
+<li><p><cite>ScanditIdCaptureBackend</cite> (VIZ documents)</p></li>
+</ul>
+</td>
+</tr>
+<tr class="row-odd"><td><p><cite>ScanditIdCaptureBackend</cite></p></td>
+<td><p>No dependencies</p></td>
+</tr>
+<tr class="row-even"><td><p><cite>ScanditTextCaptureBackend</cite></p></td>
+<td><p>No dependencies</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<div class="section" id="create-the-data-capture-context">
+<h3>Create the Data Capture Context<a class="headerlink" href="#create-the-data-capture-context" title="Permalink to this headline"></a></h3>
+<p>The first step to add capture capabilities to your application is to create a new <a class="reference internal" href="core/api/data-capture-context.html#class-scandit.datacapture.core.DataCaptureContext" title="data capture context class">data capture context</a>. The context expects a valid Scandit Data Capture SDK license key during construction.</p>
+<div class="highlight-java notranslate"><div class="highlight"><pre><span></span><span class="n">DataCaptureContext</span><span class="w"> </span><span class="n">dataCaptureContext</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">DataCaptureContext</span><span class="p">.</span><span class="na">forLicenseKey</span><span class="p">(</span><span class="s">&quot;-- ENTER YOUR SCANDIT LICENSE KEY HERE --&quot;</span><span class="p">);</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="configure-the-barcode-scanning-behavior">
+<h3>Configure the Barcode Scanning Behavior<a class="headerlink" href="#configure-the-barcode-scanning-behavior" title="Permalink to this headline"></a></h3>
+<p>Barcode scanning is orchestrated by the <a class="reference internal" href="barcode-capture/api/barcode-capture.html#class-scandit.datacapture.barcode.BarcodeCapture" title="BarcodeCapture class">BarcodeCapture</a> <a class="reference internal" href="core/api/data-capture-mode.html#interface-scandit.datacapture.core.IDataCaptureMode" title="data capture mode interface">data capture mode</a>. This class is the main entry point for scanning barcodes. It is configured through <a class="reference internal" href="barcode-capture/api/barcode-capture-settings.html#class-scandit.datacapture.barcode.BarcodeCaptureSettings" title="BarcodeCaptureSettings class">BarcodeCaptureSettings</a> and allows to register one or more <a class="reference internal" href="barcode-capture/api/barcode-capture-listener.html#interface-scandit.datacapture.barcode.IBarcodeCaptureListener" title="listeners interface">listeners</a> that will get informed whenever new codes have been recognized.</p>
+<p>For this tutorial, we will setup barcode scanning for a small list of different barcode types, called <a class="reference internal" href="barcode-capture/api/symbology.html#enum-scandit.datacapture.barcode.Symbology" title="symbologies enum">symbologies</a>. The list of symbologies to enable is highly application specific. We recommend that you only enable the list of symbologies your application requires. If you are not familiar with the symbologies that are relevant for your use case, you can use <a class="reference internal" href="barcode-capture/api/capture-preset.html#enum-scandit.datacapture.barcode.CapturePreset" title="capture presets enum">capture presets</a> that are tailored for different verticals (e.g. retail, logistics, etc.).</p>
+<div class="highlight-java notranslate"><div class="highlight"><pre><span></span><span class="n">BarcodeCaptureSettings</span><span class="w"> </span><span class="n">settings</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">BarcodeCaptureSettings</span><span class="p">();</span>
+<span class="n">settings</span><span class="p">.</span><span class="na">enableSymbology</span><span class="p">(</span><span class="n">Symbology</span><span class="p">.</span><span class="na">CODE128</span><span class="p">,</span><span class="w"> </span><span class="kc">true</span><span class="p">);</span>
+<span class="n">settings</span><span class="p">.</span><span class="na">enableSymbology</span><span class="p">(</span><span class="n">Symbology</span><span class="p">.</span><span class="na">CODE39</span><span class="p">,</span><span class="w"> </span><span class="kc">true</span><span class="p">);</span>
+<span class="n">settings</span><span class="p">.</span><span class="na">enableSymbology</span><span class="p">(</span><span class="n">Symbology</span><span class="p">.</span><span class="na">QR</span><span class="p">,</span><span class="w"> </span><span class="kc">true</span><span class="p">);</span>
+<span class="n">settings</span><span class="p">.</span><span class="na">enableSymbology</span><span class="p">(</span><span class="n">Symbology</span><span class="p">.</span><span class="na">EAN8</span><span class="p">,</span><span class="w"> </span><span class="kc">true</span><span class="p">);</span>
+<span class="n">settings</span><span class="p">.</span><span class="na">enableSymbology</span><span class="p">(</span><span class="n">Symbology</span><span class="p">.</span><span class="na">UPCE</span><span class="p">,</span><span class="w"> </span><span class="kc">true</span><span class="p">);</span>
+<span class="n">settings</span><span class="p">.</span><span class="na">enableSymbology</span><span class="p">(</span><span class="n">Symbology</span><span class="p">.</span><span class="na">EAN13_UPCA</span><span class="p">,</span><span class="w"> </span><span class="kc">true</span><span class="p">);</span>
+</pre></div>
+</div>
+<p>If you are not disabling barcode capture immediately after having scanned the first code, consider setting the <a class="reference internal" href="barcode-capture/api/barcode-capture-settings.html#property-scandit.datacapture.barcode.BarcodeCaptureSettings.CodeDuplicateFilter" title="BarcodeCaptureSettings.codeDuplicateFilter property">BarcodeCaptureSettings.codeDuplicateFilter</a> to around <cite>500</cite> or even <cite>-1</cite> if you do not want codes to be scanned more than once.</p>
+<p>Next, create a <a class="reference internal" href="barcode-capture/api/barcode-capture.html#class-scandit.datacapture.barcode.BarcodeCapture" title="BarcodeCapture class">BarcodeCapture</a> instance with the settings initialized in the previous step:</p>
+<div class="highlight-java notranslate"><div class="highlight"><pre><span></span><span class="n">barcodeCapture</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">BarcodeCapture</span><span class="p">.</span><span class="na">forDataCaptureContext</span><span class="p">(</span><span class="n">dataCaptureContext</span><span class="p">,</span><span class="w"> </span><span class="n">settings</span><span class="p">);</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="register-the-barcode-capture-listener">
+<h3>Register the Barcode Capture Listener<a class="headerlink" href="#register-the-barcode-capture-listener" title="Permalink to this headline"></a></h3>
+<p>To get informed whenever a new code has been recognized, add a <a class="reference internal" href="barcode-capture/api/barcode-capture-listener.html#interface-scandit.datacapture.barcode.IBarcodeCaptureListener" title="BarcodeCaptureListener interface">BarcodeCaptureListener</a> through <a class="reference internal" href="barcode-capture/api/barcode-capture.html#method-scandit.datacapture.barcode.BarcodeCapture.AddListener" title="BarcodeCapture.addListener() method">BarcodeCapture.addListener()</a> and implement the listener methods to suit your application’s needs.</p>
+<p>First implement the <a class="reference internal" href="barcode-capture/api/barcode-capture-listener.html#interface-scandit.datacapture.barcode.IBarcodeCaptureListener" title="BarcodeCaptureListener interface">BarcodeCaptureListener</a> interface. For example:</p>
+<div class="highlight-java notranslate"><div class="highlight"><pre><span></span><span class="nd">@Override</span>
+<span class="kd">public</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="nf">onBarcodeScanned</span><span class="p">(</span><span class="nd">@NonNull</span><span class="w"> </span><span class="n">BarcodeCapture</span><span class="w"> </span><span class="n">barcodeCapture</span><span class="p">,</span>
+<span class="w">        </span><span class="nd">@NonNull</span><span class="w"> </span><span class="n">BarcodeCaptureSession</span><span class="w"> </span><span class="n">session</span><span class="p">,</span><span class="w"> </span><span class="nd">@NonNull</span><span class="w"> </span><span class="n">FrameData</span><span class="w"> </span><span class="n">frameData</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="n">List</span><span class="o">&lt;</span><span class="n">Barcode</span><span class="o">&gt;</span><span class="w"> </span><span class="n">recognizedBarcodes</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">session</span><span class="p">.</span><span class="na">getNewlyRecognizedBarcodes</span><span class="p">();</span>
+<span class="w">    </span><span class="c1">// Do something with the barcodes.</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p>Then add the listener:</p>
+<div class="highlight-java notranslate"><div class="highlight"><pre><span></span><span class="n">barcodeCapture</span><span class="p">.</span><span class="na">addListener</span><span class="p">(</span><span class="k">this</span><span class="p">);</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="use-the-built-in-camera">
+<h3>Use the Built-in Camera<a class="headerlink" href="#use-the-built-in-camera" title="Permalink to this headline"></a></h3>
+<p>The data capture context supports using different frame sources to perform recognition on. Most applications will use the built-in camera of the device, e.g. the world-facing camera of a device. The remainder of this tutorial will assume that you use the built-in camera.</p>
+<div class="admonition important">
+<p class="admonition-title">Important</p>
+<p>In Android, the user must explicitly grant permission for each app to access cameras. Your app needs to declare the use of the Camera permission in the AndroidManifest.xml file and request it at runtime so the user can grant or deny the permission.
+To do that follow the guidelines from <a class="reference external" href="https://developer.android.com/training/permissions/requesting">Request app permissions</a> to request the android.permission.CAMERA permission.</p>
+</div>
+<p>When using the built-in camera there are recommended settings for each capture mode. These should be used to achieve the best performance and user experience for the respective mode. The following couple of lines show how to get the recommended settings and create the camera from it:</p>
+<div class="highlight-java notranslate"><div class="highlight"><pre><span></span><span class="n">CameraSettings</span><span class="w"> </span><span class="n">cameraSettings</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">BarcodeCapture</span><span class="p">.</span><span class="na">createRecommendedCameraSettings</span><span class="p">();</span>
+
+<span class="c1">// Depending on the use case further camera settings adjustments can be made here.</span>
+
+<span class="n">Camera</span><span class="w"> </span><span class="n">camera</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">Camera</span><span class="p">.</span><span class="na">getDefaultCamera</span><span class="p">();</span>
+
+<span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">camera</span><span class="w"> </span><span class="o">!=</span><span class="w"> </span><span class="kc">null</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="n">camera</span><span class="p">.</span><span class="na">applySettings</span><span class="p">(</span><span class="n">cameraSettings</span><span class="p">);</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p>Because the frame source is configurable, the data capture context must be told which frame source to use. This is done with a call to <a class="reference internal" href="core/api/data-capture-context.html#method-scandit.datacapture.core.DataCaptureContext.SetFrameSourceAsync" title="DataCaptureContext.setFrameSource() method">DataCaptureContext.setFrameSource()</a>:</p>
+<div class="highlight-java notranslate"><div class="highlight"><pre><span></span><span class="n">dataCaptureContext</span><span class="p">.</span><span class="na">setFrameSource</span><span class="p">(</span><span class="n">camera</span><span class="p">);</span>
+</pre></div>
+</div>
+<p>The camera is off by default and must be turned on. This is done by calling <a class="reference internal" href="core/api/frame-source.html#method-scandit.datacapture.core.IFrameSource.SwitchToDesiredStateAsync" title="FrameSource.switchToDesiredState() method">FrameSource.switchToDesiredState()</a> with a value of <a class="reference internal" href="core/api/frame-source.html#value-scandit.datacapture.core.FrameSourceState.On" title="FrameSourceState.ON value">FrameSourceState.ON</a>:</p>
+<div class="highlight-java notranslate"><div class="highlight"><pre><span></span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">camera</span><span class="w"> </span><span class="o">!=</span><span class="w"> </span><span class="kc">null</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="n">camera</span><span class="p">.</span><span class="na">switchToDesiredState</span><span class="p">(</span><span class="n">FrameSourceState</span><span class="p">.</span><span class="na">ON</span><span class="p">);</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>On Android the Scandit Data Capture SDK is not lifecycle aware which means it is not able to turn off the camera when the app goes in the background etc. which has to be done as otherwise the camera is locked for other apps. This responsibility to do this is left to the implementer. Make sure that you always turn the camera off in the activity’s <cite>onPause</cite> lifecycle method. Often this means that you want to (re)start it in <cite>onResume</cite>. You can see a way of doing this in all of the <a class="reference internal" href="samples/run-samples.html"><span class="doc">samples</span></a>.</p>
+</div>
+<p>There is a separate guide for <a class="reference internal" href="advanced-topics.html"><span class="doc">more advanced camera functionality</span></a>.</p>
+</div>
+<div class="section" id="use-a-capture-view-to-visualize-the-scan-process">
+<h3>Use a Capture View to Visualize the Scan Process<a class="headerlink" href="#use-a-capture-view-to-visualize-the-scan-process" title="Permalink to this headline"></a></h3>
+<p>When using the built-in camera as frame source, you will typically want to display the camera preview on the screen together with UI elements that guide the user through the capturing process. To do that, add a <a class="reference internal" href="core/api/ui/data-capture-view.html#class-scandit.datacapture.core.ui.DataCaptureView" title="DataCaptureView class">DataCaptureView</a> to your view hierarchy:</p>
+<div class="highlight-java notranslate"><div class="highlight"><pre><span></span><span class="n">DataCaptureView</span><span class="w"> </span><span class="n">dataCaptureView</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">DataCaptureView</span><span class="p">.</span><span class="na">newInstance</span><span class="p">(</span><span class="k">this</span><span class="p">,</span><span class="w"> </span><span class="n">dataCaptureContext</span><span class="p">);</span>
+<span class="n">setContentView</span><span class="p">(</span><span class="n">dataCaptureView</span><span class="p">);</span>
+</pre></div>
+</div>
+<p>To visualize the results of barcode scanning, the following <a class="reference internal" href="barcode-capture/api/ui/barcode-capture-overlay.html#class-scandit.datacapture.barcode.ui.BarcodeCaptureOverlay" title="overlay class">overlay</a> can be added:</p>
+<div class="highlight-java notranslate"><div class="highlight"><pre><span></span><span class="n">BarcodeCaptureOverlay</span><span class="w"> </span><span class="n">overlay</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">BarcodeCaptureOverlay</span><span class="p">.</span><span class="na">newInstance</span><span class="p">(</span><span class="n">barcodeCapture</span><span class="p">,</span><span class="w"> </span><span class="n">dataCaptureView</span><span class="p">);</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="disabling-barcode-capture">
+<h3>Disabling Barcode Capture<a class="headerlink" href="#disabling-barcode-capture" title="Permalink to this headline"></a></h3>
+<p>To disable barcode capture, for instance as a consequence of a barcode being recognized, set <a class="reference internal" href="barcode-capture/api/barcode-capture.html#property-scandit.datacapture.barcode.BarcodeCapture.IsEnabled" title="BarcodeCapture.isEnabled property">BarcodeCapture.isEnabled</a> to <em>false</em>.</p>
+<p>The effect is immediate: no more frames will be processed <em>after</em> the change. However, if a frame is currently being processed, this frame will be completely processed and deliver any results/callbacks to the registered listeners.
+Note that disabling the capture mode does not stop the camera, the camera continues to stream frames until it is turned off.</p>
+<div class="admonition-what-s-next admonition">
+<p class="admonition-title">What’s next?</p>
+<p>To dive further into the Scandit Data Capture SDK we recommend the following articles:</p>
+<ul class="simple">
+<li><p><a class="reference internal" href="barcode-symbologies.html"><span class="doc">Barcode Symbologies</span></a></p></li>
+<li><p><a class="reference internal" href="configure-barcodes.html"><span class="doc">Configure Which Barcodes Are Read</span></a></p></li>
+<li><p><a class="reference internal" href="advanced-topics.html"><span class="doc">Advanced Topics</span></a></p></li>
+</ul>
+</div>
+</div>
+</div>
+<div class="section" id="configure-which-barcodes-are-read">
+<h2>Configure Which Barcodes Are Read<a class="headerlink" href="#configure-which-barcodes-are-read" title="Permalink to this headline"></a></h2>
+<p>In this guide you will learn how to configure a barcode based capture mode (<a class="reference internal" href="barcode-capture/api/barcode-capture.html#class-scandit.datacapture.barcode.BarcodeCapture" title="BarcodeCapture class">BarcodeCapture</a> and <a class="reference internal" href="barcode-capture/api/barcode-tracking.html#class-scandit.datacapture.barcode.tracking.BarcodeTracking" title="BarcodeTracking class">BarcodeTracking</a>) to read the barcodes that you need it to read. The available symbol count range, checksum, extensions, etc. for all symbologies are listed in <a class="reference internal" href="barcode-capture/symbology-properties.html"><span class="doc">Symbology Properties</span></a></p>
+<div class="admonition-before-you-start admonition">
+<p class="admonition-title">Before you start…</p>
+<p>To get the most out of this guide, we recommend that you have read the following articles:</p>
+<ul class="simple">
+<li><p><a class="reference internal" href="add-sdk.html"><span class="doc">Add the SDK to Your App</span></a></p></li>
+<li><p><a class="reference internal" href="get-started-barcode.html"><span class="doc">Get Started With Barcode Capture</span></a></p></li>
+<li><p><a class="reference internal" href="barcode-symbologies.html"><span class="doc">Barcode Symbologies</span></a></p></li>
+</ul>
+</div>
+<div class="section" id="enable-the-symbologies-you-want-to-read">
+<h3>Enable the Symbologies You Want to Read<a class="headerlink" href="#enable-the-symbologies-you-want-to-read" title="Permalink to this headline"></a></h3>
+<p>The type of a barcode is referred to as its symbology, e.g <a class="reference internal" href="barcode-capture/api/symbology.html#value-scandit.datacapture.barcode.Symbology.Qr" title="QR Code value">QR Code</a> or <a class="reference internal" href="barcode-capture/api/symbology.html#value-scandit.datacapture.barcode.Symbology.Code128" title="Code 128 value">Code 128</a>. To enable scanning of a particular barcode, its symbology must be enabled. This is done through calling <a class="reference internal" href="barcode-capture/api/barcode-capture-settings.html#method-scandit.datacapture.barcode.BarcodeCaptureSettings.EnableSymbology" title="BarcodeCaptureSettings.enableSymbology() method">BarcodeCaptureSettings.enableSymbology()</a> on the <a class="reference internal" href="barcode-capture/api/barcode-capture-settings.html#class-scandit.datacapture.barcode.BarcodeCaptureSettings" title="BarcodeCaptureSettings class">BarcodeCaptureSettings</a> and then applying the settings to the <a class="reference internal" href="barcode-capture/api/barcode-capture.html#class-scandit.datacapture.barcode.BarcodeCapture" title="barcode capture class">barcode capture</a> instance. Similarly, for barcode tracking (MatrixScan), the barcode’s symbology must be enabled by calling <a class="reference internal" href="barcode-capture/api/barcode-tracking-settings.html#method-scandit.datacapture.barcode.tracking.BarcodeTrackingSettings.EnableSymbology" title="BarcodeTrackingSettings.enableSymbology() method">BarcodeTrackingSettings.enableSymbology()</a> on the <a class="reference internal" href="barcode-capture/api/barcode-tracking-settings.html#class-scandit.datacapture.barcode.tracking.BarcodeTrackingSettings" title="BarcodeTrackingSettings class">BarcodeTrackingSettings</a> and then applying the settings to the <a class="reference internal" href="barcode-capture/api/barcode-tracking.html#class-scandit.datacapture.barcode.tracking.BarcodeTracking" title="barcode tracking class">barcode tracking</a> instance.</p>
+<p>If you already know the names of the symbologies you want to scan/read, take a look at the list of <a class="reference internal" href="barcode-capture/api/symbology.html#enum-scandit.datacapture.barcode.Symbology" title="symbologies supported enum">symbologies supported</a> by the Scandit Data Capture SDK. If you are unsure what the symbology of your barcode is, use the Scandit Demo App available in the <a class="reference external" href="https://itunes.apple.com/us/app/scandit-barcode-scanner-demo/id453880584">iOS App Store</a> or <a class="reference external" href="https://play.google.com/store/apps/details?id=com.scandit.demoapp">Android Play Store</a>.  After you have installed the app, select the “Any Code” mode and scan the codes you are interested in. The name of the symbology will appear on the result screen.</p>
+<p>The following lines of code show you how to enable scanning Code 128 codes for barcode capture:</p>
+<div class="highlight-java notranslate"><div class="highlight"><pre><span></span><span class="n">BarcodeCaptureSettings</span><span class="w"> </span><span class="n">settings</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">BarcodeCaptureSettings</span><span class="p">();</span>
+<span class="n">settings</span><span class="p">.</span><span class="na">enableSymbology</span><span class="p">(</span><span class="n">Symbology</span><span class="p">.</span><span class="na">CODE128</span><span class="p">,</span><span class="w"> </span><span class="kc">true</span><span class="p">);</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="configure-the-active-symbol-count">
+<h3>Configure the Active Symbol Count<a class="headerlink" href="#configure-the-active-symbol-count" title="Permalink to this headline"></a></h3>
+<p>Barcode symbologies such as <a class="reference internal" href="barcode-capture/api/symbology.html#value-scandit.datacapture.barcode.Symbology.Code128" title="Code 128 value">Code 128</a>, <a class="reference internal" href="barcode-capture/api/symbology.html#value-scandit.datacapture.barcode.Symbology.Code39" title="Code 39 value">Code 39</a>, <a class="reference internal" href="barcode-capture/api/symbology.html#value-scandit.datacapture.barcode.Symbology.Code93" title="Code 93 value">Code 93</a> or <a class="reference internal" href="barcode-capture/api/symbology.html#value-scandit.datacapture.barcode.Symbology.InterleavedTwoOfFive" title="Interleaved Two of Five value">Interleaved Two of Five</a> can store variable-length data. As an example, Code 39 can be used to store a string anywhere from 1 up to around 40-50 symbols. There is no fixed upper limit, though there are practical limitations to the code’s length for it to still be conveniently readable by barcode scanners. For performance reasons, the Scandit Data Capture SDK limits the <a class="reference internal" href="barcode-capture/api/symbology-settings.html#property-scandit.datacapture.barcode.SymbologySettings.ActiveSymbolCounts" title="possible symbol range property">possible symbol range</a> for variable-length symbologies. If you want to read codes that are shorter/longer than the specified default range or you want to tailor your app to only read codes of a certain length, you need to change the active symbol count of the symbology to accommodate the data length you want to use in your application.</p>
+<p>The below lines of code show how to change the active symbol count for Code 128 to read codes with 6, 7 and 8 symbols.</p>
+<div class="highlight-java notranslate"><div class="highlight"><pre><span></span><span class="n">BarcodeCaptureSettings</span><span class="w"> </span><span class="n">settings</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">BarcodeCaptureSettings</span><span class="p">();</span>
+<span class="n">SymbologySettings</span><span class="w"> </span><span class="n">symbologySettings</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">settings</span><span class="p">.</span><span class="na">getSymbologySettings</span><span class="p">(</span><span class="n">Symbology</span><span class="p">.</span><span class="na">CODE128</span><span class="p">);</span>
+<span class="n">HashSet</span><span class="o">&lt;</span><span class="n">Short</span><span class="o">&gt;</span><span class="w"> </span><span class="n">activeSymbolCounts</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">HashSet</span><span class="o">&lt;&gt;</span><span class="p">(</span><span class="n">Arrays</span><span class="p">.</span><span class="na">asList</span><span class="p">(</span><span class="k">new</span><span class="w"> </span><span class="n">Short</span><span class="o">[]</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="mi">6</span><span class="p">,</span><span class="w"> </span><span class="mi">7</span><span class="p">,</span><span class="w"> </span><span class="mi">8</span><span class="p">}));</span>
+<span class="n">symbologySettings</span><span class="p">.</span><span class="na">setActiveSymbolCounts</span><span class="p">(</span><span class="n">activeSymbolCounts</span><span class="p">);</span>
+</pre></div>
+</div>
+<div class="section" id="how-to-calculate-the-active-symbol-count">
+<h4>How to Calculate the Active Symbol Count<a class="headerlink" href="#how-to-calculate-the-active-symbol-count" title="Permalink to this headline"></a></h4>
+<p>Calculating the active symbol count is symbology-specific as each symbology has a different symbol definition. To understand what a symbology’s default active symbol count range is and to learn how to compute the active symbol count for a particular symbology, consult the documentation on <a class="reference internal" href="barcode-capture/symbology-properties.html"><span class="doc">symbology properties</span></a>. As an alternative, you can also use the Scandit Demo App in the <a class="reference external" href="https://itunes.apple.com/us/app/scandit-barcode-scanner-demo/id453880584">iOS App Store</a>, or <a class="reference external" href="https://play.google.com/store/apps/details?id=com.scandit.demoapp">Android Play Store</a>. After you have installed the app, select the “Any Code” mode and scan the codes you are interested in. The active symbol count will appear on the result screen.</p>
+</div>
+</div>
+<div class="section" id="read-bright-on-dark-barcodes">
+<h3>Read Bright-on-Dark Barcodes<a class="headerlink" href="#read-bright-on-dark-barcodes" title="Permalink to this headline"></a></h3>
+<p>Most barcodes are printed using dark ink on a bright background. Some symbologies allow the colors to be inverted and can also be printed using bright ink on a dark background. This is not possible for all symbologies as it could lead to false reads when the symbology is not designed for this use case. Which symbologies allow color inversion can be seen in the documentation on <a class="reference internal" href="barcode-capture/symbology-properties.html"><span class="doc">symbology properties</span></a>. When you enable a symbology as described above, only dark-on-bright codes are enabled (see <a class="reference internal" href="barcode-capture/api/symbology-settings.html#property-scandit.datacapture.barcode.SymbologySettings.IsEnabled" title="SymbologySettings.isEnabled property">SymbologySettings.isEnabled</a>). When you also want to read bright-on-dark codes, color-inverted reading for that symbology must also be enabled (see <a class="reference internal" href="barcode-capture/api/symbology-settings.html#property-scandit.datacapture.barcode.SymbologySettings.IsColorInvertedEnabled" title="SymbologySettings.isColorInvertedEnabled property">SymbologySettings.isColorInvertedEnabled</a>:</p>
+<div class="highlight-java notranslate"><div class="highlight"><pre><span></span><span class="n">BarcodeCaptureSettings</span><span class="w"> </span><span class="n">settings</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">BarcodeCaptureSettings</span><span class="p">();</span>
+<span class="n">SymbologySettings</span><span class="w"> </span><span class="n">symbologySettings</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">settings</span><span class="p">.</span><span class="na">getSymbologySettings</span><span class="p">(</span><span class="n">Symbology</span><span class="p">.</span><span class="na">CODE128</span><span class="p">);</span>
+<span class="n">symbologySettings</span><span class="p">.</span><span class="na">setColorInvertedEnabled</span><span class="p">(</span><span class="kc">true</span><span class="p">);</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="enforce-checksums">
+<h3>Enforce Checksums<a class="headerlink" href="#enforce-checksums" title="Permalink to this headline"></a></h3>
+<p>Some symbologies have a mandatory checksum that will always be enforced while others only have optional <a class="reference internal" href="barcode-capture/api/checksum.html#enum-scandit.datacapture.barcode.Checksum" title="checksums enum">checksums</a>. Enforcing an optional checksum will reduce false positives as an additional check can be performed. When enabling a checksum you have to make sure that the data of your codes contains the calculated checksum otherwise the codes will be discarded as they checksum doesn’t match. All available checksums per symbology can be found in the documentation on <a class="reference internal" href="barcode-capture/symbology-properties.html"><span class="doc">symbology properties</span></a>. You can enforce a specific checksum by setting it through <a class="reference internal" href="barcode-capture/api/symbology-settings.html#property-scandit.datacapture.barcode.SymbologySettings.Checksums" title="SymbologySettings.checksums property">SymbologySettings.checksums</a>:</p>
+<div class="highlight-java notranslate"><div class="highlight"><pre><span></span><span class="n">BarcodeCaptureSettings</span><span class="w"> </span><span class="n">settings</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">BarcodeCaptureSettings</span><span class="p">();</span>
+<span class="n">SymbologySettings</span><span class="w"> </span><span class="n">symbologySettings</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">settings</span><span class="p">.</span><span class="na">getSymbologySettings</span><span class="p">(</span><span class="n">Symbology</span><span class="p">.</span><span class="na">CODE39</span><span class="p">);</span>
+<span class="n">symbologySettings</span><span class="p">.</span><span class="na">setChecksums</span><span class="p">(</span><span class="n">EnumSet</span><span class="p">.</span><span class="na">of</span><span class="p">(</span><span class="n">Checksum</span><span class="p">.</span><span class="na">MOD43</span><span class="p">));</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="enable-symbology-specific-extensions">
+<h3>Enable Symbology-Specific Extensions<a class="headerlink" href="#enable-symbology-specific-extensions" title="Permalink to this headline"></a></h3>
+<p>Some symbologies allow further configuration. These configuration options are available as symbology extensions that can be enabled/disabled for each symbology individually. Some of the extensions affect how the data in the code is formatted, others allow to enable more relaxed recognition modes that are disabled by default to eliminate false reads. All available extensions per symbology and a description of what they do can be found in the documentation on <a class="reference internal" href="barcode-capture/symbology-properties.html"><span class="doc">symbology properties</span></a>.</p>
+<p>To enable/disable a symbology extension, use <a class="reference internal" href="barcode-capture/api/symbology-settings.html#method-scandit.datacapture.barcode.SymbologySettings.SetExtensionEnabled" title="SymbologySettings.setExtensionEnabled() method">SymbologySettings.setExtensionEnabled()</a>.</p>
+<div class="highlight-java notranslate"><div class="highlight"><pre><span></span><span class="n">BarcodeCaptureSettings</span><span class="w"> </span><span class="n">settings</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">BarcodeCaptureSettings</span><span class="p">();</span>
+<span class="n">SymbologySettings</span><span class="w"> </span><span class="n">symbologySettings</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">settings</span><span class="p">.</span><span class="na">getSymbologySettings</span><span class="p">(</span><span class="n">Symbology</span><span class="p">.</span><span class="na">CODE39</span><span class="p">);</span>
+<span class="n">symbologySettings</span><span class="p">.</span><span class="na">setExtensionEnabled</span><span class="p">(</span><span class="s">&quot;full_ascii&quot;</span><span class="p">,</span><span class="w"> </span><span class="kc">true</span><span class="p">);</span>
+</pre></div>
+</div>
+<div class="admonition-what-s-next admonition">
+<p class="admonition-title">What’s next?</p>
+<p>To dive further into the Scandit Data Capture SDK we recommend the following articles:</p>
+<ul class="simple">
+<li><p><a class="reference internal" href="barcode-capture/symbology-properties.html"><span class="doc">Symbology Properties</span></a></p></li>
+<li><p><a class="reference internal" href="barcode-capture/scan-add-on-codes.html"><span class="doc">Scan Add-On/Extension Codes</span></a></p></li>
+<li><p><a class="reference internal" href="barcode-capture/scan-composite-codes.html"><span class="doc">Scan Composite Codes</span></a></p></li>
+<li><p><a class="reference internal" href="optimize-performance.html"><span class="doc">Optimize Scanning Performance</span></a></p></li>
+</ul>
+</div>
+</div>
+</div>
+</div>
+
+
+           </div>
+          </div>
+          <footer>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2024, Scandit AG.</p>
+  </div>
+
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+  <!-- Start of scandit Zendesk Widget script -->
+  <script id="ze-snippet" src="https://static.zdassets.com/ekr/snippet.js?key=df0234ee-7451-4189-8d1c-17c8a624b5f1">
+  </script>
+<script>
+      function getPlatformSuffix() {
+        const platform = 'android'
+        switch (platform) {
+          case 'android':         return 'for Android'
+          case 'ios':             return 'for iOS'
+          case 'cordova':         return 'for Cordova'
+          case 'react-native':    return 'for React Native'
+          case 'xamarin.ios':     return 'for Xamarin.iOS'
+          case 'xamarin.android': return 'for Xamarin.Android'
+          case 'xamarin.forms':   return 'for Xamarin.Forms'
+          case 'flutter':         return 'for Flutter'
+          case 'capacitor':       return 'for Capacitor'
+          case 'titanium':        return 'for Titanium'
+          case 'web':             return 'for the Web'
+          case 'dotnet.ios':      return 'for .NET for iOS'
+          case 'dotnet.android':  return 'for .NET for Android'
+          default:                return ''
+        }
+      }
+
+      const platformSuffix = getPlatformSuffix()
+      const headerTitle = document.querySelector(".icon-home")
+      headerTitle.insertAdjacentHTML('beforeend', ` ${platformSuffix}`)
+
+      const [major, minor] = DOCUMENTATION_OPTIONS.VERSION.split('.')
+      const version = document.querySelector(".version")
+      version.innerHTML = `
+        <div class="version">
+          <a href="${DOCUMENTATION_OPTIONS.URL_ROOT}release-notes/${major}.${minor}.html">Release Notes</a> 
+        </div>
+        <br>
+      `
+  </script>
+  <!-- End of scandit Zendesk Widget script -->
+
+</body>
+</html>

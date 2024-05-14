@@ -1,0 +1,504 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Json Value &mdash; Data Capture SDK 6.24.0-rc.2 documentation</title>
+      <link rel="stylesheet" href="../../../_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="../../../_static/css/theme.css" type="text/css" />
+    <link rel="stylesheet" href="../../../_static/custom.css" type="text/css" />
+  <!--[if lt IE 9]>
+    <script src="../../../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script data-url_root="../../../" id="documentation_options" src="../../../_static/documentation_options.js"></script>
+        <script src="../../../_static/jquery.js"></script>
+        <script src="../../../_static/underscore.js"></script>
+        <script src="../../../_static/doctools.js"></script>
+    <script src="../../../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../../../genindex.html" />
+    <link rel="search" title="Search" href="../../../search.html" />
+  <!-- Google Tag Manager -->
+  <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+  new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+  j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+  'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+  })(window,document,'script','dataLayer','GTM-THQQFD7');</script>
+  <!-- End Google Tag Manager -->
+</head>
+
+<body class="wy-body-for-nav">
+  <!-- Google Tag Manager (noscript) -->
+  <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-THQQFD7"
+  height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+  <!-- End Google Tag Manager (noscript) -->
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+            <a href="../../../index.html" class="icon icon-home"> Data Capture SDK
+          </a>
+              <div class="version">
+                6.24.0-rc.2
+              </div>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">First Steps</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../samples/run-samples.html">Run Samples</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../add-sdk.html">Add the SDK to Your App</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../best-practices-for-usability.html">Best Practices for Usability</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Pre-Built Components</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../high-speed-single-scanning.html">High-Speed Single Scanning</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../batch-counting-and-receiving.html">Batch Counting And Receiving</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../selecting-one-of-many.html">Selecting One Of Many Barcodes</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../ar-assisted-search-and-find.html">AR-Assisted Search And Find</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Fully-Customizable API</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../id-scanning-and-verification.html">ID Scanning And Verification</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../batch-scanning-and-ar.html">Batch Scanning And AR</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../single-scanning.html">Single Scanning</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../text-capture.html">Text Capture</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../parse-barcode-data.html">Parse Barcode Data</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../advanced-topics.html">Advanced Topics</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">API Reference</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../overview.html">ScanditCaptureCore</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../barcode-capture/overview.html">ScanditBarcodeCapture</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../id-capture/overview.html">ScanditIdCapture</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../text-capture/overview.html">ScanditTextCapture</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../label-capture/overview.html">ScanditLabelCapture</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../parser/overview.html">ScanditParser</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../genindex.html">Index</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">More Resources</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../release-notes.html">Release Notes</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../barcode-symbologies.html">Barcode Symbologies</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../requirements.html">System Requirements</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../support.html">Support &amp; FAQ</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../features-by-platform.html">Features By Framework</a></li>
+<li class="toctree-l1"><a class="reference external" href="https://docs.scandit.com/barcode-scanner-sdk.html">SDK 5.x Documentation [Deprecated]</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../migrate-to-6.html">Migrate from Barcode Scanner 5.x</a></li>
+<li class="toctree-l1"><a class="reference external" href="http://ssl.scandit.com">Your Developer Dashboard</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../../index.html">Data Capture SDK</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation" class="navbar">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../../../index.html" class="icon icon-home" aria-label="Home"></a></li>
+      <li class="breadcrumb-item active">Json Value</li>
+      <li class="wy-breadcrumbs-aside">
+      </li>
+  </ul>
+  <div class="auth-link-container">
+    <a class="signup-link signup-link--mobile" rel="noopener" target="_blank" href="https://ssl.scandit.com/dashboard/sign-up?p=test&utm_source=documentation">Sign up</a>
+    <a class="signup-link" target="_blank" rel="noopener" href="https://ssl.scandit.com/dashboard/sign-up?p=test&utm_source=documentation">Sign up for your developer account</a>
+    <a class="signin-link" target="_blank" rel="noopener" href="https://ssl.scandit.com/dashboard/sign-in">Log in</a>
+  </div>
+</div>
+<hr/>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <div class="section" id="json-value">
+<h1>Json Value<a class="headerlink" href="#json-value" title="Permalink to this headline"></a></h1>
+<p>Defined in package <em>com.scandit.datacapture.core.json</em></p>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>The deserialization API is not yet stable and will still change over the coming releases.</p>
+</div>
+<dl>
+<dt class="sig sig-object unilang" id="class-scandit.datacapture.core.JsonValue">
+<span class="sig-name descname"><span class="pre">JsonValue</span></span><a class="headerlink" href="#class-scandit.datacapture.core.JsonValue" title="Permalink to this definition"></a></dt>
+<dd><pre class="full-signature"><span class="sig-name descname">class JsonValue</span></pre><p><span class="versionmodified versionadded">Added in version 6.0.0</span></p>
+<p>JSON representation for use with the Scandit Data Capture SDK. It provides a lot of convenience functions for deserialization of base classes. It also tracks the usage of properties to be able to later report those that were not used for deserialization (potentially because they were misspelled or are outdated).</p>
+<dl>
+<dt class="sig sig-object unilang" id="method-scandit.datacapture.core.JsonValue.JsonValue">
+<span class="sig-name descname"><span class="pre">JsonValue()</span></span><a class="headerlink" href="#method-scandit.datacapture.core.JsonValue.JsonValue" title="Permalink to this definition"></a></dt>
+<dd><pre class="full-signature"><span class="sig-name descname">JsonValue</span>(&#64;NonNull <a class="reference external" href="https://developer.android.com/reference/java/lang/String.html" title="String">String</a> <em>jsonData</em>)</pre><p><span class="versionmodified versionadded">Added in version 6.1.0</span></p>
+<p>Returns a new JSON Value for the given json string. An exception is thrown if the string is not a valid JSON representation.</p>
+</dd></dl>
+
+<dl>
+<dt class="sig sig-object unilang" id="method-scandit.datacapture.core.JsonValue.JsonString">
+<span class="sig-name descname"><span class="pre">jsonString()</span></span><a class="headerlink" href="#method-scandit.datacapture.core.JsonValue.JsonString" title="Permalink to this definition"></a></dt>
+<dd><pre class="full-signature">&#64;NonNull <a class="reference external" href="https://developer.android.com/reference/java/lang/String.html" title="String">String</a> <span class="sig-name descname">jsonString</span>()</pre><p><span class="versionmodified versionadded">Added in version 6.1.0</span></p>
+<p>Returns the string representation of the JSON value.</p>
+</dd></dl>
+
+<dl>
+<dt class="sig sig-object unilang" id="method-scandit.datacapture.core.JsonValue.AsBoolean">
+<span class="sig-name descname"><span class="pre">asBoolean()</span></span><a class="headerlink" href="#method-scandit.datacapture.core.JsonValue.AsBoolean" title="Permalink to this definition"></a></dt>
+<dd><pre class="full-signature"><code class="docutils literal notranslate"><span class="pre">boolean</span></code> <span class="sig-name descname">asBoolean</span>()</pre><p><span class="versionmodified versionadded">Added in version 6.1.0</span></p>
+<p>Returns the value as a boolean. An exception is thrown if the conversion is not possible.</p>
+</dd></dl>
+
+<dl>
+<dt class="sig sig-object unilang" id="method-scandit.datacapture.core.JsonValue.GetBoolForKey">
+<span class="sig-name descname"><span class="pre">requireByKeyAsBoolean(key)</span></span><a class="headerlink" href="#method-scandit.datacapture.core.JsonValue.GetBoolForKey" title="Permalink to this definition"></a></dt>
+<dd><pre class="full-signature"><code class="docutils literal notranslate"><span class="pre">boolean</span></code> <span class="sig-name descname">requireByKeyAsBoolean</span>(&#64;NonNull <a class="reference external" href="https://developer.android.com/reference/java/lang/String.html" title="String">String</a> <em>key</em>)</pre><p><span class="versionmodified versionadded">Added in version 6.1.0</span></p>
+<p>Returns the value for the given key as a boolean. An exception is thrown if this JSON Value is not an object, it does not contain a value for the given key or the value for the given key is not a boolean.</p>
+</dd></dl>
+
+<dl>
+<dt class="sig sig-object unilang" id="method-scandit.datacapture.core.JsonValue.GetBoolForKeyOrDefault">
+<span class="sig-name descname"><span class="pre">getByKeyAsBoolean(key,</span> <span class="pre">defaultValue)</span></span><a class="headerlink" href="#method-scandit.datacapture.core.JsonValue.GetBoolForKeyOrDefault" title="Permalink to this definition"></a></dt>
+<dd><pre class="full-signature"><code class="docutils literal notranslate"><span class="pre">boolean</span></code> <span class="sig-name descname">getByKeyAsBoolean</span>(&#64;NonNull <a class="reference external" href="https://developer.android.com/reference/java/lang/String.html" title="String">String</a> <em>key</em>,
+        <code class="docutils literal notranslate"><span class="pre">boolean</span></code> <em>defaultValue</em>)</pre><p><span class="versionmodified versionadded">Added in version 6.1.0</span></p>
+<p>Returns the value for the given key as a boolean. The default value is returned if there is no value for the given key. An exception is thrown if this JSON Value is not an object or the value for the given key is not a boolean.</p>
+</dd></dl>
+
+<dl>
+<dt class="sig sig-object unilang" id="method-scandit.datacapture.core.JsonValue.AsInt">
+<span class="sig-name descname"><span class="pre">asInt()</span></span><a class="headerlink" href="#method-scandit.datacapture.core.JsonValue.AsInt" title="Permalink to this definition"></a></dt>
+<dd><pre class="full-signature"><code class="docutils literal notranslate"><span class="pre">int</span></code> <span class="sig-name descname">asInt</span>()</pre><p><span class="versionmodified versionadded">Added in version 6.1.0</span></p>
+<p>Returns the value as an integer. An exception is thrown if the conversion is not possible.</p>
+</dd></dl>
+
+<dl>
+<dt class="sig sig-object unilang" id="method-scandit.datacapture.core.JsonValue.GetIntForKey">
+<span class="sig-name descname"><span class="pre">requireByKeyAsInt(key)</span></span><a class="headerlink" href="#method-scandit.datacapture.core.JsonValue.GetIntForKey" title="Permalink to this definition"></a></dt>
+<dd><pre class="full-signature"><code class="docutils literal notranslate"><span class="pre">int</span></code> <span class="sig-name descname">requireByKeyAsInt</span>(&#64;NonNull <a class="reference external" href="https://developer.android.com/reference/java/lang/String.html" title="String">String</a> <em>key</em>)</pre><p><span class="versionmodified versionadded">Added in version 6.1.0</span></p>
+<p>Returns the value for the given key as an integer. An exception is thrown if this JSON Value is not an object, it does not contain a value for the given key or the value for the given key is not an integer.</p>
+</dd></dl>
+
+<dl>
+<dt class="sig sig-object unilang" id="method-scandit.datacapture.core.JsonValue.GetIntForKeyOrDefault">
+<span class="sig-name descname"><span class="pre">getByKeyAsInt(key,</span> <span class="pre">defaultValue)</span></span><a class="headerlink" href="#method-scandit.datacapture.core.JsonValue.GetIntForKeyOrDefault" title="Permalink to this definition"></a></dt>
+<dd><pre class="full-signature"><code class="docutils literal notranslate"><span class="pre">int</span></code> <span class="sig-name descname">getByKeyAsInt</span>(&#64;NonNull <a class="reference external" href="https://developer.android.com/reference/java/lang/String.html" title="String">String</a> <em>key</em>,
+        <code class="docutils literal notranslate"><span class="pre">int</span></code> <em>defaultValue</em>)</pre><p><span class="versionmodified versionadded">Added in version 6.1.0</span></p>
+<p>Returns the value for the given key as an integer. The default value is returned if there is no value for the given key. An exception is thrown if this JSON Value is not an object or the value for the given key is not an integer.</p>
+</dd></dl>
+
+<dl>
+<dt class="sig sig-object unilang" id="method-scandit.datacapture.core.JsonValue.AsFloat">
+<span class="sig-name descname"><span class="pre">asFloat()</span></span><a class="headerlink" href="#method-scandit.datacapture.core.JsonValue.AsFloat" title="Permalink to this definition"></a></dt>
+<dd><pre class="full-signature"><code class="docutils literal notranslate"><span class="pre">float</span></code> <span class="sig-name descname">asFloat</span>()</pre><p><span class="versionmodified versionadded">Added in version 6.1.0</span></p>
+<p>Returns the value as a float. An exception is thrown if the conversion is not possible.</p>
+</dd></dl>
+
+<dl>
+<dt class="sig sig-object unilang" id="method-scandit.datacapture.core.JsonValue.GetFloatForKey">
+<span class="sig-name descname"><span class="pre">requireByKeyAsFloat(key)</span></span><a class="headerlink" href="#method-scandit.datacapture.core.JsonValue.GetFloatForKey" title="Permalink to this definition"></a></dt>
+<dd><pre class="full-signature"><code class="docutils literal notranslate"><span class="pre">float</span></code> <span class="sig-name descname">requireByKeyAsFloat</span>(&#64;NonNull <a class="reference external" href="https://developer.android.com/reference/java/lang/String.html" title="String">String</a> <em>key</em>)</pre><p><span class="versionmodified versionadded">Added in version 6.1.0</span></p>
+<p>Returns the value for the given key as a float. An exception is thrown if this JSON Value is not an object, it does not contain a value for the given key or the value for the given key is not a float.</p>
+</dd></dl>
+
+<dl>
+<dt class="sig sig-object unilang" id="method-scandit.datacapture.core.JsonValue.GetFloatForKeyOrDefault">
+<span class="sig-name descname"><span class="pre">getByKeyAsFloat(key,</span> <span class="pre">defaultValue)</span></span><a class="headerlink" href="#method-scandit.datacapture.core.JsonValue.GetFloatForKeyOrDefault" title="Permalink to this definition"></a></dt>
+<dd><pre class="full-signature"><code class="docutils literal notranslate"><span class="pre">float</span></code> <span class="sig-name descname">getByKeyAsFloat</span>(&#64;NonNull <a class="reference external" href="https://developer.android.com/reference/java/lang/String.html" title="String">String</a> <em>key</em>,
+        <code class="docutils literal notranslate"><span class="pre">float</span></code> <em>defaultValue</em>)</pre><p><span class="versionmodified versionadded">Added in version 6.1.0</span></p>
+<p>Returns the value for the given key as a float. The default value is returned if there is no value for the given key. An exception is thrown if this JSON Value is not an object or the value for the given key is not a float.</p>
+</dd></dl>
+
+<dl>
+<dt class="sig sig-object unilang" id="method-scandit.datacapture.core.JsonValue.AsString">
+<span class="sig-name descname"><span class="pre">asString()</span></span><a class="headerlink" href="#method-scandit.datacapture.core.JsonValue.AsString" title="Permalink to this definition"></a></dt>
+<dd><pre class="full-signature">&#64;NonNull <a class="reference external" href="https://developer.android.com/reference/java/lang/String.html" title="String">String</a> <span class="sig-name descname">asString</span>()</pre><p><span class="versionmodified versionadded">Added in version 6.1.0</span></p>
+<p>Returns the value as a string. An exception is thrown if the conversion is not possible.</p>
+</dd></dl>
+
+<dl>
+<dt class="sig sig-object unilang" id="method-scandit.datacapture.core.JsonValue.GetStringForKey">
+<span class="sig-name descname"><span class="pre">requireByKeyAsString(key)</span></span><a class="headerlink" href="#method-scandit.datacapture.core.JsonValue.GetStringForKey" title="Permalink to this definition"></a></dt>
+<dd><pre class="full-signature">&#64;NonNull <a class="reference external" href="https://developer.android.com/reference/java/lang/String.html" title="String">String</a> <span class="sig-name descname">requireByKeyAsString</span>(&#64;NonNull <a class="reference external" href="https://developer.android.com/reference/java/lang/String.html" title="String">String</a> <em>key</em>)</pre><p><span class="versionmodified versionadded">Added in version 6.1.0</span></p>
+<p>Returns the value for the given key as a string. An exception is thrown if this JSON Value is not an object, it does not contain a value for the given key or the value for the given key is not a string.</p>
+</dd></dl>
+
+<dl>
+<dt class="sig sig-object unilang" id="method-scandit.datacapture.core.JsonValue.GetStringForKeyOrDefault">
+<span class="sig-name descname"><span class="pre">getByKeyAsString(key,</span> <span class="pre">defaultValue)</span></span><a class="headerlink" href="#method-scandit.datacapture.core.JsonValue.GetStringForKeyOrDefault" title="Permalink to this definition"></a></dt>
+<dd><pre class="full-signature">&#64;NonNull <a class="reference external" href="https://developer.android.com/reference/java/lang/String.html" title="String">String</a> <span class="sig-name descname">getByKeyAsString</span>(&#64;NonNull <a class="reference external" href="https://developer.android.com/reference/java/lang/String.html" title="String">String</a> <em>key</em>,
+        &#64;NonNull <a class="reference external" href="https://developer.android.com/reference/java/lang/String.html" title="String">String</a> <em>defaultValue</em>)</pre><p><span class="versionmodified versionadded">Added in version 6.1.0</span></p>
+<p>Returns the value for the given key as a string. The default value is returned if there is no value for the given key. An exception is thrown if this JSON Value is not an object or the value for the given key is not a string.</p>
+</dd></dl>
+
+<dl>
+<dt class="sig sig-object unilang" id="method-scandit.datacapture.core.JsonValue.AsColor">
+<span class="sig-name descname"><span class="pre">asColor()</span></span><a class="headerlink" href="#method-scandit.datacapture.core.JsonValue.AsColor" title="Permalink to this definition"></a></dt>
+<dd><pre class="full-signature"><code class="docutils literal notranslate"><span class="pre">int</span></code> <span class="sig-name descname">asColor</span>()</pre><p><span class="versionmodified versionadded">Added in version 6.1.0</span></p>
+<p>Returns the value as a color. An exception is thrown if the conversion is not possible.</p>
+</dd></dl>
+
+<dl>
+<dt class="sig sig-object unilang" id="method-scandit.datacapture.core.JsonValue.GetColorForKey">
+<span class="sig-name descname"><span class="pre">requireByKeyAsColor(key)</span></span><a class="headerlink" href="#method-scandit.datacapture.core.JsonValue.GetColorForKey" title="Permalink to this definition"></a></dt>
+<dd><pre class="full-signature"><code class="docutils literal notranslate"><span class="pre">int</span></code> <span class="sig-name descname">requireByKeyAsColor</span>(&#64;NonNull <a class="reference external" href="https://developer.android.com/reference/java/lang/String.html" title="String">String</a> <em>key</em>)</pre><p><span class="versionmodified versionadded">Added in version 6.1.0</span></p>
+<p>Returns the value for the given key as a color. An exception is thrown if this JSON Value is not an object, it does not contain a value for the given key or the value for the given key is not a color.</p>
+</dd></dl>
+
+<dl>
+<dt class="sig sig-object unilang" id="method-scandit.datacapture.core.JsonValue.GetColorForKeyOrDefault">
+<span class="sig-name descname"><span class="pre">getByKeyAsColor(key,</span> <span class="pre">defaultValue)</span></span><a class="headerlink" href="#method-scandit.datacapture.core.JsonValue.GetColorForKeyOrDefault" title="Permalink to this definition"></a></dt>
+<dd><pre class="full-signature"><code class="docutils literal notranslate"><span class="pre">int</span></code> <span class="sig-name descname">getByKeyAsColor</span>(&#64;NonNull <a class="reference external" href="https://developer.android.com/reference/java/lang/String.html" title="String">String</a> <em>key</em>,
+        <code class="docutils literal notranslate"><span class="pre">int</span></code> <em>defaultValue</em>)</pre><p><span class="versionmodified versionadded">Added in version 6.1.0</span></p>
+<p>Returns the value for the given key as a color. The default value is returned if there is no value for the given key. An exception is thrown if this JSON Value is not an object or the value for the given key is not a color.</p>
+</dd></dl>
+
+<dl>
+<dt class="sig sig-object unilang" id="method-scandit.datacapture.core.JsonValue.AsBrush">
+<span class="sig-name descname"><span class="pre">asBrush()</span></span><a class="headerlink" href="#method-scandit.datacapture.core.JsonValue.AsBrush" title="Permalink to this definition"></a></dt>
+<dd><pre class="full-signature">&#64;NonNull <a class="reference internal" href="../ui/brush.html#class-scandit.datacapture.core.ui.Brush" title="Brush class">Brush</a> <span class="sig-name descname">asBrush</span>()</pre><p><span class="versionmodified versionadded">Added in version 6.1.0</span></p>
+<p>Returns the value as a <a class="reference internal" href="../ui/brush.html#class-scandit.datacapture.core.ui.Brush" title="Brush class">Brush</a>. An exception is thrown if the conversion is not possible.</p>
+</dd></dl>
+
+<dl>
+<dt class="sig sig-object unilang" id="method-scandit.datacapture.core.JsonValue.GetBrushForKey">
+<span class="sig-name descname"><span class="pre">requireByKeyAsBrush(key)</span></span><a class="headerlink" href="#method-scandit.datacapture.core.JsonValue.GetBrushForKey" title="Permalink to this definition"></a></dt>
+<dd><pre class="full-signature"><a class="reference internal" href="../ui/brush.html#class-scandit.datacapture.core.ui.Brush" title="Brush class">Brush</a> <span class="sig-name descname">requireByKeyAsBrush</span>(&#64;NonNull <a class="reference external" href="https://developer.android.com/reference/java/lang/String.html" title="String">String</a> <em>key</em>)</pre><p><span class="versionmodified versionadded">Added in version 6.1.0</span></p>
+<p>Returns the value for the given key as a <a class="reference internal" href="../ui/brush.html#class-scandit.datacapture.core.ui.Brush" title="Brush class">Brush</a>. An exception is thrown if this JSON Value is not an object, it does not contain a value for the given key or the value for the given key is not a <a class="reference internal" href="../ui/brush.html#class-scandit.datacapture.core.ui.Brush" title="Brush class">Brush</a>.</p>
+</dd></dl>
+
+<dl>
+<dt class="sig sig-object unilang" id="method-scandit.datacapture.core.JsonValue.GetBrushForKeyOrDefault">
+<span class="sig-name descname"><span class="pre">getByKeyAsBrush(key,</span> <span class="pre">defaultValue)</span></span><a class="headerlink" href="#method-scandit.datacapture.core.JsonValue.GetBrushForKeyOrDefault" title="Permalink to this definition"></a></dt>
+<dd><pre class="full-signature"><a class="reference internal" href="../ui/brush.html#class-scandit.datacapture.core.ui.Brush" title="Brush class">Brush</a> <span class="sig-name descname">getByKeyAsBrush</span>(&#64;NonNull <a class="reference external" href="https://developer.android.com/reference/java/lang/String.html" title="String">String</a> <em>key</em>,
+        <a class="reference internal" href="../ui/brush.html#class-scandit.datacapture.core.ui.Brush" title="Brush class">Brush</a> <em>defaultValue</em>)</pre><p><span class="versionmodified versionadded">Added in version 6.1.0</span></p>
+<p>Returns the value for the given key as a <a class="reference internal" href="../ui/brush.html#class-scandit.datacapture.core.ui.Brush" title="Brush class">Brush</a>. The default value is returned if there is no value for the given key. An exception is thrown if this JSON Value is not an object or the value for the given key is not a <a class="reference internal" href="../ui/brush.html#class-scandit.datacapture.core.ui.Brush" title="Brush class">Brush</a>.</p>
+</dd></dl>
+
+<dl>
+<dt class="sig sig-object unilang" id="method-scandit.datacapture.core.JsonValue.AsFloatWithUnit">
+<span class="sig-name descname"><span class="pre">asFloatWithUnit()</span></span><a class="headerlink" href="#method-scandit.datacapture.core.JsonValue.AsFloatWithUnit" title="Permalink to this definition"></a></dt>
+<dd><pre class="full-signature">&#64;NonNull <a class="reference internal" href="../common.html#struct-scandit.datacapture.core.FloatWithUnit" title="FloatWithUnit struct">FloatWithUnit</a> <span class="sig-name descname">asFloatWithUnit</span>()</pre><p><span class="versionmodified versionadded">Added in version 6.1.0</span></p>
+<p>Returns the value as a <a class="reference internal" href="../common.html#struct-scandit.datacapture.core.FloatWithUnit" title="FloatWithUnit struct">FloatWithUnit</a>. An exception is thrown if the conversion is not possible.</p>
+</dd></dl>
+
+<dl>
+<dt class="sig sig-object unilang" id="method-scandit.datacapture.core.JsonValue.GetFloatWithUnitForKey">
+<span class="sig-name descname"><span class="pre">requireByKeyAsFloatWithUnit(key)</span></span><a class="headerlink" href="#method-scandit.datacapture.core.JsonValue.GetFloatWithUnitForKey" title="Permalink to this definition"></a></dt>
+<dd><pre class="full-signature"><a class="reference internal" href="../common.html#struct-scandit.datacapture.core.FloatWithUnit" title="FloatWithUnit struct">FloatWithUnit</a> <span class="sig-name descname">requireByKeyAsFloatWithUnit</span>(&#64;NonNull <a class="reference external" href="https://developer.android.com/reference/java/lang/String.html" title="String">String</a> <em>key</em>)</pre><p><span class="versionmodified versionadded">Added in version 6.1.0</span></p>
+<p>Returns the value for the given key as a <a class="reference internal" href="../common.html#struct-scandit.datacapture.core.FloatWithUnit" title="FloatWithUnit struct">FloatWithUnit</a>. An exception is thrown if this JSON Value is not an object, it does not contain a value for the given key or the value for the given key is not a <a class="reference internal" href="../common.html#struct-scandit.datacapture.core.FloatWithUnit" title="FloatWithUnit struct">FloatWithUnit</a>.</p>
+</dd></dl>
+
+<dl>
+<dt class="sig sig-object unilang" id="method-scandit.datacapture.core.JsonValue.GetFloatWithUnitForKeyOrDefault">
+<span class="sig-name descname"><span class="pre">getByKeyAsFloatWithUnit(key,</span> <span class="pre">defaultValue)</span></span><a class="headerlink" href="#method-scandit.datacapture.core.JsonValue.GetFloatWithUnitForKeyOrDefault" title="Permalink to this definition"></a></dt>
+<dd><pre class="full-signature"><a class="reference internal" href="../common.html#struct-scandit.datacapture.core.FloatWithUnit" title="FloatWithUnit struct">FloatWithUnit</a> <span class="sig-name descname">getByKeyAsFloatWithUnit</span>(&#64;NonNull <a class="reference external" href="https://developer.android.com/reference/java/lang/String.html" title="String">String</a> <em>key</em>,
+        <a class="reference internal" href="../common.html#struct-scandit.datacapture.core.FloatWithUnit" title="FloatWithUnit struct">FloatWithUnit</a> <em>defaultValue</em>)</pre><p><span class="versionmodified versionadded">Added in version 6.1.0</span></p>
+<p>Returns the value for the given key as a <a class="reference internal" href="../common.html#struct-scandit.datacapture.core.FloatWithUnit" title="FloatWithUnit struct">FloatWithUnit</a>. The default value is returned if there is no value for the given key. An exception is thrown if this JSON Value is not an object or the value for the given key is not a <a class="reference internal" href="../common.html#struct-scandit.datacapture.core.FloatWithUnit" title="FloatWithUnit struct">FloatWithUnit</a>.</p>
+</dd></dl>
+
+<dl>
+<dt class="sig sig-object unilang" id="method-scandit.datacapture.core.JsonValue.AsPointWithUnit">
+<span class="sig-name descname"><span class="pre">asPointWithUnit()</span></span><a class="headerlink" href="#method-scandit.datacapture.core.JsonValue.AsPointWithUnit" title="Permalink to this definition"></a></dt>
+<dd><pre class="full-signature">&#64;NonNull <a class="reference internal" href="../common.html#struct-scandit.datacapture.core.PointWithUnit" title="PointWithUnit struct">PointWithUnit</a> <span class="sig-name descname">asPointWithUnit</span>()</pre><p><span class="versionmodified versionadded">Added in version 6.1.0</span></p>
+<p>Returns the value as a <a class="reference internal" href="../common.html#struct-scandit.datacapture.core.PointWithUnit" title="PointWithUnit struct">PointWithUnit</a>. An exception is thrown if the conversion is not possible.</p>
+</dd></dl>
+
+<dl>
+<dt class="sig sig-object unilang" id="method-scandit.datacapture.core.JsonValue.GetPointWithUnitForKey">
+<span class="sig-name descname"><span class="pre">requireByKeyAsPointWithUnit(key)</span></span><a class="headerlink" href="#method-scandit.datacapture.core.JsonValue.GetPointWithUnitForKey" title="Permalink to this definition"></a></dt>
+<dd><pre class="full-signature"><a class="reference internal" href="../common.html#struct-scandit.datacapture.core.PointWithUnit" title="PointWithUnit struct">PointWithUnit</a> <span class="sig-name descname">requireByKeyAsPointWithUnit</span>(&#64;NonNull <a class="reference external" href="https://developer.android.com/reference/java/lang/String.html" title="String">String</a> <em>key</em>)</pre><p><span class="versionmodified versionadded">Added in version 6.1.0</span></p>
+<p>Returns the value for the given key as a <a class="reference internal" href="../common.html#struct-scandit.datacapture.core.PointWithUnit" title="PointWithUnit struct">PointWithUnit</a>. An exception is thrown if this JSON Value is not an object, it does not contain a value for the given key or the value for the given key is not a <a class="reference internal" href="../common.html#struct-scandit.datacapture.core.PointWithUnit" title="PointWithUnit struct">PointWithUnit</a>.</p>
+</dd></dl>
+
+<dl>
+<dt class="sig sig-object unilang">
+<span class="sig-name descname"><span class="pre">getByKeyAsPointWithUnit(key,</span> <span class="pre">defaultValue)</span></span></dt>
+<dd><pre class="full-signature"><a class="reference internal" href="../common.html#struct-scandit.datacapture.core.PointWithUnit" title="PointWithUnit struct">PointWithUnit</a> <span class="sig-name descname">getByKeyAsPointWithUnit</span>(&#64;NonNull <a class="reference external" href="https://developer.android.com/reference/java/lang/String.html" title="String">String</a> <em>key</em>,
+        <a class="reference internal" href="../common.html#struct-scandit.datacapture.core.PointWithUnit" title="PointWithUnit struct">PointWithUnit</a> <em>defaultValue</em>)</pre><p><span class="versionmodified versionadded">Added in version 6.1.0</span></p>
+<p>Returns the value for the given key as a <a class="reference internal" href="../common.html#struct-scandit.datacapture.core.PointWithUnit" title="PointWithUnit struct">PointWithUnit</a>. The default value is returned if there is no value for the given key. An exception is thrown if this JSON Value is not an object or the value for the given key is not a <a class="reference internal" href="../common.html#struct-scandit.datacapture.core.PointWithUnit" title="PointWithUnit struct">PointWithUnit</a>.</p>
+</dd></dl>
+
+<dl>
+<dt class="sig sig-object unilang" id="method-scandit.datacapture.core.JsonValue.AsMarginsWithUnit">
+<span class="sig-name descname"><span class="pre">asMarginsWithUnit()</span></span><a class="headerlink" href="#method-scandit.datacapture.core.JsonValue.AsMarginsWithUnit" title="Permalink to this definition"></a></dt>
+<dd><pre class="full-signature">&#64;NonNull <a class="reference internal" href="../common.html#struct-scandit.datacapture.core.MarginsWithUnit" title="MarginsWithUnit struct">MarginsWithUnit</a> <span class="sig-name descname">asMarginsWithUnit</span>()</pre><p><span class="versionmodified versionadded">Added in version 6.1.0</span></p>
+<p>Returns the value as a <a class="reference internal" href="../common.html#struct-scandit.datacapture.core.MarginsWithUnit" title="MarginsWithUnit struct">MarginsWithUnit</a>. An exception is thrown if the conversion is not possible.</p>
+</dd></dl>
+
+<dl>
+<dt class="sig sig-object unilang" id="method-scandit.datacapture.core.JsonValue.GetMarginsWithUnitForKey">
+<span class="sig-name descname"><span class="pre">requireByKeyAsMarginsWithUnit(key)</span></span><a class="headerlink" href="#method-scandit.datacapture.core.JsonValue.GetMarginsWithUnitForKey" title="Permalink to this definition"></a></dt>
+<dd><pre class="full-signature"><a class="reference internal" href="../common.html#struct-scandit.datacapture.core.MarginsWithUnit" title="MarginsWithUnit struct">MarginsWithUnit</a> <span class="sig-name descname">requireByKeyAsMarginsWithUnit</span>(&#64;NonNull <a class="reference external" href="https://developer.android.com/reference/java/lang/String.html" title="String">String</a> <em>key</em>)</pre><p><span class="versionmodified versionadded">Added in version 6.1.0</span></p>
+<p>Returns the value for the given key as a <a class="reference internal" href="../common.html#struct-scandit.datacapture.core.MarginsWithUnit" title="MarginsWithUnit struct">MarginsWithUnit</a>. An exception is thrown if this JSON Value is not an object, it does not contain a value for the given key or the value for the given key is not a <a class="reference internal" href="../common.html#struct-scandit.datacapture.core.MarginsWithUnit" title="MarginsWithUnit struct">MarginsWithUnit</a>.</p>
+</dd></dl>
+
+<dl>
+<dt class="sig sig-object unilang">
+<span class="sig-name descname"><span class="pre">getByKeyAsMarginsWithUnit(key,</span> <span class="pre">defaultValue)</span></span></dt>
+<dd><pre class="full-signature"><a class="reference internal" href="../common.html#struct-scandit.datacapture.core.MarginsWithUnit" title="MarginsWithUnit struct">MarginsWithUnit</a> <span class="sig-name descname">getByKeyAsMarginsWithUnit</span>(&#64;NonNull <a class="reference external" href="https://developer.android.com/reference/java/lang/String.html" title="String">String</a> <em>key</em>,
+        <a class="reference internal" href="../common.html#struct-scandit.datacapture.core.MarginsWithUnit" title="MarginsWithUnit struct">MarginsWithUnit</a> <em>defaultValue</em>)</pre><p><span class="versionmodified versionadded">Added in version 6.1.0</span></p>
+<p>Returns the value for the given key as a <a class="reference internal" href="../common.html#struct-scandit.datacapture.core.MarginsWithUnit" title="MarginsWithUnit struct">MarginsWithUnit</a>. The default value is returned if there is no value for the given key. An exception is thrown if this JSON Value is not an object or the value for the given key is not a <a class="reference internal" href="../common.html#struct-scandit.datacapture.core.MarginsWithUnit" title="MarginsWithUnit struct">MarginsWithUnit</a>.</p>
+</dd></dl>
+
+<dl>
+<dt class="sig sig-object unilang" id="method-scandit.datacapture.core.JsonValue.AsArray">
+<span class="sig-name descname"><span class="pre">asArray()</span></span><a class="headerlink" href="#method-scandit.datacapture.core.JsonValue.AsArray" title="Permalink to this definition"></a></dt>
+<dd><pre class="full-signature">&#64;NonNull <a class="reference internal" href="#class-scandit.datacapture.core.JsonValue" title="JsonValue class">JsonValue</a> <span class="sig-name descname">asArray</span>()</pre><p><span class="versionmodified versionadded">Added in version 6.1.0</span></p>
+<p>Returns the value if it is an array. An exception is thrown if the conversion is not possible.</p>
+</dd></dl>
+
+<dl>
+<dt class="sig sig-object unilang" id="method-scandit.datacapture.core.JsonValue.GetArrayForKey">
+<span class="sig-name descname"><span class="pre">requireByKeyAsArray(key)</span></span><a class="headerlink" href="#method-scandit.datacapture.core.JsonValue.GetArrayForKey" title="Permalink to this definition"></a></dt>
+<dd><pre class="full-signature">&#64;NonNull <a class="reference internal" href="#method-scandit.datacapture.core.JsonValue.JsonValue" title="JsonValue method">JsonValue</a> <span class="sig-name descname">requireByKeyAsArray</span>(&#64;NonNull <a class="reference external" href="https://developer.android.com/reference/java/lang/String.html" title="String">String</a> <em>key</em>)</pre><p><span class="versionmodified versionadded">Added in version 6.1.0</span></p>
+<p>Returns the value for the given key as an array. An exception is thrown if this JSON Value is not an object, it does not contain a value for the given key or the value for the given key is not an array.</p>
+</dd></dl>
+
+<dl>
+<dt class="sig sig-object unilang" id="method-scandit.datacapture.core.JsonValue.GetArrayForKeyOrDefault">
+<span class="sig-name descname"><span class="pre">getByKeyAsArray(key,</span> <span class="pre">defaultValue)</span></span><a class="headerlink" href="#method-scandit.datacapture.core.JsonValue.GetArrayForKeyOrDefault" title="Permalink to this definition"></a></dt>
+<dd><pre class="full-signature">&#64;Nullable <a class="reference internal" href="#method-scandit.datacapture.core.JsonValue.JsonValue" title="JsonValue method">JsonValue</a> <span class="sig-name descname">getByKeyAsArray</span>(&#64;NonNull <a class="reference external" href="https://developer.android.com/reference/java/lang/String.html" title="String">String</a> <em>key</em>,
+        &#64;Nullable <a class="reference internal" href="#method-scandit.datacapture.core.JsonValue.JsonValue" title="JsonValue method">JsonValue</a> <em>defaultValue</em>)</pre><p><span class="versionmodified versionadded">Added in version 6.1.0</span></p>
+<p>Returns the value for the given key as an array. The default value is returned if there is no value for the given key. An exception is thrown if this JSON Value is not an object or the value for the given key is not an array.</p>
+</dd></dl>
+
+<dl>
+<dt class="sig sig-object unilang" id="property-scandit.datacapture.core.JsonValue.Size">
+<span class="sig-name descname"><span class="pre">size</span></span><a class="headerlink" href="#property-scandit.datacapture.core.JsonValue.Size" title="Permalink to this definition"></a></dt>
+<dd><pre class="full-signature"><code class="docutils literal notranslate"><span class="pre">long</span></code> <span class="sig-name descname">getSize</span>()
+</pre><p><span class="versionmodified versionadded">Added in version 6.1.0</span></p>
+<p>The size of the array. An exception is thrown if this JSON value is not an array.</p>
+</dd></dl>
+
+<dl>
+<dt class="sig sig-object unilang" id="method-scandit.datacapture.core.JsonValue.GetForIndex">
+<span class="sig-name descname"><span class="pre">requireByIndex(index)</span></span><a class="headerlink" href="#method-scandit.datacapture.core.JsonValue.GetForIndex" title="Permalink to this definition"></a></dt>
+<dd><pre class="full-signature">&#64;NonNull <a class="reference internal" href="#method-scandit.datacapture.core.JsonValue.JsonValue" title="JsonValue method">JsonValue</a> <span class="sig-name descname">requireByIndex</span>(<code class="docutils literal notranslate"><span class="pre">int</span></code> <em>index</em>)</pre><p><span class="versionmodified versionadded">Added in version 6.1.0</span></p>
+<p>Returns the value for the given index. An exception is thrown if this JSON Value is not an array or the given index is out of bounds.</p>
+</dd></dl>
+
+<dl>
+<dt class="sig sig-object unilang" id="method-scandit.datacapture.core.JsonValue.AsObject">
+<span class="sig-name descname"><span class="pre">asObject()</span></span><a class="headerlink" href="#method-scandit.datacapture.core.JsonValue.AsObject" title="Permalink to this definition"></a></dt>
+<dd><pre class="full-signature">&#64;NonNull <a class="reference internal" href="#class-scandit.datacapture.core.JsonValue" title="JsonValue class">JsonValue</a> <span class="sig-name descname">asObject</span>()</pre><p><span class="versionmodified versionadded">Added in version 6.1.0</span></p>
+<p>Returns the value if it is an object. An exception is thrown if the conversion is not possible.</p>
+</dd></dl>
+
+<dl>
+<dt class="sig sig-object unilang" id="method-scandit.datacapture.core.JsonValue.GetObjectForKey">
+<span class="sig-name descname"><span class="pre">requireByKeyAsObject(key)</span></span><a class="headerlink" href="#method-scandit.datacapture.core.JsonValue.GetObjectForKey" title="Permalink to this definition"></a></dt>
+<dd><pre class="full-signature">&#64;NonNull <a class="reference internal" href="#method-scandit.datacapture.core.JsonValue.JsonValue" title="JsonValue method">JsonValue</a> <span class="sig-name descname">requireByKeyAsObject</span>(&#64;NonNull <a class="reference external" href="https://developer.android.com/reference/java/lang/String.html" title="String">String</a> <em>key</em>)</pre><p><span class="versionmodified versionadded">Added in version 6.1.0</span></p>
+<p>Returns the value for the given key as an object. An exception is thrown if this JSON Value is not an object, it does not contain a value for the given key or the value for the given key is not an object.</p>
+</dd></dl>
+
+<dl>
+<dt class="sig sig-object unilang" id="method-scandit.datacapture.core.JsonValue.GetObjectForKeyOrDefault">
+<span class="sig-name descname"><span class="pre">getByKeyAsObject(key,</span> <span class="pre">defaultValue)</span></span><a class="headerlink" href="#method-scandit.datacapture.core.JsonValue.GetObjectForKeyOrDefault" title="Permalink to this definition"></a></dt>
+<dd><pre class="full-signature">&#64;Nullable <a class="reference internal" href="#method-scandit.datacapture.core.JsonValue.JsonValue" title="JsonValue method">JsonValue</a> <span class="sig-name descname">getByKeyAsObject</span>(&#64;NonNull <a class="reference external" href="https://developer.android.com/reference/java/lang/String.html" title="String">String</a> <em>key</em>,
+        &#64;Nullable <a class="reference internal" href="#method-scandit.datacapture.core.JsonValue.JsonValue" title="JsonValue method">JsonValue</a> <em>defaultValue</em>)</pre><p><span class="versionmodified versionadded">Added in version 6.1.0</span></p>
+<p>Returns the value for the given key as an object. The default value is returned if there is no value for the given key. An exception is thrown if this JSON Value is not an object or the value for the given key is not an object.</p>
+</dd></dl>
+
+<dl>
+<dt class="sig sig-object unilang" id="method-scandit.datacapture.core.JsonValue.Contains">
+<span class="sig-name descname"><span class="pre">contains(key)</span></span><a class="headerlink" href="#method-scandit.datacapture.core.JsonValue.Contains" title="Permalink to this definition"></a></dt>
+<dd><pre class="full-signature"><code class="docutils literal notranslate"><span class="pre">boolean</span></code> <span class="sig-name descname">contains</span>(&#64;NonNull <a class="reference external" href="https://developer.android.com/reference/java/lang/String.html" title="String">String</a> <em>key</em>)</pre><p><span class="versionmodified versionadded">Added in version 6.1.0</span></p>
+<p>Returns whether a value for the given key exists. An exception is thrown if this JSON Value is not an object.</p>
+</dd></dl>
+
+<dl>
+<dt class="sig sig-object unilang" id="method-scandit.datacapture.core.JsonValue.GetForKey">
+<span class="sig-name descname"><span class="pre">requireByKey(key)</span></span><a class="headerlink" href="#method-scandit.datacapture.core.JsonValue.GetForKey" title="Permalink to this definition"></a></dt>
+<dd><pre class="full-signature">&#64;NonNull <a class="reference internal" href="#method-scandit.datacapture.core.JsonValue.JsonValue" title="JsonValue method">JsonValue</a> <span class="sig-name descname">requireByKey</span>(&#64;NonNull <a class="reference external" href="https://developer.android.com/reference/java/lang/String.html" title="String">String</a> <em>key</em>)</pre><p><span class="versionmodified versionadded">Added in version 6.1.0</span></p>
+<p>Returns the value for the given key. An exception is thrown if this JSON Value is not an object or it does not contain a value for the given key.</p>
+</dd></dl>
+
+<dl>
+<dt class="sig sig-object unilang" id="property-scandit.datacapture.core.JsonValue.AbsolutePath">
+<span class="sig-name descname"><span class="pre">absolutePath</span></span><a class="headerlink" href="#property-scandit.datacapture.core.JsonValue.AbsolutePath" title="Permalink to this definition"></a></dt>
+<dd><pre class="full-signature">&#64;NonNull <a class="reference external" href="https://developer.android.com/reference/java/lang/String.html" title="String">String</a> <span class="sig-name descname">getAbsolutePath</span>()
+</pre><p><span class="versionmodified versionadded">Added in version 6.1.0</span></p>
+<p>The path from the root to this JSON value.</p>
+</dd></dl>
+
+<dl>
+<dt class="sig sig-object unilang" id="property-scandit.datacapture.core.JsonValue.Used">
+<span class="sig-name descname"><span class="pre">used</span></span><a class="headerlink" href="#property-scandit.datacapture.core.JsonValue.Used" title="Permalink to this definition"></a></dt>
+<dd><pre class="full-signature"><code class="docutils literal notranslate"><span class="pre">boolean</span></code> <span class="sig-name descname">getUsed</span>()
+</pre><p><span class="versionmodified versionadded">Added in version 6.1.0</span></p>
+<p>Whether this JSON value was used during deserialization.</p>
+</dd></dl>
+
+</dd></dl>
+
+</div>
+
+
+           </div>
+          </div>
+          <footer>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2024, Scandit AG.</p>
+  </div>
+
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+  <!-- Start of scandit Zendesk Widget script -->
+  <script id="ze-snippet" src="https://static.zdassets.com/ekr/snippet.js?key=df0234ee-7451-4189-8d1c-17c8a624b5f1">
+  </script>
+<script>
+      function getPlatformSuffix() {
+        const platform = 'android'
+        switch (platform) {
+          case 'android':         return 'for Android'
+          case 'ios':             return 'for iOS'
+          case 'cordova':         return 'for Cordova'
+          case 'react-native':    return 'for React Native'
+          case 'xamarin.ios':     return 'for Xamarin.iOS'
+          case 'xamarin.android': return 'for Xamarin.Android'
+          case 'xamarin.forms':   return 'for Xamarin.Forms'
+          case 'flutter':         return 'for Flutter'
+          case 'capacitor':       return 'for Capacitor'
+          case 'titanium':        return 'for Titanium'
+          case 'web':             return 'for the Web'
+          case 'dotnet.ios':      return 'for .NET for iOS'
+          case 'dotnet.android':  return 'for .NET for Android'
+          default:                return ''
+        }
+      }
+
+      const platformSuffix = getPlatformSuffix()
+      const headerTitle = document.querySelector(".icon-home")
+      headerTitle.insertAdjacentHTML('beforeend', ` ${platformSuffix}`)
+
+      const [major, minor] = DOCUMENTATION_OPTIONS.VERSION.split('.')
+      const version = document.querySelector(".version")
+      version.innerHTML = `
+        <div class="version">
+          <a href="${DOCUMENTATION_OPTIONS.URL_ROOT}release-notes/${major}.${minor}.html">Release Notes</a> 
+        </div>
+        <br>
+      `
+  </script>
+  <!-- End of scandit Zendesk Widget script -->
+
+</body>
+</html>

@@ -1,0 +1,684 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Batch Scanning And AR &mdash; Data Capture SDK 6.24.0-rc.2 documentation</title>
+      <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+    <link rel="stylesheet" href="_static/custom.css" type="text/css" />
+  <!--[if lt IE 9]>
+    <script src="_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
+        <script src="_static/jquery.js"></script>
+        <script src="_static/underscore.js"></script>
+        <script src="_static/doctools.js"></script>
+    <script src="_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="Single Scanning" href="single-scanning.html" />
+    <link rel="prev" title="ID Scanning And Verification" href="id-scanning-and-verification.html" />
+  <!-- Google Tag Manager -->
+  <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+  new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+  j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+  'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+  })(window,document,'script','dataLayer','GTM-THQQFD7');</script>
+  <!-- End Google Tag Manager -->
+</head>
+
+<body class="wy-body-for-nav">
+  <!-- Google Tag Manager (noscript) -->
+  <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-THQQFD7"
+  height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+  <!-- End Google Tag Manager (noscript) -->
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+            <a href="index.html" class="icon icon-home"> Data Capture SDK
+          </a>
+              <div class="version">
+                6.24.0-rc.2
+              </div>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">First Steps</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="samples/run-samples.html">Run Samples</a></li>
+<li class="toctree-l1"><a class="reference internal" href="add-sdk.html">Add the SDK to Your App</a></li>
+<li class="toctree-l1"><a class="reference internal" href="best-practices-for-usability.html">Best Practices for Usability</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Pre-Built Components</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="high-speed-single-scanning.html">High-Speed Single Scanning</a></li>
+<li class="toctree-l1"><a class="reference internal" href="batch-counting-and-receiving.html">Batch Counting And Receiving</a></li>
+<li class="toctree-l1"><a class="reference internal" href="selecting-one-of-many.html">Selecting One Of Many Barcodes</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ar-assisted-search-and-find.html">AR-Assisted Search And Find</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Fully-Customizable API</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="id-scanning-and-verification.html">ID Scanning And Verification</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Batch Scanning And AR</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#get-started-with-matrixscan">Get Started With MatrixScan</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#prerequisites">Prerequisites</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#external-dependencies">External dependencies</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#internal-dependencies">Internal dependencies</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#create-the-data-capture-context">Create the Data Capture Context</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#configure-the-barcode-tracking-mode">Configure the Barcode Tracking Mode</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#use-the-built-in-camera">Use the Built-in Camera</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#use-a-capture-view-to-visualize-the-scan-process">Use a Capture View to Visualize the Scan Process</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#get-barcode-tracking-feedback">Get Barcode Tracking Feedback</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#disabling-barcode-tracking">Disabling Barcode Tracking</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#limitations">Limitations</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#add-ar-overlays-in-matrixscan">Add AR Overlays in MatrixScan</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="single-scanning.html">Single Scanning</a></li>
+<li class="toctree-l1"><a class="reference internal" href="text-capture.html">Text Capture</a></li>
+<li class="toctree-l1"><a class="reference internal" href="parse-barcode-data.html">Parse Barcode Data</a></li>
+<li class="toctree-l1"><a class="reference internal" href="advanced-topics.html">Advanced Topics</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">API Reference</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="core/overview.html">ScanditCaptureCore</a></li>
+<li class="toctree-l1"><a class="reference internal" href="barcode-capture/overview.html">ScanditBarcodeCapture</a></li>
+<li class="toctree-l1"><a class="reference internal" href="id-capture/overview.html">ScanditIdCapture</a></li>
+<li class="toctree-l1"><a class="reference internal" href="text-capture/overview.html">ScanditTextCapture</a></li>
+<li class="toctree-l1"><a class="reference internal" href="label-capture/overview.html">ScanditLabelCapture</a></li>
+<li class="toctree-l1"><a class="reference internal" href="parser/overview.html">ScanditParser</a></li>
+<li class="toctree-l1"><a class="reference internal" href="genindex.html">Index</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">More Resources</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="release-notes.html">Release Notes</a></li>
+<li class="toctree-l1"><a class="reference internal" href="barcode-symbologies.html">Barcode Symbologies</a></li>
+<li class="toctree-l1"><a class="reference internal" href="requirements.html">System Requirements</a></li>
+<li class="toctree-l1"><a class="reference internal" href="support.html">Support &amp; FAQ</a></li>
+<li class="toctree-l1"><a class="reference internal" href="features-by-platform.html">Features By Framework</a></li>
+<li class="toctree-l1"><a class="reference external" href="https://docs.scandit.com/barcode-scanner-sdk.html">SDK 5.x Documentation [Deprecated]</a></li>
+<li class="toctree-l1"><a class="reference internal" href="migrate-to-6.html">Migrate from Barcode Scanner 5.x</a></li>
+<li class="toctree-l1"><a class="reference external" href="http://ssl.scandit.com">Your Developer Dashboard</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">Data Capture SDK</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation" class="navbar">
+  <ul class="wy-breadcrumbs">
+      <li><a href="index.html" class="icon icon-home" aria-label="Home"></a></li>
+      <li class="breadcrumb-item active">Batch Scanning And AR</li>
+      <li class="wy-breadcrumbs-aside">
+      </li>
+  </ul>
+  <div class="auth-link-container">
+    <a class="signup-link signup-link--mobile" rel="noopener" target="_blank" href="https://ssl.scandit.com/dashboard/sign-up?p=test&utm_source=documentation">Sign up</a>
+    <a class="signup-link" target="_blank" rel="noopener" href="https://ssl.scandit.com/dashboard/sign-up?p=test&utm_source=documentation">Sign up for your developer account</a>
+    <a class="signin-link" target="_blank" rel="noopener" href="https://ssl.scandit.com/dashboard/sign-in">Log in</a>
+  </div>
+</div>
+<hr/>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <div class="section" id="batch-scanning-and-ar">
+<h1>Batch Scanning And AR<a class="headerlink" href="#batch-scanning-and-ar" title="Permalink to this headline"></a></h1>
+<div class="section" id="get-started-with-matrixscan">
+<h2>Get Started With MatrixScan<a class="headerlink" href="#get-started-with-matrixscan" title="Permalink to this headline"></a></h2>
+<p>With MatrixScan, you can highlight and interact multiple barcodes within the same frame and build AR experiences. MatrixScan use cases are implemented through functionality provided by <a class="reference internal" href="barcode-capture/api/barcode-tracking.html#class-scandit.datacapture.barcode.tracking.BarcodeTracking" title="BarcodeTracking class">BarcodeTracking</a>.</p>
+<p>In this guide you will learn step by step how to add <a class="reference internal" href="barcode-capture/api/barcode-tracking.html#class-scandit.datacapture.barcode.tracking.BarcodeTracking" title="BarcodeTracking class">BarcodeTracking</a> to your application. Roughly, the steps are:</p>
+<ul class="simple">
+<li><p>Include the <cite>ScanditBarcodeCapture</cite> library and its dependencies to your project, if any.</p></li>
+<li><p>Create a new <a class="reference internal" href="core/api/data-capture-context.html#class-scandit.datacapture.core.DataCaptureContext" title="data capture context class">data capture context</a>, initialized with your license key.</p></li>
+<li><p>Create a <a class="reference internal" href="barcode-capture/api/barcode-tracking-settings.html#class-scandit.datacapture.barcode.tracking.BarcodeTrackingSettings" title="barcode tracking settings class">barcode tracking settings</a> instance where you enable the <a class="reference internal" href="barcode-capture/api/symbology.html#enum-scandit.datacapture.barcode.Symbology" title="barcode symbologies enum">barcode symbologies</a> you want to read in your application.</p></li>
+<li><p>Create a new <a class="reference internal" href="barcode-capture/api/barcode-tracking.html#class-scandit.datacapture.barcode.tracking.BarcodeTracking" title="barcode tracking class">barcode tracking</a> object and initialize it with the settings created above.</p></li>
+<li><p>Obtain a <a class="reference internal" href="core/api/camera.html#class-scandit.datacapture.core.Camera" title="camera class">camera</a> instance and set it as the frame source on the data capture context previously created.</p></li>
+<li><p>Create a new <a class="reference internal" href="core/api/ui/data-capture-view.html#class-scandit.datacapture.core.ui.DataCaptureView" title="data capture view class">data capture view</a> and add a <a class="reference internal" href="barcode-capture/api/ui/barcode-tracking-basic-overlay.html#class-scandit.datacapture.barcode.tracking.ui.BarcodeTrackingBasicOverlay" title="basic overlay class">basic overlay</a> instance to it for visual feedback.</p></li>
+<li><p>Register an <a class="reference internal" href="barcode-capture/api/ui/barcode-tracking-basic-overlay-listener.html#interface-scandit.datacapture.barcode.tracking.ui.IBarcodeTrackingBasicOverlayListener" title="overlay listener interface">overlay listener</a> and implement <a class="reference internal" href="barcode-capture/api/ui/barcode-tracking-basic-overlay-listener.html#method-scandit.datacapture.barcode.tracking.ui.IBarcodeTrackingBasicOverlayListener.BrushForTrackedBarcode" title="BrushForTrackedBarcode() method">BrushForTrackedBarcode()</a>, which is called whenever a new tracked barcode appears.</p></li>
+</ul>
+<div class="section" id="prerequisites">
+<h3>Prerequisites<a class="headerlink" href="#prerequisites" title="Permalink to this headline"></a></h3>
+<p>Before starting with adding a capture mode, make sure that you have a valid Scandit Data Capture SDK license key and that you added the necessary dependencies.
+If you have not done that yet, check out <a class="reference internal" href="add-sdk.html"><span class="doc">this guide</span></a>.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>You can retrieve your Scandit Data Capture SDK license key, by signing in to your account at <a class="reference external" href="https://ssl.scandit.com/dashboard/sign-in">ssl.scandit.com/dashboard/sign-in</a>.</p>
+</div>
+<div class="section" id="external-dependencies">
+<h4>External dependencies<a class="headerlink" href="#external-dependencies" title="Permalink to this headline"></a></h4>
+<p>The Scandit Data Capture SDK modules depend on a few standard libraries that you can find listed below. If you are including the Scandit Data Capture SDK through Gradle or Maven, all of these dependencies are automatically pulled in and there is no need for you to do anything further. If on the other hand you are directly adding the AAR files to the project, you will have to add these dependencies yourself.</p>
+<table class="docutils align-default">
+<colgroup>
+<col style="width: 37%" />
+<col style="width: 63%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>Module</p></th>
+<th class="head"><p>Dependencies</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><cite>ScanditCaptureCore.aar</cite></p></td>
+<td><ul class="simple">
+<li><p>org.jetbrains.kotlin:kotlin-stdlib:[version]</p></li>
+<li><p>androidx.annotation:annotation:[version]</p></li>
+<li><p>com.squareup.okhttp3:okhttp:4.9.2</p>
+<ul>
+<li><p><strong>Not needed if using version 6.22 or newer of the Scandit Data Capture SDK</strong></p></li>
+</ul>
+</li>
+</ul>
+</td>
+</tr>
+<tr class="row-odd"><td><p><cite>ScanditBarcodeCapture.aar</cite></p></td>
+<td><ul class="simple">
+<li><p>org.jetbrains.kotlin:kotlin-stdlib:[version]</p></li>
+<li><p>androidx.annotation:annotation:[version]</p></li>
+</ul>
+</td>
+</tr>
+<tr class="row-even"><td><p><cite>ScanditParser.aar</cite></p></td>
+<td><p>No dependencies</p></td>
+</tr>
+<tr class="row-odd"><td><p><cite>ScanditTextCapture.aar</cite></p></td>
+<td><ul class="simple">
+<li><p>org.jetbrains.kotlin:kotlin-stdlib:[version]</p></li>
+<li><p>androidx.annotation:annotation:[version]</p></li>
+</ul>
+</td>
+</tr>
+<tr class="row-even"><td><p><cite>ScanditIdCapture.aar</cite></p></td>
+<td><ul class="simple">
+<li><p>org.jetbrains.kotlin:kotlin-stdlib:[version]</p></li>
+<li><p>androidx.annotation:annotation:[version]</p></li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="section" id="internal-dependencies">
+<h4>Internal dependencies<a class="headerlink" href="#internal-dependencies" title="Permalink to this headline"></a></h4>
+<p>Some of the Scandit Data Capture SDK modules depend on others to work:</p>
+<table class="docutils align-default">
+<colgroup>
+<col style="width: 49%" />
+<col style="width: 51%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>Module</p></th>
+<th class="head"><p>Dependencies</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><cite>ScanditCaptureCore</cite></p></td>
+<td><p>No dependencies</p></td>
+</tr>
+<tr class="row-odd"><td><p><cite>ScanditBarcodeCapture</cite></p></td>
+<td><ul class="simple">
+<li><p><cite>ScanditCaptureCore</cite></p></li>
+</ul>
+</td>
+</tr>
+<tr class="row-even"><td><p><cite>ScanditParser</cite></p></td>
+<td><p>No dependencies</p></td>
+</tr>
+<tr class="row-odd"><td><p><cite>ScanditTextCapture</cite></p></td>
+<td><ul class="simple">
+<li><p><cite>ScanditCaptureCore</cite></p></li>
+<li><p><cite>ScanditTextCaptureBackend</cite></p></li>
+</ul>
+</td>
+</tr>
+<tr class="row-even"><td><p><cite>ScanditIdCapture</cite></p></td>
+<td><ul class="simple">
+<li><p><cite>ScanditCaptureCore</cite></p></li>
+<li><p><cite>ScanditIdCaptureBackend</cite> (VIZ documents)</p></li>
+</ul>
+</td>
+</tr>
+<tr class="row-odd"><td><p><cite>ScanditIdCaptureBackend</cite></p></td>
+<td><p>No dependencies</p></td>
+</tr>
+<tr class="row-even"><td><p><cite>ScanditTextCaptureBackend</cite></p></td>
+<td><p>No dependencies</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<div class="section" id="create-the-data-capture-context">
+<h3>Create the Data Capture Context<a class="headerlink" href="#create-the-data-capture-context" title="Permalink to this headline"></a></h3>
+<p>The first step to add capture capabilities to your application is to create a new <a class="reference internal" href="core/api/data-capture-context.html#class-scandit.datacapture.core.DataCaptureContext" title="data capture context class">data capture context</a>. The context expects a valid Scandit Data Capture SDK license key during construction.</p>
+<div class="highlight-java notranslate"><div class="highlight"><pre><span></span><span class="n">DataCaptureContext</span><span class="w"> </span><span class="n">dataCaptureContext</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">DataCaptureContext</span><span class="p">.</span><span class="na">forLicenseKey</span><span class="p">(</span><span class="s">&quot;-- ENTER YOUR SCANDIT LICENSE KEY HERE --&quot;</span><span class="p">);</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="configure-the-barcode-tracking-mode">
+<h3>Configure the Barcode Tracking Mode<a class="headerlink" href="#configure-the-barcode-tracking-mode" title="Permalink to this headline"></a></h3>
+<p>The main entry point for the Barcode Tracking Mode is the <a class="reference internal" href="barcode-capture/api/barcode-tracking.html#class-scandit.datacapture.barcode.tracking.BarcodeTracking" title="BarcodeTracking class">BarcodeTracking</a> object.
+It is configured through <a class="reference internal" href="barcode-capture/api/barcode-tracking-settings.html#class-scandit.datacapture.barcode.tracking.BarcodeTrackingSettings" title="BarcodeTrackingSettings class">BarcodeTrackingSettings</a> and allows to register one or more <a class="reference internal" href="barcode-capture/api/barcode-tracking-listener.html#interface-scandit.datacapture.barcode.tracking.IBarcodeTrackingListener" title="listeners interface">listeners</a> that will get informed whenever a new frame has been processed.</p>
+<p>Most of the times, you will not need to implement a <a class="reference internal" href="barcode-capture/api/barcode-tracking-listener.html#interface-scandit.datacapture.barcode.tracking.IBarcodeTrackingListener" title="BarcodeTrackingListener interface">BarcodeTrackingListener</a>, instead you will add a <a class="reference internal" href="barcode-capture/api/ui/barcode-tracking-basic-overlay.html#class-scandit.datacapture.barcode.tracking.ui.BarcodeTrackingBasicOverlay" title="BarcodeTrackingBasicOverlay class">BarcodeTrackingBasicOverlay</a> and implement a <a class="reference internal" href="barcode-capture/api/ui/barcode-tracking-basic-overlay-listener.html#interface-scandit.datacapture.barcode.tracking.ui.IBarcodeTrackingBasicOverlayListener" title="BarcodeTrackingBasicOverlayListener interface">BarcodeTrackingBasicOverlayListener</a>.</p>
+<p>For this tutorial, we will setup Barcode Tracking for tracking QR codes.</p>
+<div class="highlight-java notranslate"><div class="highlight"><pre><span></span><span class="n">BarcodeTrackingSettings</span><span class="w"> </span><span class="n">settings</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">BarcodeTrackingSettings</span><span class="p">();</span>
+<span class="n">settings</span><span class="p">.</span><span class="na">enableSymbology</span><span class="p">(</span><span class="n">Symbology</span><span class="p">.</span><span class="na">QR</span><span class="p">,</span><span class="w"> </span><span class="kc">true</span><span class="p">);</span>
+</pre></div>
+</div>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>If your scenario is similar to one described in <a class="reference internal" href="barcode-capture/barcode-tracking-scenarios.html"><span class="doc">Barcode Tracking Scenarios</span></a>, then you should consider using <a class="reference internal" href="barcode-capture/api/barcode-tracking-settings.html#method-scandit.datacapture.barcode.tracking.BarcodeTrackingSettings.ForScenario" title="BarcodeTrackingSettings.forScenario() method">BarcodeTrackingSettings.forScenario()</a> for better results.</p>
+</div>
+<p>Next, create a <a class="reference internal" href="barcode-capture/api/barcode-tracking.html#class-scandit.datacapture.barcode.tracking.BarcodeTracking" title="BarcodeTracking class">BarcodeTracking</a> instance with the data capture context and the settings initialized in the previous steps:</p>
+<div class="highlight-java notranslate"><div class="highlight"><pre><span></span><span class="n">BarcodeTracking</span><span class="w"> </span><span class="n">barcodeTracking</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">BarcodeTracking</span><span class="p">.</span><span class="na">forDataCaptureContext</span><span class="p">(</span><span class="n">dataCaptureContext</span><span class="p">,</span><span class="w"> </span><span class="n">settings</span><span class="p">);</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="use-the-built-in-camera">
+<h3>Use the Built-in Camera<a class="headerlink" href="#use-the-built-in-camera" title="Permalink to this headline"></a></h3>
+<p>The data capture context supports using different frame sources to perform recognition on. Most applications will use the built-in camera of the device, e.g. the world-facing camera of a device. The remainder of this tutorial will assume that you use the built-in camera.</p>
+<div class="admonition important">
+<p class="admonition-title">Important</p>
+<p>In Android, the user must explicitly grant permission for each app to access cameras. Your app needs to declare the use of the Camera permission in the AndroidManifest.xml file and request it at runtime so the user can grant or deny the permission.
+To do that follow the guidelines from <a class="reference external" href="https://developer.android.com/training/permissions/requesting">Request app permissions</a> to request the android.permission.CAMERA permission.</p>
+</div>
+<p>When using the built-in camera there are recommended settings for each capture mode. These should be used to achieve the best performance and user experience for the respective mode. The following couple of lines show how to get the recommended settings and create the camera from it:</p>
+<div class="highlight-java notranslate"><div class="highlight"><pre><span></span><span class="n">CameraSettings</span><span class="w"> </span><span class="n">cameraSettings</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">BarcodeTracking</span><span class="p">.</span><span class="na">createRecommendedCameraSettings</span><span class="p">();</span>
+
+<span class="c1">// Depending on the use case further camera settings adjustments can be made here.</span>
+
+<span class="n">Camera</span><span class="w"> </span><span class="n">camera</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">Camera</span><span class="p">.</span><span class="na">getDefaultCamera</span><span class="p">();</span>
+<span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">camera</span><span class="w"> </span><span class="o">!=</span><span class="w"> </span><span class="kc">null</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="n">camera</span><span class="p">.</span><span class="na">applySettings</span><span class="p">(</span><span class="n">cameraSettings</span><span class="p">,</span><span class="w"> </span><span class="kc">null</span><span class="p">);</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p>Because the frame source is configurable, the data capture context must be told which frame source to use. This is done with a call to <a class="reference internal" href="core/api/data-capture-context.html#method-scandit.datacapture.core.DataCaptureContext.SetFrameSourceAsync" title="DataCaptureContext.setFrameSource() method">DataCaptureContext.setFrameSource()</a>:</p>
+<div class="highlight-java notranslate"><div class="highlight"><pre><span></span><span class="n">dataCaptureContext</span><span class="p">.</span><span class="na">setFrameSource</span><span class="p">(</span><span class="n">camera</span><span class="p">);</span>
+</pre></div>
+</div>
+<p>The camera is off by default and must be turned on. This is done by calling <a class="reference internal" href="core/api/frame-source.html#method-scandit.datacapture.core.IFrameSource.SwitchToDesiredStateAsync" title="FrameSource.switchToDesiredState() method">FrameSource.switchToDesiredState()</a> with a value of <a class="reference internal" href="core/api/frame-source.html#value-scandit.datacapture.core.FrameSourceState.On" title="FrameSourceState.ON value">FrameSourceState.ON</a>:</p>
+<div class="highlight-java notranslate"><div class="highlight"><pre><span></span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">camera</span><span class="w"> </span><span class="o">!=</span><span class="w"> </span><span class="kc">null</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="n">camera</span><span class="p">.</span><span class="na">switchToDesiredState</span><span class="p">(</span><span class="n">FrameSourceState</span><span class="p">.</span><span class="na">ON</span><span class="p">);</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>On Android the Scandit Data Capture SDK is not lifecycle aware which means it is not able to turn off the camera when the app goes in the background etc. which has to be done as otherwise the camera is locked for other apps. This responsibility to do this is left to the implementer. Make sure that you always turn the camera off in the activity’s <cite>onPause</cite> lifecycle method. Often this means that you want to (re)start it in <cite>onResume</cite>. You can see a way of doing this in all of the <a class="reference internal" href="samples/run-samples.html"><span class="doc">samples</span></a>.</p>
+</div>
+<p>There is a separate guide for <a class="reference internal" href="advanced-topics.html"><span class="doc">more advanced camera functionality</span></a>.</p>
+</div>
+<div class="section" id="use-a-capture-view-to-visualize-the-scan-process">
+<h3>Use a Capture View to Visualize the Scan Process<a class="headerlink" href="#use-a-capture-view-to-visualize-the-scan-process" title="Permalink to this headline"></a></h3>
+<p>When using the built-in camera as frame source, you will typically want to display the camera preview on the screen together with UI elements that guide the user through the capturing process. To do that, add a <a class="reference internal" href="core/api/ui/data-capture-view.html#class-scandit.datacapture.core.ui.DataCaptureView" title="DataCaptureView class">DataCaptureView</a> to your view hierarchy:</p>
+<div class="highlight-java notranslate"><div class="highlight"><pre><span></span><span class="n">DataCaptureView</span><span class="w"> </span><span class="n">dataCaptureView</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">DataCaptureView</span><span class="p">.</span><span class="na">newInstance</span><span class="p">(</span><span class="k">this</span><span class="p">,</span><span class="w"> </span><span class="n">dataCaptureContext</span><span class="p">);</span>
+<span class="n">setContentView</span><span class="p">(</span><span class="n">dataCaptureView</span><span class="p">);</span>
+</pre></div>
+</div>
+<p>To visualize the results of Barcode Tracking, first you need to add the following <a class="reference internal" href="barcode-capture/api/ui/barcode-tracking-basic-overlay.html#class-scandit.datacapture.barcode.tracking.ui.BarcodeTrackingBasicOverlay" title="overlay class">overlay</a>:</p>
+<div class="highlight-java notranslate"><div class="highlight"><pre><span></span><span class="n">BarcodeTrackingBasicOverlay</span><span class="w"> </span><span class="n">overlay</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">BarcodeTrackingBasicOverlay</span><span class="p">.</span><span class="na">newInstance</span><span class="p">(</span><span class="n">barcodeTracking</span><span class="p">,</span><span class="w"> </span><span class="n">dataCaptureView</span><span class="p">);</span>
+</pre></div>
+</div>
+<p>Once the overlay has been added, you should implement the <a class="reference internal" href="barcode-capture/api/ui/barcode-tracking-basic-overlay-listener.html#interface-scandit.datacapture.barcode.tracking.ui.IBarcodeTrackingBasicOverlayListener" title="BarcodeTrackingBasicOverlayListener interface">BarcodeTrackingBasicOverlayListener</a> interface. The method <a class="reference internal" href="barcode-capture/api/ui/barcode-tracking-basic-overlay-listener.html#method-scandit.datacapture.barcode.tracking.ui.IBarcodeTrackingBasicOverlayListener.BrushForTrackedBarcode" title="BarcodeTrackingBasicOverlayListener.brushForTrackedBarcode() method">BarcodeTrackingBasicOverlayListener.brushForTrackedBarcode()</a> is invoked every time a new tracked barcode appears and it can be used to set a <a class="reference internal" href="core/api/ui/brush.html#class-scandit.datacapture.core.ui.Brush" title="brush class">brush</a> that will be used to highlight that specific barcode in the <a class="reference internal" href="barcode-capture/api/ui/barcode-tracking-basic-overlay.html#class-scandit.datacapture.barcode.tracking.ui.BarcodeTrackingBasicOverlay" title="overlay class">overlay</a>.</p>
+<div class="highlight-java notranslate"><div class="highlight"><pre><span></span><span class="nd">@Override</span>
+<span class="kd">public</span><span class="w"> </span><span class="n">Brush</span><span class="w"> </span><span class="nf">brushForTrackedBarcode</span><span class="p">(</span><span class="nd">@NonNull</span><span class="w"> </span><span class="n">BarcodeTrackingBasicOverlay</span><span class="w"> </span><span class="n">overlay</span><span class="p">,</span>
+<span class="w">                                    </span><span class="nd">@NonNull</span><span class="w"> </span><span class="n">TrackedBarcode</span><span class="w"> </span><span class="n">trackedBarcode</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="c1">// Return a custom Brush based on the tracked barcode.</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p>If you would like to make the highlights tappable, you need to implement the <a class="reference internal" href="barcode-capture/api/ui/barcode-tracking-basic-overlay-listener.html#method-scandit.datacapture.barcode.tracking.ui.IBarcodeTrackingBasicOverlayListener.OnTrackedBarcodeTapped" title="BarcodeTrackingBasicOverlayListener.onTrackedBarcodeTapped() method">BarcodeTrackingBasicOverlayListener.onTrackedBarcodeTapped()</a> method.</p>
+<div class="highlight-java notranslate"><div class="highlight"><pre><span></span><span class="nd">@Override</span>
+<span class="kd">public</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="nf">onTap</span><span class="p">(</span><span class="nd">@NonNull</span><span class="w"> </span><span class="n">BarcodeTrackingBasicOverlay</span><span class="w"> </span><span class="n">overlay</span><span class="p">,</span>
+<span class="w">                  </span><span class="nd">@NonNull</span><span class="w"> </span><span class="n">TrackedBarcode</span><span class="w"> </span><span class="n">trackedBarcode</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="c1">// A tracked barcode was tapped.</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="get-barcode-tracking-feedback">
+<h3>Get Barcode Tracking Feedback<a class="headerlink" href="#get-barcode-tracking-feedback" title="Permalink to this headline"></a></h3>
+<p>Barcode Tracking, unlike Barcode Capture, doesn’t emit feedback (sound or vibration) when a new barcode is recognized. However, you may implement a <a class="reference internal" href="barcode-capture/api/barcode-tracking-listener.html#interface-scandit.datacapture.barcode.tracking.IBarcodeTrackingListener" title="BarcodeTrackingListener interface">BarcodeTrackingListener</a> to provide a similar experience. Below, we use the default <a class="reference internal" href="core/api/feedback.html#class-scandit.datacapture.core.Feedback" title="Feedback class">Feedback</a>, but you may configure it with your own sound or vibration if you want.</p>
+<p>First, let’s create a <a class="reference internal" href="core/api/feedback.html#class-scandit.datacapture.core.Feedback" title="feedback class">feedback</a>. We release it after it is no longer used, to avoid resources being unnecessarily held.</p>
+<div class="highlight-java notranslate"><div class="highlight"><pre><span></span><span class="nd">@Override</span>
+<span class="kd">protected</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="nf">onResume</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="kd">super</span><span class="p">.</span><span class="na">onResume</span><span class="p">();</span>
+
+<span class="w">    </span><span class="n">feedback</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">Feedback</span><span class="p">.</span><span class="na">defaultFeedback</span><span class="p">()</span>
+<span class="p">}</span>
+
+<span class="nd">@Override</span>
+<span class="kd">protected</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="nf">onPause</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="kd">super</span><span class="p">.</span><span class="na">onPause</span><span class="p">();</span>
+
+<span class="w">    </span><span class="n">feedback</span><span class="p">.</span><span class="na">release</span><span class="p">();</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p>Next, use this <a class="reference internal" href="core/api/feedback.html#class-scandit.datacapture.core.Feedback" title="feedback class">feedback</a> in a <a class="reference internal" href="barcode-capture/api/barcode-tracking-listener.html#interface-scandit.datacapture.barcode.tracking.IBarcodeTrackingListener" title="BarcodeTrackingListener interface">BarcodeTrackingListener</a>:</p>
+<div class="highlight-java notranslate"><div class="highlight"><pre><span></span><span class="kd">public</span><span class="w"> </span><span class="kd">class</span> <span class="nc">FeedbackListener</span><span class="w"> </span><span class="kd">implements</span><span class="w"> </span><span class="n">BarcodeTrackingListener</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="nd">@Override</span>
+<span class="w">    </span><span class="kd">public</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="nf">onObservationStarted</span><span class="p">(</span><span class="nd">@NotNull</span><span class="w"> </span><span class="n">BarcodeTracking</span><span class="w"> </span><span class="n">barcodeTracking</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="c1">// Called when Barcode Tracking is started.</span>
+<span class="w">        </span><span class="c1">// We don&#39;t use this callback in this guide.</span>
+<span class="w">    </span><span class="p">}</span>
+
+<span class="w">    </span><span class="nd">@Override</span>
+<span class="w">    </span><span class="kd">public</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="nf">onObservationStopped</span><span class="p">(</span><span class="nd">@NotNull</span><span class="w"> </span><span class="n">BarcodeTracking</span><span class="w"> </span><span class="n">barcodeTracking</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="c1">// Called when Barcode Tracking is stopped.</span>
+<span class="w">        </span><span class="c1">// We don&#39;t use this callback in this guide.</span>
+<span class="w">    </span><span class="p">}</span>
+
+<span class="w">    </span><span class="nd">@Override</span>
+<span class="w">    </span><span class="kd">public</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="nf">onSessionUpdated</span><span class="p">(</span>
+<span class="w">            </span><span class="nd">@NotNull</span><span class="w"> </span><span class="n">BarcodeTracking</span><span class="w"> </span><span class="n">mode</span><span class="p">,</span>
+<span class="w">            </span><span class="nd">@NotNull</span><span class="w"> </span><span class="n">BarcodeTrackingSession</span><span class="w"> </span><span class="n">session</span><span class="p">,</span>
+<span class="w">            </span><span class="nd">@NotNull</span><span class="w"> </span><span class="n">FrameData</span><span class="w"> </span><span class="n">data</span>
+<span class="w">    </span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="o">!</span><span class="n">session</span><span class="p">.</span><span class="na">getAddedTrackedBarcodes</span><span class="p">().</span><span class="na">isEmpty</span><span class="p">())</span><span class="w"> </span><span class="p">{</span>
+<span class="w">            </span><span class="n">feedback</span><span class="p">.</span><span class="na">emit</span><span class="p">();</span>
+<span class="w">        </span><span class="p">}</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p><a class="reference internal" href="barcode-capture/api/barcode-tracking-listener.html#method-scandit.datacapture.barcode.tracking.IBarcodeTrackingListener.OnSessionUpdated" title="BarcodeTrackingListener.onSessionUpdated() method">BarcodeTrackingListener.onSessionUpdated()</a> is invoked for every processed frame. The <a class="reference internal" href="barcode-capture/api/barcode-tracking-session.html#class-scandit.datacapture.barcode.tracking.BarcodeTrackingSession" title="session class">session</a> parameter contains information about the currently tracked barcodes, in particular, the newly recognized ones. We check if there are any and if so, we emit the feedback.</p>
+<p>As the last step, register the listener responsible for emitting the feedback with the <a class="reference internal" href="barcode-capture/api/barcode-tracking.html#class-scandit.datacapture.barcode.tracking.BarcodeTracking" title="BarcodeTracking class">BarcodeTracking</a> instance.</p>
+<div class="highlight-java notranslate"><div class="highlight"><pre><span></span><span class="n">barcodeTracking</span><span class="p">.</span><span class="na">addListener</span><span class="p">(</span><span class="n">feedbackListener</span><span class="p">);</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="disabling-barcode-tracking">
+<h3>Disabling Barcode Tracking<a class="headerlink" href="#disabling-barcode-tracking" title="Permalink to this headline"></a></h3>
+<p>To disable barcode tracking set <a class="reference internal" href="barcode-capture/api/barcode-tracking.html#property-scandit.datacapture.barcode.tracking.BarcodeTracking.IsEnabled" title="BarcodeTracking.isEnabled property">BarcodeTracking.isEnabled</a> to <em>false</em>.
+The effect is immediate: no more frames will be processed <em>after</em> the change. However, if a frame is currently being processed, this frame will be completely processed and deliver any results/callbacks to the registered listeners.</p>
+<p>Note that disabling the capture mode does not stop the camera, the camera continues to stream frames until it is turned off
+or put it in standby calling <a class="reference internal" href="core/api/frame-source.html#method-scandit.datacapture.core.IFrameSource.SwitchToDesiredStateAsync" title="SwitchToDesiredState method">SwitchToDesiredState</a> with a value of <a class="reference internal" href="core/api/frame-source.html#value-scandit.datacapture.core.FrameSourceState.Standby" title="StandBy value">StandBy</a>.</p>
+</div>
+<div class="section" id="limitations">
+<h3>Limitations<a class="headerlink" href="#limitations" title="Permalink to this headline"></a></h3>
+<p>MatrixScan does not support the following symbologies:</p>
+<ul class="simple">
+<li><p>DotCode</p></li>
+<li><p>MaxiCode</p></li>
+<li><p>All postal codes (KIX, RM4SCC)</p></li>
+</ul>
+<div class="admonition-what-s-next admonition">
+<p class="admonition-title">What’s next?</p>
+<p>To dive further into the Scandit Data Capture SDK we recommend the following articles:</p>
+<blockquote>
+<div><ul class="simple">
+<li><p><a class="reference internal" href="configure-barcodes.html"><span class="doc">Configure Which Barcodes Are Read</span></a></p></li>
+<li><p><a class="reference internal" href="#add-augmented-reality-overlay"><span class="std std-ref">Add AR Overlays in MatrixScan</span></a></p></li>
+</ul>
+</div></blockquote>
+</div>
+</div>
+</div>
+<div class="section" id="add-ar-overlays-in-matrixscan">
+<span id="add-augmented-reality-overlay"></span><h2>Add AR Overlays in MatrixScan<a class="headerlink" href="#add-ar-overlays-in-matrixscan" title="Permalink to this headline"></a></h2>
+<blockquote>
+<div><div class="section" id="id1">
+<h3>Prerequisites<a class="headerlink" href="#id1" title="Permalink to this headline"></a></h3>
+<p>To proceed, you need to setup a project that uses MatrixScan first, check out <a class="reference internal" href="get-started-matrixscan.html"><span class="doc">this guide</span></a> (you can ignore the bottom section about the visualization of tracked barcodes using <a class="reference internal" href="barcode-capture/api/ui/barcode-tracking-basic-overlay.html#class-scandit.datacapture.barcode.tracking.ui.BarcodeTrackingBasicOverlay" title="BarcodeTrackingBasicOverlay class">BarcodeTrackingBasicOverlay</a>).</p>
+</div>
+<div class="section" id="getting-started">
+<h3>Getting started<a class="headerlink" href="#getting-started" title="Permalink to this headline"></a></h3>
+<p>There are two ways to add advanced AR overlays to a Data Capture View:</p>
+<ul class="simple">
+<li><p>Take advantage of the <a class="reference internal" href="barcode-capture/api/ui/barcode-tracking-advanced-overlay.html#class-scandit.datacapture.barcode.tracking.ui.BarcodeTrackingAdvancedOverlay" title="BarcodeTrackingAdvancedOverlay class">BarcodeTrackingAdvancedOverlay</a> class, which provides a ready-to-use implementation for view-based AR overlays.</p></li>
+<li><p>Provide your own custom implementation, using the function <a class="reference internal" href="barcode-capture/api/barcode-tracking-listener.html#method-scandit.datacapture.barcode.tracking.IBarcodeTrackingListener.OnSessionUpdated" title="BarcodeTrackingListener.onSessionUpdated() method">BarcodeTrackingListener.onSessionUpdated()</a> to retrieve the barcode’s current screen position for each frame.</p></li>
+</ul>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<ul class="simple">
+<li><p>The first way is the easiest, as it takes care of adding, removing and animating the overlay’s views whenever needed. It’s also flexible enough to cover the majority of use cases.</p></li>
+<li><p>You can always handle touch events on the views you create like you normally would.</p></li>
+</ul>
+</div>
+</div>
+<div class="section" id="using-barcodetrackingadvancedoverlay">
+<h3>Using BarcodeTrackingAdvancedOverlay<a class="headerlink" href="#using-barcodetrackingadvancedoverlay" title="Permalink to this headline"></a></h3>
+<p>As mentioned above, the advanced overlay combined with its <a class="reference internal" href="barcode-capture/api/ui/barcode-tracking-advanced-overlay-listener.html#interface-scandit.datacapture.barcode.tracking.ui.IBarcodeTrackingAdvancedOverlayListener" title="listener interface">listener</a> offers an easy way of adding augmentations to your <a class="reference internal" href="core/api/ui/data-capture-view.html#class-scandit.datacapture.core.ui.DataCaptureView" title="DataCaptureView class">DataCaptureView</a>.
+In this guide we will add a view above each barcode showing its content.</p>
+<p>First of all, create a new instance of <a class="reference internal" href="barcode-capture/api/ui/barcode-tracking-advanced-overlay.html#class-scandit.datacapture.barcode.tracking.ui.BarcodeTrackingAdvancedOverlay" title="BarcodeTrackingAdvancedOverlay class">BarcodeTrackingAdvancedOverlay</a> and add it to the <a class="reference internal" href="core/api/ui/data-capture-view.html#class-scandit.datacapture.core.ui.DataCaptureView" title="DataCaptureView class">DataCaptureView</a>.</p>
+<div class="highlight-java notranslate"><div class="highlight"><pre><span></span><span class="n">BarcodeTrackingAdvancedOverlay</span><span class="w"> </span><span class="n">overlay</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">BarcodeTrackingAdvancedOverlay</span><span class="p">.</span><span class="na">newInstance</span><span class="p">(</span><span class="n">barcodeTracking</span><span class="p">,</span><span class="w"> </span><span class="n">dataCaptureView</span><span class="p">);</span>
+</pre></div>
+</div>
+<p>At this point, you have two options.</p>
+<ul class="simple">
+<li><p>Add a <a class="reference internal" href="barcode-capture/api/ui/barcode-tracking-advanced-overlay-listener.html#interface-scandit.datacapture.barcode.tracking.ui.IBarcodeTrackingAdvancedOverlayListener" title="BarcodeTrackingAdvancedOverlayListener interface">BarcodeTrackingAdvancedOverlayListener</a> to the overlay.</p></li>
+<li><p>Use the setters in the <a class="reference internal" href="barcode-capture/api/ui/barcode-tracking-advanced-overlay.html#class-scandit.datacapture.barcode.tracking.ui.BarcodeTrackingAdvancedOverlay" title="overlay class">overlay</a> to specify the view, anchor and offset for each barcode.</p></li>
+</ul>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>The second way will take priority over the first one, which means that if a view for a barcode has been set using <a class="reference internal" href="barcode-capture/api/ui/barcode-tracking-advanced-overlay.html#method-scandit.datacapture.barcode.tracking.ui.BarcodeTrackingAdvancedOverlay.SetViewForTrackedBarcode" title="BarcodeTrackingAdvancedOverlay.setViewForTrackedBarcode() method">BarcodeTrackingAdvancedOverlay.setViewForTrackedBarcode()</a>, the function <a class="reference internal" href="barcode-capture/api/ui/barcode-tracking-advanced-overlay-listener.html#method-scandit.datacapture.barcode.tracking.ui.IBarcodeTrackingAdvancedOverlayListener.ViewForTrackedBarcode" title="BarcodeTrackingAdvancedOverlayListener.viewForTrackedBarcode() method">BarcodeTrackingAdvancedOverlayListener.viewForTrackedBarcode()</a> won’t be invoked for that specific barcode.</p>
+</div>
+<p>Using <a class="reference internal" href="barcode-capture/api/ui/barcode-tracking-advanced-overlay-listener.html#interface-scandit.datacapture.barcode.tracking.ui.IBarcodeTrackingAdvancedOverlayListener" title="BarcodeTrackingAdvancedOverlayListener interface">BarcodeTrackingAdvancedOverlayListener</a></p>
+<ul class="simple">
+<li><p>You need to implement <a class="reference internal" href="barcode-capture/api/ui/barcode-tracking-advanced-overlay-listener.html#interface-scandit.datacapture.barcode.tracking.ui.IBarcodeTrackingAdvancedOverlayListener" title="BarcodeTrackingAdvancedOverlayListener interface">BarcodeTrackingAdvancedOverlayListener</a>. This interface’s methods are invoked every time a barcode is newly tracked.</p></li>
+<li><p><a class="reference internal" href="barcode-capture/api/ui/barcode-tracking-advanced-overlay-listener.html#method-scandit.datacapture.barcode.tracking.ui.IBarcodeTrackingAdvancedOverlayListener.ViewForTrackedBarcode" title="BarcodeTrackingAdvancedOverlayListener.viewForTrackedBarcode() method">BarcodeTrackingAdvancedOverlayListener.viewForTrackedBarcode()</a> asks for a view to animate on top of the barcode. Returning <em>null</em> will show no view.</p></li>
+<li><p><a class="reference internal" href="barcode-capture/api/ui/barcode-tracking-advanced-overlay-listener.html#method-scandit.datacapture.barcode.tracking.ui.IBarcodeTrackingAdvancedOverlayListener.AnchorForTrackedBarcode" title="BarcodeTrackingAdvancedOverlayListener.anchorForTrackedBarcode() method">BarcodeTrackingAdvancedOverlayListener.anchorForTrackedBarcode()</a> asks how to anchor the view to the barcode through <a class="reference internal" href="core/api/anchor.html#enum-scandit.datacapture.core.Anchor" title="Anchor enum">Anchor</a>. Be aware that it anchors the view’s center to the anchor point. To achieve anchoring the top of the view or the bottom etc. you will have to set an offset as explained in the next point.</p></li>
+<li><p><a class="reference internal" href="barcode-capture/api/ui/barcode-tracking-advanced-overlay-listener.html#method-scandit.datacapture.barcode.tracking.ui.IBarcodeTrackingAdvancedOverlayListener.OffsetForTrackedBarcode" title="BarcodeTrackingAdvancedOverlayListener.offsetForTrackedBarcode() method">BarcodeTrackingAdvancedOverlayListener.offsetForTrackedBarcode()</a> asks for an offset that is applied on the already anchored view. This offset is expressed through a <a class="reference internal" href="core/api/common.html#struct-scandit.datacapture.core.PointWithUnit" title="PointWithUnit struct">PointWithUnit</a>.</p></li>
+</ul>
+<div class="highlight-java notranslate"><div class="highlight"><pre><span></span><span class="nd">@Nullable</span>
+<span class="nd">@Override</span>
+<span class="kd">public</span><span class="w"> </span><span class="n">View</span><span class="w"> </span><span class="nf">viewForTrackedBarcode</span><span class="p">(</span>
+<span class="w">    </span><span class="nd">@NotNull</span><span class="w"> </span><span class="n">BarcodeTrackingAdvancedOverlay</span><span class="w"> </span><span class="n">overlay</span><span class="p">,</span>
+<span class="w">    </span><span class="nd">@NotNull</span><span class="w"> </span><span class="n">TrackedBarcode</span><span class="w"> </span><span class="n">trackedBarcode</span>
+<span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="c1">// Create and return the view you want to show for this tracked barcode. You can also return null, to have no view for this barcode.</span>
+<span class="w">    </span><span class="n">TextView</span><span class="w"> </span><span class="n">textView</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">TextView</span><span class="p">(</span><span class="k">this</span><span class="p">);</span>
+<span class="w">    </span><span class="n">textView</span><span class="p">.</span><span class="na">setBackgroundColor</span><span class="p">(</span><span class="n">Color</span><span class="p">.</span><span class="na">WHITE</span><span class="p">);</span>
+<span class="w">    </span><span class="n">textView</span><span class="p">.</span><span class="na">setLayoutParams</span><span class="p">(</span>
+<span class="w">        </span><span class="k">new</span><span class="w"> </span><span class="n">ViewGroup</span><span class="p">.</span><span class="na">LayoutParams</span><span class="p">(</span>
+<span class="w">            </span><span class="n">ViewGroup</span><span class="p">.</span><span class="na">LayoutParams</span><span class="p">.</span><span class="na">WRAP_CONTENT</span><span class="p">,</span>
+<span class="w">            </span><span class="n">ViewGroup</span><span class="p">.</span><span class="na">LayoutParams</span><span class="p">.</span><span class="na">WRAP_CONTENT</span>
+<span class="w">        </span><span class="p">)</span>
+<span class="w">    </span><span class="p">);</span>
+<span class="w">    </span><span class="n">textView</span><span class="p">.</span><span class="na">setText</span><span class="p">(</span><span class="n">trackedBarcode</span><span class="p">.</span><span class="na">getBarcode</span><span class="p">().</span><span class="na">getData</span><span class="p">());</span>
+<span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="n">textView</span><span class="p">;</span>
+<span class="p">}</span>
+
+<span class="nd">@NotNull</span>
+<span class="nd">@Override</span>
+<span class="kd">public</span><span class="w"> </span><span class="n">Anchor</span><span class="w"> </span><span class="nf">anchorForTrackedBarcode</span><span class="p">(</span>
+<span class="w">    </span><span class="nd">@NotNull</span><span class="w"> </span><span class="n">BarcodeTrackingAdvancedOverlay</span><span class="w"> </span><span class="n">overlay</span><span class="p">,</span>
+<span class="w">    </span><span class="nd">@NotNull</span><span class="w"> </span><span class="n">TrackedBarcode</span><span class="w"> </span><span class="n">trackedBarcode</span>
+<span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="c1">// As we want the view to be above the barcode, we anchor the view&#39;s center to the top-center of the barcode quadrilateral.</span>
+<span class="w">    </span><span class="c1">// Use the function &#39;offsetForTrackedBarcode&#39; below to adjust the position of the view by providing an offset.</span>
+<span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="n">Anchor</span><span class="p">.</span><span class="na">TOP_CENTER</span><span class="p">;</span>
+<span class="p">}</span>
+
+<span class="nd">@NotNull</span>
+<span class="nd">@Override</span>
+<span class="kd">public</span><span class="w"> </span><span class="n">PointWithUnit</span><span class="w"> </span><span class="nf">offsetForTrackedBarcode</span><span class="p">(</span>
+<span class="w">    </span><span class="nd">@NotNull</span><span class="w"> </span><span class="n">BarcodeTrackingAdvancedOverlay</span><span class="w"> </span><span class="n">overlay</span><span class="p">,</span>
+<span class="w">    </span><span class="nd">@NotNull</span><span class="w"> </span><span class="n">TrackedBarcode</span><span class="w"> </span><span class="n">trackedBarcode</span><span class="p">,</span>
+<span class="w">    </span><span class="nd">@NotNull</span><span class="w"> </span><span class="n">View</span><span class="w"> </span><span class="n">view</span>
+<span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="c1">// This is the offset that will be applied to the view.</span>
+<span class="w">    </span><span class="c1">// You can use MeasureUnit.FRACTION to give a measure relative to the view itself, the sdk will take care of transforming this into pixel size.</span>
+<span class="w">    </span><span class="c1">// We now center horizontally and move up the view to make sure it&#39;s centered and above the barcode quadrilateral by half of the view&#39;s height.</span>
+<span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">PointWithUnit</span><span class="p">(</span>
+<span class="w">        </span><span class="k">new</span><span class="w"> </span><span class="n">FloatWithUnit</span><span class="p">(</span><span class="mf">0f</span><span class="p">,</span><span class="w"> </span><span class="n">MeasureUnit</span><span class="p">.</span><span class="na">FRACTION</span><span class="p">),</span>
+<span class="w">        </span><span class="k">new</span><span class="w"> </span><span class="n">FloatWithUnit</span><span class="p">(</span><span class="o">-</span><span class="mf">1f</span><span class="p">,</span><span class="w"> </span><span class="n">MeasureUnit</span><span class="p">.</span><span class="na">FRACTION</span><span class="p">)</span>
+<span class="w">    </span><span class="p">);</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p>Using the setters in the <a class="reference internal" href="barcode-capture/api/ui/barcode-tracking-advanced-overlay.html#class-scandit.datacapture.barcode.tracking.ui.BarcodeTrackingAdvancedOverlay" title="overlay class">overlay</a></p>
+<p>The function <a class="reference internal" href="barcode-capture/api/barcode-tracking-listener.html#method-scandit.datacapture.barcode.tracking.IBarcodeTrackingListener.OnSessionUpdated" title="BarcodeTrackingListener.onSessionUpdated() method">BarcodeTrackingListener.onSessionUpdated()</a> gives you access to a <a class="reference internal" href="barcode-capture/api/barcode-tracking-session.html#class-scandit.datacapture.barcode.tracking.BarcodeTrackingSession" title="session class">session</a>, which contains all added, updated and removed tracked barcodes. From here you can create the view you want to display, and then call <a class="reference internal" href="barcode-capture/api/ui/barcode-tracking-advanced-overlay.html#method-scandit.datacapture.barcode.tracking.ui.BarcodeTrackingAdvancedOverlay.SetViewForTrackedBarcode" title="BarcodeTrackingAdvancedOverlay.setViewForTrackedBarcode() method">BarcodeTrackingAdvancedOverlay.setViewForTrackedBarcode()</a>, <a class="reference internal" href="barcode-capture/api/ui/barcode-tracking-advanced-overlay.html#method-scandit.datacapture.barcode.tracking.ui.BarcodeTrackingAdvancedOverlay.SetAnchorForTrackedBarcode" title="BarcodeTrackingAdvancedOverlay.setAnchorForTrackedBarcode() method">BarcodeTrackingAdvancedOverlay.setAnchorForTrackedBarcode()</a> and <a class="reference internal" href="barcode-capture/api/ui/barcode-tracking-advanced-overlay.html#method-scandit.datacapture.barcode.tracking.ui.BarcodeTrackingAdvancedOverlay.SetOffsetForTrackedBarcode" title="BarcodeTrackingAdvancedOverlay.setOffsetForTrackedBarcode() method">BarcodeTrackingAdvancedOverlay.setOffsetForTrackedBarcode()</a></p>
+<div class="highlight-java notranslate"><div class="highlight"><pre><span></span><span class="nd">@Override</span>
+<span class="kd">public</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="nf">onSessionUpdated</span><span class="p">(</span>
+<span class="w">    </span><span class="nd">@NonNull</span><span class="w"> </span><span class="n">BarcodeTracking</span><span class="w"> </span><span class="n">mode</span><span class="p">,</span>
+<span class="w">    </span><span class="nd">@NonNull</span><span class="w"> </span><span class="kd">final</span><span class="w"> </span><span class="n">BarcodeTrackingSession</span><span class="w"> </span><span class="n">session</span><span class="p">,</span>
+<span class="w">    </span><span class="nd">@NonNull</span><span class="w"> </span><span class="n">FrameData</span><span class="w"> </span><span class="n">data</span>
+<span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">      </span><span class="c1">// Be careful, this function is not invoked on the main thread!</span>
+<span class="w">      </span><span class="n">runOnUiThread</span><span class="p">(</span><span class="k">new</span><span class="w"> </span><span class="n">Runnable</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+<span class="w">          </span><span class="nd">@Override</span>
+<span class="w">          </span><span class="kd">public</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="nf">run</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+<span class="w">              </span><span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="n">TrackedBarcode</span><span class="w"> </span><span class="n">trackedBarcode</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="n">session</span><span class="p">.</span><span class="na">getAddedTrackedBarcodes</span><span class="p">())</span><span class="w"> </span><span class="p">{</span>
+<span class="w">                  </span><span class="n">TextView</span><span class="w"> </span><span class="n">textView</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">TextView</span><span class="p">(</span><span class="k">this</span><span class="p">);</span>
+<span class="w">                  </span><span class="n">textView</span><span class="p">.</span><span class="na">setBackgroundColor</span><span class="p">(</span><span class="n">Color</span><span class="p">.</span><span class="na">WHITE</span><span class="p">);</span>
+<span class="w">                  </span><span class="n">textView</span><span class="p">.</span><span class="na">setLayoutParams</span><span class="p">(</span>
+<span class="w">                      </span><span class="k">new</span><span class="w"> </span><span class="n">ViewGroup</span><span class="p">.</span><span class="na">LayoutParams</span><span class="p">(</span>
+<span class="w">                          </span><span class="n">ViewGroup</span><span class="p">.</span><span class="na">LayoutParams</span><span class="p">.</span><span class="na">WRAP_CONTENT</span><span class="p">,</span>
+<span class="w">                          </span><span class="n">ViewGroup</span><span class="p">.</span><span class="na">LayoutParams</span><span class="p">.</span><span class="na">WRAP_CONTENT</span>
+<span class="w">                      </span><span class="p">)</span>
+<span class="w">                  </span><span class="p">);</span>
+<span class="w">                  </span><span class="n">textView</span><span class="p">.</span><span class="na">setText</span><span class="p">(</span><span class="n">trackedBarcode</span><span class="p">.</span><span class="na">getBarcode</span><span class="p">().</span><span class="na">getData</span><span class="p">());</span>
+<span class="w">                  </span><span class="n">overlay</span><span class="p">.</span><span class="na">setViewForTrackedBarcode</span><span class="p">(</span><span class="n">trackedBarcode</span><span class="p">,</span><span class="w"> </span><span class="n">textView</span><span class="p">);</span>
+<span class="w">                  </span><span class="n">overlay</span><span class="p">.</span><span class="na">setAnchorForTrackedBarcode</span><span class="p">(</span>
+<span class="w">                      </span><span class="n">trackedBarcode</span><span class="p">,</span><span class="w"> </span><span class="n">Anchor</span><span class="p">.</span><span class="na">TOP_CENTER</span>
+<span class="w">                  </span><span class="p">);</span>
+<span class="w">                  </span><span class="n">overlay</span><span class="p">.</span><span class="na">setOffsetForTrackedBarcode</span><span class="p">(</span>
+<span class="w">                      </span><span class="n">trackedBarcode</span><span class="p">,</span>
+<span class="w">                      </span><span class="k">new</span><span class="w"> </span><span class="n">PointWithUnit</span><span class="p">(</span>
+<span class="w">                          </span><span class="k">new</span><span class="w"> </span><span class="n">FloatWithUnit</span><span class="p">(</span><span class="mf">0f</span><span class="p">,</span><span class="w"> </span><span class="n">MeasureUnit</span><span class="p">.</span><span class="na">FRACTION</span><span class="p">),</span>
+<span class="w">                          </span><span class="k">new</span><span class="w"> </span><span class="n">FloatWithUnit</span><span class="p">(</span><span class="o">-</span><span class="mf">1f</span><span class="p">,</span><span class="w"> </span><span class="n">MeasureUnit</span><span class="p">.</span><span class="na">FRACTION</span><span class="p">)</span>
+<span class="w">                      </span><span class="p">)</span>
+<span class="w">                  </span><span class="p">);</span>
+<span class="w">              </span><span class="p">}</span>
+<span class="w">          </span><span class="p">}</span>
+<span class="w">      </span><span class="p">});</span>
+<span class="w">  </span><span class="p">}</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="provide-your-own-custom-implementation">
+<h3>Provide your own custom implementation<a class="headerlink" href="#provide-your-own-custom-implementation" title="Permalink to this headline"></a></h3>
+<p>If you do not want to use the overlay, it is also possible to add augmented reality features based on the tracking identifier and the <a class="reference internal" href="core/api/common.html#struct-scandit.datacapture.core.Quadrilateral" title="quadrilateral struct">quadrilateral</a> coordinates that every tracked barcode has. Below are some pointers.</p>
+<ul class="simple">
+<li><p>Set a <a class="reference internal" href="barcode-capture/api/barcode-tracking-listener.html#interface-scandit.datacapture.barcode.tracking.IBarcodeTrackingListener" title="BarcodeTrackingListener interface">BarcodeTrackingListener</a> on the barcode tracking</p></li>
+<li><p>In the <a class="reference internal" href="barcode-capture/api/barcode-tracking-listener.html#method-scandit.datacapture.barcode.tracking.IBarcodeTrackingListener.OnSessionUpdated" title="BarcodeTrackingListener.onSessionUpdated() method">BarcodeTrackingListener.onSessionUpdated()</a> function fetch the <a class="reference internal" href="barcode-capture/api/barcode-tracking-session.html#property-scandit.datacapture.barcode.tracking.BarcodeTrackingSession.AddedTrackedBarcodes" title="added property">added</a> and <a class="reference internal" href="barcode-capture/api/barcode-tracking-session.html#property-scandit.datacapture.barcode.tracking.BarcodeTrackingSession.RemovedTrackedBarcodes" title="removed property">removed</a> tracked barcodes.</p></li>
+<li><p>Create and show the views for the added barcodes.</p></li>
+<li><p>Remove the views for the lost barcodes.</p></li>
+<li><p>Add a method that is called 60fps when <a class="reference internal" href="barcode-capture/api/barcode-tracking.html#class-scandit.datacapture.barcode.tracking.BarcodeTracking" title="BarcodeTracking class">BarcodeTracking</a> is enabled. In this method, for each <a class="reference internal" href="barcode-capture/api/tracked-barcode.html#class-scandit.datacapture.barcode.tracking.TrackedBarcode" title="TrackedBarcode class">TrackedBarcode</a> on-screen, update the position based on <a class="reference internal" href="barcode-capture/api/tracked-barcode.html#property-scandit.datacapture.barcode.tracking.TrackedBarcode.Location" title="TrackedBarcode.location property">TrackedBarcode.location</a>. Please note that there is no need to animate the change of location, the change of position will happen frequently enough that the view will look as it is animated.</p></li>
+</ul>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>The frame coordinates from <a class="reference internal" href="barcode-capture/api/tracked-barcode.html#property-scandit.datacapture.barcode.tracking.TrackedBarcode.Location" title="TrackedBarcode.location property">TrackedBarcode.location</a> need to be mapped to view coordinates, using <a class="reference internal" href="core/api/ui/data-capture-view.html#method-scandit.datacapture.core.ui.DataCaptureView.MapFrameQuadrilateralToView" title="DataCaptureView.mapFrameQuadrilateralToView() method">DataCaptureView.mapFrameQuadrilateralToView()</a>.</p>
+</div>
+<div class="highlight-java notranslate"><div class="highlight"><pre><span></span><span class="nd">@Override</span>
+<span class="w">  </span><span class="kd">public</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="nf">onSessionUpdated</span><span class="p">(</span>
+<span class="w">      </span><span class="nd">@NonNull</span><span class="w"> </span><span class="n">BarcodeTracking</span><span class="w"> </span><span class="n">mode</span><span class="p">,</span>
+<span class="w">      </span><span class="nd">@NonNull</span><span class="w"> </span><span class="kd">final</span><span class="w"> </span><span class="n">BarcodeTrackingSession</span><span class="w"> </span><span class="n">session</span><span class="p">,</span>
+<span class="w">      </span><span class="nd">@NonNull</span><span class="w"> </span><span class="n">FrameData</span><span class="w"> </span><span class="n">data</span>
+<span class="w">  </span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">      </span><span class="c1">// Be careful, this function is not invoked on the main thread!</span>
+<span class="w">      </span><span class="n">runOnUiThread</span><span class="p">(</span><span class="k">new</span><span class="w"> </span><span class="n">Runnable</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+<span class="w">          </span><span class="nd">@Override</span>
+<span class="w">          </span><span class="kd">public</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="nf">run</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+
+<span class="w">              </span><span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">lostTrackIdentifier</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="n">session</span><span class="p">.</span><span class="na">getRemovedTrackedBarcodes</span><span class="p">())</span><span class="w"> </span><span class="p">{</span>
+<span class="w">                  </span><span class="c1">// You now know the identifier of the tracked barcode that has been lost. Usually here you would remove the views associated.</span>
+<span class="w">              </span><span class="p">}</span>
+
+<span class="w">              </span><span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="n">TrackedBarcode</span><span class="w"> </span><span class="n">trackedBarcode</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="n">session</span><span class="p">.</span><span class="na">getAddedTrackedBarcodes</span><span class="p">())</span><span class="w"> </span><span class="p">{</span>
+
+<span class="w">                  </span><span class="c1">// Fixed identifier for the tracked barcode.</span>
+<span class="w">                  </span><span class="n">Integer</span><span class="w"> </span><span class="n">trackingIdentifier</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">trackedBarcode</span><span class="p">.</span><span class="na">getIdentifier</span><span class="p">();</span>
+
+<span class="w">                  </span><span class="c1">// Current location of the tracked barcode.</span>
+<span class="w">                  </span><span class="n">Quadrilateral</span><span class="w"> </span><span class="n">location</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">trackedBarcode</span><span class="p">.</span><span class="na">getLocation</span><span class="p">();</span>
+<span class="w">                  </span><span class="n">Quadrilateral</span><span class="w"> </span><span class="n">quadrilateral</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">dataCaptureView</span><span class="p">.</span><span class="na">mapFrameQuadrilateralToView</span><span class="p">(</span><span class="n">location</span><span class="p">);</span>
+
+<span class="w">                  </span><span class="c1">// You now know this new tracking&#39;s identifier and location. Usually here you would create and show the views.</span>
+<span class="w">              </span><span class="p">}</span>
+<span class="w">          </span><span class="p">}</span>
+<span class="w">      </span><span class="p">});</span>
+<span class="w">  </span><span class="p">}</span>
+</pre></div>
+</div>
+</div>
+</div></blockquote>
+</div>
+</div>
+
+
+           </div>
+          </div>
+          <footer>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2024, Scandit AG.</p>
+  </div>
+
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+  <!-- Start of scandit Zendesk Widget script -->
+  <script id="ze-snippet" src="https://static.zdassets.com/ekr/snippet.js?key=df0234ee-7451-4189-8d1c-17c8a624b5f1">
+  </script>
+<script>
+      function getPlatformSuffix() {
+        const platform = 'android'
+        switch (platform) {
+          case 'android':         return 'for Android'
+          case 'ios':             return 'for iOS'
+          case 'cordova':         return 'for Cordova'
+          case 'react-native':    return 'for React Native'
+          case 'xamarin.ios':     return 'for Xamarin.iOS'
+          case 'xamarin.android': return 'for Xamarin.Android'
+          case 'xamarin.forms':   return 'for Xamarin.Forms'
+          case 'flutter':         return 'for Flutter'
+          case 'capacitor':       return 'for Capacitor'
+          case 'titanium':        return 'for Titanium'
+          case 'web':             return 'for the Web'
+          case 'dotnet.ios':      return 'for .NET for iOS'
+          case 'dotnet.android':  return 'for .NET for Android'
+          default:                return ''
+        }
+      }
+
+      const platformSuffix = getPlatformSuffix()
+      const headerTitle = document.querySelector(".icon-home")
+      headerTitle.insertAdjacentHTML('beforeend', ` ${platformSuffix}`)
+
+      const [major, minor] = DOCUMENTATION_OPTIONS.VERSION.split('.')
+      const version = document.querySelector(".version")
+      version.innerHTML = `
+        <div class="version">
+          <a href="${DOCUMENTATION_OPTIONS.URL_ROOT}release-notes/${major}.${minor}.html">Release Notes</a> 
+        </div>
+        <br>
+      `
+  </script>
+  <!-- End of scandit Zendesk Widget script -->
+
+</body>
+</html>

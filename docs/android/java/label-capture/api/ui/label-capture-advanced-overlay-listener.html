@@ -1,0 +1,328 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Label Capture Advanced Overlay Listener &mdash; Data Capture SDK 6.24.0-rc.2 documentation</title>
+      <link rel="stylesheet" href="../../../_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="../../../_static/css/theme.css" type="text/css" />
+    <link rel="stylesheet" href="../../../_static/custom.css" type="text/css" />
+  <!--[if lt IE 9]>
+    <script src="../../../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script data-url_root="../../../" id="documentation_options" src="../../../_static/documentation_options.js"></script>
+        <script src="../../../_static/jquery.js"></script>
+        <script src="../../../_static/underscore.js"></script>
+        <script src="../../../_static/doctools.js"></script>
+    <script src="../../../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../../../genindex.html" />
+    <link rel="search" title="Search" href="../../../search.html" />
+    <link rel="next" title="Label Capture Advanced Overlay View" href="label-capture-advanced-overlay-view.html" />
+    <link rel="prev" title="Label Capture Advanced Overlay" href="label-capture-advanced-overlay.html" />
+  <!-- Google Tag Manager -->
+  <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+  new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+  j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+  'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+  })(window,document,'script','dataLayer','GTM-THQQFD7');</script>
+  <!-- End Google Tag Manager -->
+</head>
+
+<body class="wy-body-for-nav">
+  <!-- Google Tag Manager (noscript) -->
+  <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-THQQFD7"
+  height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+  <!-- End Google Tag Manager (noscript) -->
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+            <a href="../../../index.html" class="icon icon-home"> Data Capture SDK
+          </a>
+              <div class="version">
+                6.24.0-rc.2
+              </div>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">First Steps</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../samples/run-samples.html">Run Samples</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../add-sdk.html">Add the SDK to Your App</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../best-practices-for-usability.html">Best Practices for Usability</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Pre-Built Components</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../high-speed-single-scanning.html">High-Speed Single Scanning</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../batch-counting-and-receiving.html">Batch Counting And Receiving</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../selecting-one-of-many.html">Selecting One Of Many Barcodes</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../ar-assisted-search-and-find.html">AR-Assisted Search And Find</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Fully-Customizable API</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../id-scanning-and-verification.html">ID Scanning And Verification</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../batch-scanning-and-ar.html">Batch Scanning And AR</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../single-scanning.html">Single Scanning</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../text-capture.html">Text Capture</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../parse-barcode-data.html">Parse Barcode Data</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../advanced-topics.html">Advanced Topics</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">API Reference</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../../../core/overview.html">ScanditCaptureCore</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../barcode-capture/overview.html">ScanditBarcodeCapture</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../id-capture/overview.html">ScanditIdCapture</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../text-capture/overview.html">ScanditTextCapture</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../../overview.html">ScanditLabelCapture</a><ul class="current">
+<li class="toctree-l2 current"><a class="reference internal" href="../../api.html">API</a><ul class="current">
+<li class="toctree-l3"><a class="reference internal" href="../barcode-field.html">Barcode Field</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../barcode-field-builder.html">Barcode Field Builder</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../captured-label.html">Captured Label</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../custom-barcode.html">Custom Barcode</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../custom-barcode-builder.html">Custom Barcode Builder</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../custom-text.html">Custom Text</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../custom-text-builder.html">Custom Text Builder</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../enums.html">Label Capture Enumerations</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../expiry-date-text.html">Expiry Date Text</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../expiry-date-text-builder.html">Expiry Date Text Builder</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../imei-one-barcode.html">IMEI One Barcode</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../imei-one-barcode-builder.html">IMEI One Barcode Builder</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../imei-two-barcode.html">IMEI Two Barcode</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../imei-two-barcode-builder.html">IMEI Two Barcode Builder</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../label-capture.html">Label Capture</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../label-capture-listener.html">Label Capture Listener</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../label-capture-session.html">Label Capture Session</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../label-capture-settings.html">Label Capture Settings</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../label-capture-settings-builder.html">Label Capture Settings Builder</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../label-definition.html">Label Definition</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../label-definition-builder.html">Label Definition Builder</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../label-field.html">Captured Field</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../label-field-definition.html">Label Field Definition</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../label-field-definition-builder.html">Label Field Definition Builder</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../label-field-location.html">Label Field Location</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../label-field-location-type.html">Label Field Location Type</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../packing-date-text.html">Packing Date Text</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../packing-date-text-builder.html">Packing Date Text Builder</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../part-number-barcode.html">Part Number Barcode</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../part-number-barcode-builder.html">Part Number Barcode Builder</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../serial-number-barcode.html">Serial Number Barcode</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../serial-number-barcode-builder.html">Serial Number Barcode Builder</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../text-field.html">Text Field</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../text-field-builder.html">Text Field Builder</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../total-price-text.html">Total Price Text</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../total-price-text-builder.html">Total Price Text Builder</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../unit-price-text.html">Unit Price Text</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../unit-price-text-builder.html">Unit Price Text Builder</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../weight-text.html">Weight Text</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../weight-text-builder.html">Weight Text Builder</a></li>
+<li class="toctree-l3"><a class="reference internal" href="label-capture-advanced-overlay.html">Label Capture Advanced Overlay</a></li>
+<li class="toctree-l3 current"><a class="current reference internal" href="#">Label Capture Advanced Overlay Listener</a></li>
+<li class="toctree-l3"><a class="reference internal" href="label-capture-advanced-overlay-view.html">Label Capture Advanced Overlay View</a></li>
+<li class="toctree-l3"><a class="reference internal" href="label-capture-basic-overlay.html">Label Capture Basic Overlay</a></li>
+<li class="toctree-l3"><a class="reference internal" href="label-capture-basic-overlay-listener.html">Label Capture Basic Overlay Listener</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../../parser/overview.html">ScanditParser</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../genindex.html">Index</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">More Resources</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../release-notes.html">Release Notes</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../barcode-symbologies.html">Barcode Symbologies</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../requirements.html">System Requirements</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../support.html">Support &amp; FAQ</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../features-by-platform.html">Features By Framework</a></li>
+<li class="toctree-l1"><a class="reference external" href="https://docs.scandit.com/barcode-scanner-sdk.html">SDK 5.x Documentation [Deprecated]</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../migrate-to-6.html">Migrate from Barcode Scanner 5.x</a></li>
+<li class="toctree-l1"><a class="reference external" href="http://ssl.scandit.com">Your Developer Dashboard</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../../index.html">Data Capture SDK</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation" class="navbar">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../../../index.html" class="icon icon-home" aria-label="Home"></a></li>
+          <li class="breadcrumb-item"><a href="../../overview.html">ScanditLabelCapture</a></li>
+          <li class="breadcrumb-item"><a href="../../api.html">ScanditLabelCapture API</a></li>
+      <li class="breadcrumb-item active">Label Capture Advanced Overlay Listener</li>
+      <li class="wy-breadcrumbs-aside">
+      </li>
+  </ul>
+  <div class="auth-link-container">
+    <a class="signup-link signup-link--mobile" rel="noopener" target="_blank" href="https://ssl.scandit.com/dashboard/sign-up?p=test&utm_source=documentation">Sign up</a>
+    <a class="signup-link" target="_blank" rel="noopener" href="https://ssl.scandit.com/dashboard/sign-up?p=test&utm_source=documentation">Sign up for your developer account</a>
+    <a class="signin-link" target="_blank" rel="noopener" href="https://ssl.scandit.com/dashboard/sign-in">Log in</a>
+  </div>
+</div>
+<hr/>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <div class="section" id="label-capture-advanced-overlay-listener">
+<h1>Label Capture Advanced Overlay Listener<a class="headerlink" href="#label-capture-advanced-overlay-listener" title="Permalink to this headline"></a></h1>
+<p>Defined in package <em>com.scandit.datacapture.label.ui.overlay</em></p>
+<dl>
+<dt class="sig sig-object unilang" id="interface-scandit.datacapture.label.ui.ILabelCaptureAdvancedOverlayListener">
+<span class="sig-name descname"><span class="pre">LabelCaptureAdvancedOverlayListener</span></span><a class="headerlink" href="#interface-scandit.datacapture.label.ui.ILabelCaptureAdvancedOverlayListener" title="Permalink to this definition"></a></dt>
+<dd><pre class="full-signature"><span class="sig-name descname">interface LabelCaptureAdvancedOverlayListener</span></pre><p><span class="versionmodified versionadded">Added in version 6.16.0</span></p>
+<dl>
+<dt class="sig sig-object unilang" id="method-scandit.datacapture.label.ui.ILabelCaptureAdvancedOverlayListener.ViewForCapturedLabel">
+<span class="sig-name descname"><span class="pre">viewForCapturedLabel(overlay,</span> <span class="pre">capturedLabel)</span></span><a class="headerlink" href="#method-scandit.datacapture.label.ui.ILabelCaptureAdvancedOverlayListener.ViewForCapturedLabel" title="Permalink to this definition"></a></dt>
+<dd><pre class="full-signature">&#64;Nullable <a class="reference external" href="https://developer.android.com/reference/android/view/View.html" title="View">View</a> <span class="sig-name descname">viewForCapturedLabel</span>(&#64;NonNull <a class="reference internal" href="label-capture-advanced-overlay.html#class-scandit.datacapture.label.ui.LabelCaptureAdvancedOverlay" title="LabelCaptureAdvancedOverlay class">LabelCaptureAdvancedOverlay</a> <em>overlay</em>,
+        &#64;NonNull <a class="reference internal" href="../captured-label.html#class-scandit.datacapture.label.CapturedLabel" title="CapturedLabel class">CapturedLabel</a> <em>capturedLabel</em>)</pre><p><span class="versionmodified versionadded">Added in version 6.16.0</span></p>
+<p>View to be drawn corresponding to the given <a class="reference internal" href="../captured-label.html#class-scandit.datacapture.label.CapturedLabel" title="CapturedLabel class">CapturedLabel</a>.
+This method will be called before <a class="reference internal" href="#method-scandit.datacapture.label.ui.ILabelCaptureAdvancedOverlayListener.AnchorForCapturedLabel" title="anchorForCapturedLabel() method">anchorForCapturedLabel()</a> and <a class="reference internal" href="#method-scandit.datacapture.label.ui.ILabelCaptureAdvancedOverlayListener.OffsetForCapturedLabel" title="offsetForCapturedLabel() method">offsetForCapturedLabel()</a>.
+Called from the main thread.
+Beware that this view can be overridden with <a class="reference internal" href="label-capture-advanced-overlay.html#method-scandit.datacapture.label.ui.LabelCaptureAdvancedOverlay.SetViewForCapturedLabel" title="LabelCaptureAdvancedOverlay.setViewForCapturedLabel() method">LabelCaptureAdvancedOverlay.setViewForCapturedLabel()</a> method.
+This method will only be called for new tracked labels that do not have a view yet, e.g. a view set by a call to <a class="reference internal" href="label-capture-advanced-overlay.html#method-scandit.datacapture.label.ui.LabelCaptureAdvancedOverlay.SetViewForCapturedLabel" title="LabelCaptureAdvancedOverlay.setViewForCapturedLabel() method">LabelCaptureAdvancedOverlay.setViewForCapturedLabel()</a>.</p>
+</dd></dl>
+
+<dl>
+<dt class="sig sig-object unilang" id="method-scandit.datacapture.label.ui.ILabelCaptureAdvancedOverlayListener.AnchorForCapturedLabel">
+<span class="sig-name descname"><span class="pre">anchorForCapturedLabel(overlay,</span> <span class="pre">capturedLabel)</span></span><a class="headerlink" href="#method-scandit.datacapture.label.ui.ILabelCaptureAdvancedOverlayListener.AnchorForCapturedLabel" title="Permalink to this definition"></a></dt>
+<dd><pre class="full-signature"><a class="reference internal" href="../../../core/api/anchor.html#enum-scandit.datacapture.core.Anchor" title="Anchor enum">Anchor</a> <span class="sig-name descname">anchorForCapturedLabel</span>(&#64;NonNull <a class="reference internal" href="label-capture-advanced-overlay.html#class-scandit.datacapture.label.ui.LabelCaptureAdvancedOverlay" title="LabelCaptureAdvancedOverlay class">LabelCaptureAdvancedOverlay</a> <em>overlay</em>,
+        &#64;NonNull <a class="reference internal" href="../captured-label.html#class-scandit.datacapture.label.CapturedLabel" title="CapturedLabel class">CapturedLabel</a> <em>capturedLabel</em>)</pre><p><span class="versionmodified versionadded">Added in version 6.16.0</span></p>
+<p>Anchor point that should be used for the view corresponding to the given <a class="reference internal" href="../captured-label.html#class-scandit.datacapture.label.CapturedLabel" title="CapturedLabel class">CapturedLabel</a>.
+This method will be called after <a class="reference internal" href="#method-scandit.datacapture.label.ui.ILabelCaptureAdvancedOverlayListener.ViewForCapturedLabel" title="viewForCapturedLabel() method">viewForCapturedLabel()</a> and before <a class="reference internal" href="#method-scandit.datacapture.label.ui.ILabelCaptureAdvancedOverlayListener.OffsetForCapturedLabel" title="offsetForCapturedLabel() method">offsetForCapturedLabel()</a>.
+Called from the main thread.
+Beware that this anchor can be overridden with <a class="reference internal" href="label-capture-advanced-overlay.html#method-scandit.datacapture.label.ui.LabelCaptureAdvancedOverlay.SetAnchorForCapturedLabel" title="LabelCaptureAdvancedOverlay.setAnchorForCapturedLabel() method">LabelCaptureAdvancedOverlay.setAnchorForCapturedLabel()</a> method.
+This method will only be called for new tracked labels that do not have an anchor yet, e.g. an anchor set by a call to <a class="reference internal" href="label-capture-advanced-overlay.html#method-scandit.datacapture.label.ui.LabelCaptureAdvancedOverlay.SetAnchorForCapturedLabel" title="LabelCaptureAdvancedOverlay.setAnchorForCapturedLabel() method">LabelCaptureAdvancedOverlay.setAnchorForCapturedLabel()</a>.</p>
+</dd></dl>
+
+<dl>
+<dt class="sig sig-object unilang" id="method-scandit.datacapture.label.ui.ILabelCaptureAdvancedOverlayListener.OffsetForCapturedLabel">
+<span class="sig-name descname"><span class="pre">offsetForCapturedLabel(overlay,</span> <span class="pre">capturedLabel,</span> <span class="pre">view)</span></span><a class="headerlink" href="#method-scandit.datacapture.label.ui.ILabelCaptureAdvancedOverlayListener.OffsetForCapturedLabel" title="Permalink to this definition"></a></dt>
+<dd><pre class="full-signature">&#64;NonNull <a class="reference internal" href="../../../core/api/common.html#struct-scandit.datacapture.core.PointWithUnit" title="PointWithUnit struct">PointWithUnit</a> <span class="sig-name descname">offsetForCapturedLabel</span>(
+        &#64;NonNull <a class="reference internal" href="label-capture-advanced-overlay.html#class-scandit.datacapture.label.ui.LabelCaptureAdvancedOverlay" title="LabelCaptureAdvancedOverlay class">LabelCaptureAdvancedOverlay</a> <em>overlay</em>,
+        &#64;NonNull <a class="reference internal" href="../captured-label.html#class-scandit.datacapture.label.CapturedLabel" title="CapturedLabel class">CapturedLabel</a> <em>capturedLabel</em>,
+        &#64;NonNull <a class="reference external" href="https://developer.android.com/reference/android/view/View.html" title="View">View</a> <em>view</em>)</pre><p><span class="versionmodified versionadded">Added in version 6.16.0</span></p>
+<p>Offset to be set to the view corresponding to the given <a class="reference internal" href="../captured-label.html#class-scandit.datacapture.label.CapturedLabel" title="CapturedLabel class">CapturedLabel</a>. The offset is relative to the anchor point of the tracked label.
+This method will be called after <a class="reference internal" href="#method-scandit.datacapture.label.ui.ILabelCaptureAdvancedOverlayListener.ViewForCapturedLabel" title="viewForCapturedLabel() method">viewForCapturedLabel()</a> and <a class="reference internal" href="#method-scandit.datacapture.label.ui.ILabelCaptureAdvancedOverlayListener.AnchorForCapturedLabel" title="anchorForCapturedLabel() method">anchorForCapturedLabel()</a>.
+Called from the main thread.
+Beware that this offset can be overridden with <a class="reference internal" href="label-capture-advanced-overlay.html#method-scandit.datacapture.label.ui.LabelCaptureAdvancedOverlay.SetOffsetForCapturedLabel" title="LabelCaptureAdvancedOverlay.setOffsetForCapturedLabel() method">LabelCaptureAdvancedOverlay.setOffsetForCapturedLabel()</a> method.
+This method will only be called for new tracked labels that do not have an offset yet, e.g. an offset set by a call to <a class="reference internal" href="label-capture-advanced-overlay.html#method-scandit.datacapture.label.ui.LabelCaptureAdvancedOverlay.SetOffsetForCapturedLabel" title="LabelCaptureAdvancedOverlay.setOffsetForCapturedLabel() method">LabelCaptureAdvancedOverlay.setOffsetForCapturedLabel()</a>.</p>
+</dd></dl>
+
+<dl>
+<dt class="sig sig-object unilang" id="method-scandit.datacapture.label.ui.ILabelCaptureAdvancedOverlayListener.ViewForCapturedLabelField">
+<span class="sig-name descname"><span class="pre">viewForCapturedLabelField(overlay,</span> <span class="pre">labelField)</span></span><a class="headerlink" href="#method-scandit.datacapture.label.ui.ILabelCaptureAdvancedOverlayListener.ViewForCapturedLabelField" title="Permalink to this definition"></a></dt>
+<dd><pre class="full-signature">&#64;Nullable <a class="reference external" href="https://developer.android.com/reference/android/view/View.html" title="View">View</a> <span class="sig-name descname">viewForCapturedLabelField</span>(&#64;NonNull <a class="reference internal" href="label-capture-advanced-overlay.html#class-scandit.datacapture.label.ui.LabelCaptureAdvancedOverlay" title="LabelCaptureAdvancedOverlay class">LabelCaptureAdvancedOverlay</a> <em>overlay</em>,
+        &#64;NonNull <a class="reference internal" href="../label-field.html#class-scandit.datacapture.label.LabelField" title="LabelField class">LabelField</a> <em>labelField</em>)</pre><p><span class="versionmodified versionadded">Added in version 6.17.0</span></p>
+<p>View to be drawn corresponding to the given <a class="reference internal" href="../label-field.html#class-scandit.datacapture.label.LabelField" title="LabelField class">LabelField</a>.
+This method will be called before <a class="reference internal" href="#method-scandit.datacapture.label.ui.ILabelCaptureAdvancedOverlayListener.AnchorForCapturedLabelField" title="anchorForCapturedLabelField() method">anchorForCapturedLabelField()</a> and <a class="reference internal" href="#method-scandit.datacapture.label.ui.ILabelCaptureAdvancedOverlayListener.OffsetForCapturedLabelField" title="offsetForCapturedLabelField() method">offsetForCapturedLabelField()</a>.
+Called from the main thread.
+Beware that this view can be overridden with <a class="reference internal" href="label-capture-advanced-overlay.html#method-scandit.datacapture.label.ui.LabelCaptureAdvancedOverlay.SetViewForCapturedLabelField" title="LabelCaptureAdvancedOverlay.setViewForCapturedLabelField() method">LabelCaptureAdvancedOverlay.setViewForCapturedLabelField()</a> method.
+This method will only be called for new tracked fields that do not have a view yet, e.g. a view set by a call to <a class="reference internal" href="label-capture-advanced-overlay.html#method-scandit.datacapture.label.ui.LabelCaptureAdvancedOverlay.SetViewForCapturedLabelField" title="LabelCaptureAdvancedOverlay.setViewForCapturedLabelField() method">LabelCaptureAdvancedOverlay.setViewForCapturedLabelField()</a>.</p>
+</dd></dl>
+
+<dl>
+<dt class="sig sig-object unilang" id="method-scandit.datacapture.label.ui.ILabelCaptureAdvancedOverlayListener.AnchorForCapturedLabelField">
+<span class="sig-name descname"><span class="pre">anchorForCapturedLabelField(overlay,</span> <span class="pre">labelField)</span></span><a class="headerlink" href="#method-scandit.datacapture.label.ui.ILabelCaptureAdvancedOverlayListener.AnchorForCapturedLabelField" title="Permalink to this definition"></a></dt>
+<dd><pre class="full-signature"><a class="reference internal" href="../../../core/api/anchor.html#enum-scandit.datacapture.core.Anchor" title="Anchor enum">Anchor</a> <span class="sig-name descname">anchorForCapturedLabelField</span>(&#64;NonNull <a class="reference internal" href="label-capture-advanced-overlay.html#class-scandit.datacapture.label.ui.LabelCaptureAdvancedOverlay" title="LabelCaptureAdvancedOverlay class">LabelCaptureAdvancedOverlay</a> <em>overlay</em>,
+        &#64;NonNull <a class="reference internal" href="../label-field.html#class-scandit.datacapture.label.LabelField" title="LabelField class">LabelField</a> <em>labelField</em>)</pre><p><span class="versionmodified versionadded">Added in version 6.17.0</span></p>
+<p>Anchor point that should be used for the view corresponding to the given <a class="reference internal" href="../label-field.html#class-scandit.datacapture.label.LabelField" title="LabelField class">LabelField</a>.
+This method will be called after <a class="reference internal" href="#method-scandit.datacapture.label.ui.ILabelCaptureAdvancedOverlayListener.ViewForCapturedLabelField" title="viewForCapturedLabelField() method">viewForCapturedLabelField()</a> and before <a class="reference internal" href="#method-scandit.datacapture.label.ui.ILabelCaptureAdvancedOverlayListener.OffsetForCapturedLabelField" title="offsetForCapturedLabelField() method">offsetForCapturedLabelField()</a>.
+Called from the main thread.
+Beware that this anchor can be overridden with <a class="reference internal" href="label-capture-advanced-overlay.html#method-scandit.datacapture.label.ui.LabelCaptureAdvancedOverlay.SetAnchorForCapturedLabelField" title="LabelCaptureAdvancedOverlay.setAnchorForCapturedLabelField() method">LabelCaptureAdvancedOverlay.setAnchorForCapturedLabelField()</a> method.
+This method will only be called for new tracked fields that do not have an anchor yet, e.g. an anchor set by a call to <a class="reference internal" href="label-capture-advanced-overlay.html#method-scandit.datacapture.label.ui.LabelCaptureAdvancedOverlay.SetAnchorForCapturedLabelField" title="LabelCaptureAdvancedOverlay.setAnchorForCapturedLabelField() method">LabelCaptureAdvancedOverlay.setAnchorForCapturedLabelField()</a>.</p>
+</dd></dl>
+
+<dl>
+<dt class="sig sig-object unilang" id="method-scandit.datacapture.label.ui.ILabelCaptureAdvancedOverlayListener.OffsetForCapturedLabelField">
+<span class="sig-name descname"><span class="pre">offsetForCapturedLabelField(overlay,</span> <span class="pre">labelField,</span> <span class="pre">view)</span></span><a class="headerlink" href="#method-scandit.datacapture.label.ui.ILabelCaptureAdvancedOverlayListener.OffsetForCapturedLabelField" title="Permalink to this definition"></a></dt>
+<dd><pre class="full-signature">&#64;NonNull <a class="reference internal" href="../../../core/api/common.html#struct-scandit.datacapture.core.PointWithUnit" title="PointWithUnit struct">PointWithUnit</a> <span class="sig-name descname">offsetForCapturedLabelField</span>(
+        &#64;NonNull <a class="reference internal" href="label-capture-advanced-overlay.html#class-scandit.datacapture.label.ui.LabelCaptureAdvancedOverlay" title="LabelCaptureAdvancedOverlay class">LabelCaptureAdvancedOverlay</a> <em>overlay</em>,
+        &#64;NonNull <a class="reference internal" href="../label-field.html#class-scandit.datacapture.label.LabelField" title="LabelField class">LabelField</a> <em>labelField</em>,
+        &#64;NonNull <a class="reference external" href="https://developer.android.com/reference/android/view/View.html" title="View">View</a> <em>view</em>)</pre><p><span class="versionmodified versionadded">Added in version 6.17.0</span></p>
+<p>Offset to be set to the view corresponding to the given <a class="reference internal" href="../label-field.html#class-scandit.datacapture.label.LabelField" title="LabelField class">LabelField</a>. The offset is relative to the anchor point of the tracked field.
+This method will be called after <a class="reference internal" href="#method-scandit.datacapture.label.ui.ILabelCaptureAdvancedOverlayListener.ViewForCapturedLabelField" title="viewForCapturedLabelField() method">viewForCapturedLabelField()</a> and <a class="reference internal" href="#method-scandit.datacapture.label.ui.ILabelCaptureAdvancedOverlayListener.AnchorForCapturedLabelField" title="anchorForCapturedLabelField() method">anchorForCapturedLabelField()</a>.
+Called from the main thread.
+Beware that this offset can be overridden with <a class="reference internal" href="label-capture-advanced-overlay.html#method-scandit.datacapture.label.ui.LabelCaptureAdvancedOverlay.SetOffsetForCapturedLabelField" title="LabelCaptureAdvancedOverlay.setOffsetForCapturedLabelField() method">LabelCaptureAdvancedOverlay.setOffsetForCapturedLabelField()</a> method.
+This method will only be called for new tracked fields that do not have an offset yet, e.g. an offset set by a call to <a class="reference internal" href="label-capture-advanced-overlay.html#method-scandit.datacapture.label.ui.LabelCaptureAdvancedOverlay.SetOffsetForCapturedLabelField" title="LabelCaptureAdvancedOverlay.setOffsetForCapturedLabelField() method">LabelCaptureAdvancedOverlay.setOffsetForCapturedLabelField()</a>.</p>
+</dd></dl>
+
+</dd></dl>
+
+</div>
+
+
+           </div>
+          </div>
+          <footer>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2024, Scandit AG.</p>
+  </div>
+
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+  <!-- Start of scandit Zendesk Widget script -->
+  <script id="ze-snippet" src="https://static.zdassets.com/ekr/snippet.js?key=df0234ee-7451-4189-8d1c-17c8a624b5f1">
+  </script>
+<script>
+      function getPlatformSuffix() {
+        const platform = 'android'
+        switch (platform) {
+          case 'android':         return 'for Android'
+          case 'ios':             return 'for iOS'
+          case 'cordova':         return 'for Cordova'
+          case 'react-native':    return 'for React Native'
+          case 'xamarin.ios':     return 'for Xamarin.iOS'
+          case 'xamarin.android': return 'for Xamarin.Android'
+          case 'xamarin.forms':   return 'for Xamarin.Forms'
+          case 'flutter':         return 'for Flutter'
+          case 'capacitor':       return 'for Capacitor'
+          case 'titanium':        return 'for Titanium'
+          case 'web':             return 'for the Web'
+          case 'dotnet.ios':      return 'for .NET for iOS'
+          case 'dotnet.android':  return 'for .NET for Android'
+          default:                return ''
+        }
+      }
+
+      const platformSuffix = getPlatformSuffix()
+      const headerTitle = document.querySelector(".icon-home")
+      headerTitle.insertAdjacentHTML('beforeend', ` ${platformSuffix}`)
+
+      const [major, minor] = DOCUMENTATION_OPTIONS.VERSION.split('.')
+      const version = document.querySelector(".version")
+      version.innerHTML = `
+        <div class="version">
+          <a href="${DOCUMENTATION_OPTIONS.URL_ROOT}release-notes/${major}.${minor}.html">Release Notes</a> 
+        </div>
+        <br>
+      `
+  </script>
+  <!-- End of scandit Zendesk Widget script -->
+
+</body>
+</html>

@@ -1,0 +1,358 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Scandit Data Capture SDK 6.23 Release Notes (March 22, 2024) &mdash; Data Capture SDK 6.24.0-rc.2 documentation</title>
+      <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/custom.css" type="text/css" />
+  <!--[if lt IE 9]>
+    <script src="../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
+        <script src="../_static/jquery.js"></script>
+        <script src="../_static/underscore.js"></script>
+        <script src="../_static/doctools.js"></script>
+    <script src="../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Scandit Data Capture SDK 6.22 Release Notes (February 16, 2024)" href="6.22.html" />
+    <link rel="prev" title="Scandit Data Capture SDK 6.24 Beta Release Notes (April 19, 2024)" href="6.24.html" />
+  <!-- Google Tag Manager -->
+  <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+  new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+  j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+  'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+  })(window,document,'script','dataLayer','GTM-THQQFD7');</script>
+  <!-- End Google Tag Manager -->
+</head>
+
+<body class="wy-body-for-nav">
+  <!-- Google Tag Manager (noscript) -->
+  <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-THQQFD7"
+  height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+  <!-- End Google Tag Manager (noscript) -->
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+            <a href="../index.html" class="icon icon-home"> Data Capture SDK
+          </a>
+              <div class="version">
+                6.24.0-rc.2
+              </div>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">First Steps</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../samples/run-samples.html">Run Samples</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../add-sdk.html">Add the SDK to Your App</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../best-practices-for-usability.html">Best Practices for Usability</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Pre-Built Components</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../high-speed-single-scanning.html">High-Speed Single Scanning</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../batch-counting-and-receiving.html">Batch Counting And Receiving</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../selecting-one-of-many.html">Selecting One Of Many Barcodes</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../ar-assisted-search-and-find.html">AR-Assisted Search And Find</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Fully-Customizable API</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../id-scanning-and-verification.html">ID Scanning And Verification</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../batch-scanning-and-ar.html">Batch Scanning And AR</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../single-scanning.html">Single Scanning</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../text-capture.html">Text Capture</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../parse-barcode-data.html">Parse Barcode Data</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../advanced-topics.html">Advanced Topics</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">API Reference</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../core/overview.html">ScanditCaptureCore</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../barcode-capture/overview.html">ScanditBarcodeCapture</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../id-capture/overview.html">ScanditIdCapture</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../text-capture/overview.html">ScanditTextCapture</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../label-capture/overview.html">ScanditLabelCapture</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../parser/overview.html">ScanditParser</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../genindex.html">Index</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">More Resources</span></p>
+<ul class="current">
+<li class="toctree-l1 current"><a class="reference internal" href="../release-notes.html">Release Notes</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="6.24.html">6.24</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">6.23</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#new-features">New Features</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#barcode">Barcode</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#performance-improvements">Performance Improvements</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#id1">Barcode</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#bug-fixes">Bug Fixes</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#id2">Barcode</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#id">ID</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#core">Core</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#label">Label</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#deprecations">Deprecations</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#id3">Barcode</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#updates">Updates</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#sdk-6-23-1-bug-fixes-april-24-2024">Scandit Data Capture SDK 6.23.1 Bug Fixes (April 24, 2024)</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#sdk-6-23-2-bug-fixes-april-30-2024">Scandit Data Capture SDK 6.23.2 Bug Fixes (April 30, 2024)</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="6.22.html">6.22</a></li>
+<li class="toctree-l2"><a class="reference internal" href="6.21.html">6.21</a></li>
+<li class="toctree-l2"><a class="reference internal" href="6.20.html">6.20</a></li>
+<li class="toctree-l2"><a class="reference internal" href="6.19.html">6.19</a></li>
+<li class="toctree-l2"><a class="reference internal" href="6.18.html">6.18</a></li>
+<li class="toctree-l2"><a class="reference internal" href="6.17.html">6.17</a></li>
+<li class="toctree-l2"><a class="reference internal" href="6.16.html">6.16</a></li>
+<li class="toctree-l2"><a class="reference internal" href="6.15.html">6.15</a></li>
+<li class="toctree-l2"><a class="reference internal" href="6.14.html">6.14</a></li>
+<li class="toctree-l2"><a class="reference internal" href="6.13.html">6.13</a></li>
+<li class="toctree-l2"><a class="reference internal" href="6.12.html">6.12</a></li>
+<li class="toctree-l2"><a class="reference internal" href="6.11.html">6.11</a></li>
+<li class="toctree-l2"><a class="reference internal" href="6.10.html">6.10</a></li>
+<li class="toctree-l2"><a class="reference internal" href="6.9.html">6.9</a></li>
+<li class="toctree-l2"><a class="reference internal" href="6.8.html">6.8</a></li>
+<li class="toctree-l2"><a class="reference internal" href="6.7.html">6.7</a></li>
+<li class="toctree-l2"><a class="reference internal" href="6.6.html">6.6</a></li>
+<li class="toctree-l2"><a class="reference internal" href="6.5.html">6.5</a></li>
+<li class="toctree-l2"><a class="reference internal" href="6.4.html">6.4</a></li>
+<li class="toctree-l2"><a class="reference internal" href="6.3.html">6.3</a></li>
+<li class="toctree-l2"><a class="reference internal" href="6.2.html">6.2</a></li>
+<li class="toctree-l2"><a class="reference internal" href="6.1.html">6.1</a></li>
+<li class="toctree-l2"><a class="reference internal" href="6.0.html">6.0</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../barcode-symbologies.html">Barcode Symbologies</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../requirements.html">System Requirements</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../support.html">Support &amp; FAQ</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../features-by-platform.html">Features By Framework</a></li>
+<li class="toctree-l1"><a class="reference external" href="https://docs.scandit.com/barcode-scanner-sdk.html">SDK 5.x Documentation [Deprecated]</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../migrate-to-6.html">Migrate from Barcode Scanner 5.x</a></li>
+<li class="toctree-l1"><a class="reference external" href="http://ssl.scandit.com">Your Developer Dashboard</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">Data Capture SDK</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation" class="navbar">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../index.html" class="icon icon-home" aria-label="Home"></a></li>
+          <li class="breadcrumb-item"><a href="../release-notes.html">Scandit Data Capture SDK Release Notes</a></li>
+      <li class="breadcrumb-item active">Scandit Data Capture SDK 6.23 Release Notes (March 22, 2024)</li>
+      <li class="wy-breadcrumbs-aside">
+      </li>
+  </ul>
+  <div class="auth-link-container">
+    <a class="signup-link signup-link--mobile" rel="noopener" target="_blank" href="https://ssl.scandit.com/dashboard/sign-up?p=test&utm_source=documentation">Sign up</a>
+    <a class="signup-link" target="_blank" rel="noopener" href="https://ssl.scandit.com/dashboard/sign-up?p=test&utm_source=documentation">Sign up for your developer account</a>
+    <a class="signin-link" target="_blank" rel="noopener" href="https://ssl.scandit.com/dashboard/sign-in">Log in</a>
+  </div>
+</div>
+<hr/>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <div class="section" id="sdk-6-23-release-notes-march-22-2024">
+<h1>Scandit Data Capture SDK 6.23 Release Notes (March 22, 2024)<a class="headerlink" href="#sdk-6-23-release-notes-march-22-2024" title="Permalink to this headline"></a></h1>
+<p>See also the <a class="reference internal" href="../requirements/6.23.html"><span class="doc">System Requirements</span></a> of the Scandit Data Capture SDK across all platforms.</p>
+<div class="section" id="new-features">
+<h2>New Features<a class="headerlink" href="#new-features" title="Permalink to this headline"></a></h2>
+<div class="section" id="barcode">
+<h3>Barcode<a class="headerlink" href="#barcode" title="Permalink to this headline"></a></h3>
+<ul class="simple">
+<li><p><a class="reference internal" href="../high-speed-single-scanning.html"><span class="doc">SparkScan</span></a> has received a number of updates and improvements:</p>
+<ul>
+<li><p>The target mode has been improved with better performances (faster selection of barcodes), a more consistent workflow (the target mode will only show the aimer, without changing the preview size or the way barcodes are scanned) and a better UI (new aimer and new icon).</p></li>
+<li><p>The preview size is now independent from scanning mode or scanning precision (deprecated) parameters. Instead, it is controlled by a dedicated control added to the preview. Use <a class="reference internal" href="../barcode-capture/api/ui/spark-scan-view.html#property-scandit.datacapture.barcode.spark.ui.SparkScanView.PreviewSizeControlVisible" title="SparkScanView.previewSizeControlVisible property">SparkScanView.previewSizeControlVisible</a> to define if preview size control should be displayed.:</p></li>
+<li><p>The “accuracy” workflow has been revisited and streamlined into a more consistent and performant workflow.</p></li>
+<li><p>Developers can set <a class="reference internal" href="../barcode-capture/api/ui/spark-scan-view.html#enum-scandit.datacapture.barcode.spark.ui.SparkScanPreviewBehavior" title="SparkScanPreviewBehavior enum">SparkScanPreviewBehavior</a> to specify the preview behavior type of the <a class="reference internal" href="../barcode-capture/api/ui/spark-scan-view.html#class-scandit.datacapture.barcode.spark.ui.SparkScanView" title="SparkScanView class">SparkScanView</a>. When previewBehavior is <a class="reference internal" href="../barcode-capture/api/ui/spark-scan-view.html#value-scandit.datacapture.barcode.spark.ui.SparkScanPreviewBehavior.Persistent" title="SparkScanPreviewBehavior.PERSISTENT value">SparkScanPreviewBehavior.PERSISTENT</a>, after the scan the preview does not disappear, but stays obscured and running (but not scanning) for easier aiming.</p></li>
+<li><p>Added <a class="reference internal" href="../barcode-capture/api/ui/spark-scan-view.html#property-scandit.datacapture.barcode.spark.ui.SparkScanScanningModeTarget.PreviewBehavior" title="Target.previewBehavior property">Target.previewBehavior</a> and <a class="reference internal" href="../barcode-capture/api/ui/spark-scan-view.html#property-scandit.datacapture.barcode.spark.ui.SparkScanScanningModeDefault.PreviewBehavior" title="Default.previewBehavior property">Default.previewBehavior</a> to specify preview behavior for scanning modes.</p></li>
+<li><p>Added initializers for <a class="reference internal" href="../barcode-capture/api/ui/spark-scan-view.html#class-scandit.datacapture.barcode.spark.ui.SparkScanScanningModeTarget" title="Target class">Target</a> and <a class="reference internal" href="../barcode-capture/api/ui/spark-scan-view.html#class-scandit.datacapture.barcode.spark.ui.SparkScanScanningModeDefault" title="Default class">Default</a> that accept <a class="reference internal" href="../barcode-capture/api/ui/spark-scan-view.html#enum-scandit.datacapture.barcode.spark.ui.SparkScanPreviewBehavior" title="SparkScanPreviewBehavior enum">SparkScanPreviewBehavior</a> instead of <a class="reference internal" href="../barcode-capture/api/ui/spark-scan-view.html#enum-scandit.datacapture.barcode.spark.ui.SparkScanScanningPrecision" title="SparkScanScanningPrecision enum">SparkScanScanningPrecision</a>.</p></li>
+<li><p>Toast messages are now displayed on top of the preview rather than scan button. Additional toast messages have been added for better guidance.</p></li>
+<li><p>Added :prop:’barcode.spark.ui.SparkScanToastSettings.TorchEnabledMessage’ and :prop:’barcode.spark.ui.SparkScanToastSettings.TorchDisabledMessage’ to specify toast message when the torch enabled or disabled:</p></li>
+<li><p>The zoom functionality is now independent from scanning mode and is now available in both default and target modes.</p></li>
+<li><p>Added <a class="reference internal" href="../barcode-capture/api/ui/spark-scan-view-settings.html#property-scandit.datacapture.barcode.spark.ui.SparkScanViewSettings.ZoomFactorOut" title="SparkScanViewSettings.zoomFactorOut property">SparkScanViewSettings.zoomFactorOut</a> and <a class="reference internal" href="../barcode-capture/api/ui/spark-scan-view-settings.html#property-scandit.datacapture.barcode.spark.ui.SparkScanViewSettings.ZoomFactorIn" title="SparkScanViewSettings.zoomFactorIn property">SparkScanViewSettings.zoomFactorIn</a> to specify default zoom factor in zoomed out and zoomed in states for both scanning modes default and target:</p></li>
+<li><p>The feedback emission system has been improved: for new implementation, there is no need to explicitly emit a success feedback on scan, as it became implicit.</p></li>
+<li><p>Added <a class="reference internal" href="../barcode-capture/api/ui/spark-scan-barcode-feedback.html#class-scandit.datacapture.barcode.spark.feedback.SparkScanBarcodeFeedback" title="SparkScanBarcodeFeedback class">SparkScanBarcodeFeedback</a>, <a class="reference internal" href="../barcode-capture/api/spark-scan-feedback-delegate.html#interface-scandit.datacapture.barcode.spark.feedback.ISparkScanFeedbackDelegate" title="SparkScanFeedbackDelegate interface">SparkScanFeedbackDelegate</a> and <a class="reference internal" href="../barcode-capture/api/ui/spark-scan-view.html#property-scandit.datacapture.barcode.spark.ui.SparkScanView.FeedbackDelegate" title="SparkScanView.feedbackDelegate property">SparkScanView.feedbackDelegate</a> to define and emit feedback that can be customized for every scanned barcode.:</p></li>
+<li><p>Added <a class="reference internal" href="../barcode-capture/api/ui/spark-scan-view-settings.html#property-scandit.datacapture.barcode.spark.ui.SparkScanViewSettings.InactiveStateTimeout" title="SparkScanViewSettings.inactiveStateTimeout property">SparkScanViewSettings.inactiveStateTimeout</a> to specify the timeout to automatically stop scanning across all modes</p></li>
+</ul>
+</li>
+<li><p>Barcode Pick is an API that implements MatrixScan Pick. MatrixScan Pick is an out-of-the-box scan solution; it uses real-time inventory data and augmented reality to assign precise, item-specific tasks, guaranteeing pinpoint accuracy in restocking, inventory audits, and parcel delivery. Barcode Pick is no longer in beta and a new feature has been  added in 6.23:
+* Added <a class="reference internal" href="../barcode-capture/api/ui/barcode-pick-view-highlight-style-response.html#class-scandit.datacapture.barcode.pick.ui.BarcodePickStatusIconStyle" title="BarcodePickStatusIconStyle class">BarcodePickStatusIconStyle</a> to display additional information on top of the regular highlight.
+* Added <a class="reference internal" href="../barcode-capture/api/ui/barcode-pick-view-highlight-style.html#interface-scandit.datacapture.barcode.pick.ui.BarcodePickViewHighlightStyle" title="BarcodePickViewHighlightStyle interface">BarcodePickViewHighlightStyle</a> to visualize a custom view on top of the tracked barcodes.
+* Added <a class="reference internal" href="../barcode-capture/api/barcode-pick-listener.html#interface-scandit.datacapture.barcode.pick.BarcodePickListener" title="BarcodePickListener interface">BarcodePickListener</a> to listen to <a class="reference internal" href="../barcode-capture/api/barcode-pick-session.html#class-scandit.datacapture.barcode.pick.BarcodePickSession" title="BarcodePickSession class">BarcodePickSession</a> to know the items currently on screen and the newly added items.</p></li>
+<li><p>Added support for <a class="reference internal" href="../barcode-capture/api/symbology.html#value-scandit.datacapture.barcode.Symbology.AustralianPost" title="Symbology.AUSTRALIANPOST value">Symbology.AUSTRALIANPOST</a>. By default, customer information is decoded with Table N, and Table C is used as a fallback. To set a specific decoding table for the customer information, use the symbology extensions: <cite>force_table_c</cite> or <cite>force_table_n</cite> to enforce decoding with either C or N tables respectively. The symbology extension <cite>decode_bar_states</cite> returns the error-corrected customer information bars as a string of the bar states, <cite>A</cite> for ascending, <cite>D</cite> for descending, <cite>T</cite> for tracker and <cite>F</cite> for full.</p></li>
+<li><p>Added getter and setter methods for hint shown when a barcode not in the expected list is scanned in <a class="reference internal" href="../barcode-capture/api/ui/barcode-count-view.html#class-scandit.datacapture.barcode.count.ui.BarcodeCountView" title="BarcodeCountView class">BarcodeCountView</a> (see <a class="reference internal" href="../barcode-capture/api/ui/barcode-count-view.html#method-scandit.datacapture.barcode.count.ui.BarcodeCountView.GetTextForBarcodesNotInListDetectedHint" title="BarcodeCountView.getTextForBarcodesNotInListDetectedHint() method">BarcodeCountView.getTextForBarcodesNotInListDetectedHint()</a> and <a class="reference internal" href="../barcode-capture/api/ui/barcode-count-view.html#method-scandit.datacapture.barcode.count.ui.BarcodeCountView.SetTextForBarcodesNotInListDetectedHint" title="BarcodeCountView.setTextForBarcodesNotInListDetectedHint() method">BarcodeCountView.setTextForBarcodesNotInListDetectedHint()</a>).</p></li>
+</ul>
+</div>
+</div>
+<div class="section" id="performance-improvements">
+<h2>Performance Improvements<a class="headerlink" href="#performance-improvements" title="Permalink to this headline"></a></h2>
+<div class="section" id="id1">
+<h3>Barcode<a class="headerlink" href="#id1" title="Permalink to this headline"></a></h3>
+<ul class="simple">
+<li><p>Improved tracking robustness for low-end devices in <a class="reference internal" href="../barcode-capture/api/barcode-count.html#class-scandit.datacapture.barcode.count.BarcodeCount" title="MatrixScan Count class">MatrixScan Count</a>.</p></li>
+</ul>
+</div>
+</div>
+<div class="section" id="bug-fixes">
+<h2>Bug Fixes<a class="headerlink" href="#bug-fixes" title="Permalink to this headline"></a></h2>
+<div class="section" id="id2">
+<h3>Barcode<a class="headerlink" href="#id2" title="Permalink to this headline"></a></h3>
+<ul class="simple">
+<li><p>Fixed the placement of <a class="reference internal" href="../barcode-capture/api/ui/barcode-tracking-advanced-overlay.html#class-scandit.datacapture.barcode.tracking.ui.BarcodeTrackingAdvancedOverlay" title="BarcodeTrackingAdvancedOverlay class">BarcodeTrackingAdvancedOverlay</a> for right-to-left layout direction.</p></li>
+<li><p>Fixed flickering of guidances in <a class="reference internal" href="../barcode-capture/api/barcode-selection.html#class-scandit.datacapture.barcode.selection.BarcodeSelection" title="BarcodeSelection class">BarcodeSelection</a>.</p></li>
+</ul>
+</div>
+<div class="section" id="id">
+<h3>ID<a class="headerlink" href="#id" title="Permalink to this headline"></a></h3>
+<ul class="simple">
+<li><p>Fixed a crash that happened when scanning Argentina ID document that contained non UTF-8 characters in the barcode.</p></li>
+<li><p>Fixed issues with scanning AAMVA documents (barcode part) that contains characters from non-English alphabets.</p></li>
+<li><p>Fixed a licensing issue where a Barcode Scanner license was wrongly required when scanning the back side of a UK driver’s license.</p></li>
+<li><p>Fixed a crash when scanning a passport MRZ then a non-passport VIZ.</p></li>
+</ul>
+</div>
+<div class="section" id="core">
+<h3>Core<a class="headerlink" href="#core" title="Permalink to this headline"></a></h3>
+<ul class="simple">
+<li><p>Fixed the radius of the <a class="reference internal" href="../core/api/radius-location-selection.html#class-scandit.datacapture.core.RadiusLocationSelection" title="radius location selection class">radius location selection</a> for cases where the <a class="reference internal" href="../core/api/ui/data-capture-view.html#class-scandit.datacapture.core.ui.DataCaptureView" title="DataCaptureView class">DataCaptureView</a>’s aspect ratio is considerably different from the aspect ratio of the camera frames.</p></li>
+</ul>
+</div>
+<div class="section" id="label">
+<h3>Label<a class="headerlink" href="#label" title="Permalink to this headline"></a></h3>
+<ul class="simple">
+<li><p>Fixed the placement of <a class="reference internal" href="../label-capture/api/ui/label-capture-advanced-overlay.html#class-scandit.datacapture.label.ui.LabelCaptureAdvancedOverlay" title="LabelCaptureAdvancedOverlay class">LabelCaptureAdvancedOverlay</a> for right-to-left layout direction.</p></li>
+</ul>
+</div>
+</div>
+<div class="section" id="deprecations">
+<h2>Deprecations<a class="headerlink" href="#deprecations" title="Permalink to this headline"></a></h2>
+<div class="section" id="id3">
+<h3>Barcode<a class="headerlink" href="#id3" title="Permalink to this headline"></a></h3>
+<ul class="simple">
+<li><p><a class="reference internal" href="../high-speed-single-scanning.html"><span class="doc">SparkScan</span></a> received number of updates and improvements:</p>
+<ul>
+<li><p>New APIs have been added to SparkScan to deliver a number of updates and improvements. At the same time, some of the existing APIs have become irrelevant.</p></li>
+<li><p>Deprecated <a class="reference internal" href="../barcode-capture/api/ui/spark-scan-view.html#enum-scandit.datacapture.barcode.spark.ui.SparkScanScanningPrecision" title="SparkScanScanningPrecision enum">SparkScanScanningPrecision</a>. Replaced by <a class="reference internal" href="../barcode-capture/api/ui/spark-scan-view.html#enum-scandit.datacapture.barcode.spark.ui.SparkScanPreviewBehavior" title="SparkScanPreviewBehavior enum">SparkScanPreviewBehavior</a> because the “accurate” workflow has been simplified.:</p></li>
+<li><p>Deprecated <a class="reference internal" href="../barcode-capture/api/ui/spark-scan-view.html#class-scandit.datacapture.barcode.spark.ui.SparkScanScanningModeTarget" title="Target class">Target</a> and <a class="reference internal" href="../barcode-capture/api/ui/spark-scan-view.html#class-scandit.datacapture.barcode.spark.ui.SparkScanScanningModeDefault" title="Default class">Default</a> initializers that accepted <a class="reference internal" href="../barcode-capture/api/ui/spark-scan-view.html#enum-scandit.datacapture.barcode.spark.ui.SparkScanScanningPrecision" title="SparkScanScanningPrecision enum">SparkScanScanningPrecision</a>. Replaced by initializers that accept <a class="reference internal" href="../barcode-capture/api/ui/spark-scan-view.html#enum-scandit.datacapture.barcode.spark.ui.SparkScanPreviewBehavior" title="SparkScanPreviewBehavior enum">SparkScanPreviewBehavior</a> instead.:</p></li>
+<li><p>Deprecated <a class="reference internal" href="../barcode-capture/api/ui/spark-scan-view.html#property-scandit.datacapture.barcode.spark.ui.SparkScanScanningModeTarget.ScanningPrecision" title="Target.scanningPrecision property">Target.scanningPrecision</a> and <a class="reference internal" href="../barcode-capture/api/ui/spark-scan-view.html#property-scandit.datacapture.barcode.spark.ui.SparkScanScanningModeDefault.ScanningPrecision" title="Default.scanningPrecision property">Default.scanningPrecision</a>. Replaced with <a class="reference internal" href="../barcode-capture/api/ui/spark-scan-view.html#property-scandit.datacapture.barcode.spark.ui.SparkScanScanningModeTarget.PreviewBehavior" title="Target.previewBehavior property">Target.previewBehavior</a> and <a class="reference internal" href="../barcode-capture/api/ui/spark-scan-view.html#property-scandit.datacapture.barcode.spark.ui.SparkScanScanningModeDefault.PreviewBehavior" title="Default.previewBehavior property">Default.previewBehavior</a> to specify preview behavior for scanning modes.:</p></li>
+<li><p>Deprecated <a class="reference internal" href="../barcode-capture/api/ui/spark-scan-view.html#property-scandit.datacapture.barcode.spark.ui.SparkScanView.ShouldShowTargetModeHint" title="SparkScanView.shouldShowTargetModeHint property">SparkScanView.shouldShowTargetModeHint</a> and <a class="reference internal" href="../barcode-capture/api/ui/spark-scan-view.html#property-scandit.datacapture.barcode.spark.ui.SparkScanView.TargetModeHintText" title="SparkScanView.targetModeHintText property">SparkScanView.targetModeHintText</a>. This hint is not displayed anymore due to changes in <a class="reference internal" href="../barcode-capture/api/ui/spark-scan-view.html#class-scandit.datacapture.barcode.spark.ui.SparkScanScanningModeTarget" title="Target class">Target</a> scanning mode.:</p></li>
+<li><p>Deprecated :prop:’barcode.spark.ui.SparkScanToastSettings.CameraTimeoutMessage’ because toast with this message is not displayed anymore due to changes in the SparkScan toast system.:</p></li>
+<li><p>Deprecated <a class="reference internal" href="../barcode-capture/api/ui/spark-scan-view-settings.html#property-scandit.datacapture.barcode.spark.ui.SparkScanViewSettings.TargetZoomFactorOut" title="SparkScanViewSettings.targetZoomFactorOut property">SparkScanViewSettings.targetZoomFactorOut</a> and <a class="reference internal" href="../barcode-capture/api/ui/spark-scan-view-settings.html#property-scandit.datacapture.barcode.spark.ui.SparkScanViewSettings.TargetZoomFactorIn" title="SparkScanViewSettings.targetZoomFactorIn property">SparkScanViewSettings.targetZoomFactorIn</a>. Replaced by <a class="reference internal" href="../barcode-capture/api/ui/spark-scan-view-settings.html#property-scandit.datacapture.barcode.spark.ui.SparkScanViewSettings.ZoomFactorOut" title="SparkScanViewSettings.zoomFactorOut property">SparkScanViewSettings.zoomFactorOut</a> and <a class="reference internal" href="../barcode-capture/api/ui/spark-scan-view-settings.html#property-scandit.datacapture.barcode.spark.ui.SparkScanViewSettings.ZoomFactorIn" title="SparkScanViewSettings.zoomFactorIn property">SparkScanViewSettings.zoomFactorIn</a>.:</p></li>
+<li><p>Deprecated <a class="reference internal" href="../barcode-capture/api/ui/spark-scan-view-settings.html#property-scandit.datacapture.barcode.spark.ui.SparkScanViewSettings.ContinuousCaptureTimeout" title="SparkScanViewSettings.continuousCaptureTimeout property">SparkScanViewSettings.continuousCaptureTimeout</a>. Replaced by <a class="reference internal" href="../barcode-capture/api/ui/spark-scan-view-settings.html#property-scandit.datacapture.barcode.spark.ui.SparkScanViewSettings.InactiveStateTimeout" title="SparkScanViewSettings.inactiveStateTimeout property">SparkScanViewSettings.inactiveStateTimeout</a>.:</p></li>
+<li><p>Deprecated <a class="reference internal" href="../barcode-capture/api/ui/spark-scan-view-feedback.html#class-scandit.datacapture.barcode.spark.ui.SparkScanViewFeedback" title="SparkScanViewFeedback class">SparkScanViewFeedback</a>, <a class="reference internal" href="../barcode-capture/api/spark-scan-feedback.html#class-scandit.datacapture.barcode.spark.SparkScanFeedback" title="SparkScanFeedback class">SparkScanFeedback</a>, <a class="reference internal" href="../barcode-capture/api/ui/spark-scan-view.html#property-scandit.datacapture.barcode.spark.ui.SparkScanView.Brush" title="SparkScanView.brush property">SparkScanView.brush</a> and <a class="reference internal" href="../barcode-capture/api/ui/spark-scan-view.html#method-scandit.datacapture.barcode.spark.ui.SparkScanView.EmitFeedback" title="SparkScanView.emitFeedback() method">SparkScanView.emitFeedback()</a>. These classes and methods are not used anymore. Use <a class="reference internal" href="../barcode-capture/api/ui/spark-scan-barcode-feedback.html#class-scandit.datacapture.barcode.spark.feedback.SparkScanBarcodeFeedback" title="SparkScanBarcodeFeedback class">SparkScanBarcodeFeedback</a> and <a class="reference internal" href="../barcode-capture/api/ui/spark-scan-view.html#property-scandit.datacapture.barcode.spark.ui.SparkScanView.FeedbackDelegate" title="SparkScanView.feedbackDelegate property">SparkScanView.feedbackDelegate</a>.:</p></li>
+</ul>
+</li>
+</ul>
+</div>
+</div>
+<div class="section" id="updates">
+<h2>Updates<a class="headerlink" href="#updates" title="Permalink to this headline"></a></h2>
+<div class="section" id="sdk-6-23-1-bug-fixes-april-24-2024">
+<h3>Scandit Data Capture SDK 6.23.1 Bug Fixes (April 24, 2024)<a class="headerlink" href="#sdk-6-23-1-bug-fixes-april-24-2024" title="Permalink to this headline"></a></h3>
+<ul class="simple">
+<li><p>Added support for Mexican Matrícula Consular MRZ codes.</p></li>
+<li><p>Improved ID scanning performance in low-light conditions.</p></li>
+<li><p>Fixed truncated surnames in US driver’s licenses using magnetic stripe format.</p></li>
+</ul>
+</div>
+<div class="section" id="sdk-6-23-2-bug-fixes-april-30-2024">
+<h3>Scandit Data Capture SDK 6.23.2 Bug Fixes (April 30, 2024)<a class="headerlink" href="#sdk-6-23-2-bug-fixes-april-30-2024" title="Permalink to this headline"></a></h3>
+<ul class="simple">
+<li><p>Fixed crash (SIGILL) on Exynos 9810-based Galaxy S9 and Galaxy S9+ devices that advertise support for FP16 arithmetics. A previous fix in 6.21.0 only partially resolved the issue.</p></li>
+<li><p>Removed unused code and updated the privacy manifest to conform to the <a class="reference external" href="https://developer.apple.com/documentation/bundleresources/privacy_manifest_files">new privacy requirements</a>.</p></li>
+</ul>
+</div>
+</div>
+</div>
+
+
+           </div>
+          </div>
+          <footer>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2024, Scandit AG.</p>
+  </div>
+
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+  <!-- Start of scandit Zendesk Widget script -->
+  <script id="ze-snippet" src="https://static.zdassets.com/ekr/snippet.js?key=df0234ee-7451-4189-8d1c-17c8a624b5f1">
+  </script>
+<script>
+      function getPlatformSuffix() {
+        const platform = 'android'
+        switch (platform) {
+          case 'android':         return 'for Android'
+          case 'ios':             return 'for iOS'
+          case 'cordova':         return 'for Cordova'
+          case 'react-native':    return 'for React Native'
+          case 'xamarin.ios':     return 'for Xamarin.iOS'
+          case 'xamarin.android': return 'for Xamarin.Android'
+          case 'xamarin.forms':   return 'for Xamarin.Forms'
+          case 'flutter':         return 'for Flutter'
+          case 'capacitor':       return 'for Capacitor'
+          case 'titanium':        return 'for Titanium'
+          case 'web':             return 'for the Web'
+          case 'dotnet.ios':      return 'for .NET for iOS'
+          case 'dotnet.android':  return 'for .NET for Android'
+          default:                return ''
+        }
+      }
+
+      const platformSuffix = getPlatformSuffix()
+      const headerTitle = document.querySelector(".icon-home")
+      headerTitle.insertAdjacentHTML('beforeend', ` ${platformSuffix}`)
+
+      const [major, minor] = DOCUMENTATION_OPTIONS.VERSION.split('.')
+      const version = document.querySelector(".version")
+      version.innerHTML = `
+        <div class="version">
+          <a href="${DOCUMENTATION_OPTIONS.URL_ROOT}release-notes/${major}.${minor}.html">Release Notes</a> 
+        </div>
+        <br>
+      `
+  </script>
+  <!-- End of scandit Zendesk Widget script -->
+
+</body>
+</html>

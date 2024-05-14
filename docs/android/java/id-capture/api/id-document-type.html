@@ -1,0 +1,386 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>ID Document Type &mdash; Data Capture SDK 6.24.0-rc.2 documentation</title>
+      <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
+    <link rel="stylesheet" href="../../_static/custom.css" type="text/css" />
+  <!--[if lt IE 9]>
+    <script src="../../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script data-url_root="../../" id="documentation_options" src="../../_static/documentation_options.js"></script>
+        <script src="../../_static/jquery.js"></script>
+        <script src="../../_static/underscore.js"></script>
+        <script src="../../_static/doctools.js"></script>
+    <script src="../../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
+    <link rel="next" title="ID Image Type" href="id-image-type.html" />
+    <link rel="prev" title="ID Capture" href="id-capture.html" />
+  <!-- Google Tag Manager -->
+  <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+  new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+  j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+  'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+  })(window,document,'script','dataLayer','GTM-THQQFD7');</script>
+  <!-- End Google Tag Manager -->
+</head>
+
+<body class="wy-body-for-nav">
+  <!-- Google Tag Manager (noscript) -->
+  <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-THQQFD7"
+  height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+  <!-- End Google Tag Manager (noscript) -->
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+            <a href="../../index.html" class="icon icon-home"> Data Capture SDK
+          </a>
+              <div class="version">
+                6.24.0-rc.2
+              </div>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">First Steps</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../samples/run-samples.html">Run Samples</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../add-sdk.html">Add the SDK to Your App</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../best-practices-for-usability.html">Best Practices for Usability</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Pre-Built Components</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../high-speed-single-scanning.html">High-Speed Single Scanning</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../batch-counting-and-receiving.html">Batch Counting And Receiving</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../selecting-one-of-many.html">Selecting One Of Many Barcodes</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../ar-assisted-search-and-find.html">AR-Assisted Search And Find</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Fully-Customizable API</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../id-scanning-and-verification.html">ID Scanning And Verification</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../batch-scanning-and-ar.html">Batch Scanning And AR</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../single-scanning.html">Single Scanning</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../text-capture.html">Text Capture</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../parse-barcode-data.html">Parse Barcode Data</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../advanced-topics.html">Advanced Topics</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">API Reference</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../../core/overview.html">ScanditCaptureCore</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../barcode-capture/overview.html">ScanditBarcodeCapture</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../overview.html">ScanditIdCapture</a><ul class="current">
+<li class="toctree-l2 current"><a class="reference internal" href="../api.html">API</a><ul class="current">
+<li class="toctree-l3"><a class="reference internal" href="aamva-barcode-result.html">AAMVA Barcode Result</a></li>
+<li class="toctree-l3"><a class="reference internal" href="aamva-barcode-verifier.html">AAMVA Barcode Verifier</a></li>
+<li class="toctree-l3"><a class="reference internal" href="aamva-viz-barcode-comparison-verifier.html">AAMVA VIZ Barcode Comparison Verifier</a></li>
+<li class="toctree-l3"><a class="reference internal" href="apec-business-travel-card-mrz-result.html">APEC Business Travel Card MRZ Result</a></li>
+<li class="toctree-l3"><a class="reference internal" href="argentina-id-barcode-result.html">Argentina ID Barcode Result</a></li>
+<li class="toctree-l3"><a class="reference internal" href="captured-id.html">Captured ID</a></li>
+<li class="toctree-l3"><a class="reference internal" href="captured-result-type.html">Captured Result Type</a></li>
+<li class="toctree-l3"><a class="reference internal" href="china-exit-entry-permit-mrz-result.html">China Exit-Entry Permit MRZ Result</a></li>
+<li class="toctree-l3"><a class="reference internal" href="china-mainland-travel-permit-mrz-result.html">China Mainland Travel Permit MRZ Result</a></li>
+<li class="toctree-l3"><a class="reference internal" href="china-one-way-permit-back-mrz-result.html">China One-Way Permit to Hong Kong/Macau Back MRZ Result</a></li>
+<li class="toctree-l3"><a class="reference internal" href="china-one-way-permit-front-mrz-result.html">China One-Way Permit to Hong Kong/Macau Front MRZ Result</a></li>
+<li class="toctree-l3"><a class="reference internal" href="colombia-dl-barcode-result.html">Colombia DL Barcode Result</a></li>
+<li class="toctree-l3"><a class="reference internal" href="colombia-id-barcode-result.html">Colombia ID Barcode Result</a></li>
+<li class="toctree-l3"><a class="reference internal" href="common-access-card-barcode-result.html">Common Access Card Barcode Result</a></li>
+<li class="toctree-l3"><a class="reference internal" href="date-result.html">Date Result</a></li>
+<li class="toctree-l3"><a class="reference internal" href="document-type.html">Document Type</a></li>
+<li class="toctree-l3"><a class="reference internal" href="id-anonymization-mode.html">ID Anonymization Mode</a></li>
+<li class="toctree-l3"><a class="reference internal" href="id-capture-exception.html">ID Capture Exception</a></li>
+<li class="toctree-l3"><a class="reference internal" href="id-capture-feedback.html">Id Capture Feedback</a></li>
+<li class="toctree-l3"><a class="reference internal" href="id-capture-listener.html">ID Capture Listener</a></li>
+<li class="toctree-l3"><a class="reference internal" href="id-capture-session.html">ID Capture Session</a></li>
+<li class="toctree-l3"><a class="reference internal" href="id-capture-settings.html">ID Capture Settings</a></li>
+<li class="toctree-l3"><a class="reference internal" href="id-capture.html">ID Capture</a></li>
+<li class="toctree-l3 current"><a class="current reference internal" href="#">ID Document Type</a></li>
+<li class="toctree-l3"><a class="reference internal" href="id-image-type.html">ID Image Type</a></li>
+<li class="toctree-l3"><a class="reference internal" href="id-supported-document-sides.html">ID Supported Sides</a></li>
+<li class="toctree-l3"><a class="reference internal" href="localized-only-id.html">Localized Only ID</a></li>
+<li class="toctree-l3"><a class="reference internal" href="mrz-result.html">MRZ Result</a></li>
+<li class="toctree-l3"><a class="reference internal" href="rejected-id.html">Rejected ID</a></li>
+<li class="toctree-l3"><a class="reference internal" href="rejection-reason.html">Rejection Reason</a></li>
+<li class="toctree-l3"><a class="reference internal" href="south-africa-dl-barcode-result.html">South Africa DL Barcode Result</a></li>
+<li class="toctree-l3"><a class="reference internal" href="south-africa-id-barcode-result.html">South Africa ID Barcode Result</a></li>
+<li class="toctree-l3"><a class="reference internal" href="us-uniformed-services-barcode-result.html">Us Uniformed Services Barcode Result</a></li>
+<li class="toctree-l3"><a class="reference internal" href="us-visa-viz-result.html">US Visa VIZ Result</a></li>
+<li class="toctree-l3"><a class="reference internal" href="viz-mrz-comparison-verifier.html">VIZ MRZ Comparison Verifier</a></li>
+<li class="toctree-l3"><a class="reference internal" href="viz-result.html">VIZ Result</a></li>
+<li class="toctree-l3"><a class="reference internal" href="ui/id-capture-overlay.html">ID Capture Overlay</a></li>
+<li class="toctree-l3"><a class="reference internal" href="ui/id-layout.html">ID Layout</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../text-capture/overview.html">ScanditTextCapture</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../label-capture/overview.html">ScanditLabelCapture</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../parser/overview.html">ScanditParser</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../genindex.html">Index</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">More Resources</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../release-notes.html">Release Notes</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../barcode-symbologies.html">Barcode Symbologies</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../requirements.html">System Requirements</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../support.html">Support &amp; FAQ</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../features-by-platform.html">Features By Framework</a></li>
+<li class="toctree-l1"><a class="reference external" href="https://docs.scandit.com/barcode-scanner-sdk.html">SDK 5.x Documentation [Deprecated]</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../migrate-to-6.html">Migrate from Barcode Scanner 5.x</a></li>
+<li class="toctree-l1"><a class="reference external" href="http://ssl.scandit.com">Your Developer Dashboard</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../index.html">Data Capture SDK</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation" class="navbar">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../../index.html" class="icon icon-home" aria-label="Home"></a></li>
+          <li class="breadcrumb-item"><a href="../overview.html">ScanditIdCapture</a></li>
+          <li class="breadcrumb-item"><a href="../api.html">ScanditIdCapture API</a></li>
+      <li class="breadcrumb-item active">ID Document Type</li>
+      <li class="wy-breadcrumbs-aside">
+      </li>
+  </ul>
+  <div class="auth-link-container">
+    <a class="signup-link signup-link--mobile" rel="noopener" target="_blank" href="https://ssl.scandit.com/dashboard/sign-up?p=test&utm_source=documentation">Sign up</a>
+    <a class="signup-link" target="_blank" rel="noopener" href="https://ssl.scandit.com/dashboard/sign-up?p=test&utm_source=documentation">Sign up for your developer account</a>
+    <a class="signin-link" target="_blank" rel="noopener" href="https://ssl.scandit.com/dashboard/sign-in">Log in</a>
+  </div>
+</div>
+<hr/>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <div class="section" id="id-document-type">
+<h1>ID Document Type<a class="headerlink" href="#id-document-type" title="Permalink to this headline"></a></h1>
+<p>Defined in package <em>com.scandit.datacapture.id.data</em></p>
+<dl>
+<dt class="sig sig-object unilang" id="enum-scandit.datacapture.id.IdDocumentType">
+<span class="sig-name descname"><span class="pre">IdDocumentType</span></span><a class="headerlink" href="#enum-scandit.datacapture.id.IdDocumentType" title="Permalink to this definition"></a></dt>
+<dd><p><span class="versionmodified versionadded">Added in version 6.5.0</span></p>
+<p>This enum class is used to specify what documents can be scanned in ID Capture. Documents are set in <a class="reference internal" href="id-capture-settings.html#property-scandit.datacapture.id.IdCaptureSettings.SupportedDocuments" title="IdCaptureSettings.supportedDocuments property">IdCaptureSettings.supportedDocuments</a> method.</p>
+<dl>
+<dt class="sig sig-object unilang" id="value-scandit.datacapture.id.IdDocumentType.DlViz">
+<span class="sig-name descname"><span class="pre">DL_VIZ</span></span><a class="headerlink" href="#value-scandit.datacapture.id.IdDocumentType.DlViz" title="Permalink to this definition"></a></dt>
+<dd><p><span class="versionmodified versionadded">Added in version 6.5.0</span></p>
+<p>Allows to scan the front page of Driver License document. The result would be of type <a class="reference internal" href="viz-result.html#class-scandit.datacapture.id.VizResult" title="VizResult class">VizResult</a>.</p>
+</dd></dl>
+
+<dl>
+<dt class="sig sig-object unilang" id="value-scandit.datacapture.id.IdDocumentType.AamvaBarcode">
+<span class="sig-name descname"><span class="pre">AAMVA_BARCODE</span></span><a class="headerlink" href="#value-scandit.datacapture.id.IdDocumentType.AamvaBarcode" title="Permalink to this definition"></a></dt>
+<dd><p><span class="versionmodified versionadded">Added in version 6.6.0</span></p>
+<p>Allows to scan back page of AAMVA Driver License documents that contains PDF417 with the data. The result would be of type <a class="reference internal" href="aamva-barcode-result.html#class-scandit.datacapture.id.AamvaBarcodeResult" title="AamvaBarcodeResult class">AamvaBarcodeResult</a>.</p>
+</dd></dl>
+
+<dl>
+<dt class="sig sig-object unilang" id="value-scandit.datacapture.id.IdDocumentType.ColombiaDlBarcode">
+<span class="sig-name descname"><span class="pre">COLOMBIA_DL_BARCODE</span></span><a class="headerlink" href="#value-scandit.datacapture.id.IdDocumentType.ColombiaDlBarcode" title="Permalink to this definition"></a></dt>
+<dd><p><span class="versionmodified versionadded">Added in version 6.13.0</span></p>
+<p>Allows to scan back page of Colombia Driver’s License (Licencia de Conducción) that contains PDF417 with the data. The result would be of type <a class="reference internal" href="colombia-dl-barcode-result.html#class-scandit.datacapture.id.ColombiaDlBarcodeResult" title="ColombiaDlBarcodeResult class">ColombiaDlBarcodeResult</a>.</p>
+</dd></dl>
+
+<dl>
+<dt class="sig sig-object unilang" id="value-scandit.datacapture.id.IdDocumentType.ColombiaIdBarcode">
+<span class="sig-name descname"><span class="pre">COLOMBIA_ID_BARCODE</span></span><a class="headerlink" href="#value-scandit.datacapture.id.IdDocumentType.ColombiaIdBarcode" title="Permalink to this definition"></a></dt>
+<dd><p><span class="versionmodified versionadded">Added in version 6.8.0</span></p>
+<p>Allows to scan back page of Colombia ID (Cédula de Ciudadanía) that contains PDF417 with the data. The result would be of type <a class="reference internal" href="colombia-id-barcode-result.html#class-scandit.datacapture.id.ColombiaIdBarcodeResult" title="ColombiaIdBarcodeResult class">ColombiaIdBarcodeResult</a>.</p>
+</dd></dl>
+
+<dl>
+<dt class="sig sig-object unilang" id="value-scandit.datacapture.id.IdDocumentType.VisaMrz">
+<span class="sig-name descname"><span class="pre">VISA_MRZ</span></span><a class="headerlink" href="#value-scandit.datacapture.id.IdDocumentType.VisaMrz" title="Permalink to this definition"></a></dt>
+<dd><p><span class="versionmodified versionadded">Added in version 6.5.0</span></p>
+<p>Allows to scan MRZ zone of the visa card. The result would be of type <a class="reference internal" href="mrz-result.html#class-scandit.datacapture.id.MrzResult" title="MrzResult class">MrzResult</a>.</p>
+</dd></dl>
+
+<dl>
+<dt class="sig sig-object unilang" id="value-scandit.datacapture.id.IdDocumentType.PassportMrz">
+<span class="sig-name descname"><span class="pre">PASSPORT_MRZ</span></span><a class="headerlink" href="#value-scandit.datacapture.id.IdDocumentType.PassportMrz" title="Permalink to this definition"></a></dt>
+<dd><p><span class="versionmodified versionadded">Added in version 6.5.0</span></p>
+<p>Allows to scan MRZ zone of the passport. The result would be of type <a class="reference internal" href="mrz-result.html#class-scandit.datacapture.id.MrzResult" title="MrzResult class">MrzResult</a>.</p>
+</dd></dl>
+
+<dl>
+<dt class="sig sig-object unilang" id="value-scandit.datacapture.id.IdDocumentType.SwissDlMrz">
+<span class="sig-name descname"><span class="pre">SWISS_DL_MRZ</span></span><a class="headerlink" href="#value-scandit.datacapture.id.IdDocumentType.SwissDlMrz" title="Permalink to this definition"></a></dt>
+<dd><p><span class="versionmodified versionadded">Added in version 6.5.0</span></p>
+<p>Allows to scan MRZ zone of the Swiss driver’s license. The result would be of type <a class="reference internal" href="mrz-result.html#class-scandit.datacapture.id.MrzResult" title="MrzResult class">MrzResult</a>.</p>
+</dd></dl>
+
+<dl>
+<dt class="sig sig-object unilang" id="value-scandit.datacapture.id.IdDocumentType.IdCardMrz">
+<span class="sig-name descname"><span class="pre">ID_CARD_MRZ</span></span><a class="headerlink" href="#value-scandit.datacapture.id.IdDocumentType.IdCardMrz" title="Permalink to this definition"></a></dt>
+<dd><p><span class="versionmodified versionadded">Added in version 6.5.0</span></p>
+<p>Allows to scan MRZ zone of ID card. The result would be of type <a class="reference internal" href="mrz-result.html#class-scandit.datacapture.id.MrzResult" title="MrzResult class">MrzResult</a>.</p>
+</dd></dl>
+
+<dl>
+<dt class="sig sig-object unilang" id="value-scandit.datacapture.id.IdDocumentType.IdCardViz">
+<span class="sig-name descname"><span class="pre">ID_CARD_VIZ</span></span><a class="headerlink" href="#value-scandit.datacapture.id.IdDocumentType.IdCardViz" title="Permalink to this definition"></a></dt>
+<dd><p><span class="versionmodified versionadded">Added in version 6.5.0</span></p>
+<p>Allows to scan ID documents. The result would be of type <a class="reference internal" href="viz-result.html#class-scandit.datacapture.id.VizResult" title="VizResult class">VizResult</a>.</p>
+</dd></dl>
+
+<dl>
+<dt class="sig sig-object unilang" id="value-scandit.datacapture.id.IdDocumentType.UsUsIdBarcode">
+<span class="sig-name descname"><span class="pre">US_US_ID_BARCODE</span></span><a class="headerlink" href="#value-scandit.datacapture.id.IdDocumentType.UsUsIdBarcode" title="Permalink to this definition"></a></dt>
+<dd><p><span class="versionmodified versionadded">Added in version 6.5.0</span></p>
+<p>Allows to scan back page of US Uniformed Services documents that contains PDF417 with the data. The result would be of type <a class="reference internal" href="us-uniformed-services-barcode-result.html#class-scandit.datacapture.id.UsUniformedServicesBarcodeResult" title="UsUniformedServicesBarcodeResult class">UsUniformedServicesBarcodeResult</a>.</p>
+</dd></dl>
+
+<dl>
+<dt class="sig sig-object unilang" id="value-scandit.datacapture.id.IdDocumentType.ArgentinaIdBarcode">
+<span class="sig-name descname"><span class="pre">ARGENTINA_ID_BARCODE</span></span><a class="headerlink" href="#value-scandit.datacapture.id.IdDocumentType.ArgentinaIdBarcode" title="Permalink to this definition"></a></dt>
+<dd><p><span class="versionmodified versionadded">Added in version 6.8.0</span></p>
+<p>Allows to scan back page of Argentina ID (Documento Nacional de Identidad) that contains PDF417 with the data. The result would be of type <a class="reference internal" href="argentina-id-barcode-result.html#class-scandit.datacapture.id.ArgentinaIdBarcodeResult" title="ArgentinaIdBarcodeResult class">ArgentinaIdBarcodeResult</a>.</p>
+</dd></dl>
+
+<dl>
+<dt class="sig sig-object unilang" id="value-scandit.datacapture.id.IdDocumentType.SouthAfricaDlBarcode">
+<span class="sig-name descname"><span class="pre">SOUTH_AFRICA_DL_BARCODE</span></span><a class="headerlink" href="#value-scandit.datacapture.id.IdDocumentType.SouthAfricaDlBarcode" title="Permalink to this definition"></a></dt>
+<dd><p><span class="versionmodified versionadded">Added in version 6.8.0</span></p>
+<p>Allows to scan back page of South Africa Driver’s License that contains PDF417 with the data. The result would be of type <a class="reference internal" href="south-africa-dl-barcode-result.html#class-scandit.datacapture.id.SouthAfricaDlBarcodeResult" title="SouthAfricaDlBarcodeResult class">SouthAfricaDlBarcodeResult</a>.</p>
+</dd></dl>
+
+<dl>
+<dt class="sig sig-object unilang" id="value-scandit.datacapture.id.IdDocumentType.SouthAfricaIdBarcode">
+<span class="sig-name descname"><span class="pre">SOUTH_AFRICA_ID_BARCODE</span></span><a class="headerlink" href="#value-scandit.datacapture.id.IdDocumentType.SouthAfricaIdBarcode" title="Permalink to this definition"></a></dt>
+<dd><p><span class="versionmodified versionadded">Added in version 6.8.0</span></p>
+<p>Allows to scan back page of South Africa Smart ID Card that contains PDF417 with the data. The result would be of type <a class="reference internal" href="south-africa-id-barcode-result.html#class-scandit.datacapture.id.SouthAfricaIdBarcodeResult" title="SouthAfricaIdBarcodeResult class">SouthAfricaIdBarcodeResult</a>.</p>
+</dd></dl>
+
+<dl>
+<dt class="sig sig-object unilang" id="value-scandit.datacapture.id.IdDocumentType.CommonAccessCardBarcode">
+<span class="sig-name descname"><span class="pre">COMMON_ACCESS_CARD_BARCODE</span></span><a class="headerlink" href="#value-scandit.datacapture.id.IdDocumentType.CommonAccessCardBarcode" title="Permalink to this definition"></a></dt>
+<dd><p><span class="versionmodified versionadded">Added in version 6.18.0</span></p>
+<p>Allows to scan barcode on Common Access Card that contains PDF417 with the data. The result would be of type <a class="reference internal" href="common-access-card-barcode-result.html#class-scandit.datacapture.id.CommonAccessCardBarcodeResult" title="CommonAccessCardBarcodeResult class">CommonAccessCardBarcodeResult</a>.</p>
+</dd></dl>
+
+<dl>
+<dt class="sig sig-object unilang" id="value-scandit.datacapture.id.IdDocumentType.ChinaMainlandTravelPermitMrz">
+<span class="sig-name descname"><span class="pre">CHINA_MAINLAND_TRAVEL_PERMIT_MRZ</span></span><a class="headerlink" href="#value-scandit.datacapture.id.IdDocumentType.ChinaMainlandTravelPermitMrz" title="Permalink to this definition"></a></dt>
+<dd><p><span class="versionmodified versionadded">Added in version 6.14.0</span></p>
+<p>Allows to scan MRZ zone of Chinese Mainland Travel Permits. The result would be of type <a class="reference internal" href="china-mainland-travel-permit-mrz-result.html#class-scandit.datacapture.id.ChinaMainlandTravelPermitMrzResult" title="ChinaMainlandTravelPermitMrzResult class">ChinaMainlandTravelPermitMrzResult</a>.</p>
+</dd></dl>
+
+<dl>
+<dt class="sig sig-object unilang" id="value-scandit.datacapture.id.IdDocumentType.ChinaExitEntryPermitMrz">
+<span class="sig-name descname"><span class="pre">CHINA_EXIT_ENTRY_PERMIT_MRZ</span></span><a class="headerlink" href="#value-scandit.datacapture.id.IdDocumentType.ChinaExitEntryPermitMrz" title="Permalink to this definition"></a></dt>
+<dd><p><span class="versionmodified versionadded">Added in version 6.14.0</span></p>
+<p>Allows to capture information from a Machine Readable Zone (MRZ) of an Exit-Entry Permit for Travelling to and from Hong Kong and Macau (往来港澳通行证) or an Exit-Entry Permit for Travelling to and from Taiwan (往来台灣通行证) issued by People’s Republic of China. The result would be of type <a class="reference internal" href="china-exit-entry-permit-mrz-result.html#class-scandit.datacapture.id.ChinaExitEntryPermitMrzResult" title="ChinaExitEntryPermitMrzResult class">ChinaExitEntryPermitMrzResult</a>.</p>
+</dd></dl>
+
+<dl>
+<dt class="sig sig-object unilang" id="value-scandit.datacapture.id.IdDocumentType.ChinaOneWayPermitBackMrz">
+<span class="sig-name descname"><span class="pre">CHINA_ONE_WAY_PERMIT_BACK_MRZ</span></span><a class="headerlink" href="#value-scandit.datacapture.id.IdDocumentType.ChinaOneWayPermitBackMrz" title="Permalink to this definition"></a></dt>
+<dd><p><span class="versionmodified versionadded">Added in version 6.16.0</span></p>
+<p>Allows capture of information from a Machine Readable Zone (MRZ) of the back of a One-Way Permit to Hong Kong/Macau issued by the People’s Republic of China. The result would be of type <a class="reference internal" href="china-one-way-permit-back-mrz-result.html#class-scandit.datacapture.id.ChinaOneWayPermitBackMrzResult" title="ChinaOneWayPermitBackMrzResult class">ChinaOneWayPermitBackMrzResult</a>.</p>
+</dd></dl>
+
+<dl>
+<dt class="sig sig-object unilang" id="value-scandit.datacapture.id.IdDocumentType.ChinaOneWayPermitFrontMrz">
+<span class="sig-name descname"><span class="pre">CHINA_ONE_WAY_PERMIT_FRONT_MRZ</span></span><a class="headerlink" href="#value-scandit.datacapture.id.IdDocumentType.ChinaOneWayPermitFrontMrz" title="Permalink to this definition"></a></dt>
+<dd><p><span class="versionmodified versionadded">Added in version 6.16.0</span></p>
+<p>Allows capture of information from a Machine Readable Zone (MRZ) of the front of a One-Way Permit to Hong Kong/Macau issued by the People’s Republic of China. The result would be of type <a class="reference internal" href="china-one-way-permit-front-mrz-result.html#class-scandit.datacapture.id.ChinaOneWayPermitFrontMrzResult" title="ChinaOneWayPermitFrontMrzResult class">ChinaOneWayPermitFrontMrzResult</a>.</p>
+</dd></dl>
+
+<dl>
+<dt class="sig sig-object unilang" id="value-scandit.datacapture.id.IdDocumentType.ApecBusinessTravelCardMrz">
+<span class="sig-name descname"><span class="pre">APEC_BUSINESS_TRAVEL_CARD_MRZ</span></span><a class="headerlink" href="#value-scandit.datacapture.id.IdDocumentType.ApecBusinessTravelCardMrz" title="Permalink to this definition"></a></dt>
+<dd><p><span class="versionmodified versionadded">Added in version 6.16.0</span></p>
+<p>Allows capture of information from a Machine Readable Zone (MRZ) of the back of an APEC (Asia-Pacific Economic Cooperation) Business Travel Card. The result would be of type <a class="reference internal" href="apec-business-travel-card-mrz-result.html#class-scandit.datacapture.id.ApecBusinessTravelCardMrzResult" title="ApecBusinessTravelCardMrzResult class">ApecBusinessTravelCardMrzResult</a>.</p>
+</dd></dl>
+
+<dl>
+<dt class="sig sig-object unilang" id="value-scandit.datacapture.id.IdDocumentType.PassportViz">
+<span class="sig-name descname"><span class="pre">PASSPORT_VIZ</span></span><a class="headerlink" href="#value-scandit.datacapture.id.IdDocumentType.PassportViz" title="Permalink to this definition"></a></dt>
+<dd><p><span class="versionmodified versionadded">Added in version 6.18.0</span></p>
+<p>Allows capture of information from both the Visual Inspection Zone (VIZ) and the Machine Readable Zone (MRZ) of a passport. The result would be of type <a class="reference internal" href="viz-result.html#class-scandit.datacapture.id.VizResult" title="VizResult class">VizResult</a> and <a class="reference internal" href="mrz-result.html#class-scandit.datacapture.id.MrzResult" title="MrzResult class">MrzResult</a>.</p>
+</dd></dl>
+
+</dd></dl>
+
+</div>
+
+
+           </div>
+          </div>
+          <footer>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2024, Scandit AG.</p>
+  </div>
+
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+  <!-- Start of scandit Zendesk Widget script -->
+  <script id="ze-snippet" src="https://static.zdassets.com/ekr/snippet.js?key=df0234ee-7451-4189-8d1c-17c8a624b5f1">
+  </script>
+<script>
+      function getPlatformSuffix() {
+        const platform = 'android'
+        switch (platform) {
+          case 'android':         return 'for Android'
+          case 'ios':             return 'for iOS'
+          case 'cordova':         return 'for Cordova'
+          case 'react-native':    return 'for React Native'
+          case 'xamarin.ios':     return 'for Xamarin.iOS'
+          case 'xamarin.android': return 'for Xamarin.Android'
+          case 'xamarin.forms':   return 'for Xamarin.Forms'
+          case 'flutter':         return 'for Flutter'
+          case 'capacitor':       return 'for Capacitor'
+          case 'titanium':        return 'for Titanium'
+          case 'web':             return 'for the Web'
+          case 'dotnet.ios':      return 'for .NET for iOS'
+          case 'dotnet.android':  return 'for .NET for Android'
+          default:                return ''
+        }
+      }
+
+      const platformSuffix = getPlatformSuffix()
+      const headerTitle = document.querySelector(".icon-home")
+      headerTitle.insertAdjacentHTML('beforeend', ` ${platformSuffix}`)
+
+      const [major, minor] = DOCUMENTATION_OPTIONS.VERSION.split('.')
+      const version = document.querySelector(".version")
+      version.innerHTML = `
+        <div class="version">
+          <a href="${DOCUMENTATION_OPTIONS.URL_ROOT}release-notes/${major}.${minor}.html">Release Notes</a> 
+        </div>
+        <br>
+      `
+  </script>
+  <!-- End of scandit Zendesk Widget script -->
+
+</body>
+</html>

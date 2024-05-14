@@ -1,0 +1,603 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>IATA BCBP &mdash; Data Capture SDK 6.24.0-rc.2 documentation</title>
+      <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/custom.css" type="text/css" />
+  <!--[if lt IE 9]>
+    <script src="../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
+        <script src="../_static/jquery.js"></script>
+        <script src="../_static/underscore.js"></script>
+        <script src="../_static/doctools.js"></script>
+    <script src="../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Result Object Structure" href="result-object.html" />
+    <link rel="prev" title="VIN" href="vin.html" />
+  <!-- Google Tag Manager -->
+  <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+  new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+  j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+  'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+  })(window,document,'script','dataLayer','GTM-THQQFD7');</script>
+  <!-- End Google Tag Manager -->
+</head>
+
+<body class="wy-body-for-nav">
+  <!-- Google Tag Manager (noscript) -->
+  <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-THQQFD7"
+  height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+  <!-- End Google Tag Manager (noscript) -->
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+            <a href="../index.html" class="icon icon-home"> Data Capture SDK
+          </a>
+              <div class="version">
+                6.24.0-rc.2
+              </div>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">First Steps</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../samples/run-samples.html">Run Samples</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../add-sdk.html">Add the SDK to Your App</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../best-practices-for-usability.html">Best Practices for Usability</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Pre-Built Components</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../high-speed-single-scanning.html">High-Speed Single Scanning</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../batch-counting-and-receiving.html">Batch Counting And Receiving</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../selecting-one-of-many.html">Selecting One Of Many Barcodes</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../ar-assisted-search-and-find.html">AR-Assisted Search And Find</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Fully-Customizable API</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../id-scanning-and-verification.html">ID Scanning And Verification</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../batch-scanning-and-ar.html">Batch Scanning And AR</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../single-scanning.html">Single Scanning</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../text-capture.html">Text Capture</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../parse-barcode-data.html">Parse Barcode Data</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../advanced-topics.html">Advanced Topics</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">API Reference</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../core/overview.html">ScanditCaptureCore</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../barcode-capture/overview.html">ScanditBarcodeCapture</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../id-capture/overview.html">ScanditIdCapture</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../text-capture/overview.html">ScanditTextCapture</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../label-capture/overview.html">ScanditLabelCapture</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="overview.html">ScanditParser</a><ul class="current">
+<li class="toctree-l2 current"><a class="reference internal" href="formats.html">Supported Data Formats</a><ul class="current">
+<li class="toctree-l3"><a class="reference internal" href="hibc.html">HIBC</a></li>
+<li class="toctree-l3"><a class="reference internal" href="gs1ai.html">GS1 AI</a></li>
+<li class="toctree-l3"><a class="reference internal" href="gs1-digital-link.html">GS1 Digital Link</a></li>
+<li class="toctree-l3"><a class="reference internal" href="swissqr.html">Swiss QR</a></li>
+<li class="toctree-l3"><a class="reference internal" href="vin.html">VIN</a></li>
+<li class="toctree-l3 current"><a class="current reference internal" href="#">IATA BCBP</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#overview">Overview</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#examples">Examples</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#exposed-fields">Exposed Fields</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#parser-options">Parser Options</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="result-object.html">Result Object Structure</a></li>
+<li class="toctree-l2"><a class="reference internal" href="api.html">API</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../genindex.html">Index</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">More Resources</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../release-notes.html">Release Notes</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../barcode-symbologies.html">Barcode Symbologies</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../requirements.html">System Requirements</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../support.html">Support &amp; FAQ</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../features-by-platform.html">Features By Framework</a></li>
+<li class="toctree-l1"><a class="reference external" href="https://docs.scandit.com/barcode-scanner-sdk.html">SDK 5.x Documentation [Deprecated]</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../migrate-to-6.html">Migrate from Barcode Scanner 5.x</a></li>
+<li class="toctree-l1"><a class="reference external" href="http://ssl.scandit.com">Your Developer Dashboard</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">Data Capture SDK</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation" class="navbar">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../index.html" class="icon icon-home" aria-label="Home"></a></li>
+          <li class="breadcrumb-item"><a href="overview.html">ScanditParser</a></li>
+          <li class="breadcrumb-item"><a href="formats.html">Supported Data Formats</a></li>
+      <li class="breadcrumb-item active">IATA BCBP</li>
+      <li class="wy-breadcrumbs-aside">
+      </li>
+  </ul>
+  <div class="auth-link-container">
+    <a class="signup-link signup-link--mobile" rel="noopener" target="_blank" href="https://ssl.scandit.com/dashboard/sign-up?p=test&utm_source=documentation">Sign up</a>
+    <a class="signup-link" target="_blank" rel="noopener" href="https://ssl.scandit.com/dashboard/sign-up?p=test&utm_source=documentation">Sign up for your developer account</a>
+    <a class="signin-link" target="_blank" rel="noopener" href="https://ssl.scandit.com/dashboard/sign-in">Log in</a>
+  </div>
+</div>
+<hr/>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <div class="section" id="iata-bcbp">
+<h1>IATA BCBP<a class="headerlink" href="#iata-bcbp" title="Permalink to this headline"></a></h1>
+<div class="section" id="overview">
+<h2>Overview<a class="headerlink" href="#overview" title="Permalink to this headline"></a></h2>
+<p>The parser supports up to version 8 of the International Air Transport Association Bar Coded Boarding Pass (IATA-BCBP) standard.
+The latest IATA-BCBP specifications can be obtained from <a class="reference external" href="https://www.iata.org/">International Air Transport Association</a>.</p>
+<div class="section" id="sample-usage-for-iata-bcbp-parser-and-barcode-capture">
+<h3>Sample usage for IATA-BCBP parser and Barcode Capture<a class="headerlink" href="#sample-usage-for-iata-bcbp-parser-and-barcode-capture" title="Permalink to this headline"></a></h3>
+<p>First, you need to create a <a class="reference internal" href="../core/api/data-capture-context.html#class-scandit.datacapture.core.DataCaptureContext" title="DataCaptureContext class">DataCaptureContext</a>, access a <a class="reference internal" href="../core/api/camera.html#class-scandit.datacapture.core.Camera" title="Camera class">Camera</a> and create an IATA-BCBP parser:</p>
+<div class="highlight-java notranslate"><div class="highlight"><pre><span></span><span class="n">DataCaptureContext</span><span class="w"> </span><span class="n">dataCaptureContext</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">DataCaptureContext</span><span class="p">.</span><span class="na">forLicenseKey</span><span class="p">(</span><span class="n">SCANDIT_LICENSE_KEY</span><span class="p">);</span>
+<span class="n">Camera</span><span class="w"> </span><span class="n">camera</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">Camera</span><span class="p">.</span><span class="na">getDefaultCamera</span><span class="p">(</span><span class="n">BarcodeCapture</span><span class="p">.</span><span class="na">createRecommendedCameraSettings</span><span class="p">());</span>
+<span class="n">camera</span><span class="p">.</span><span class="na">applySettings</span><span class="p">(</span><span class="n">BarcodeCapture</span><span class="p">.</span><span class="na">createRecommendedCameraSettings</span><span class="p">());</span>
+<span class="n">dataCaptureContext</span><span class="p">.</span><span class="na">setFrameSource</span><span class="p">(</span><span class="n">camera</span><span class="p">);</span>
+<span class="n">camera</span><span class="p">.</span><span class="na">switchToDesiredState</span><span class="p">(</span><span class="n">FrameSourceState</span><span class="p">.</span><span class="na">ON</span><span class="p">);</span>
+
+<span class="n">BarcodeCaptureSettings</span><span class="w"> </span><span class="n">barcodeCaptureSettings</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">BarcodeCaptureSettings</span><span class="p">();</span>
+<span class="n">BarcodeCapture</span><span class="w"> </span><span class="n">barcodeCapture</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">BarcodeCapture</span><span class="p">.</span><span class="na">forDataCaptureContext</span><span class="p">(</span><span class="n">dataCaptureContext</span><span class="p">,</span><span class="w"> </span><span class="n">barcodeCaptureSettings</span><span class="p">);</span>
+
+<span class="n">Parser</span><span class="w"> </span><span class="n">parser</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">Parser</span><span class="p">.</span><span class="na">forFormat</span><span class="p">(</span><span class="n">dataCaptureContext</span><span class="p">,</span><span class="w"> </span><span class="n">ParserDataFormat</span><span class="p">.</span><span class="na">IATA_BCBP</span><span class="p">);</span>
+</pre></div>
+</div>
+<p>Then, you need to implement <a class="reference internal" href="../barcode-capture/api/barcode-capture-listener.html#interface-scandit.datacapture.barcode.IBarcodeCaptureListener" title="BarcodeCaptureListener interface">BarcodeCaptureListener</a>:</p>
+<div class="highlight-java notranslate"><div class="highlight"><pre><span></span><span class="kd">class</span> <span class="nc">MyBarcodeCaptureListener</span><span class="w"> </span><span class="kd">implements</span><span class="w"> </span><span class="n">BarcodeCaptureListener</span><span class="w"> </span><span class="p">{</span>
+<span class="nd">@Override</span>
+<span class="kd">public</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="nf">onBarcodeScanned</span><span class="p">(</span>
+<span class="w">    </span><span class="nd">@NonNull</span><span class="w"> </span><span class="n">BarcodeCapture</span><span class="w"> </span><span class="n">barcodeCapture</span><span class="p">,</span>
+<span class="w">    </span><span class="nd">@NonNull</span><span class="w"> </span><span class="n">BarcodeCaptureSession</span><span class="w"> </span><span class="n">session</span><span class="p">,</span>
+<span class="w">    </span><span class="nd">@NonNull</span><span class="w"> </span><span class="n">FrameData</span><span class="w"> </span><span class="n">frameData</span>
+<span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">session</span><span class="p">.</span><span class="na">getNewlyRecognizedBarcodes</span><span class="p">().</span><span class="na">isEmpty</span><span class="p">())</span><span class="w"> </span><span class="k">return</span><span class="p">;</span>
+
+<span class="w">    </span><span class="n">Barcode</span><span class="w"> </span><span class="n">barcode</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">session</span><span class="p">.</span><span class="na">getNewlyRecognizedBarcodes</span><span class="p">().</span><span class="na">get</span><span class="p">(</span><span class="mi">0</span><span class="p">);</span>
+<span class="w">    </span><span class="n">String</span><span class="w"> </span><span class="n">data</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">barcode</span><span class="p">.</span><span class="na">getData</span><span class="p">();</span>
+
+<span class="w">    </span><span class="k">try</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="n">ParsedData</span><span class="w"> </span><span class="n">parsedData</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">parser</span><span class="p">.</span><span class="na">parseString</span><span class="p">(</span><span class="n">data</span><span class="p">);</span>
+<span class="w">        </span><span class="cm">/*</span>
+<span class="cm">         * Extract the fields relevant to your use case. Below, for example, we extract the passenger name,</span>
+<span class="cm">         * which is represented as a list of Strings ([&quot;FirstName&quot;, &quot;LastName&quot;]), seat number which is a string,</span>
+<span class="cm">         * and flightDate, which is represented as a map with keys &quot;year&quot;, &quot;month&quot;, &quot;day&quot;.</span>
+<span class="cm">        */</span>
+<span class="w">        </span><span class="n">List</span><span class="o">&lt;</span><span class="n">String</span><span class="o">&gt;</span><span class="w"> </span><span class="n">passengerName</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">(</span><span class="n">List</span><span class="p">)</span><span class="w"> </span><span class="n">parsedData</span><span class="p">.</span><span class="na">getFieldsByName</span><span class="p">().</span><span class="na">get</span><span class="p">(</span><span class="s">&quot;passengerName&quot;</span><span class="p">).</span><span class="na">getParsed</span><span class="p">();</span>
+<span class="w">        </span><span class="n">String</span><span class="w"> </span><span class="n">sedat</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">(</span><span class="n">String</span><span class="p">)</span><span class="w"> </span><span class="n">parsedData</span><span class="p">.</span><span class="na">getFieldsByName</span><span class="p">().</span><span class="na">get</span><span class="p">(</span><span class="s">&quot;seatNumber&quot;</span><span class="p">).</span><span class="na">getParsed</span><span class="p">();</span>
+<span class="w">        </span><span class="n">Map</span><span class="o">&lt;</span><span class="n">String</span><span class="p">,</span><span class="w"> </span><span class="n">Object</span><span class="o">&gt;</span><span class="w"> </span><span class="n">flightDate</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">(</span><span class="n">Map</span><span class="o">&lt;</span><span class="n">String</span><span class="p">,</span><span class="w"> </span><span class="n">Object</span><span class="o">&gt;</span><span class="p">)</span><span class="w"> </span><span class="n">parsedData</span><span class="p">.</span><span class="na">getFieldsByName</span><span class="p">().</span><span class="na">get</span><span class="p">(</span><span class="s">&quot;flightDate&quot;</span><span class="p">).</span><span class="na">getParsed</span><span class="p">();</span>
+<span class="w">        </span><span class="kt">int</span><span class="w"> </span><span class="n">year</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">flightDate</span><span class="p">.</span><span class="na">get</span><span class="p">(</span><span class="s">&quot;year&quot;</span><span class="p">);</span>
+<span class="w">        </span><span class="kt">int</span><span class="w"> </span><span class="n">month</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">flightDate</span><span class="p">.</span><span class="na">get</span><span class="p">(</span><span class="s">&quot;month&quot;</span><span class="p">);</span>
+<span class="w">        </span><span class="kt">int</span><span class="w"> </span><span class="n">day</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">flightDate</span><span class="p">.</span><span class="na">get</span><span class="p">(</span><span class="s">&quot;day&quot;</span><span class="p">);</span>
+
+<span class="w">        </span><span class="c1">// Do something with the extracted fields.</span>
+
+<span class="w">    </span><span class="p">}</span><span class="w"> </span><span class="k">catch</span><span class="w"> </span><span class="p">(</span><span class="n">RuntimeException</span><span class="w"> </span><span class="n">e</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="n">message</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">e</span><span class="p">.</span><span class="na">getMessage</span><span class="p">();</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="w">    </span><span class="c1">// Other callbacks omitted for brevity.</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p>Finally, add the listener to the mode to receive scan results:</p>
+<div class="highlight-java notranslate"><div class="highlight"><pre><span></span><span class="n">barcodeCapture</span><span class="p">.</span><span class="na">addListener</span><span class="p">(</span><span class="k">new</span><span class="w"> </span><span class="n">MyBarcodeCaptureListener</span><span class="p">());</span>
+</pre></div>
+</div>
+<p>For details, go to the <a class="reference internal" href="api.html"><span class="doc">API docs</span></a>.</p>
+</div>
+</div>
+<div class="section" id="examples">
+<h2>Examples<a class="headerlink" href="#examples" title="Permalink to this headline"></a></h2>
+<p>Parsing the following code (without the quotes) given a reference year of 2024:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="s2">&quot;M1DESMARAIS/LUC       EABC123 YULFRAAC 0834 226F001A0025 100&quot;</span>
+</pre></div>
+</div>
+<p>will result in the following JSON output:</p>
+<div class="highlight-javascript notranslate"><div class="highlight"><pre><span></span><span class="p">[</span>
+<span class="w">  </span><span class="p">{</span>
+<span class="w">    </span><span class="s2">&quot;name&quot;</span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;formatCode&quot;</span><span class="p">,</span>
+<span class="w">    </span><span class="s2">&quot;parsed&quot;</span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;M&quot;</span><span class="p">,</span>
+<span class="w">    </span><span class="s2">&quot;rawString&quot;</span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;M&quot;</span>
+<span class="w">  </span><span class="p">},</span>
+<span class="w">  </span><span class="p">{</span>
+<span class="w">    </span><span class="s2">&quot;name&quot;</span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;numberOfLegsEncoded&quot;</span><span class="p">,</span>
+<span class="w">    </span><span class="s2">&quot;parsed&quot;</span><span class="o">:</span><span class="w"> </span><span class="mf">1</span><span class="p">,</span>
+<span class="w">    </span><span class="s2">&quot;rawString&quot;</span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;1&quot;</span>
+<span class="w">  </span><span class="p">},</span>
+<span class="w">  </span><span class="p">{</span>
+<span class="w">    </span><span class="s2">&quot;name&quot;</span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;passengerName&quot;</span><span class="p">,</span>
+<span class="w">    </span><span class="s2">&quot;parsed&quot;</span><span class="o">:</span><span class="w"> </span><span class="p">[</span>
+<span class="w">      </span><span class="s2">&quot;LUC&quot;</span><span class="p">,</span>
+<span class="w">      </span><span class="s2">&quot;DESMARAIS&quot;</span>
+<span class="w">    </span><span class="p">],</span>
+<span class="w">    </span><span class="s2">&quot;rawString&quot;</span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;DESMARAIS/LUC&quot;</span>
+<span class="w">  </span><span class="p">},</span>
+<span class="w">  </span><span class="p">{</span>
+<span class="w">    </span><span class="s2">&quot;name&quot;</span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;electronicTicketIndicator&quot;</span><span class="p">,</span>
+<span class="w">    </span><span class="s2">&quot;parsed&quot;</span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;E&quot;</span><span class="p">,</span>
+<span class="w">    </span><span class="s2">&quot;rawString&quot;</span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;E&quot;</span>
+<span class="w">  </span><span class="p">},</span>
+<span class="w">  </span><span class="p">{</span>
+<span class="w">    </span><span class="s2">&quot;name&quot;</span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;legs&quot;</span><span class="p">,</span>
+<span class="w">    </span><span class="s2">&quot;parsed&quot;</span><span class="o">:</span><span class="w"> </span><span class="p">[</span>
+<span class="w">      </span><span class="p">{</span>
+<span class="w">        </span><span class="s2">&quot;checkInSequenceNumber&quot;</span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;0025&quot;</span><span class="p">,</span>
+<span class="w">        </span><span class="s2">&quot;compartmentCode&quot;</span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;F&quot;</span><span class="p">,</span>
+<span class="w">        </span><span class="s2">&quot;flightDate&quot;</span><span class="o">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">          </span><span class="s2">&quot;day&quot;</span><span class="o">:</span><span class="w"> </span><span class="mf">13</span><span class="p">,</span>
+<span class="w">          </span><span class="s2">&quot;month&quot;</span><span class="o">:</span><span class="w"> </span><span class="mf">8</span><span class="p">,</span>
+<span class="w">          </span><span class="s2">&quot;year&quot;</span><span class="o">:</span><span class="w"> </span><span class="mf">2024</span>
+<span class="w">        </span><span class="p">},</span>
+<span class="w">        </span><span class="s2">&quot;flightNumber&quot;</span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;0834&quot;</span><span class="p">,</span>
+<span class="w">        </span><span class="s2">&quot;fromAirport&quot;</span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;YUL&quot;</span><span class="p">,</span>
+<span class="w">        </span><span class="s2">&quot;operatingCarrierDesignator&quot;</span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;AC&quot;</span><span class="p">,</span>
+<span class="w">        </span><span class="s2">&quot;operatingCarrierPNR&quot;</span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;ABC123&quot;</span><span class="p">,</span>
+<span class="w">        </span><span class="s2">&quot;passengerStatus&quot;</span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;1&quot;</span><span class="p">,</span>
+<span class="w">        </span><span class="s2">&quot;seatNumber&quot;</span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;001A&quot;</span><span class="p">,</span>
+<span class="w">        </span><span class="s2">&quot;toAirport&quot;</span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;FRA&quot;</span>
+<span class="w">      </span><span class="p">}</span>
+<span class="w">    </span><span class="p">],</span>
+<span class="w">    </span><span class="s2">&quot;rawString&quot;</span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;ABC123 YULFRAAC 0834 226F001A0025 1&quot;</span>
+<span class="w">  </span><span class="p">}</span>
+<span class="p">]</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="exposed-fields">
+<h2>Exposed Fields<a class="headerlink" href="#exposed-fields" title="Permalink to this headline"></a></h2>
+<p>The names of the fields correspond to their names from the IATA BCBP spec, written in lower came case. For further details about specific items, please refer to the IATA Resolution 792 BCBP specifications.</p>
+<p>Fields can be Mandatory (M) or Conditional (C), and in either case, are either top-level or associated with Legs (L).</p>
+<table class="colwidths-given docutils align-default">
+<colgroup>
+<col style="width: 18%" />
+<col style="width: 36%" />
+<col style="width: 9%" />
+<col style="width: 18%" />
+<col style="width: 18%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>Element Name</p></th>
+<th class="head"><p>Meaning</p></th>
+<th class="head"><p>M, C, L</p></th>
+<th class="head"><p>Value Type</p></th>
+<th class="head"><p>Notes</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>formatCode</p></td>
+<td><p>Format code</p></td>
+<td><p>M</p></td>
+<td><p>string</p></td>
+<td><p>Always ‘M’</p></td>
+</tr>
+<tr class="row-odd"><td><p>numberOfLegsEncoded</p></td>
+<td><p>Number of legs</p></td>
+<td><p>M</p></td>
+<td><p>integer</p></td>
+<td><p>1 or greater</p></td>
+</tr>
+<tr class="row-even"><td><p>legs</p></td>
+<td><p>Details for each leg of the trip</p></td>
+<td><p>M</p></td>
+<td><p>array of json objects</p></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>passengerName</p></td>
+<td><p>Passenger’s first name and last name</p></td>
+<td><p>M</p></td>
+<td><p>array of two strings</p></td>
+<td><p>Names are truncated as required to fit within the total 19 characters available.</p></td>
+</tr>
+<tr class="row-even"><td><p>electronicTicketIndicator</p></td>
+<td><p>Electronic ticket indicator</p></td>
+<td><p>M</p></td>
+<td><p>string</p></td>
+<td><p>E if passenger is travelling on an electronic ticket.</p></td>
+</tr>
+<tr class="row-odd"><td><p>passengerDescription</p></td>
+<td><p>The type of passenger</p></td>
+<td><p>C</p></td>
+<td><p>string</p></td>
+<td><p>0 for adult, 1 for male, 2 for female, 3 for child, etc…</p></td>
+</tr>
+<tr class="row-even"><td><p>sourceOfCheckin</p></td>
+<td><p>Where the passenger checked in</p></td>
+<td><p>C</p></td>
+<td><p>string</p></td>
+<td><p>W for web, K for airport kiosk, R for remote, etc…</p></td>
+</tr>
+<tr class="row-odd"><td><p>sourceofBoardingPassIssuance</p></td>
+<td><p>Where the boarding ass was issued</p></td>
+<td><p>C</p></td>
+<td><p>string</p></td>
+<td><p>W for web, K for airport kiosk, R for remote, etc…</p></td>
+</tr>
+<tr class="row-even"><td><p>dateOfIssuance</p></td>
+<td><p>Date the boarding pass was issued</p></td>
+<td><p>C</p></td>
+<td><p>key/value pairs:</p>
+<ul class="simple">
+<li><p>‘year’ : YYYY,</p></li>
+<li><p>‘month’ : MM,</p></li>
+<li><p>‘day’ : DD</p></li>
+</ul>
+<p>with YYYY, MM, DD integers</p>
+</td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>versionNumber</p></td>
+<td><p>BCBP version number</p></td>
+<td><p>C</p></td>
+<td><p>string</p></td>
+<td><p>Current version is 8.</p></td>
+</tr>
+<tr class="row-even"><td><p>documentType</p></td>
+<td><p>Document type</p></td>
+<td><p>C</p></td>
+<td><p>string</p></td>
+<td><p>B for boarding pass, I for itinerary receipt.</p></td>
+</tr>
+<tr class="row-odd"><td><p>airlineDesignatorOfIssuer</p></td>
+<td><p>Designator of the airline which issued the boarding pass</p></td>
+<td><p>C</p></td>
+<td><p>string</p></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>baggageTagLicensePlateNumbers</p></td>
+<td><p>Baggage tag license plate numbers</p></td>
+<td><p>C</p></td>
+<td><p>array of strings</p></td>
+<td><p>Each string in the array represents the license plate number for a single item of baggage.</p></td>
+</tr>
+<tr class="row-odd"><td><p>securityDataType</p></td>
+<td><p>The type of security used to protect the BCBP.</p></td>
+<td><p>C</p></td>
+<td><p>string</p></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>securityData</p></td>
+<td><p>The security data used to prevent tampering of the BCBP data.</p></td>
+<td><p>C</p></td>
+<td><p>string</p></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>operatingCarrierPNR</p></td>
+<td><p>Operating carrier PNR code</p></td>
+<td><p>L,M</p></td>
+<td><p>string</p></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>fromAirport</p></td>
+<td><p>Three letter origin airport / city code.</p></td>
+<td><p>L,M</p></td>
+<td><p>string</p></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>toAirport</p></td>
+<td><p>Three letter destination airport / city code.</p></td>
+<td><p>L,M</p></td>
+<td><p>string</p></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>operatingCarrierDesignator</p></td>
+<td><p>Airline code for the operating carrier.</p></td>
+<td><p>L,M</p></td>
+<td><p>string</p></td>
+<td><p>Can be either the two letter or the three letter designator.</p></td>
+</tr>
+<tr class="row-odd"><td><p>flightNumber</p></td>
+<td><p>Actual flight number</p></td>
+<td><p>L,M</p></td>
+<td><p>string</p></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>flightDate</p></td>
+<td><p>Date of the flight.</p></td>
+<td><p>L,M</p></td>
+<td><p>key/value pairs:</p>
+<ul class="simple">
+<li><p>‘year’ : YYYY,</p></li>
+<li><p>‘month’ : MM,</p></li>
+<li><p>‘day’ : DD</p></li>
+</ul>
+<p>with YYYY, MM, DD integers</p>
+</td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>compartmentCode</p></td>
+<td><p>Compartment code.</p></td>
+<td><p>L,M</p></td>
+<td><p>string</p></td>
+<td><p>F (first class), J (business class), Y (economy/coach), etc…  See resolution IATA 728 for full list.</p></td>
+</tr>
+<tr class="row-even"><td><p>seatNumber</p></td>
+<td><p>Seat number.</p></td>
+<td><p>L,M</p></td>
+<td><p>string</p></td>
+<td><p>Seat number if one has been assigned. Can also be e.g. GATE or STBY.</p></td>
+</tr>
+<tr class="row-odd"><td><p>checkInSequenceNumber</p></td>
+<td><p>Five character check-in sequence number.</p></td>
+<td><p>L,M</p></td>
+<td><p>string</p></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>passengerStatus</p></td>
+<td><p>Passenger status.</p></td>
+<td><p>L,M</p></td>
+<td><p>string</p></td>
+<td><p>0 for passenger not checked in, 1 for passenger checked in, 2 for baggage checked in but passenger not checked in, etc..</p></td>
+</tr>
+<tr class="row-odd"><td><p>airlineNumericCode</p></td>
+<td><p>Three characters representing the airline code.</p></td>
+<td><p>L,C</p></td>
+<td><p>string</p></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>serialNumber</p></td>
+<td><p>Serial number of the document.</p></td>
+<td><p>L,C</p></td>
+<td><p>string</p></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>selecteeIndicator</p></td>
+<td><p>Whether the passenger is a selectee or not.</p></td>
+<td><p>L,C</p></td>
+<td><p>string</p></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>internationalDocumentationVerification</p></td>
+<td><p>Whether the passenger requires travel document verification or not.</p></td>
+<td><p>L,C</p></td>
+<td><p>string</p></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>marketingCarrierDesignator</p></td>
+<td><p>Marketing carrier designator.</p></td>
+<td><p>L,C</p></td>
+<td><p>string</p></td>
+<td><p>May be the same as the operating carrier.</p></td>
+</tr>
+<tr class="row-even"><td><p>frequentFlyerAirlineDesignator</p></td>
+<td><p>Airline code for the FFP.</p></td>
+<td><p>L,C</p></td>
+<td><p>string</p></td>
+<td><p>May be the two character or three character code.</p></td>
+</tr>
+<tr class="row-odd"><td><p>frequentFlyerNumber</p></td>
+<td><p>Frequent flyer number.</p></td>
+<td><p>L,C</p></td>
+<td><p>string</p></td>
+<td><p>13-16 characters in length.</p></td>
+</tr>
+<tr class="row-even"><td><p>idIndicator</p></td>
+<td><p>Codes for indicating industry discounts or agency discounts.</p></td>
+<td><p>L,C</p></td>
+<td><p>string</p></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>freeBaggageAllowance</p></td>
+<td><p>Free baggage allowance.</p></td>
+<td><p>L,C</p></td>
+<td><p>string</p></td>
+<td><p>Will indicate free allowance in pieces (PC), kilos (K) or pounds (P)</p></td>
+</tr>
+<tr class="row-even"><td><p>fastTrack</p></td>
+<td><p>Passenger is fast tracked.</p></td>
+<td><p>L,C</p></td>
+<td><p>string</p></td>
+<td><p>Y for yes, N for no. Blank if unqualified.</p></td>
+</tr>
+<tr class="row-odd"><td><p>airlineInfo</p></td>
+<td><p>For airline use.</p></td>
+<td><p>L,C</p></td>
+<td><p>string</p></td>
+<td><p>Can be of arbitrary length but limited by total available size of section.</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="section" id="parser-options">
+<h2>Parser Options<a class="headerlink" href="#parser-options" title="Permalink to this headline"></a></h2>
+<p>Following options can be set to fine-tune the behavior of the parser:</p>
+<ul class="simple">
+<li><dl class="simple">
+<dt>“strictMode”: boolean (default:true)</dt><dd><p>Controls the strictness of the parser. When strictMode is set to true, every error in the input (invalid characters etc.) is treated as an error. Parsing is aborted upon encountering the first error. When strictMode is set to false, parsing continues for non-critical errors. The encountered problems can be queried for each field separately via the issues property, although for the “legs” fields the errors will propagate to the result.</p>
+</dd>
+</dl>
+</li>
+<li><dl class="simple">
+<dt>“referenceYear”: int? (default: null)</dt><dd><p>The date of issuance indicates the final digit of the year of issuance. To thus deduce the correct decade without ambiguity, the “referenceYear” may be set in the parser options.</p>
+</dd>
+</dl>
+</li>
+</ul>
+</div>
+</div>
+
+
+           </div>
+          </div>
+          <footer>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2024, Scandit AG.</p>
+  </div>
+
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+  <!-- Start of scandit Zendesk Widget script -->
+  <script id="ze-snippet" src="https://static.zdassets.com/ekr/snippet.js?key=df0234ee-7451-4189-8d1c-17c8a624b5f1">
+  </script>
+<script>
+      function getPlatformSuffix() {
+        const platform = 'android'
+        switch (platform) {
+          case 'android':         return 'for Android'
+          case 'ios':             return 'for iOS'
+          case 'cordova':         return 'for Cordova'
+          case 'react-native':    return 'for React Native'
+          case 'xamarin.ios':     return 'for Xamarin.iOS'
+          case 'xamarin.android': return 'for Xamarin.Android'
+          case 'xamarin.forms':   return 'for Xamarin.Forms'
+          case 'flutter':         return 'for Flutter'
+          case 'capacitor':       return 'for Capacitor'
+          case 'titanium':        return 'for Titanium'
+          case 'web':             return 'for the Web'
+          case 'dotnet.ios':      return 'for .NET for iOS'
+          case 'dotnet.android':  return 'for .NET for Android'
+          default:                return ''
+        }
+      }
+
+      const platformSuffix = getPlatformSuffix()
+      const headerTitle = document.querySelector(".icon-home")
+      headerTitle.insertAdjacentHTML('beforeend', ` ${platformSuffix}`)
+
+      const [major, minor] = DOCUMENTATION_OPTIONS.VERSION.split('.')
+      const version = document.querySelector(".version")
+      version.innerHTML = `
+        <div class="version">
+          <a href="${DOCUMENTATION_OPTIONS.URL_ROOT}release-notes/${major}.${minor}.html">Release Notes</a> 
+        </div>
+        <br>
+      `
+  </script>
+  <!-- End of scandit Zendesk Widget script -->
+
+</body>
+</html>

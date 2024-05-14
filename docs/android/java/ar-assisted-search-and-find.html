@@ -1,0 +1,424 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>AR-Assisted Search And Find &mdash; Data Capture SDK 6.24.0-rc.2 documentation</title>
+      <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+    <link rel="stylesheet" href="_static/custom.css" type="text/css" />
+  <!--[if lt IE 9]>
+    <script src="_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
+        <script src="_static/jquery.js"></script>
+        <script src="_static/underscore.js"></script>
+        <script src="_static/doctools.js"></script>
+    <script src="_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="ID Scanning And Verification" href="id-scanning-and-verification.html" />
+    <link rel="prev" title="Selecting One Of Many Barcodes" href="selecting-one-of-many.html" />
+  <!-- Google Tag Manager -->
+  <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+  new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+  j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+  'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+  })(window,document,'script','dataLayer','GTM-THQQFD7');</script>
+  <!-- End Google Tag Manager -->
+</head>
+
+<body class="wy-body-for-nav">
+  <!-- Google Tag Manager (noscript) -->
+  <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-THQQFD7"
+  height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+  <!-- End Google Tag Manager (noscript) -->
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+            <a href="index.html" class="icon icon-home"> Data Capture SDK
+          </a>
+              <div class="version">
+                6.24.0-rc.2
+              </div>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">First Steps</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="samples/run-samples.html">Run Samples</a></li>
+<li class="toctree-l1"><a class="reference internal" href="add-sdk.html">Add the SDK to Your App</a></li>
+<li class="toctree-l1"><a class="reference internal" href="best-practices-for-usability.html">Best Practices for Usability</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Pre-Built Components</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="high-speed-single-scanning.html">High-Speed Single Scanning</a></li>
+<li class="toctree-l1"><a class="reference internal" href="batch-counting-and-receiving.html">Batch Counting And Receiving</a></li>
+<li class="toctree-l1"><a class="reference internal" href="selecting-one-of-many.html">Selecting One Of Many Barcodes</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">AR-Assisted Search And Find</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#get-started-with-matrixscan-find">Get Started With MatrixScan Find</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#what-is-matrixscan-find">What is MatrixScan Find?</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#ui-overview">UI Overview</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#requirements">Requirements</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#supported-devices">Supported Devices</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#supported-symbologies">Supported Symbologies</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#quick-start-guide">Quick Start Guide</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#create-a-new-data-capture-context-instance">1. Create a new Data Capture Context instance</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#configure-the-barcode-find-mode">2. Configure the Barcode Find Mode</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#setup-the-barcodefindview">3. Setup the BarcodeFindView</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#start-searching">5. Start searching</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#samples">Samples</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#advanced-settings">Advanced Settings</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#set-up-a-listener-on-the-barcodefind-mode">Set up a listener on the BarcodeFind mode</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#ui-configuration">UI configuration</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Fully-Customizable API</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="id-scanning-and-verification.html">ID Scanning And Verification</a></li>
+<li class="toctree-l1"><a class="reference internal" href="batch-scanning-and-ar.html">Batch Scanning And AR</a></li>
+<li class="toctree-l1"><a class="reference internal" href="single-scanning.html">Single Scanning</a></li>
+<li class="toctree-l1"><a class="reference internal" href="text-capture.html">Text Capture</a></li>
+<li class="toctree-l1"><a class="reference internal" href="parse-barcode-data.html">Parse Barcode Data</a></li>
+<li class="toctree-l1"><a class="reference internal" href="advanced-topics.html">Advanced Topics</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">API Reference</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="core/overview.html">ScanditCaptureCore</a></li>
+<li class="toctree-l1"><a class="reference internal" href="barcode-capture/overview.html">ScanditBarcodeCapture</a></li>
+<li class="toctree-l1"><a class="reference internal" href="id-capture/overview.html">ScanditIdCapture</a></li>
+<li class="toctree-l1"><a class="reference internal" href="text-capture/overview.html">ScanditTextCapture</a></li>
+<li class="toctree-l1"><a class="reference internal" href="label-capture/overview.html">ScanditLabelCapture</a></li>
+<li class="toctree-l1"><a class="reference internal" href="parser/overview.html">ScanditParser</a></li>
+<li class="toctree-l1"><a class="reference internal" href="genindex.html">Index</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">More Resources</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="release-notes.html">Release Notes</a></li>
+<li class="toctree-l1"><a class="reference internal" href="barcode-symbologies.html">Barcode Symbologies</a></li>
+<li class="toctree-l1"><a class="reference internal" href="requirements.html">System Requirements</a></li>
+<li class="toctree-l1"><a class="reference internal" href="support.html">Support &amp; FAQ</a></li>
+<li class="toctree-l1"><a class="reference internal" href="features-by-platform.html">Features By Framework</a></li>
+<li class="toctree-l1"><a class="reference external" href="https://docs.scandit.com/barcode-scanner-sdk.html">SDK 5.x Documentation [Deprecated]</a></li>
+<li class="toctree-l1"><a class="reference internal" href="migrate-to-6.html">Migrate from Barcode Scanner 5.x</a></li>
+<li class="toctree-l1"><a class="reference external" href="http://ssl.scandit.com">Your Developer Dashboard</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">Data Capture SDK</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation" class="navbar">
+  <ul class="wy-breadcrumbs">
+      <li><a href="index.html" class="icon icon-home" aria-label="Home"></a></li>
+      <li class="breadcrumb-item active">AR-Assisted Search And Find</li>
+      <li class="wy-breadcrumbs-aside">
+      </li>
+  </ul>
+  <div class="auth-link-container">
+    <a class="signup-link signup-link--mobile" rel="noopener" target="_blank" href="https://ssl.scandit.com/dashboard/sign-up?p=test&utm_source=documentation">Sign up</a>
+    <a class="signup-link" target="_blank" rel="noopener" href="https://ssl.scandit.com/dashboard/sign-up?p=test&utm_source=documentation">Sign up for your developer account</a>
+    <a class="signin-link" target="_blank" rel="noopener" href="https://ssl.scandit.com/dashboard/sign-in">Log in</a>
+  </div>
+</div>
+<hr/>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <div class="section" id="ar-assisted-search-and-find">
+<h1>AR-Assisted Search And Find<a class="headerlink" href="#ar-assisted-search-and-find" title="Permalink to this headline"></a></h1>
+<div class="section" id="get-started-with-matrixscan-find">
+<h2>Get Started With MatrixScan Find<a class="headerlink" href="#get-started-with-matrixscan-find" title="Permalink to this headline"></a></h2>
+<div class="section" id="what-is-matrixscan-find">
+<h3>What is MatrixScan Find?<a class="headerlink" href="#what-is-matrixscan-find" title="Permalink to this headline"></a></h3>
+<p>MatrixScan Find is a pre-built UI that uses augmented reality overlays to highlight items that match predefined criteria. Whereas MatrixScan AR is fully customizable, MatrixScan Find is a pre-built solution that  allows you to add a search and find experience with augmented reality to an existing native app, with just a few lines of code.</p>
+<div class="section" id="ui-overview">
+<h4>UI Overview<a class="headerlink" href="#ui-overview" title="Permalink to this headline"></a></h4>
+<img alt="_images/ui-overview.png" src="_images/ui-overview.png" />
+<ul class="simple">
+<li><p>MatrixScan Find is inspired by the familiar paradigm of a camera, including a shutter button that the user operates in order to control search.</p></li>
+<li><p>It highlights items with obvious and colorful visual dots on screen.</p></li>
+<li><p>When paused, MatrixScan Find showcases a carousel showing all the items that are currently being searched for, with a check mark showing those that have been found.</p></li>
+<li><p>When in active search mode, the carousel is hidden to free up more screen space for tracking items.</p></li>
+<li><p>The Quick Start Guide takes you through the process to install the full UI. However, you can then <a class="reference external" href="#ui-configuration">customize it</a> by choosing to remove any elements on the screen except for the AR overlays. This allows you to create custom UIs suitable for your own workflows.</p></li>
+</ul>
+<p>MatrixScan Find is implemented through functionality provided by <a class="reference internal" href="barcode-capture/api/barcode-find.html#class-scandit.datacapture.barcode.find.BarcodeFind" title="BarcodeFind class">BarcodeFind</a>.</p>
+</div>
+<div class="section" id="requirements">
+<h4>Requirements<a class="headerlink" href="#requirements" title="Permalink to this headline"></a></h4>
+<ul class="simple">
+<li><p>The Scandit Data Capture SDK. <a class="reference internal" href="add-sdk.html"><span class="doc">Check out this guide</span></a>.</p></li>
+<li><p>A valid Scandit Data Capture SDK license key including MatrixScan AR add-on. You can sign up for a free test account at <a class="reference external" href="https://ssl.scandit.com/dashboard/sign-up?p=test&amp;utm_source=documentation">ssl.scandit.com</a>.</p></li>
+</ul>
+</div>
+<div class="section" id="supported-devices">
+<h4>Supported Devices<a class="headerlink" href="#supported-devices" title="Permalink to this headline"></a></h4>
+<p>Runs on iOS and Android devices. <a class="reference external" href="https://support.scandit.com/hc/en-us/requests/new">Contact support</a> for more details.</p>
+</div>
+<div class="section" id="supported-symbologies">
+<h4>Supported Symbologies<a class="headerlink" href="#supported-symbologies" title="Permalink to this headline"></a></h4>
+<p>MatrixScan Find supports all <a class="reference internal" href="barcode-symbologies.html"><span class="doc">symbologies</span></a> except DotCode, MaxiCode and postal codes (KIX, RM4SCC).</p>
+</div>
+</div>
+<div class="section" id="quick-start-guide">
+<h3>Quick Start Guide<a class="headerlink" href="#quick-start-guide" title="Permalink to this headline"></a></h3>
+<p>MatrixScan Find is composed of two elements:</p>
+<ol class="arabic simple">
+<li><p>Barcode Find: a data capture mode that implements search and find functionality.</p></li>
+<li><p>Barcode Find View: a pre-built UI that uses the mode to highlight found items.</p></li>
+</ol>
+<p>In this guide you will learn step by step how to add Barcode Find and Barcode Find View to your application.</p>
+<p>The steps are:</p>
+<ol class="arabic simple">
+<li><p>Create a new Data Capture Context instance.</p></li>
+<li><p>Configure the Barcode Find Mode.</p></li>
+<li><p>Setup the BarcodeFindView.</p></li>
+<li><p>Register a listener to be notified with found items</p></li>
+<li><p>Start searching</p></li>
+</ol>
+<div class="section" id="create-a-new-data-capture-context-instance">
+<h4>1. Create a new Data Capture Context instance<a class="headerlink" href="#create-a-new-data-capture-context-instance" title="Permalink to this headline"></a></h4>
+<p>The first step to add find capabilities to your application is to create a new <a class="reference internal" href="core/api/data-capture-context.html#class-scandit.datacapture.core.DataCaptureContext" title="DataCaptureContext class">DataCaptureContext</a>. The context expects a valid Scandit Data Capture SDK license key during construction.</p>
+<div class="highlight-java notranslate"><div class="highlight"><pre><span></span><span class="n">DataCaptureContext</span><span class="w"> </span><span class="n">dataCaptureContext</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">DataCaptureContext</span><span class="p">.</span><span class="na">forLicenseKey</span><span class="p">(</span><span class="s">&quot;-- ENTER YOUR SCANDIT LICENSE KEY HERE --&quot;</span><span class="p">);</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="configure-the-barcode-find-mode">
+<h4>2. Configure the Barcode Find Mode<a class="headerlink" href="#configure-the-barcode-find-mode" title="Permalink to this headline"></a></h4>
+<p>The main entry point for the Barcode Find Mode is the <a class="reference internal" href="barcode-capture/api/barcode-find.html#class-scandit.datacapture.barcode.find.BarcodeFind" title="BarcodeFind class">BarcodeFind</a> object. You can configure the supported Symbologies through its <a class="reference internal" href="barcode-capture/api/barcode-find-settings.html#class-scandit.datacapture.barcode.find.BarcodeFindSettings" title="BarcodeFindSettings class">BarcodeFindSettings</a>, and set up the list of items that you want MatrixScan Find to highlight (e.g. a list of products).</p>
+<p>For this tutorial, we will set up Barcode Find for tracking EAN13 codes. Change this to the correct symbologies for your use case (e.g. Code 128, Code 39…).</p>
+<p>First create the settings:</p>
+<div class="highlight-java notranslate"><div class="highlight"><pre><span></span><span class="n">BarcodeFindSettings</span><span class="w"> </span><span class="n">settings</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">BarcodeFindSettings</span><span class="p">();</span>
+<span class="n">settings</span><span class="p">.</span><span class="na">setSymbologyEnabled</span><span class="p">(</span><span class="n">Symbology</span><span class="p">.</span><span class="na">EAN13_UPCA</span><span class="p">,</span><span class="w"> </span><span class="kc">true</span><span class="p">);</span>
+</pre></div>
+</div>
+<p>Then you have to create the list of items that will be actively searched for.</p>
+<p>In this tutorial, let’s look up two items based on their EAN13 codes. We will attach to the first item some optional information that can be used by the BarcodeFindView to display extra information.</p>
+<div class="highlight-java notranslate"><div class="highlight"><pre><span></span><span class="n">Set</span><span class="o">&lt;</span><span class="n">BarcodeFindItem</span><span class="o">&gt;</span><span class="w"> </span><span class="n">items</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">HashSet</span><span class="o">&lt;&gt;</span><span class="p">();</span>
+<span class="n">items</span><span class="p">.</span><span class="na">add</span><span class="p">(</span>
+<span class="w">        </span><span class="k">new</span><span class="w"> </span><span class="n">BarcodeFindItem</span><span class="p">(</span>
+<span class="w">                </span><span class="k">new</span><span class="w"> </span><span class="n">BarcodeFindItemSearchOptions</span><span class="p">(</span><span class="s">&quot;9783598215438&quot;</span><span class="p">),</span>
+<span class="w">                </span><span class="k">new</span><span class="w"> </span><span class="n">BarcodeFindItemContent</span><span class="p">(</span><span class="s">&quot;Mini Screwdriver Set&quot;</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;(6-Piece)&quot;</span><span class="p">,</span><span class="w"> </span><span class="kc">null</span><span class="p">)</span>
+<span class="w">        </span><span class="p">)</span>
+<span class="p">);</span>
+<span class="n">items</span><span class="p">.</span><span class="na">add</span><span class="p">(</span>
+<span class="w">        </span><span class="k">new</span><span class="w"> </span><span class="n">BarcodeFindItem</span><span class="p">(</span>
+<span class="w">                </span><span class="k">new</span><span class="w"> </span><span class="n">BarcodeFindItemSearchOptions</span><span class="p">(</span><span class="s">&quot;9783598215414&quot;</span><span class="p">),</span>
+<span class="w">                </span><span class="kc">null</span><span class="w"> </span><span class="c1">// Item information is optional, used for display only</span>
+<span class="w">        </span><span class="p">)</span>
+<span class="p">);</span>
+</pre></div>
+</div>
+<p>Create the mode with the previously created settings and set the items:</p>
+<div class="highlight-java notranslate"><div class="highlight"><pre><span></span><span class="n">BarcodeFind</span><span class="w"> </span><span class="n">mode</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">BarcodeFind</span><span class="p">(</span><span class="n">settings</span><span class="p">);</span>
+<span class="n">mode</span><span class="p">.</span><span class="na">setItemList</span><span class="p">(</span><span class="n">items</span><span class="p">);</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="setup-the-barcodefindview">
+<h4>3. Setup the BarcodeFindView<a class="headerlink" href="#setup-the-barcodefindview" title="Permalink to this headline"></a></h4>
+<p>MatrixScan Find’s built-in AR user interface includes buttons and overlays that guide the user through the searching process. By adding a <a class="reference internal" href="barcode-capture/api/ui/barcode-find-view.html#class-scandit.datacapture.barcode.find.ui.BarcodeFindView" title="BarcodeFindView class">BarcodeFindView</a>, the scanning interface (camera preview and searching UI elements) will be added automatically to your application.</p>
+<p>The BarcodeFindView appearance can be customized through <a class="reference internal" href="barcode-capture/api/ui/barcode-find-view-settings.html#class-scandit.datacapture.barcode.find.ui.BarcodeFindViewSettings" title="BarcodeFindViewSettings class">BarcodeFindViewSettings</a>:</p>
+<ul class="simple">
+<li><p>Colors of dots in augmented reality overlay</p></li>
+<li><p>Enable sound and haptic alerts</p></li>
+</ul>
+<div class="highlight-java notranslate"><div class="highlight"><pre><span></span><span class="n">BarcodeFindViewSettings</span><span class="w"> </span><span class="n">viewSettings</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">BarcodeFindViewSettings</span><span class="p">();</span>
+</pre></div>
+</div>
+<p>Construct a new BarcodeFindView. The BarcodeFindView is automatically added to the provided parent view.</p>
+<p>(The parent view can be any subclass of ViewGroup, such as FrameLayout, …)</p>
+<div class="highlight-java notranslate"><div class="highlight"><pre><span></span><span class="n">BarcodeFindView</span><span class="w"> </span><span class="n">barcodeFindView</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">BarcodeFindView</span><span class="p">.</span><span class="na">newInstance</span><span class="p">(</span><span class="n">parentView</span><span class="p">,</span><span class="w"> </span><span class="n">dataCaptureContext</span><span class="p">,</span><span class="w"> </span><span class="n">mode</span><span class="p">,</span><span class="w"> </span><span class="n">viewSettings</span><span class="p">);</span>
+</pre></div>
+</div>
+<p>Connect the BarcodeFindView to the Android lifecycle. The view is dependent on calling <a class="reference internal" href="barcode-capture/api/ui/barcode-find-view.html#method-scandit.datacapture.barcode.find.ui.BarcodeFindView.OnPause" title="BarcodeFindView.onPause() method">BarcodeFindView.onPause()</a> and <a class="reference internal" href="barcode-capture/api/ui/barcode-find-view.html#method-scandit.datacapture.barcode.find.ui.BarcodeFindView.OnResume" title="BarcodeFindView.onResume() method">BarcodeFindView.onResume()</a> to set up the camera and its overlays properly.</p>
+<div class="highlight-java notranslate"><div class="highlight"><pre><span></span><span class="nd">@Override</span>
+<span class="kd">public</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="nf">onResume</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="kd">super</span><span class="p">.</span><span class="na">onResume</span><span class="p">();</span>
+<span class="w">    </span><span class="n">barcodeFindView</span><span class="p">.</span><span class="na">onResume</span><span class="p">();</span>
+<span class="p">}</span>
+
+<span class="nd">@Override</span>
+<span class="kd">public</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="nf">onPause</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="kd">super</span><span class="p">.</span><span class="na">onPause</span><span class="p">();</span>
+<span class="w">    </span><span class="n">barcodeFindView</span><span class="p">.</span><span class="na">onPause</span><span class="p">();</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<div class="section" id="register-a-listener-to-be-notified-with-found-items">
+<h5>4. Register a listener to be notified with found items<a class="headerlink" href="#register-a-listener-to-be-notified-with-found-items" title="Permalink to this headline"></a></h5>
+<p>The BarcodeFindView displays next to its shutter button a handy “finish” button. Register a <a class="reference internal" href="barcode-capture/api/ui/barcode-find-view.html#interface-scandit.datacapture.barcode.find.ui.IBarcodeFindViewUiListener" title="BarcodeFindViewUiListener interface">BarcodeFindViewUiListener</a> to be notified what items have been found once the finish button is pressed.</p>
+<p>In this tutorial, we will then navigate back to the previous screen to finish the find session.</p>
+<div class="highlight-java notranslate"><div class="highlight"><pre><span></span><span class="n">barcodeFindView</span><span class="p">.</span><span class="na">setListener</span><span class="p">(</span><span class="k">new</span><span class="w"> </span><span class="n">BarcodeFindViewUiListener</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="nd">@Override</span>
+<span class="w">    </span><span class="kd">public</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="nf">onFinishButtonTapped</span><span class="p">(</span><span class="nd">@NonNull</span><span class="w"> </span><span class="n">Set</span><span class="o">&lt;</span><span class="n">BarcodeFindItem</span><span class="o">&gt;</span><span class="w"> </span><span class="n">foundItems</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="n">requireActivity</span><span class="p">().</span><span class="na">onBackPressed</span><span class="p">();</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="p">});</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="section" id="start-searching">
+<h4>5. Start searching<a class="headerlink" href="#start-searching" title="Permalink to this headline"></a></h4>
+<p>As soon as everything is set up, control the <a class="reference internal" href="barcode-capture/api/ui/barcode-find-view.html#class-scandit.datacapture.barcode.find.ui.BarcodeFindView" title="BarcodeFindView class">BarcodeFindView</a> to start the search.</p>
+<div class="highlight-java notranslate"><div class="highlight"><pre><span></span><span class="n">barcodeFindView</span><span class="p">.</span><span class="na">startSearching</span><span class="p">();</span>
+</pre></div>
+</div>
+<p>This is the equivalent of pressing the “Play” button programmatically. It will start the search process, turn on the camera and hide the item carousel.</p>
+</div>
+</div>
+<div class="section" id="samples">
+<h3>Samples<a class="headerlink" href="#samples" title="Permalink to this headline"></a></h3>
+<p>The best way to start working with the Scandit Data Capture SDK is to run one of our sample apps. <a class="reference internal" href="samples/run-samples.html"><span class="doc">See the full list of available samples</span></a>.</p>
+</div>
+<div class="section" id="advanced-settings">
+<h3>Advanced Settings<a class="headerlink" href="#advanced-settings" title="Permalink to this headline"></a></h3>
+<div class="section" id="set-up-a-listener-on-the-barcodefind-mode">
+<h4>Set up a listener on the BarcodeFind mode<a class="headerlink" href="#set-up-a-listener-on-the-barcodefind-mode" title="Permalink to this headline"></a></h4>
+<p>You may want more fine-grained knowledge over the different events happening during the life of the BarcodeFind mode, such as when the search starts, pauses and stops. To do this, you can directly register a <a class="reference internal" href="barcode-capture/api/barcode-find-listener.html#interface-scandit.datacapture.barcode.find.IBarcodeFindListener" title="BarcodeFindListener interface">BarcodeFindListener</a> on the mode itself.</p>
+<p>Be aware that these listeners will be called from a background thread.</p>
+<div class="highlight-java notranslate"><div class="highlight"><pre><span></span><span class="n">mode</span><span class="p">.</span><span class="na">addListener</span><span class="p">(</span><span class="k">new</span><span class="w"> </span><span class="n">BarcodeFindListener</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="nd">@Override</span>
+<span class="w">    </span><span class="kd">public</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="nf">onSearchPaused</span><span class="p">(</span><span class="nd">@NonNull</span><span class="w"> </span><span class="n">Set</span><span class="o">&lt;</span><span class="n">BarcodeFindItem</span><span class="o">&gt;</span><span class="w"> </span><span class="n">foundItems</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="c1">// The mode was paused</span>
+<span class="w">    </span><span class="p">}</span>
+
+<span class="w">    </span><span class="nd">@Override</span>
+<span class="w">    </span><span class="kd">public</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="nf">onSearchStarted</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="c1">// The mode was started</span>
+<span class="w">    </span><span class="p">}</span>
+
+<span class="w">    </span><span class="nd">@Override</span>
+<span class="w">    </span><span class="kd">public</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="nf">onSearchStopped</span><span class="p">(</span><span class="nd">@NonNull</span><span class="w"> </span><span class="n">Set</span><span class="o">&lt;</span><span class="n">BarcodeFindItem</span><span class="o">&gt;</span><span class="w"> </span><span class="n">foundItems</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="c1">// The mode was stopped after the finish button was clicked</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="p">});</span>
+</pre></div>
+</div>
+<div class="section" id="set-up-a-transformation">
+<h5>Set up a transformation<a class="headerlink" href="#set-up-a-transformation" title="Permalink to this headline"></a></h5>
+<p>Sometimes, the barcode data needs to be transformed. For example, if the barcode contains the product identifier and other information, when a product is scanned, the barcode data is first parsed (via a transformation) and then the input list is checked.</p>
+<p>First implement the <a class="reference internal" href="barcode-capture/api/barcode-find-transformer.html#interface-scandit.datacapture.barcode.find.IBarcodeFindTransformer" title="BarcodeFindTransformer interface">BarcodeFindTransformer</a> interface. For example, if you want to only consider the first 5 characters:</p>
+<div class="highlight-java notranslate"><div class="highlight"><pre><span></span><span class="kd">class</span> <span class="nc">Transformer</span><span class="w"> </span><span class="kd">implements</span><span class="w"> </span><span class="n">BarcodeFindTransformer</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="nd">@Override</span>
+<span class="w">    </span><span class="kd">public</span><span class="w"> </span><span class="n">String</span><span class="w"> </span><span class="nf">transformBarcodeData</span><span class="p">(</span><span class="n">String</span><span class="w"> </span><span class="n">data</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="n">data</span><span class="p">.</span><span class="na">substring</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="w"> </span><span class="mi">5</span><span class="p">);</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p>Then the tranformer needs to be set so it can be used by Barcode Find:</p>
+<div class="highlight-java notranslate"><div class="highlight"><pre><span></span><span class="n">barcodeFind</span><span class="p">.</span><span class="na">setBarcodeTransformer</span><span class="p">(</span><span class="k">new</span><span class="w"> </span><span class="n">Transformer</span><span class="p">())</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="section" id="ui-configuration">
+<h4>UI configuration<a class="headerlink" href="#ui-configuration" title="Permalink to this headline"></a></h4>
+<p>The <a class="reference internal" href="barcode-capture/api/ui/barcode-find-view.html#class-scandit.datacapture.barcode.find.ui.BarcodeFindView" title="BarcodeFindView class">BarcodeFindView</a> will by default show a set of UI elements, which can be optionally hidden:</p>
+<ul class="simple">
+<li><p>A play/pause button</p></li>
+<li><p>A finish button</p></li>
+<li><p>A searched items carousel</p></li>
+<li><p>Guidance hints</p></li>
+</ul>
+<p>There is also a progress bar but this is hidden by default.</p>
+<p>Each of these elements can be shown or hidden at will.</p>
+<div class="highlight-java notranslate"><div class="highlight"><pre><span></span><span class="n">barcodeFindView</span><span class="p">.</span><span class="na">setShouldShowCarousel</span><span class="p">(</span><span class="kc">false</span><span class="p">);</span>
+<span class="n">barcodeFindView</span><span class="p">.</span><span class="na">setShouldShowProgressBar</span><span class="p">(</span><span class="kc">true</span><span class="p">);</span>
+<span class="c1">// …</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+</div>
+
+
+           </div>
+          </div>
+          <footer>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2024, Scandit AG.</p>
+  </div>
+
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+  <!-- Start of scandit Zendesk Widget script -->
+  <script id="ze-snippet" src="https://static.zdassets.com/ekr/snippet.js?key=df0234ee-7451-4189-8d1c-17c8a624b5f1">
+  </script>
+<script>
+      function getPlatformSuffix() {
+        const platform = 'android'
+        switch (platform) {
+          case 'android':         return 'for Android'
+          case 'ios':             return 'for iOS'
+          case 'cordova':         return 'for Cordova'
+          case 'react-native':    return 'for React Native'
+          case 'xamarin.ios':     return 'for Xamarin.iOS'
+          case 'xamarin.android': return 'for Xamarin.Android'
+          case 'xamarin.forms':   return 'for Xamarin.Forms'
+          case 'flutter':         return 'for Flutter'
+          case 'capacitor':       return 'for Capacitor'
+          case 'titanium':        return 'for Titanium'
+          case 'web':             return 'for the Web'
+          case 'dotnet.ios':      return 'for .NET for iOS'
+          case 'dotnet.android':  return 'for .NET for Android'
+          default:                return ''
+        }
+      }
+
+      const platformSuffix = getPlatformSuffix()
+      const headerTitle = document.querySelector(".icon-home")
+      headerTitle.insertAdjacentHTML('beforeend', ` ${platformSuffix}`)
+
+      const [major, minor] = DOCUMENTATION_OPTIONS.VERSION.split('.')
+      const version = document.querySelector(".version")
+      version.innerHTML = `
+        <div class="version">
+          <a href="${DOCUMENTATION_OPTIONS.URL_ROOT}release-notes/${major}.${minor}.html">Release Notes</a> 
+        </div>
+        <br>
+      `
+  </script>
+  <!-- End of scandit Zendesk Widget script -->
+
+</body>
+</html>

@@ -1,0 +1,910 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Barcode Count View &mdash; Data Capture SDK 6.24.0-rc.2 documentation</title>
+      <link rel="stylesheet" href="../../../_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="../../../_static/css/theme.css" type="text/css" />
+    <link rel="stylesheet" href="../../../_static/custom.css" type="text/css" />
+  <!--[if lt IE 9]>
+    <script src="../../../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script data-url_root="../../../" id="documentation_options" src="../../../_static/documentation_options.js"></script>
+        <script src="../../../_static/jquery.js"></script>
+        <script src="../../../_static/underscore.js"></script>
+        <script src="../../../_static/doctools.js"></script>
+    <script src="../../../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../../../genindex.html" />
+    <link rel="search" title="Search" href="../../../search.html" />
+    <link rel="next" title="Barcode Count Basic Overlay UI Listener" href="barcode-count-view-ui-listener.html" />
+    <link rel="prev" title="Barcode Count Toolbar Settings" href="barcode-count-toolbar-settings.html" />
+  <!-- Google Tag Manager -->
+  <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+  new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+  j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+  'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+  })(window,document,'script','dataLayer','GTM-THQQFD7');</script>
+  <!-- End Google Tag Manager -->
+</head>
+
+<body class="wy-body-for-nav">
+  <!-- Google Tag Manager (noscript) -->
+  <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-THQQFD7"
+  height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+  <!-- End Google Tag Manager (noscript) -->
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+            <a href="../../../index.html" class="icon icon-home"> Data Capture SDK
+          </a>
+              <div class="version">
+                6.24.0-rc.2
+              </div>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">First Steps</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../samples/run-samples.html">Run Samples</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../add-sdk.html">Add the SDK to Your App</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../best-practices-for-usability.html">Best Practices for Usability</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Pre-Built Components</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../high-speed-single-scanning.html">High-Speed Single Scanning</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../batch-counting-and-receiving.html">Batch Counting And Receiving</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../selecting-one-of-many.html">Selecting One Of Many Barcodes</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../ar-assisted-search-and-find.html">AR-Assisted Search And Find</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Fully-Customizable API</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../id-scanning-and-verification.html">ID Scanning And Verification</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../batch-scanning-and-ar.html">Batch Scanning And AR</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../single-scanning.html">Single Scanning</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../text-capture.html">Text Capture</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../parse-barcode-data.html">Parse Barcode Data</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../advanced-topics.html">Advanced Topics</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">API Reference</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../../../core/overview.html">ScanditCaptureCore</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../../overview.html">ScanditBarcodeCapture</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="../../symbology-properties.html">Symbology Properties</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../scan-add-on-codes.html">Scan Add-On/Extension Codes</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../scan-composite-codes.html">Scan Composite Codes</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../barcode-tracking-scenarios.html">Barcode Tracking Scenarios</a></li>
+<li class="toctree-l2 current"><a class="reference internal" href="../../api.html">API</a><ul class="current">
+<li class="toctree-l3"><a class="reference internal" href="../aruco-dictionary.html">ArucoDictionary</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../aruco-marker.html">ArucoMarker</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../barcode.html">Barcode</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../barcode-capture.html">Barcode Capture</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../barcode-capture-feedback.html">Barcode Capture Feedback</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../barcode-capture-listener.html">Barcode Capture Listener</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../barcode-capture-listener.html#barcode-capture-advanced-listener">Barcode Capture Advanced Listener</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../barcode-capture-session.html">Barcode Capture Session</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../barcode-capture-settings.html">Barcode Capture Settings</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../barcode-count.html">Barcode Count</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../barcode-count-capture-list.html">Barcode Count Capture List</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../barcode-count-capture-list-listener.html">Barcode Count Capture List Listener</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../barcode-count-capture-list-session.html">Barcode Count Capture List Session</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../barcode-count-feedback.html">Barcode Count Feedback</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../barcode-count-listener.html">Barcode Count Listener</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../barcode-count-session.html">Barcode Count Session</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../barcode-count-settings.html">Barcode Count Settings</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../barcode-count-status.html">Barcode Count Status</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../barcode-count-status-item.html">Barcode Count Status Item</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../barcode-count-status-provider.html">Barcode Count Status Provider</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../barcode-count-status-provider-callback.html">Barcode Count Status Provider Callback</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../barcode-count-status-result.html">Barcode Count Status Result</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../barcode-filter-settings.html">Barcode Filter Settings</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../barcode-find.html">Barcode Find</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../barcode-find-feedback.html">Barcode Find Feedback</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../barcode-find-item.html">Barcode Find Item</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../barcode-find-listener.html">Barcode Find Listener</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../barcode-find-session.html">Barcode Find Session</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../barcode-find-settings.html">Barcode Find Settings</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../barcode-find-transformer.html">Barcode Find Transformer</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../barcode-generator.html">Barcode Generator</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../barcode-generator-builder.html">Barcode Generator Builder</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../barcode-info.html">Barcode Info</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../barcode-pick.html">Barcode Pick</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../barcode-pick-action-callback.html">Barcode Pick Action Callback</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../barcode-pick-action-listener.html">Barcode Pick Action Listener</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../barcode-pick-async-mapper-product-provider.html">Barcode Pick Async Mapper Product Provider</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../barcode-pick-async-mapper-product-provider-callback.html">Barcode Pick Async Mapper Product Provider Callback</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../barcode-pick-listener.html">Barcode Pick Listener</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../barcode-pick-product.html">Barcode Pick Product</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../barcode-pick-product-provider.html">Barcode Pick Product Provider</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../barcode-pick-product-provider-callback.html">Barcode Pick Product Provider Callback</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../barcode-pick-product-provider-callback-item.html">Barcode Pick Product Provider Callback Item</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../barcode-pick-scanning-listener.html">Barcode Pick Scanning Listener</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../barcode-pick-scanning-session.html">Barcode Pick Scanning Session</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../barcode-pick-session.html">Barcode Pick Session</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../barcode-pick-settings.html">Barcode Pick Settings</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../barcode-pick-state.html">Barcode Pick State</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../barcode-selection.html">Barcode Selection</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../barcode-selection-aimer-selection.html">Barcode Selection Automatic Aimer Selection</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../barcode-selection-feedback.html">Barcode Selection Feedback</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../barcode-selection-listener.html">Barcode Selection Listener</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../barcode-selection-listener.html#barcode-selection-advanced-listener">Barcode Selection Advanced Listener</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../barcode-selection-session.html">Barcode Selection Session</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../barcode-selection-settings.html">Barcode Selection Settings</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../barcode-selection-strategy.html">Barcode Selection Strategy</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../barcode-selection-tap-selection.html">Barcode Selection Tap Selection</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../barcode-selection-type.html">Barcode Selection Type</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../barcode-spatial-grid.html">Barcode Spatial Grid</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../barcode-tracking.html">Barcode Tracking</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../barcode-tracking-listener.html">Barcode Tracking Listener</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../barcode-tracking-listener.html#barcode-tracking-advanced-listener">Barcode Tracking Advanced Listener</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../barcode-tracking-scenario.html">Barcode Tracking Scenario</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../barcode-tracking-session.html">Barcode Tracking Session</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../barcode-tracking-settings.html">Barcode Tracking Settings</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../capture-preset.html">CapturePreset</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../checksum.html">Checksum</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../composite-flag.html">Composite Flag</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../composite-type.html">CompositeType</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../composite-type-description.html">Composite Type Description</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../coordinate-2d.html">Coordinate 2D</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../ean13-upca-classification.html">EAN13 &amp; UPCA Classification</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../localized-only-barcode.html">Localized Only Barcode</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../qrcode-error-correction-level.html">QrCode Error Correction Level</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../spark-scan.html">SparkScan</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../spark-scan-feedback.html">SparkScan Feedback</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../spark-scan-feedback-delegate.html">SparkScan Feedback Delegate</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../spark-scan-license-info.html">SparkScan License Info</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../spark-scan-listener.html">SparkScan Listener</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../spark-scan-session.html">SparkScan Session</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../spark-scan-settings.html">SparkScan Settings</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../structured-append.html">Structured Append</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../symbology.html">Symbology</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../symbology-description.html">Symbology Description</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../symbology-settings.html">Symbology Settings</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../target-barcode.html">Target Barcode</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../tracked-barcode.html">Tracked Barcode</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../tracked-barcode-info.html">TrackedBarcodeInfo</a></li>
+<li class="toctree-l3"><a class="reference internal" href="barcode-capture-overlay.html">Barcode Capture Overlay</a></li>
+<li class="toctree-l3"><a class="reference internal" href="barcode-count-toolbar-defaults.html">Barcode Count Toolbar Defaults</a></li>
+<li class="toctree-l3"><a class="reference internal" href="barcode-count-toolbar-settings.html">Barcode Count Toolbar Settings</a></li>
+<li class="toctree-l3 current"><a class="current reference internal" href="#">Barcode Count View</a></li>
+<li class="toctree-l3"><a class="reference internal" href="barcode-count-view-ui-listener.html">Barcode Count Basic Overlay UI Listener</a></li>
+<li class="toctree-l3"><a class="reference internal" href="barcode-count-view-listener.html">Barcode Count View Listener</a></li>
+<li class="toctree-l3"><a class="reference internal" href="barcode-filter-highlight-settings.html">Barcode Filter Highlight Settings</a></li>
+<li class="toctree-l3"><a class="reference internal" href="barcode-filter-highlight-type.html">Barcode Filter Highlight Type</a></li>
+<li class="toctree-l3"><a class="reference internal" href="barcode-find-view.html">Barcode Find View</a></li>
+<li class="toctree-l3"><a class="reference internal" href="barcode-find-view-settings.html">Barcode Find View Settings</a></li>
+<li class="toctree-l3"><a class="reference internal" href="barcode-pick-icon-style.html">Barcode Pick Icon Style</a></li>
+<li class="toctree-l3"><a class="reference internal" href="barcode-pick-view.html">Barcode Pick View</a></li>
+<li class="toctree-l3"><a class="reference internal" href="barcode-pick-view-highlight-style.html">Barcode Pick View Highlight Style</a></li>
+<li class="toctree-l3"><a class="reference internal" href="barcode-pick-view-highlight-style-async-callback.html">Barcode Pick View Highlight Style Async Callback</a></li>
+<li class="toctree-l3"><a class="reference internal" href="barcode-pick-view-highlight-style-async-provider.html">Barcode Pick View Highlight Style Async Provider</a></li>
+<li class="toctree-l3"><a class="reference internal" href="barcode-pick-view-highlight-style-custom-view.html">Barcode Pick View Highlight Style Custom View</a></li>
+<li class="toctree-l3"><a class="reference internal" href="barcode-pick-view-highlight-style-custom-view-async-callback.html">Barcode Pick View Highlight Style Custom View Response</a></li>
+<li class="toctree-l3"><a class="reference internal" href="barcode-pick-view-highlight-style-custom-view-provider.html">Barcode Pick View Highlight Style Custom View Provider</a></li>
+<li class="toctree-l3"><a class="reference internal" href="barcode-pick-view-highlight-style-custom-view-response.html">Barcode Pick View Highlight Style Custom View Response</a></li>
+<li class="toctree-l3"><a class="reference internal" href="barcode-pick-view-highlight-style-dot.html">Barcode Pick View Highlight Style Dot</a></li>
+<li class="toctree-l3"><a class="reference internal" href="barcode-pick-view-highlight-style-dot-with-icons.html">Barcode Pick View Highlight Style Dot With Icons</a></li>
+<li class="toctree-l3"><a class="reference internal" href="barcode-pick-view-highlight-style-rectangular.html">Barcode Pick View Highlight Style Rectangular</a></li>
+<li class="toctree-l3"><a class="reference internal" href="barcode-pick-view-highlight-style-rectangular-with-icons.html">Barcode Pick View Highlight Style Rectangular With Icons</a></li>
+<li class="toctree-l3"><a class="reference internal" href="barcode-pick-view-highlight-style-request.html">Barcode Pick View Highlight Style Request</a></li>
+<li class="toctree-l3"><a class="reference internal" href="barcode-pick-view-highlight-style-response.html">Barcode Pick View Highlight Style Response</a></li>
+<li class="toctree-l3"><a class="reference internal" href="barcode-pick-view-listener.html">Barcode Pick View Listener</a></li>
+<li class="toctree-l3"><a class="reference internal" href="barcode-pick-view-settings.html">Barcode Pick View Settings</a></li>
+<li class="toctree-l3"><a class="reference internal" href="barcode-selection-basic-overlay.html">Barcode Selection Basic Overlay</a></li>
+<li class="toctree-l3"><a class="reference internal" href="barcode-tracking-advanced-overlay.html">Barcode Tracking Advanced Overlay</a></li>
+<li class="toctree-l3"><a class="reference internal" href="barcode-tracking-advanced-overlay-listener.html">Barcode Tracking Advanced Overlay Listener</a></li>
+<li class="toctree-l3"><a class="reference internal" href="barcode-tracking-basic-overlay.html">Barcode Tracking Basic Overlay</a></li>
+<li class="toctree-l3"><a class="reference internal" href="barcode-tracking-basic-overlay-listener.html">Barcode Tracking Basic Overlay Listener</a></li>
+<li class="toctree-l3"><a class="reference internal" href="spark-scan-barcode-feedback.html">SparkScan Barcode Feedback</a></li>
+<li class="toctree-l3"><a class="reference internal" href="spark-scan-toast-settings.html">SparkScan Toast Settings</a></li>
+<li class="toctree-l3"><a class="reference internal" href="spark-scan-view.html">SparkScan View</a></li>
+<li class="toctree-l3"><a class="reference internal" href="spark-scan-view-feedback.html">SparkScan View Feedback</a></li>
+<li class="toctree-l3"><a class="reference internal" href="spark-scan-view-settings.html">SparkScan View Settings</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../../id-capture/overview.html">ScanditIdCapture</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../text-capture/overview.html">ScanditTextCapture</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../label-capture/overview.html">ScanditLabelCapture</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../parser/overview.html">ScanditParser</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../genindex.html">Index</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">More Resources</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../release-notes.html">Release Notes</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../barcode-symbologies.html">Barcode Symbologies</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../requirements.html">System Requirements</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../support.html">Support &amp; FAQ</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../features-by-platform.html">Features By Framework</a></li>
+<li class="toctree-l1"><a class="reference external" href="https://docs.scandit.com/barcode-scanner-sdk.html">SDK 5.x Documentation [Deprecated]</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../migrate-to-6.html">Migrate from Barcode Scanner 5.x</a></li>
+<li class="toctree-l1"><a class="reference external" href="http://ssl.scandit.com">Your Developer Dashboard</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../../index.html">Data Capture SDK</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation" class="navbar">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../../../index.html" class="icon icon-home" aria-label="Home"></a></li>
+          <li class="breadcrumb-item"><a href="../../overview.html">ScanditBarcodeCapture</a></li>
+          <li class="breadcrumb-item"><a href="../../api.html">ScanditBarcodeCapture API</a></li>
+      <li class="breadcrumb-item active">Barcode Count View</li>
+      <li class="wy-breadcrumbs-aside">
+      </li>
+  </ul>
+  <div class="auth-link-container">
+    <a class="signup-link signup-link--mobile" rel="noopener" target="_blank" href="https://ssl.scandit.com/dashboard/sign-up?p=test&utm_source=documentation">Sign up</a>
+    <a class="signup-link" target="_blank" rel="noopener" href="https://ssl.scandit.com/dashboard/sign-up?p=test&utm_source=documentation">Sign up for your developer account</a>
+    <a class="signin-link" target="_blank" rel="noopener" href="https://ssl.scandit.com/dashboard/sign-in">Log in</a>
+  </div>
+</div>
+<hr/>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <div class="section" id="barcode-count-view">
+<h1>Barcode Count View<a class="headerlink" href="#barcode-count-view" title="Permalink to this headline"></a></h1>
+<p>Defined in package <em>com.scandit.datacapture.barcode.count.ui.view</em></p>
+<dl>
+<dt class="sig sig-object unilang" id="enum-scandit.datacapture.barcode.count.ui.BarcodeCountViewStyle">
+<span class="sig-name descname"><span class="pre">BarcodeCountViewStyle</span></span><a class="headerlink" href="#enum-scandit.datacapture.barcode.count.ui.BarcodeCountViewStyle" title="Permalink to this definition"></a></dt>
+<dd><p><span class="versionmodified versionadded">Added in version 6.15.0</span></p>
+<p>The style of the <a class="reference internal" href="#class-scandit.datacapture.barcode.count.ui.BarcodeCountView" title="BarcodeCountView class">BarcodeCountView</a></p>
+<dl>
+<dt class="sig sig-object unilang" id="value-scandit.datacapture.barcode.count.ui.BarcodeCountViewStyle.Icon">
+<span class="sig-name descname"><span class="pre">ICON</span></span><a class="headerlink" href="#value-scandit.datacapture.barcode.count.ui.BarcodeCountViewStyle.Icon" title="Permalink to this definition"></a></dt>
+<dd><p><span class="versionmodified versionadded">Added in version 6.15.0</span></p>
+<p>Style that draws the highlights as icons and adds an animation for when a code newly appears.</p>
+</dd></dl>
+
+<dl>
+<dt class="sig sig-object unilang" id="value-scandit.datacapture.barcode.count.ui.BarcodeCountViewStyle.Dot">
+<span class="sig-name descname"><span class="pre">DOT</span></span><a class="headerlink" href="#value-scandit.datacapture.barcode.count.ui.BarcodeCountViewStyle.Dot" title="Permalink to this definition"></a></dt>
+<dd><p><span class="versionmodified versionadded">Added in version 6.15.0</span></p>
+<p>Style that draws the highlights as a dot and adds an animation for when a code newly appears.</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl>
+<dt class="sig sig-object unilang" id="class-scandit.datacapture.barcode.count.ui.BarcodeCountView">
+<span class="sig-name descname"><span class="pre">BarcodeCountView</span></span><a class="headerlink" href="#class-scandit.datacapture.barcode.count.ui.BarcodeCountView" title="Permalink to this definition"></a></dt>
+<dd><pre class="full-signature"><span class="sig-name descname">class BarcodeCountView</span> : <a class="reference external" href="https://developer.android.com/reference/android/widget/RelativeLayout.html" title="RelativeLayout">RelativeLayout</a></pre><p><span class="versionmodified versionadded">Added in version 6.15.0</span></p>
+<p><a class="reference internal" href="../barcode-count.html#class-scandit.datacapture.barcode.count.BarcodeCount" title="BarcodeCount class">BarcodeCount</a> comes with a ready-to-use UI. Add <a class="reference internal" href="#class-scandit.datacapture.barcode.count.ui.BarcodeCountView" title="BarcodeCountView class">BarcodeCountView</a> to the view hierarchy. Please note that this view should be presented full screen.</p>
+<dl>
+<dt class="sig sig-object unilang" id="method-scandit.datacapture.barcode.count.ui.BarcodeCountView.NewInstance">
+<span class="sig-name descname"><span class="pre">newInstance(context,</span> <span class="pre">dataCaptureContext,</span> <span class="pre">mode)</span></span><a class="headerlink" href="#method-scandit.datacapture.barcode.count.ui.BarcodeCountView.NewInstance" title="Permalink to this definition"></a></dt>
+<dd><pre class="full-signature">static &#64;NonNull <a class="reference internal" href="#class-scandit.datacapture.barcode.count.ui.BarcodeCountView" title="BarcodeCountView class">BarcodeCountView</a> <span class="sig-name descname">newInstance</span>(&#64;NonNull <a class="reference external" href="https://developer.android.com/reference/android/content/Context.html" title="Context">Context</a> <em>context</em>,
+        &#64;Nullable <a class="reference internal" href="../../../core/api/data-capture-context.html#class-scandit.datacapture.core.DataCaptureContext" title="DataCaptureContext class">DataCaptureContext</a> <em>dataCaptureContext</em>,
+        &#64;NonNull <a class="reference internal" href="../barcode-count.html#class-scandit.datacapture.barcode.count.BarcodeCount" title="BarcodeCount class">BarcodeCount</a> <em>mode</em>)</pre><p><span class="versionmodified versionadded">Added in version 6.15.0</span></p>
+<p>Constructs a new barcode count view.</p>
+</dd></dl>
+
+<dl>
+<dt class="sig sig-object unilang">
+<span class="sig-name descname"><span class="pre">newInstance(context,</span> <span class="pre">dataCaptureContext,</span> <span class="pre">mode,</span> <span class="pre">style)</span></span></dt>
+<dd><pre class="full-signature">static &#64;NonNull <a class="reference internal" href="#class-scandit.datacapture.barcode.count.ui.BarcodeCountView" title="BarcodeCountView class">BarcodeCountView</a> <span class="sig-name descname">newInstance</span>(&#64;NonNull <a class="reference external" href="https://developer.android.com/reference/android/content/Context.html" title="Context">Context</a> <em>context</em>,
+        &#64;Nullable <a class="reference internal" href="../../../core/api/data-capture-context.html#class-scandit.datacapture.core.DataCaptureContext" title="DataCaptureContext class">DataCaptureContext</a> <em>dataCaptureContext</em>,
+        &#64;NonNull <a class="reference internal" href="../barcode-count.html#class-scandit.datacapture.barcode.count.BarcodeCount" title="BarcodeCount class">BarcodeCount</a> <em>mode</em>,
+        <a class="reference internal" href="#enum-scandit.datacapture.barcode.count.ui.BarcodeCountViewStyle" title="BarcodeCountViewStyle enum">BarcodeCountViewStyle</a> <em>style</em>)</pre><p><span class="versionmodified versionadded">Added in version 6.15.0</span></p>
+<p>Constructs a new barcode count view.</p>
+</dd></dl>
+
+<dl>
+<dt class="sig sig-object unilang">
+<span class="sig-name descname"><span class="pre">newInstance(context,</span> <span class="pre">dataCaptureView,</span> <span class="pre">mode)</span></span></dt>
+<dd><pre class="full-signature">static &#64;NonNull <a class="reference internal" href="#class-scandit.datacapture.barcode.count.ui.BarcodeCountView" title="BarcodeCountView class">BarcodeCountView</a> <span class="sig-name descname">newInstance</span>(&#64;NonNull <a class="reference external" href="https://developer.android.com/reference/android/content/Context.html" title="Context">Context</a> <em>context</em>,
+        &#64;NonNull <a class="reference internal" href="../../../core/api/ui/data-capture-view.html#class-scandit.datacapture.core.ui.DataCaptureView" title="DataCaptureView class">DataCaptureView</a> <em>dataCaptureView</em>,
+        &#64;NonNull <a class="reference internal" href="../barcode-count.html#class-scandit.datacapture.barcode.count.BarcodeCount" title="BarcodeCount class">BarcodeCount</a> <em>mode</em>)</pre><p><span class="versionmodified versionadded">Added in version 6.15.0</span></p>
+<p>Constructs a new barcode count view. This constructor method should only be used in special cases, and its use is not recommended.</p>
+</dd></dl>
+
+<dl>
+<dt class="sig sig-object unilang">
+<span class="sig-name descname"><span class="pre">newInstance(context,</span> <span class="pre">dataCaptureView,</span> <span class="pre">mode,</span> <span class="pre">style)</span></span></dt>
+<dd><pre class="full-signature">static &#64;NonNull <a class="reference internal" href="#class-scandit.datacapture.barcode.count.ui.BarcodeCountView" title="BarcodeCountView class">BarcodeCountView</a> <span class="sig-name descname">newInstance</span>(&#64;NonNull <a class="reference external" href="https://developer.android.com/reference/android/content/Context.html" title="Context">Context</a> <em>context</em>,
+        &#64;NonNull <a class="reference internal" href="../../../core/api/ui/data-capture-view.html#class-scandit.datacapture.core.ui.DataCaptureView" title="DataCaptureView class">DataCaptureView</a> <em>dataCaptureView</em>,
+        &#64;NonNull <a class="reference internal" href="../barcode-count.html#class-scandit.datacapture.barcode.count.BarcodeCount" title="BarcodeCount class">BarcodeCount</a> <em>mode</em>,
+        <a class="reference internal" href="#enum-scandit.datacapture.barcode.count.ui.BarcodeCountViewStyle" title="BarcodeCountViewStyle enum">BarcodeCountViewStyle</a> <em>style</em>)</pre><p><span class="versionmodified versionadded">Added in version 6.15.0</span></p>
+<p>Constructs a new barcode count view. This constructor method should only be used in special cases, and its use is not recommended.</p>
+</dd></dl>
+
+<dl>
+<dt class="sig sig-object unilang" id="property-scandit.datacapture.barcode.count.ui.BarcodeCountView.ShouldShowUserGuidanceView">
+<span class="sig-name descname"><span class="pre">shouldShowUserGuidanceView</span></span><a class="headerlink" href="#property-scandit.datacapture.barcode.count.ui.BarcodeCountView.ShouldShowUserGuidanceView" title="Permalink to this definition"></a></dt>
+<dd><pre class="full-signature"><code class="docutils literal notranslate"><span class="pre">boolean</span></code> <span class="sig-name descname">getShouldShowUserGuidanceView</span>()
+<code class="docutils literal notranslate"><span class="pre">void</span></code> <span class="sig-name descname">setShouldShowUserGuidanceView</span>(<code class="docutils literal notranslate"><span class="pre">boolean</span></code> <em>value</em>)
+</pre><p><span class="versionmodified versionadded">Added in version 6.15.0</span></p>
+<p>When set to <em>true</em>, user guidance and the loading view will be shown to the user. The user guidance prompts the user to scan, and to move closer or further away from the target barcodes in order to scan them properly.</p>
+<p>By default this property is <em>true</em>.</p>
+</dd></dl>
+
+<dl>
+<dt class="sig sig-object unilang" id="property-scandit.datacapture.barcode.count.ui.BarcodeCountView.ShouldShowListProgressBar">
+<span class="sig-name descname"><span class="pre">shouldShowListProgressBar</span></span><a class="headerlink" href="#property-scandit.datacapture.barcode.count.ui.BarcodeCountView.ShouldShowListProgressBar" title="Permalink to this definition"></a></dt>
+<dd><pre class="full-signature"><code class="docutils literal notranslate"><span class="pre">boolean</span></code> <span class="sig-name descname">getShouldShowListProgressBar</span>()
+<code class="docutils literal notranslate"><span class="pre">void</span></code> <span class="sig-name descname">setShouldShowListProgressBar</span>(<code class="docutils literal notranslate"><span class="pre">boolean</span></code> <em>value</em>)
+</pre><p><span class="versionmodified versionadded">Added in version 6.24.0</span></p>
+<p>When set to <em>true</em>, a progress bar will be shown to the user when a capture list has been set using <a class="reference internal" href="../barcode-count.html#method-scandit.datacapture.barcode.count.BarcodeCount.SetBarcodeCountCaptureList" title="BarcodeCount.setBarcodeCountCaptureList() method">BarcodeCount.setBarcodeCountCaptureList()</a>, indicating how many of the barcodes in the list have been scanned.</p>
+<p>By default this property is <em>true</em>.</p>
+</dd></dl>
+
+<dl>
+<dt class="sig sig-object unilang" id="property-scandit.datacapture.barcode.count.ui.BarcodeCountView.ShouldShowListButton">
+<span class="sig-name descname"><span class="pre">shouldShowListButton</span></span><a class="headerlink" href="#property-scandit.datacapture.barcode.count.ui.BarcodeCountView.ShouldShowListButton" title="Permalink to this definition"></a></dt>
+<dd><pre class="full-signature"><code class="docutils literal notranslate"><span class="pre">boolean</span></code> <span class="sig-name descname">getShouldShowListButton</span>()
+<code class="docutils literal notranslate"><span class="pre">void</span></code> <span class="sig-name descname">setShouldShowListButton</span>(<code class="docutils literal notranslate"><span class="pre">boolean</span></code> <em>value</em>)
+</pre><p><span class="versionmodified versionadded">Added in version 6.15.0</span></p>
+<p>When set to <em>true</em>, a list button will be shown to the user in the lower left hand corner of the screen. When tapped, this button will freeze the mode unless <a class="reference internal" href="#property-scandit.datacapture.barcode.count.ui.BarcodeCountView.ShouldDisableModeOnExitButtonTapped" title="shouldDisableModeOnExitButtonTapped property">shouldDisableModeOnExitButtonTapped</a> is set to <em>false</em>. This button triggers a call to <a class="reference internal" href="barcode-count-view-ui-listener.html#method-scandit.datacapture.barcode.count.ui.IBarcodeCountViewUiListener.OnListButtonTapped" title="BarcodeCountViewUiListener.onListButtonTapped() method">BarcodeCountViewUiListener.onListButtonTapped()</a>.</p>
+<p>By default this property is <em>true</em>.</p>
+</dd></dl>
+
+<dl>
+<dt class="sig sig-object unilang" id="property-scandit.datacapture.barcode.count.ui.BarcodeCountView.ShouldShowExitButton">
+<span class="sig-name descname"><span class="pre">shouldShowExitButton</span></span><a class="headerlink" href="#property-scandit.datacapture.barcode.count.ui.BarcodeCountView.ShouldShowExitButton" title="Permalink to this definition"></a></dt>
+<dd><pre class="full-signature"><code class="docutils literal notranslate"><span class="pre">boolean</span></code> <span class="sig-name descname">getShouldShowExitButton</span>()
+<code class="docutils literal notranslate"><span class="pre">void</span></code> <span class="sig-name descname">setShouldShowExitButton</span>(<code class="docutils literal notranslate"><span class="pre">boolean</span></code> <em>value</em>)
+</pre><p><span class="versionmodified versionadded">Added in version 6.15.0</span></p>
+<p>When set to <em>true</em>, an exit button will be shown in the lower right hand corner of the screen. The behavior for this button is left entirely to the developer, and does nothing by default. When clicked, this button triggers a call to <a class="reference internal" href="barcode-count-view-ui-listener.html#method-scandit.datacapture.barcode.count.ui.IBarcodeCountViewUiListener.OnExitButtonTapped" title="BarcodeCountViewUiListener.onExitButtonTapped() method">BarcodeCountViewUiListener.onExitButtonTapped()</a>.</p>
+<p>By default this property is <em>true</em>.</p>
+</dd></dl>
+
+<dl>
+<dt class="sig sig-object unilang" id="property-scandit.datacapture.barcode.count.ui.BarcodeCountView.ShouldShowShutterButton">
+<span class="sig-name descname"><span class="pre">shouldShowShutterButton</span></span><a class="headerlink" href="#property-scandit.datacapture.barcode.count.ui.BarcodeCountView.ShouldShowShutterButton" title="Permalink to this definition"></a></dt>
+<dd><pre class="full-signature"><code class="docutils literal notranslate"><span class="pre">boolean</span></code> <span class="sig-name descname">getShouldShowShutterButton</span>()
+<code class="docutils literal notranslate"><span class="pre">void</span></code> <span class="sig-name descname">setShouldShowShutterButton</span>(<code class="docutils literal notranslate"><span class="pre">boolean</span></code> <em>value</em>)
+</pre><p><span class="versionmodified versionadded">Added in version 6.15.0</span></p>
+<p>When set to <em>true</em>, a shutter button will be shown to the user centered in the bottom of the screen. This button triggers the processing of the current video feed. The same functionality can be triggered by calling <a class="reference internal" href="../barcode-count.html#method-scandit.datacapture.barcode.count.BarcodeCount.StartScanningPhase" title="BarcodeCount.startScanningPhase() method">BarcodeCount.startScanningPhase()</a>.</p>
+<p>By default this property is <em>true</em>.</p>
+</dd></dl>
+
+<dl>
+<dt class="sig sig-object unilang" id="property-scandit.datacapture.barcode.count.ui.BarcodeCountView.ShouldShowHints">
+<span class="sig-name descname"><span class="pre">shouldShowHints</span></span><a class="headerlink" href="#property-scandit.datacapture.barcode.count.ui.BarcodeCountView.ShouldShowHints" title="Permalink to this definition"></a></dt>
+<dd><pre class="full-signature"><code class="docutils literal notranslate"><span class="pre">boolean</span></code> <span class="sig-name descname">getShouldShowHints</span>()
+<code class="docutils literal notranslate"><span class="pre">void</span></code> <span class="sig-name descname">setShouldShowHints</span>(<code class="docutils literal notranslate"><span class="pre">boolean</span></code> <em>value</em>)
+</pre><p><span class="versionmodified versionadded">Added in version 6.15.0</span></p>
+<p>When set to <em>true</em>, this view will show some messages about currently scanned barcodes.</p>
+<p>By default this property is <em>true</em>.</p>
+</dd></dl>
+
+<dl>
+<dt class="sig sig-object unilang" id="property-scandit.datacapture.barcode.count.ui.BarcodeCountView.ShouldShowClearHighlightsButton">
+<span class="sig-name descname"><span class="pre">shouldShowClearHighlightsButton</span></span><a class="headerlink" href="#property-scandit.datacapture.barcode.count.ui.BarcodeCountView.ShouldShowClearHighlightsButton" title="Permalink to this definition"></a></dt>
+<dd><pre class="full-signature"><code class="docutils literal notranslate"><span class="pre">boolean</span></code> <span class="sig-name descname">getShouldShowClearHighlightsButton</span>()
+<code class="docutils literal notranslate"><span class="pre">void</span></code> <span class="sig-name descname">setShouldShowClearHighlightsButton</span>(<code class="docutils literal notranslate"><span class="pre">boolean</span></code> <em>value</em>)
+</pre><p><span class="versionmodified versionadded">Added in version 6.15.0</span></p>
+<p>When set to <em>true</em>, a button will be shown above the default shutter button. This button clears all currently shown barcodes highlights. The same functionality can be triggered by calling <a class="reference internal" href="#method-scandit.datacapture.barcode.count.ui.BarcodeCountView.ClearHighlights" title="clearHighlights() method">clearHighlights()</a>.</p>
+<p>By default this property is <em>false</em>.</p>
+</dd></dl>
+
+<dl>
+<dt class="sig sig-object unilang" id="property-scandit.datacapture.barcode.count.ui.BarcodeCountView.ShouldShowSingleScanButton">
+<span class="sig-name descname"><span class="pre">shouldShowSingleScanButton</span></span><a class="headerlink" href="#property-scandit.datacapture.barcode.count.ui.BarcodeCountView.ShouldShowSingleScanButton" title="Permalink to this definition"></a></dt>
+<dd><pre class="full-signature"><code class="docutils literal notranslate"><span class="pre">boolean</span></code> <span class="sig-name descname">getShouldShowSingleScanButton</span>()
+<code class="docutils literal notranslate"><span class="pre">void</span></code> <span class="sig-name descname">setShouldShowSingleScanButton</span>(<code class="docutils literal notranslate"><span class="pre">boolean</span></code> <em>value</em>)
+</pre><p><span class="versionmodified versionadded">Added in version 6.16.0</span></p>
+<p>When set to <em>true</em>, a button will be shown to the user in the lower left corner of the preview. The behavior for this button is left entirely to the developer, and does nothing by default. When clicked, this button triggers a call to <a class="reference internal" href="barcode-count-view-ui-listener.html#method-scandit.datacapture.barcode.count.ui.IBarcodeCountViewUiListener.OnSingleScanButtonTapped" title="BarcodeCountViewUiListener.onSingleScanButtonTapped() method">BarcodeCountViewUiListener.onSingleScanButtonTapped()</a>.</p>
+<p>By default this property is <em>false</em>.</p>
+</dd></dl>
+
+<dl>
+<dt class="sig sig-object unilang" id="property-scandit.datacapture.barcode.count.ui.BarcodeCountView.ShouldShowStatusModeButton">
+<span class="sig-name descname"><span class="pre">shouldShowStatusModeButton</span></span><a class="headerlink" href="#property-scandit.datacapture.barcode.count.ui.BarcodeCountView.ShouldShowStatusModeButton" title="Permalink to this definition"></a></dt>
+<dd><pre class="full-signature"><code class="docutils literal notranslate"><span class="pre">boolean</span></code> <span class="sig-name descname">getShouldShowStatusModeButton</span>()
+<code class="docutils literal notranslate"><span class="pre">void</span></code> <span class="sig-name descname">setShouldShowStatusModeButton</span>(<code class="docutils literal notranslate"><span class="pre">boolean</span></code> <em>value</em>)
+</pre><p><span class="versionmodified versionadded">Added in version 6.17.0</span></p>
+<p>When set to <em>true</em>, a button will be shown to the user in the lower right corner of the preview. This button toggles “status mode”, in which the normal barcode highlights will be replaced by status indicators for each barcode. The status for each barcode must be provided via a <a class="reference internal" href="../barcode-count-status-provider.html#interface-scandit.datacapture.barcode.count.ui.BarcodeCountStatusProvider" title="BarcodeCountStatusProvider interface">BarcodeCountStatusProvider</a> previously set with <a class="reference internal" href="#method-scandit.datacapture.barcode.count.ui.BarcodeCountView.SetStatusProvider" title="setStatusProvider() method">setStatusProvider()</a>. If no <a class="reference internal" href="../barcode-count-status-provider.html#interface-scandit.datacapture.barcode.count.ui.BarcodeCountStatusProvider" title="BarcodeCountStatusProvider interface">BarcodeCountStatusProvider</a> is set, clicking this button has no effect.</p>
+<p>By default this property is <em>false</em>.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>The Barcode Count status mode API is still in beta and may change in future versions of Scandit Data Capture SDK.</p>
+</div>
+</dd></dl>
+
+<dl>
+<dt class="sig sig-object unilang" id="property-scandit.datacapture.barcode.count.ui.BarcodeCountView.ShouldShowFloatingShutterButton">
+<span class="sig-name descname"><span class="pre">shouldShowFloatingShutterButton</span></span><a class="headerlink" href="#property-scandit.datacapture.barcode.count.ui.BarcodeCountView.ShouldShowFloatingShutterButton" title="Permalink to this definition"></a></dt>
+<dd><pre class="full-signature"><code class="docutils literal notranslate"><span class="pre">boolean</span></code> <span class="sig-name descname">getShouldShowFloatingShutterButton</span>()
+<code class="docutils literal notranslate"><span class="pre">void</span></code> <span class="sig-name descname">setShouldShowFloatingShutterButton</span>(<code class="docutils literal notranslate"><span class="pre">boolean</span></code> <em>value</em>)
+</pre><p><span class="versionmodified versionadded">Added in version 6.15.0</span></p>
+<p>When set to <em>true</em>, a floating shutter button will be visible on screen. This button can be dragged to any position and, when tapped, will trigger the processing of the current video feed.</p>
+<p>By default this property is <em>false</em>.</p>
+</dd></dl>
+
+<dl>
+<dt class="sig sig-object unilang" id="property-scandit.datacapture.barcode.count.ui.BarcodeCountView.ShouldShowToolbar">
+<span class="sig-name descname"><span class="pre">shouldShowToolbar</span></span><a class="headerlink" href="#property-scandit.datacapture.barcode.count.ui.BarcodeCountView.ShouldShowToolbar" title="Permalink to this definition"></a></dt>
+<dd><pre class="full-signature"><code class="docutils literal notranslate"><span class="pre">boolean</span></code> <span class="sig-name descname">getShouldShowToolbar</span>()
+<code class="docutils literal notranslate"><span class="pre">void</span></code> <span class="sig-name descname">setShouldShowToolbar</span>(<code class="docutils literal notranslate"><span class="pre">boolean</span></code> <em>value</em>)
+</pre><p><span class="versionmodified versionadded">Added in version 6.16.0</span></p>
+<p>When set to <em>true</em>, a collapsable toolbar will be visible at the top of the preview. This toolbar contains a set of convenience buttons for easy preference setting during scanning.</p>
+<p>By default this property is <em>true</em>.</p>
+</dd></dl>
+
+<dl>
+<dt class="sig sig-object unilang" id="property-scandit.datacapture.barcode.count.ui.BarcodeCountView.ShouldDisableModeOnExitButtonTapped">
+<span class="sig-name descname"><span class="pre">shouldDisableModeOnExitButtonTapped</span></span><a class="headerlink" href="#property-scandit.datacapture.barcode.count.ui.BarcodeCountView.ShouldDisableModeOnExitButtonTapped" title="Permalink to this definition"></a></dt>
+<dd><pre class="full-signature"><code class="docutils literal notranslate"><span class="pre">boolean</span></code> <span class="sig-name descname">getShouldDisableModeOnExitButtonTapped</span>()
+<code class="docutils literal notranslate"><span class="pre">void</span></code> <span class="sig-name descname">setShouldDisableModeOnExitButtonTapped</span>(
+        <code class="docutils literal notranslate"><span class="pre">boolean</span></code> <em>value</em>)
+</pre><p><span class="versionmodified versionadded">Added in version 6.17.0</span></p>
+<p>When set to <em>true</em>, the mode will disable automatically when the default exit button is tapped.</p>
+<p>By default this property is <em>true</em>.</p>
+</dd></dl>
+
+<dl>
+<dt class="sig sig-object unilang" id="method-scandit.datacapture.barcode.count.ui.BarcodeCountView.SetToolbarSettings">
+<span class="sig-name descname"><span class="pre">setToolbarSettings(settings)</span></span><a class="headerlink" href="#method-scandit.datacapture.barcode.count.ui.BarcodeCountView.SetToolbarSettings" title="Permalink to this definition"></a></dt>
+<dd><pre class="full-signature"><code class="docutils literal notranslate"><span class="pre">void</span></code> <span class="sig-name descname">setToolbarSettings</span>(&#64;NonNull <a class="reference internal" href="barcode-count-toolbar-settings.html#class-scandit.datacapture.barcode.count.ui.BarcodeCountToolbarSettings" title="BarcodeCountToolbarSettings class">BarcodeCountToolbarSettings</a> <em>settings</em>)</pre><p><span class="versionmodified versionadded">Added in version 6.16.0</span></p>
+<p>Pass an instance of <a class="reference internal" href="barcode-count-toolbar-settings.html#class-scandit.datacapture.barcode.count.ui.BarcodeCountToolbarSettings" title="BarcodeCountToolbarSettings class">BarcodeCountToolbarSettings</a> to configure the text and accessibility options for the toolbar.</p>
+</dd></dl>
+
+<dl>
+<dt class="sig sig-object unilang" id="method-scandit.datacapture.barcode.count.ui.BarcodeCountView.SetStatusProvider">
+<span class="sig-name descname"><span class="pre">setStatusProvider(provider)</span></span><a class="headerlink" href="#method-scandit.datacapture.barcode.count.ui.BarcodeCountView.SetStatusProvider" title="Permalink to this definition"></a></dt>
+<dd><pre class="full-signature"><code class="docutils literal notranslate"><span class="pre">void</span></code> <span class="sig-name descname">setStatusProvider</span>(&#64;NonNull <a class="reference internal" href="../barcode-count-status-provider.html#interface-scandit.datacapture.barcode.count.ui.BarcodeCountStatusProvider" title="BarcodeCountStatusProvider interface">BarcodeCountStatusProvider</a> <em>provider</em>)</pre><p><span class="versionmodified versionadded">Added in version 6.17.0</span></p>
+<p>Sets a <a class="reference internal" href="../barcode-count-status-provider.html#interface-scandit.datacapture.barcode.count.ui.BarcodeCountStatusProvider" title="BarcodeCountStatusProvider interface">BarcodeCountStatusProvider</a> for this view. This provider will be queried when the “status mode” button is clicked.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>The Barcode Count status mode API is still in beta and may change in future versions of Scandit Data Capture SDK.</p>
+</div>
+</dd></dl>
+
+<dl>
+<dt class="sig sig-object unilang" id="property-scandit.datacapture.barcode.count.ui.BarcodeCountView.Listener">
+<span class="sig-name descname"><span class="pre">listener</span></span><a class="headerlink" href="#property-scandit.datacapture.barcode.count.ui.BarcodeCountView.Listener" title="Permalink to this definition"></a></dt>
+<dd><pre class="full-signature">&#64;Nullable <a class="reference internal" href="barcode-count-view-listener.html#interface-scandit.datacapture.barcode.count.ui.IBarcodeCountViewListener" title="BarcodeCountViewListener interface">BarcodeCountViewListener</a> <span class="sig-name descname">getListener</span>()
+<code class="docutils literal notranslate"><span class="pre">void</span></code> <span class="sig-name descname">setListener</span>(&#64;Nullable <a class="reference internal" href="barcode-count-view-listener.html#interface-scandit.datacapture.barcode.count.ui.IBarcodeCountViewListener" title="BarcodeCountViewListener interface">BarcodeCountViewListener</a> <em>value</em>)
+</pre><p><span class="versionmodified versionadded">Added in version 6.15.0</span></p>
+<p>The listener which is called whenever a new <a class="reference internal" href="../tracked-barcode.html#class-scandit.datacapture.barcode.tracking.TrackedBarcode" title="TrackedBarcode class">TrackedBarcode</a> is newly tracked or newly recognized.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Using this listener requires the MatrixScan AR add-on.</p>
+</div>
+</dd></dl>
+
+<dl>
+<dt class="sig sig-object unilang" id="property-scandit.datacapture.barcode.count.ui.BarcodeCountView.UiListener">
+<span class="sig-name descname"><span class="pre">uiListener</span></span><a class="headerlink" href="#property-scandit.datacapture.barcode.count.ui.BarcodeCountView.UiListener" title="Permalink to this definition"></a></dt>
+<dd><pre class="full-signature">&#64;Nullable <a class="reference internal" href="barcode-count-view-ui-listener.html#interface-scandit.datacapture.barcode.count.ui.IBarcodeCountViewUiListener" title="BarcodeCountViewUiListener interface">BarcodeCountViewUiListener</a> <span class="sig-name descname">getUiListener</span>()
+<code class="docutils literal notranslate"><span class="pre">void</span></code> <span class="sig-name descname">setUiListener</span>(&#64;Nullable <a class="reference internal" href="barcode-count-view-ui-listener.html#interface-scandit.datacapture.barcode.count.ui.IBarcodeCountViewUiListener" title="BarcodeCountViewUiListener interface">BarcodeCountViewUiListener</a> <em>value</em>)
+</pre><p><span class="versionmodified versionadded">Added in version 6.15.0</span></p>
+<p>The listener which is called whenever the exit or list button of the view did receive a tap.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Using this listener requires the MatrixScan AR add-on.</p>
+</div>
+</dd></dl>
+
+<dl>
+<dt class="sig sig-object unilang" id="method-scandit.datacapture.barcode.count.ui.BarcodeCountView.DefaultRecognizedBrush">
+<span class="sig-name descname"><span class="pre">defaultRecognizedBrush()</span></span><a class="headerlink" href="#method-scandit.datacapture.barcode.count.ui.BarcodeCountView.DefaultRecognizedBrush" title="Permalink to this definition"></a></dt>
+<dd><pre class="full-signature">static &#64;NonNull <a class="reference internal" href="../../../core/api/ui/brush.html#class-scandit.datacapture.core.ui.Brush" title="Brush class">Brush</a> <span class="sig-name descname">defaultRecognizedBrush</span>()</pre><p><span class="versionmodified versionadded">Added in version 6.15.0</span></p>
+<p>Returns the default brush to use for a recognized barcode. When setting a <a class="reference internal" href="../barcode-count-capture-list.html#class-scandit.datacapture.barcode.count.BarcodeCountCaptureList" title="BarcodeCountCaptureList class">BarcodeCountCaptureList</a> to the mode, this brush will be used for recognized barcodes that are part of the target list. Only used when setting the view <a class="reference internal" href="#property-scandit.datacapture.barcode.count.ui.BarcodeCountView.Style" title="style property">style</a> to <a class="reference internal" href="#value-scandit.datacapture.barcode.count.ui.BarcodeCountViewStyle.Dot" title="BarcodeCountViewStyle.DOT value">BarcodeCountViewStyle.DOT</a>.</p>
+</dd></dl>
+
+<dl>
+<dt class="sig sig-object unilang" id="method-scandit.datacapture.barcode.count.ui.BarcodeCountView.DefaultUnrecognizedBrush">
+<span class="sig-name descname"><span class="pre">defaultUnrecognizedBrush()</span></span><a class="headerlink" href="#method-scandit.datacapture.barcode.count.ui.BarcodeCountView.DefaultUnrecognizedBrush" title="Permalink to this definition"></a></dt>
+<dd><pre class="full-signature">static &#64;NonNull <a class="reference internal" href="../../../core/api/ui/brush.html#class-scandit.datacapture.core.ui.Brush" title="Brush class">Brush</a> <span class="sig-name descname">defaultUnrecognizedBrush</span>()</pre><p><span class="versionmodified versionadded">Added in version 6.15.0</span></p>
+<p>Returns the default brush to use for an unrecognized barcode. Only used when setting the view <a class="reference internal" href="#property-scandit.datacapture.barcode.count.ui.BarcodeCountView.Style" title="style property">style</a> to <a class="reference internal" href="#value-scandit.datacapture.barcode.count.ui.BarcodeCountViewStyle.Dot" title="BarcodeCountViewStyle.DOT value">BarcodeCountViewStyle.DOT</a>.</p>
+</dd></dl>
+
+<dl>
+<dt class="sig sig-object unilang" id="method-scandit.datacapture.barcode.count.ui.BarcodeCountView.DefaultNotInListBrush">
+<span class="sig-name descname"><span class="pre">defaultNotInListBrush()</span></span><a class="headerlink" href="#method-scandit.datacapture.barcode.count.ui.BarcodeCountView.DefaultNotInListBrush" title="Permalink to this definition"></a></dt>
+<dd><pre class="full-signature">static &#64;NonNull <a class="reference internal" href="../../../core/api/ui/brush.html#class-scandit.datacapture.core.ui.Brush" title="Brush class">Brush</a> <span class="sig-name descname">defaultNotInListBrush</span>()</pre><p><span class="versionmodified versionadded">Added in version 6.15.0</span></p>
+<p>Returns the default brush to use for a recognized barcode that’s not part of the target <a class="reference internal" href="../barcode-count-capture-list.html#class-scandit.datacapture.barcode.count.BarcodeCountCaptureList" title="BarcodeCountCaptureList class">BarcodeCountCaptureList</a>. When <a class="reference internal" href="../barcode-count-capture-list.html#class-scandit.datacapture.barcode.count.BarcodeCountCaptureList" title="BarcodeCountCaptureList class">BarcodeCountCaptureList</a> is not set, this method will never be called. Only used when setting the view <a class="reference internal" href="#property-scandit.datacapture.barcode.count.ui.BarcodeCountView.Style" title="style property">style</a> to <a class="reference internal" href="#value-scandit.datacapture.barcode.count.ui.BarcodeCountViewStyle.Dot" title="BarcodeCountViewStyle.DOT value">BarcodeCountViewStyle.DOT</a>.</p>
+</dd></dl>
+
+<dl>
+<dt class="sig sig-object unilang" id="property-scandit.datacapture.barcode.count.ui.BarcodeCountView.RecognizedBrush">
+<span class="sig-name descname"><span class="pre">recognizedBrush</span></span><a class="headerlink" href="#property-scandit.datacapture.barcode.count.ui.BarcodeCountView.RecognizedBrush" title="Permalink to this definition"></a></dt>
+<dd><pre class="full-signature">&#64;Nullable <a class="reference internal" href="../../../core/api/ui/brush.html#class-scandit.datacapture.core.ui.Brush" title="Brush class">Brush</a> <span class="sig-name descname">getRecognizedBrush</span>()
+<code class="docutils literal notranslate"><span class="pre">void</span></code> <span class="sig-name descname">setRecognizedBrush</span>(&#64;Nullable <a class="reference internal" href="../../../core/api/ui/brush.html#class-scandit.datacapture.core.ui.Brush" title="Brush class">Brush</a> <em>value</em>)
+</pre><p><span class="versionmodified versionadded">Added in version 6.15.0</span></p>
+<p>The brush applied to recognized tracked barcodes if <a class="reference internal" href="barcode-count-view-listener.html#interface-scandit.datacapture.barcode.count.ui.IBarcodeCountViewListener" title="BarcodeCountViewListener interface">BarcodeCountViewListener</a> is not implemented. When setting a <a class="reference internal" href="../barcode-count-capture-list.html#class-scandit.datacapture.barcode.count.BarcodeCountCaptureList" title="BarcodeCountCaptureList class">BarcodeCountCaptureList</a> to the mode, this brush will be used for recognized barcodes that are part of the target list.
+Setting this brush to <em>null</em> hides all tracked barcodes.</p>
+</dd></dl>
+
+<dl>
+<dt class="sig sig-object unilang" id="property-scandit.datacapture.barcode.count.ui.BarcodeCountView.UnrecognizedBrush">
+<span class="sig-name descname"><span class="pre">unrecognizedBrush</span></span><a class="headerlink" href="#property-scandit.datacapture.barcode.count.ui.BarcodeCountView.UnrecognizedBrush" title="Permalink to this definition"></a></dt>
+<dd><pre class="full-signature">&#64;Nullable <a class="reference internal" href="../../../core/api/ui/brush.html#class-scandit.datacapture.core.ui.Brush" title="Brush class">Brush</a> <span class="sig-name descname">getUnrecognizedBrush</span>()
+<code class="docutils literal notranslate"><span class="pre">void</span></code> <span class="sig-name descname">setUnrecognizedBrush</span>(&#64;Nullable <a class="reference internal" href="../../../core/api/ui/brush.html#class-scandit.datacapture.core.ui.Brush" title="Brush class">Brush</a> <em>value</em>)
+</pre><p><span class="versionmodified versionadded">Added in version 6.15.0</span></p>
+<p>The brush applied to unrecognized tracked barcodes if <a class="reference internal" href="barcode-count-view-listener.html#interface-scandit.datacapture.barcode.count.ui.IBarcodeCountViewListener" title="BarcodeCountViewListener interface">BarcodeCountViewListener</a> is not implemented.
+Setting this brush to <em>null</em> hides all tracked barcodes.</p>
+</dd></dl>
+
+<dl>
+<dt class="sig sig-object unilang" id="property-scandit.datacapture.barcode.count.ui.BarcodeCountView.NotInListBrush">
+<span class="sig-name descname"><span class="pre">notInListBrush</span></span><a class="headerlink" href="#property-scandit.datacapture.barcode.count.ui.BarcodeCountView.NotInListBrush" title="Permalink to this definition"></a></dt>
+<dd><pre class="full-signature">&#64;Nullable <a class="reference internal" href="../../../core/api/ui/brush.html#class-scandit.datacapture.core.ui.Brush" title="Brush class">Brush</a> <span class="sig-name descname">getNotInListBrush</span>()
+<code class="docutils literal notranslate"><span class="pre">void</span></code> <span class="sig-name descname">setNotInListBrush</span>(&#64;Nullable <a class="reference internal" href="../../../core/api/ui/brush.html#class-scandit.datacapture.core.ui.Brush" title="Brush class">Brush</a> <em>value</em>)
+</pre><p><span class="versionmodified versionadded">Added in version 6.15.0</span></p>
+<p>The brush applied to recognized tracked barcodes that are not part of the target <a class="reference internal" href="../barcode-count-capture-list.html#class-scandit.datacapture.barcode.count.BarcodeCountCaptureList" title="BarcodeCountCaptureList class">BarcodeCountCaptureList</a>, and only if <a class="reference internal" href="barcode-count-view-listener.html#interface-scandit.datacapture.barcode.count.ui.IBarcodeCountViewListener" title="BarcodeCountViewListener interface">BarcodeCountViewListener</a> is not implemented. When <a class="reference internal" href="../barcode-count-capture-list.html#class-scandit.datacapture.barcode.count.BarcodeCountCaptureList" title="BarcodeCountCaptureList class">BarcodeCountCaptureList</a> is not set, this method will never be called.
+Setting this brush to <em>null</em> hides all tracked barcodes.</p>
+</dd></dl>
+
+<dl>
+<dt class="sig sig-object unilang" id="property-scandit.datacapture.barcode.count.ui.BarcodeCountView.ShouldShowScanAreaGuides">
+<span class="sig-name descname"><span class="pre">shouldShowScanAreaGuides</span></span><a class="headerlink" href="#property-scandit.datacapture.barcode.count.ui.BarcodeCountView.ShouldShowScanAreaGuides" title="Permalink to this definition"></a></dt>
+<dd><pre class="full-signature"><code class="docutils literal notranslate"><span class="pre">boolean</span></code> <span class="sig-name descname">getShouldShowScanAreaGuides</span>()
+<code class="docutils literal notranslate"><span class="pre">void</span></code> <span class="sig-name descname">setShouldShowScanAreaGuides</span>(<code class="docutils literal notranslate"><span class="pre">boolean</span></code> <em>value</em>)
+</pre><p><span class="versionmodified versionadded">Added in version 6.15.0</span></p>
+<p>When set to <em>true</em>, this view will visualize the active scan area used for BarcodeCount. This is useful to check <a class="reference internal" href="../../../core/api/ui/data-capture-view.html#property-scandit.datacapture.core.ui.DataCaptureView.ScanAreaMargins" title="margins property">margins</a> defined on the <a class="reference internal" href="../../../core/api/ui/data-capture-view.html#class-scandit.datacapture.core.ui.DataCaptureView" title="DataCaptureView class">DataCaptureView</a> are set correctly. This property is meant for debugging during development and is not intended for use in production.</p>
+<p>By default this property is <em>false</em>.</p>
+</dd></dl>
+
+<dl>
+<dt class="sig sig-object unilang" id="property-scandit.datacapture.barcode.count.ui.BarcodeCountView.Style">
+<span class="sig-name descname"><span class="pre">style</span></span><a class="headerlink" href="#property-scandit.datacapture.barcode.count.ui.BarcodeCountView.Style" title="Permalink to this definition"></a></dt>
+<dd><pre class="full-signature"><a class="reference internal" href="#enum-scandit.datacapture.barcode.count.ui.BarcodeCountViewStyle" title="BarcodeCountViewStyle enum">BarcodeCountViewStyle</a> <span class="sig-name descname">getStyle</span>()
+</pre><p><span class="versionmodified versionadded">Added in version 6.15.0</span></p>
+<p>The view style. Defaults to <a class="reference internal" href="#value-scandit.datacapture.barcode.count.ui.BarcodeCountViewStyle.Dot" title="BarcodeCountViewStyle.DOT value">BarcodeCountViewStyle.DOT</a>.</p>
+</dd></dl>
+
+<dl>
+<dt class="sig sig-object unilang" id="method-scandit.datacapture.barcode.count.ui.BarcodeCountView.SetStatusModeButtonContentDescription">
+<span class="sig-name descname"><span class="pre">setStatusModeButtonContentDescription(text)</span></span><a class="headerlink" href="#method-scandit.datacapture.barcode.count.ui.BarcodeCountView.SetStatusModeButtonContentDescription" title="Permalink to this definition"></a></dt>
+<dd><pre class="full-signature"><code class="docutils literal notranslate"><span class="pre">void</span></code> <span class="sig-name descname">setStatusModeButtonContentDescription</span>(
+        &#64;NonNull <a class="reference external" href="https://developer.android.com/reference/java/lang/String.html" title="String">String</a> <em>text</em>)</pre><p><span class="versionmodified versionadded">Added in version 6.17.0</span></p>
+<p>Use this method to modify the content description for the status mode button provided by the view.</p>
+</dd></dl>
+
+<dl>
+<dt class="sig sig-object unilang" id="method-scandit.datacapture.barcode.count.ui.BarcodeCountView.GetStatusModeButtonContentDescription">
+<span class="sig-name descname"><span class="pre">getStatusModeButtonContentDescription()</span></span><a class="headerlink" href="#method-scandit.datacapture.barcode.count.ui.BarcodeCountView.GetStatusModeButtonContentDescription" title="Permalink to this definition"></a></dt>
+<dd><pre class="full-signature">&#64;NonNull <a class="reference external" href="https://developer.android.com/reference/java/lang/String.html" title="String">String</a> <span class="sig-name descname">getStatusModeButtonContentDescription</span>()</pre><p><span class="versionmodified versionadded">Added in version 6.17.0</span></p>
+<p>Returns the content description for the status mode button provided by the view.</p>
+</dd></dl>
+
+<dl>
+<dt class="sig sig-object unilang" id="method-scandit.datacapture.barcode.count.ui.BarcodeCountView.SetClearHighlightsButtonText">
+<span class="sig-name descname"><span class="pre">setClearHighlightsButtonText(text)</span></span><a class="headerlink" href="#method-scandit.datacapture.barcode.count.ui.BarcodeCountView.SetClearHighlightsButtonText" title="Permalink to this definition"></a></dt>
+<dd><pre class="full-signature"><code class="docutils literal notranslate"><span class="pre">void</span></code> <span class="sig-name descname">setClearHighlightsButtonText</span>(&#64;NonNull <a class="reference external" href="https://developer.android.com/reference/java/lang/String.html" title="String">String</a> <em>text</em>)</pre><p><span class="versionmodified versionadded">Added in version 6.15.0</span></p>
+<p>Use this method to modify the text of the clear button label provided by the view.</p>
+</dd></dl>
+
+<dl>
+<dt class="sig sig-object unilang" id="method-scandit.datacapture.barcode.count.ui.BarcodeCountView.GetClearHighlightsButtonText">
+<span class="sig-name descname"><span class="pre">getClearHighlightsButtonText()</span></span><a class="headerlink" href="#method-scandit.datacapture.barcode.count.ui.BarcodeCountView.GetClearHighlightsButtonText" title="Permalink to this definition"></a></dt>
+<dd><pre class="full-signature">&#64;NonNull <a class="reference external" href="https://developer.android.com/reference/java/lang/String.html" title="String">String</a> <span class="sig-name descname">getClearHighlightsButtonText</span>()</pre><p><span class="versionmodified versionadded">Added in version 6.17.0</span></p>
+<p>Returns the text of the clear button label provided by the view.</p>
+</dd></dl>
+
+<dl>
+<dt class="sig sig-object unilang" id="method-scandit.datacapture.barcode.count.ui.BarcodeCountView.SetListButtonContentDescription">
+<span class="sig-name descname"><span class="pre">setListButtonContentDescription(text)</span></span><a class="headerlink" href="#method-scandit.datacapture.barcode.count.ui.BarcodeCountView.SetListButtonContentDescription" title="Permalink to this definition"></a></dt>
+<dd><pre class="full-signature"><code class="docutils literal notranslate"><span class="pre">void</span></code> <span class="sig-name descname">setListButtonContentDescription</span>(&#64;NonNull <a class="reference external" href="https://developer.android.com/reference/java/lang/String.html" title="String">String</a> <em>text</em>)</pre><p><span class="versionmodified versionadded">Added in version 6.15.0</span></p>
+<p>Use this method to modify the content description for the list button provided by the view.</p>
+</dd></dl>
+
+<dl>
+<dt class="sig sig-object unilang" id="method-scandit.datacapture.barcode.count.ui.BarcodeCountView.GetListButtonContentDescription">
+<span class="sig-name descname"><span class="pre">getListButtonContentDescription()</span></span><a class="headerlink" href="#method-scandit.datacapture.barcode.count.ui.BarcodeCountView.GetListButtonContentDescription" title="Permalink to this definition"></a></dt>
+<dd><pre class="full-signature">&#64;NonNull <a class="reference external" href="https://developer.android.com/reference/java/lang/String.html" title="String">String</a> <span class="sig-name descname">getListButtonContentDescription</span>()</pre><p><span class="versionmodified versionadded">Added in version 6.17.0</span></p>
+<p>Returns the content description for the list button provided by the view.</p>
+</dd></dl>
+
+<dl>
+<dt class="sig sig-object unilang" id="method-scandit.datacapture.barcode.count.ui.BarcodeCountView.SetExitButtonContentDescription">
+<span class="sig-name descname"><span class="pre">setExitButtonContentDescription(text)</span></span><a class="headerlink" href="#method-scandit.datacapture.barcode.count.ui.BarcodeCountView.SetExitButtonContentDescription" title="Permalink to this definition"></a></dt>
+<dd><pre class="full-signature"><code class="docutils literal notranslate"><span class="pre">void</span></code> <span class="sig-name descname">setExitButtonContentDescription</span>(&#64;NonNull <a class="reference external" href="https://developer.android.com/reference/java/lang/String.html" title="String">String</a> <em>text</em>)</pre><p><span class="versionmodified versionadded">Added in version 6.15.0</span></p>
+<p>Use this method to modify the content description for the exit button provided by the view.</p>
+</dd></dl>
+
+<dl>
+<dt class="sig sig-object unilang" id="method-scandit.datacapture.barcode.count.ui.BarcodeCountView.GetExitButtonContentDescription">
+<span class="sig-name descname"><span class="pre">getExitButtonContentDescription()</span></span><a class="headerlink" href="#method-scandit.datacapture.barcode.count.ui.BarcodeCountView.GetExitButtonContentDescription" title="Permalink to this definition"></a></dt>
+<dd><pre class="full-signature">&#64;NonNull <a class="reference external" href="https://developer.android.com/reference/java/lang/String.html" title="String">String</a> <span class="sig-name descname">getExitButtonContentDescription</span>()</pre><p><span class="versionmodified versionadded">Added in version 6.17.0</span></p>
+<p>Returns the content description for the exit button provided by the view.</p>
+</dd></dl>
+
+<dl>
+<dt class="sig sig-object unilang" id="method-scandit.datacapture.barcode.count.ui.BarcodeCountView.SetShutterButtonContentDescription">
+<span class="sig-name descname"><span class="pre">setShutterButtonContentDescription(text)</span></span><a class="headerlink" href="#method-scandit.datacapture.barcode.count.ui.BarcodeCountView.SetShutterButtonContentDescription" title="Permalink to this definition"></a></dt>
+<dd><pre class="full-signature"><code class="docutils literal notranslate"><span class="pre">void</span></code> <span class="sig-name descname">setShutterButtonContentDescription</span>(&#64;NonNull <a class="reference external" href="https://developer.android.com/reference/java/lang/String.html" title="String">String</a> <em>text</em>)</pre><p><span class="versionmodified versionadded">Added in version 6.15.0</span></p>
+<p>Use this method to modify the content description for the shutter button provided by the view.</p>
+</dd></dl>
+
+<dl>
+<dt class="sig sig-object unilang" id="method-scandit.datacapture.barcode.count.ui.BarcodeCountView.GetShutterButtonContentDescription">
+<span class="sig-name descname"><span class="pre">getShutterButtonContentDescription()</span></span><a class="headerlink" href="#method-scandit.datacapture.barcode.count.ui.BarcodeCountView.GetShutterButtonContentDescription" title="Permalink to this definition"></a></dt>
+<dd><pre class="full-signature">&#64;NonNull <a class="reference external" href="https://developer.android.com/reference/java/lang/String.html" title="String">String</a> <span class="sig-name descname">getShutterButtonContentDescription</span>()</pre><p><span class="versionmodified versionadded">Added in version 6.17.0</span></p>
+<p>Returns the content description for the shutter button provided by the view.</p>
+</dd></dl>
+
+<dl>
+<dt class="sig sig-object unilang" id="method-scandit.datacapture.barcode.count.ui.BarcodeCountView.SetClearHighlightsButtonContentDescription">
+<span class="sig-name descname"><span class="pre">setClearHighlightsButtonContentDescription(text)</span></span><a class="headerlink" href="#method-scandit.datacapture.barcode.count.ui.BarcodeCountView.SetClearHighlightsButtonContentDescription" title="Permalink to this definition"></a></dt>
+<dd><pre class="full-signature"><code class="docutils literal notranslate"><span class="pre">void</span></code> <span class="sig-name descname">setClearHighlightsButtonContentDescription</span>(
+        &#64;NonNull <a class="reference external" href="https://developer.android.com/reference/java/lang/String.html" title="String">String</a> <em>text</em>)</pre><p><span class="versionmodified versionadded">Added in version 6.15.0</span></p>
+<p>Use this method to modify the content description for the “clear highlights” button provided by the view.</p>
+</dd></dl>
+
+<dl>
+<dt class="sig sig-object unilang" id="method-scandit.datacapture.barcode.count.ui.BarcodeCountView.GetClearHighlightsButtonContentDescription">
+<span class="sig-name descname"><span class="pre">getClearHighlightsButtonContentDescription()</span></span><a class="headerlink" href="#method-scandit.datacapture.barcode.count.ui.BarcodeCountView.GetClearHighlightsButtonContentDescription" title="Permalink to this definition"></a></dt>
+<dd><pre class="full-signature">&#64;NonNull <a class="reference external" href="https://developer.android.com/reference/java/lang/String.html" title="String">String</a> <span class="sig-name descname">getClearHighlightsButtonContentDescription</span>()</pre><p><span class="versionmodified versionadded">Added in version 6.17.0</span></p>
+<p>Returns the content description for the “clear highlights” button provided by the view.</p>
+</dd></dl>
+
+<dl>
+<dt class="sig sig-object unilang" id="method-scandit.datacapture.barcode.count.ui.BarcodeCountView.SetSingleScanButtonContentDescription">
+<span class="sig-name descname"><span class="pre">setSingleScanButtonContentDescription(text)</span></span><a class="headerlink" href="#method-scandit.datacapture.barcode.count.ui.BarcodeCountView.SetSingleScanButtonContentDescription" title="Permalink to this definition"></a></dt>
+<dd><pre class="full-signature"><code class="docutils literal notranslate"><span class="pre">void</span></code> <span class="sig-name descname">setSingleScanButtonContentDescription</span>(
+        &#64;NonNull <a class="reference external" href="https://developer.android.com/reference/java/lang/String.html" title="String">String</a> <em>text</em>)</pre><p><span class="versionmodified versionadded">Added in version 6.16.0</span></p>
+<p>Use this method to modify the content description for the “single scan” button provided by the view.</p>
+</dd></dl>
+
+<dl>
+<dt class="sig sig-object unilang" id="method-scandit.datacapture.barcode.count.ui.BarcodeCountView.GetSingleScanButtonContentDescription">
+<span class="sig-name descname"><span class="pre">getSingleScanButtonContentDescription()</span></span><a class="headerlink" href="#method-scandit.datacapture.barcode.count.ui.BarcodeCountView.GetSingleScanButtonContentDescription" title="Permalink to this definition"></a></dt>
+<dd><pre class="full-signature">&#64;NonNull <a class="reference external" href="https://developer.android.com/reference/java/lang/String.html" title="String">String</a> <span class="sig-name descname">getSingleScanButtonContentDescription</span>()</pre><p><span class="versionmodified versionadded">Added in version 6.17.0</span></p>
+<p>Returns the content description for the “single scan” button provided by the view.</p>
+</dd></dl>
+
+<dl>
+<dt class="sig sig-object unilang" id="method-scandit.datacapture.barcode.count.ui.BarcodeCountView.SetFloatingShutterButtonContentDescription">
+<span class="sig-name descname"><span class="pre">setFloatingShutterButtonContentDescription(text)</span></span><a class="headerlink" href="#method-scandit.datacapture.barcode.count.ui.BarcodeCountView.SetFloatingShutterButtonContentDescription" title="Permalink to this definition"></a></dt>
+<dd><pre class="full-signature"><code class="docutils literal notranslate"><span class="pre">void</span></code> <span class="sig-name descname">setFloatingShutterButtonContentDescription</span>(
+        &#64;NonNull <a class="reference external" href="https://developer.android.com/reference/java/lang/String.html" title="String">String</a> <em>text</em>)</pre><p><span class="versionmodified versionadded">Added in version 6.15.0</span></p>
+<p>Use this method to modify the content description for the floating shutter button provided by the view.</p>
+</dd></dl>
+
+<dl>
+<dt class="sig sig-object unilang" id="method-scandit.datacapture.barcode.count.ui.BarcodeCountView.GetFloatingShutterButtonContentDescription">
+<span class="sig-name descname"><span class="pre">getFloatingShutterButtonContentDescription()</span></span><a class="headerlink" href="#method-scandit.datacapture.barcode.count.ui.BarcodeCountView.GetFloatingShutterButtonContentDescription" title="Permalink to this definition"></a></dt>
+<dd><pre class="full-signature">&#64;NonNull <a class="reference external" href="https://developer.android.com/reference/java/lang/String.html" title="String">String</a> <span class="sig-name descname">getFloatingShutterButtonContentDescription</span>()</pre><p><span class="versionmodified versionadded">Added in version 6.17.0</span></p>
+<p>Returns the content description for the floating shutter button provided by the view.</p>
+</dd></dl>
+
+<dl>
+<dt class="sig sig-object unilang" id="method-scandit.datacapture.barcode.count.ui.BarcodeCountView.SetTextForUnrecognizedBarcodesDetectedHint">
+<span class="sig-name descname"><span class="pre">setTextForUnrecognizedBarcodesDetectedHint(text)</span></span><a class="headerlink" href="#method-scandit.datacapture.barcode.count.ui.BarcodeCountView.SetTextForUnrecognizedBarcodesDetectedHint" title="Permalink to this definition"></a></dt>
+<dd><pre class="full-signature"><code class="docutils literal notranslate"><span class="pre">void</span></code> <span class="sig-name descname">setTextForUnrecognizedBarcodesDetectedHint</span>(
+        &#64;NonNull <a class="reference external" href="https://developer.android.com/reference/java/lang/String.html" title="String">String</a> <em>text</em>)</pre><p><span class="versionmodified versionadded">Added in version 6.15.0</span></p>
+<p>Sets the text of the hint displayed when one or more unrecognized barcodes are detected.</p>
+</dd></dl>
+
+<dl>
+<dt class="sig sig-object unilang" id="method-scandit.datacapture.barcode.count.ui.BarcodeCountView.GetTextForUnrecognizedBarcodesDetectedHint">
+<span class="sig-name descname"><span class="pre">getTextForUnrecognizedBarcodesDetectedHint()</span></span><a class="headerlink" href="#method-scandit.datacapture.barcode.count.ui.BarcodeCountView.GetTextForUnrecognizedBarcodesDetectedHint" title="Permalink to this definition"></a></dt>
+<dd><pre class="full-signature">&#64;NonNull <a class="reference external" href="https://developer.android.com/reference/java/lang/String.html" title="String">String</a> <span class="sig-name descname">getTextForUnrecognizedBarcodesDetectedHint</span>()</pre><p><span class="versionmodified versionadded">Added in version 6.17.0</span></p>
+<p>Returns the text of the hint displayed when one or more unrecognized barcodes are detected.</p>
+</dd></dl>
+
+<dl>
+<dt class="sig sig-object unilang" id="method-scandit.datacapture.barcode.count.ui.BarcodeCountView.SetTextForTapShutterToScanHint">
+<span class="sig-name descname"><span class="pre">setTextForTapShutterToScanHint(text)</span></span><a class="headerlink" href="#method-scandit.datacapture.barcode.count.ui.BarcodeCountView.SetTextForTapShutterToScanHint" title="Permalink to this definition"></a></dt>
+<dd><pre class="full-signature"><code class="docutils literal notranslate"><span class="pre">void</span></code> <span class="sig-name descname">setTextForTapShutterToScanHint</span>(&#64;NonNull <a class="reference external" href="https://developer.android.com/reference/java/lang/String.html" title="String">String</a> <em>text</em>)</pre><p><span class="versionmodified versionadded">Added in version 6.15.0</span></p>
+<p>Sets the text of the hint which suggests to tap the shutter button.</p>
+</dd></dl>
+
+<dl>
+<dt class="sig sig-object unilang" id="method-scandit.datacapture.barcode.count.ui.BarcodeCountView.GetTextForTapShutterToScanHint">
+<span class="sig-name descname"><span class="pre">getTextForTapShutterToScanHint()</span></span><a class="headerlink" href="#method-scandit.datacapture.barcode.count.ui.BarcodeCountView.GetTextForTapShutterToScanHint" title="Permalink to this definition"></a></dt>
+<dd><pre class="full-signature">&#64;NonNull <a class="reference external" href="https://developer.android.com/reference/java/lang/String.html" title="String">String</a> <span class="sig-name descname">getTextForTapShutterToScanHint</span>()</pre><p><span class="versionmodified versionadded">Added in version 6.17.0</span></p>
+<p>Returns the text of the hint which suggests to tap the shutter button.</p>
+</dd></dl>
+
+<dl>
+<dt class="sig sig-object unilang" id="method-scandit.datacapture.barcode.count.ui.BarcodeCountView.SetTextForScanningHint">
+<span class="sig-name descname"><span class="pre">setTextForScanningHint(text)</span></span><a class="headerlink" href="#method-scandit.datacapture.barcode.count.ui.BarcodeCountView.SetTextForScanningHint" title="Permalink to this definition"></a></dt>
+<dd><pre class="full-signature"><code class="docutils literal notranslate"><span class="pre">void</span></code> <span class="sig-name descname">setTextForScanningHint</span>(&#64;NonNull <a class="reference external" href="https://developer.android.com/reference/java/lang/String.html" title="String">String</a> <em>text</em>)</pre><p><span class="versionmodified versionadded">Added in version 6.15.0</span></p>
+<p>Sets the text of the hint displayed while scanning is in progress.</p>
+</dd></dl>
+
+<dl>
+<dt class="sig sig-object unilang" id="method-scandit.datacapture.barcode.count.ui.BarcodeCountView.GetTextForScanningHint">
+<span class="sig-name descname"><span class="pre">getTextForScanningHint()</span></span><a class="headerlink" href="#method-scandit.datacapture.barcode.count.ui.BarcodeCountView.GetTextForScanningHint" title="Permalink to this definition"></a></dt>
+<dd><pre class="full-signature">&#64;NonNull <a class="reference external" href="https://developer.android.com/reference/java/lang/String.html" title="String">String</a> <span class="sig-name descname">getTextForScanningHint</span>()</pre><p><span class="versionmodified versionadded">Added in version 6.17.0</span></p>
+<p>Returns the text of the hint displayed while scanning is in progress.</p>
+</dd></dl>
+
+<dl>
+<dt class="sig sig-object unilang" id="method-scandit.datacapture.barcode.count.ui.BarcodeCountView.SetTextForMoveCloserAndRescanHint">
+<span class="sig-name descname"><span class="pre">setTextForMoveCloserAndRescanHint(text)</span></span><a class="headerlink" href="#method-scandit.datacapture.barcode.count.ui.BarcodeCountView.SetTextForMoveCloserAndRescanHint" title="Permalink to this definition"></a></dt>
+<dd><pre class="full-signature"><code class="docutils literal notranslate"><span class="pre">void</span></code> <span class="sig-name descname">setTextForMoveCloserAndRescanHint</span>(&#64;NonNull <a class="reference external" href="https://developer.android.com/reference/java/lang/String.html" title="String">String</a> <em>text</em>)</pre><p><span class="versionmodified versionadded">Added in version 6.15.0</span></p>
+<p>Sets the text of the hint displayed when camera should be moved closer to rescan.</p>
+</dd></dl>
+
+<dl>
+<dt class="sig sig-object unilang" id="method-scandit.datacapture.barcode.count.ui.BarcodeCountView.GetTextForMoveCloserAndRescanHint">
+<span class="sig-name descname"><span class="pre">getTextForMoveCloserAndRescanHint()</span></span><a class="headerlink" href="#method-scandit.datacapture.barcode.count.ui.BarcodeCountView.GetTextForMoveCloserAndRescanHint" title="Permalink to this definition"></a></dt>
+<dd><pre class="full-signature">&#64;NonNull <a class="reference external" href="https://developer.android.com/reference/java/lang/String.html" title="String">String</a> <span class="sig-name descname">getTextForMoveCloserAndRescanHint</span>()</pre><p><span class="versionmodified versionadded">Added in version 6.17.0</span></p>
+<p>Returns the text of the hint displayed when camera should be moved closer to rescan.</p>
+</dd></dl>
+
+<dl>
+<dt class="sig sig-object unilang" id="method-scandit.datacapture.barcode.count.ui.BarcodeCountView.SetTextForMoveFurtherAndRescanHint">
+<span class="sig-name descname"><span class="pre">setTextForMoveFurtherAndRescanHint(text)</span></span><a class="headerlink" href="#method-scandit.datacapture.barcode.count.ui.BarcodeCountView.SetTextForMoveFurtherAndRescanHint" title="Permalink to this definition"></a></dt>
+<dd><pre class="full-signature"><code class="docutils literal notranslate"><span class="pre">void</span></code> <span class="sig-name descname">setTextForMoveFurtherAndRescanHint</span>(&#64;NonNull <a class="reference external" href="https://developer.android.com/reference/java/lang/String.html" title="String">String</a> <em>text</em>)</pre><p><span class="versionmodified versionadded">Added in version 6.15.0</span></p>
+<p>Sets the text of the hint displayed when camera should be further away to rescan.</p>
+</dd></dl>
+
+<dl>
+<dt class="sig sig-object unilang" id="method-scandit.datacapture.barcode.count.ui.BarcodeCountView.GetTextForMoveFurtherAndRescanHint">
+<span class="sig-name descname"><span class="pre">getTextForMoveFurtherAndRescanHint()</span></span><a class="headerlink" href="#method-scandit.datacapture.barcode.count.ui.BarcodeCountView.GetTextForMoveFurtherAndRescanHint" title="Permalink to this definition"></a></dt>
+<dd><pre class="full-signature">&#64;NonNull <a class="reference external" href="https://developer.android.com/reference/java/lang/String.html" title="String">String</a> <span class="sig-name descname">getTextForMoveFurtherAndRescanHint</span>()</pre><p><span class="versionmodified versionadded">Added in version 6.17.0</span></p>
+<p>Returns the text of the hint displayed when camera should be further away to rescan.</p>
+</dd></dl>
+
+<dl>
+<dt class="sig sig-object unilang" id="method-scandit.datacapture.barcode.count.ui.BarcodeCountView.SetTextForBarcodesNotInListDetectedHint">
+<span class="sig-name descname"><span class="pre">setTextForBarcodesNotInListDetectedHint(text)</span></span><a class="headerlink" href="#method-scandit.datacapture.barcode.count.ui.BarcodeCountView.SetTextForBarcodesNotInListDetectedHint" title="Permalink to this definition"></a></dt>
+<dd><pre class="full-signature"><code class="docutils literal notranslate"><span class="pre">void</span></code> <span class="sig-name descname">setTextForBarcodesNotInListDetectedHint</span>(
+        &#64;NonNull <a class="reference external" href="https://developer.android.com/reference/java/lang/String.html" title="String">String</a> <em>text</em>)</pre><p><span class="versionmodified versionadded">Added in version 6.23.0</span></p>
+<p>Sets the text of the hint displayed when a barcode not in list is scanned.</p>
+</dd></dl>
+
+<dl>
+<dt class="sig sig-object unilang" id="method-scandit.datacapture.barcode.count.ui.BarcodeCountView.GetTextForBarcodesNotInListDetectedHint">
+<span class="sig-name descname"><span class="pre">getTextForBarcodesNotInListDetectedHint()</span></span><a class="headerlink" href="#method-scandit.datacapture.barcode.count.ui.BarcodeCountView.GetTextForBarcodesNotInListDetectedHint" title="Permalink to this definition"></a></dt>
+<dd><pre class="full-signature">&#64;NonNull <a class="reference external" href="https://developer.android.com/reference/java/lang/String.html" title="String">String</a> <span class="sig-name descname">getTextForBarcodesNotInListDetectedHint</span>()</pre><p><span class="versionmodified versionadded">Added in version 6.23.0</span></p>
+<p>Returns the text of the hint displayed when a barcode not in list is scanned.</p>
+</dd></dl>
+
+<dl>
+<dt class="sig sig-object unilang" id="method-scandit.datacapture.barcode.count.ui.BarcodeCountView.SetExitButtonText">
+<span class="sig-name descname"><span class="pre">setExitButtonText(text)</span></span><a class="headerlink" href="#method-scandit.datacapture.barcode.count.ui.BarcodeCountView.SetExitButtonText" title="Permalink to this definition"></a></dt>
+<dd><pre class="full-signature"><code class="docutils literal notranslate"><span class="pre">void</span></code> <span class="sig-name descname">setExitButtonText</span>(&#64;NonNull <a class="reference external" href="https://developer.android.com/reference/java/lang/String.html" title="String">String</a> <em>text</em>)</pre><p><span class="versionmodified versionadded">Added in version 6.15.0</span></p>
+<p>Use this method to modify the text of the exit button label provided by the view.</p>
+</dd></dl>
+
+<dl>
+<dt class="sig sig-object unilang" id="method-scandit.datacapture.barcode.count.ui.BarcodeCountView.GetExitButtonText">
+<span class="sig-name descname"><span class="pre">getExitButtonText()</span></span><a class="headerlink" href="#method-scandit.datacapture.barcode.count.ui.BarcodeCountView.GetExitButtonText" title="Permalink to this definition"></a></dt>
+<dd><pre class="full-signature">&#64;NonNull <a class="reference external" href="https://developer.android.com/reference/java/lang/String.html" title="String">String</a> <span class="sig-name descname">getExitButtonText</span>()</pre><p><span class="versionmodified versionadded">Added in version 6.17.0</span></p>
+<p>Returns the text of the exit button label provided by the view.</p>
+</dd></dl>
+
+<dl>
+<dt class="sig sig-object unilang" id="property-scandit.datacapture.barcode.count.ui.BarcodeCountView.FilterSettings">
+<span class="sig-name descname"><span class="pre">filterSettings</span></span><a class="headerlink" href="#property-scandit.datacapture.barcode.count.ui.BarcodeCountView.FilterSettings" title="Permalink to this definition"></a></dt>
+<dd><pre class="full-signature">&#64;Nullable <a class="reference internal" href="barcode-filter-highlight-settings.html#class-scandit.datacapture.barcode.filter.ui.BarcodeFilterHighlightSettings" title="BarcodeFilterHighlightSettings class">BarcodeFilterHighlightSettings</a> <span class="sig-name descname">getFilterSettings</span>()
+<code class="docutils literal notranslate"><span class="pre">void</span></code> <span class="sig-name descname">setFilterSettings</span>(&#64;Nullable <a class="reference internal" href="barcode-filter-highlight-settings.html#class-scandit.datacapture.barcode.filter.ui.BarcodeFilterHighlightSettings" title="BarcodeFilterHighlightSettings class">BarcodeFilterHighlightSettings</a> <em>value</em>)
+</pre><p><span class="versionmodified versionadded">Added in version 6.15.0</span></p>
+<p>Use this property to access or modify the current view settings for barcode filtering.</p>
+</dd></dl>
+
+<dl>
+<dt class="sig sig-object unilang" id="method-scandit.datacapture.barcode.count.ui.BarcodeCountView.ClearHighlights">
+<span class="sig-name descname"><span class="pre">clearHighlights()</span></span><a class="headerlink" href="#method-scandit.datacapture.barcode.count.ui.BarcodeCountView.ClearHighlights" title="Permalink to this definition"></a></dt>
+<dd><pre class="full-signature"><code class="docutils literal notranslate"><span class="pre">void</span></code> <span class="sig-name descname">clearHighlights</span>()</pre><p><span class="versionmodified versionadded">Added in version 6.15.0</span></p>
+<p>Clear all currently shown barcodes highlights. This only affects screen rendering, and all detected barcodes will still be available in the <a class="reference internal" href="../barcode-count-session.html#class-scandit.datacapture.barcode.count.BarcodeCountSession" title="BarcodeCountSession class">BarcodeCountSession</a>.</p>
+</dd></dl>
+
+<dl>
+<dt class="sig sig-object unilang" id="method-scandit.datacapture.barcode.count.ui.BarcodeCountView.SetBrushForRecognizedBarcode">
+<span class="sig-name descname"><span class="pre">setBrushForRecognizedBarcode(barcode,</span> <span class="pre">brush)</span></span><a class="headerlink" href="#method-scandit.datacapture.barcode.count.ui.BarcodeCountView.SetBrushForRecognizedBarcode" title="Permalink to this definition"></a></dt>
+<dd><pre class="full-signature"><code class="docutils literal notranslate"><span class="pre">void</span></code> <span class="sig-name descname">setBrushForRecognizedBarcode</span>(&#64;NonNull <a class="reference internal" href="../tracked-barcode.html#class-scandit.datacapture.barcode.tracking.TrackedBarcode" title="TrackedBarcode class">TrackedBarcode</a> <em>barcode</em>,
+        &#64;NonNull <a class="reference internal" href="../../../core/api/ui/brush.html#class-scandit.datacapture.core.ui.Brush" title="Brush class">Brush</a> <em>brush</em>)</pre><p><span class="versionmodified versionadded">Added in version 6.18.0</span></p>
+<p>Set a <a class="reference internal" href="../../../core/api/ui/brush.html#class-scandit.datacapture.core.ui.Brush" title="Brush class">Brush</a> to be used for a particular recognized <a class="reference internal" href="../tracked-barcode.html#class-scandit.datacapture.barcode.tracking.TrackedBarcode" title="TrackedBarcode class">TrackedBarcode</a>. This will override any other applicable brush for this particular barcode.</p>
+</dd></dl>
+
+<dl>
+<dt class="sig sig-object unilang" id="method-scandit.datacapture.barcode.count.ui.BarcodeCountView.SetBrushForUnrecognizedBarcode">
+<span class="sig-name descname"><span class="pre">setBrushForUnrecognizedBarcode(barcode,</span> <span class="pre">brush)</span></span><a class="headerlink" href="#method-scandit.datacapture.barcode.count.ui.BarcodeCountView.SetBrushForUnrecognizedBarcode" title="Permalink to this definition"></a></dt>
+<dd><pre class="full-signature"><code class="docutils literal notranslate"><span class="pre">void</span></code> <span class="sig-name descname">setBrushForUnrecognizedBarcode</span>(&#64;NonNull <a class="reference internal" href="../tracked-barcode.html#class-scandit.datacapture.barcode.tracking.TrackedBarcode" title="TrackedBarcode class">TrackedBarcode</a> <em>barcode</em>,
+        &#64;NonNull <a class="reference internal" href="../../../core/api/ui/brush.html#class-scandit.datacapture.core.ui.Brush" title="Brush class">Brush</a> <em>brush</em>)</pre><p><span class="versionmodified versionadded">Added in version 6.18.0</span></p>
+<p>Set a <a class="reference internal" href="../../../core/api/ui/brush.html#class-scandit.datacapture.core.ui.Brush" title="Brush class">Brush</a> to be used for a particular unrecognized <a class="reference internal" href="../tracked-barcode.html#class-scandit.datacapture.barcode.tracking.TrackedBarcode" title="TrackedBarcode class">TrackedBarcode</a>. This will override any other applicable brush for this particular barcode.</p>
+</dd></dl>
+
+<dl>
+<dt class="sig sig-object unilang" id="method-scandit.datacapture.barcode.count.ui.BarcodeCountView.SetBrushForRecognizedBarcodeNotInList">
+<span class="sig-name descname"><span class="pre">setBrushForRecognizedBarcodeNotInList(barcode,</span> <span class="pre">brush)</span></span><a class="headerlink" href="#method-scandit.datacapture.barcode.count.ui.BarcodeCountView.SetBrushForRecognizedBarcodeNotInList" title="Permalink to this definition"></a></dt>
+<dd><pre class="full-signature"><code class="docutils literal notranslate"><span class="pre">void</span></code> <span class="sig-name descname">setBrushForRecognizedBarcodeNotInList</span>(
+        &#64;NonNull <a class="reference internal" href="../tracked-barcode.html#class-scandit.datacapture.barcode.tracking.TrackedBarcode" title="TrackedBarcode class">TrackedBarcode</a> <em>barcode</em>,
+        &#64;NonNull <a class="reference internal" href="../../../core/api/ui/brush.html#class-scandit.datacapture.core.ui.Brush" title="Brush class">Brush</a> <em>brush</em>)</pre><p><span class="versionmodified versionadded">Added in version 6.18.0</span></p>
+<p>Set a <a class="reference internal" href="../../../core/api/ui/brush.html#class-scandit.datacapture.core.ui.Brush" title="Brush class">Brush</a> to be used for a particular recognized <a class="reference internal" href="../tracked-barcode.html#class-scandit.datacapture.barcode.tracking.TrackedBarcode" title="TrackedBarcode class">TrackedBarcode</a> that doesn’t belong to the capture list. This will only be applicable when using a capture list, and will override any other applicable brush for this particular barcode.</p>
+</dd></dl>
+
+<dl>
+<dt class="sig sig-object unilang" id="method-scandit.datacapture.barcode.count.ui.BarcodeCountView.EnableHardwareTrigger">
+<span class="sig-name descname"><span class="pre">enableHardwareTrigger(hardwareTriggerKeyCode)</span></span><a class="headerlink" href="#method-scandit.datacapture.barcode.count.ui.BarcodeCountView.EnableHardwareTrigger" title="Permalink to this definition"></a></dt>
+<dd><pre class="full-signature"><code class="docutils literal notranslate"><span class="pre">void</span></code> <span class="sig-name descname">enableHardwareTrigger</span>(&#64;Nullable <a class="reference external" href="https://developer.android.com/reference/java/lang/Integer.html" title="Integer">Integer</a> <em>hardwareTriggerKeyCode</em>)</pre><p><span class="versionmodified versionadded">Added in version 6.23.0</span></p>
+<p>Enables the <a class="reference internal" href="#class-scandit.datacapture.barcode.count.ui.BarcodeCountView" title="BarcodeCountView class">BarcodeCountView</a> to react to clicks on the hardware button specified in hardwareTriggerKeyCode. Pass a <em>null</em> value to use the default button (The default button will be the dedicated HW button on XCover devices, and KeyEvent.KEYCODE_VOLUME_DOWN for other devices).</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>This feature is only available on devices with api &gt;= 28. Whether a device supports this can be checked at runtime with the <a class="reference internal" href="#property-scandit.datacapture.barcode.count.ui.BarcodeCountView.HardwareTriggerSupported" title="hardwareTriggerSupported property">hardwareTriggerSupported</a> flag.</p>
+</div>
+</dd></dl>
+
+<dl>
+<dt class="sig sig-object unilang" id="property-scandit.datacapture.barcode.count.ui.BarcodeCountView.HardwareTriggerSupported">
+<span class="sig-name descname"><span class="pre">hardwareTriggerSupported</span></span><a class="headerlink" href="#property-scandit.datacapture.barcode.count.ui.BarcodeCountView.HardwareTriggerSupported" title="Permalink to this definition"></a></dt>
+<dd><pre class="full-signature"><code class="docutils literal notranslate"><span class="pre">boolean</span></code> <span class="sig-name descname">getHardwareTriggerSupported</span>()
+</pre><p><span class="versionmodified versionadded">Added in version 6.23.0</span></p>
+<p>Returns whether the device supports listening for hardware button events. This is true for devices with api &gt;= 28.</p>
+</dd></dl>
+
+</dd></dl>
+
+</div>
+
+
+           </div>
+          </div>
+          <footer>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2024, Scandit AG.</p>
+  </div>
+
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+  <!-- Start of scandit Zendesk Widget script -->
+  <script id="ze-snippet" src="https://static.zdassets.com/ekr/snippet.js?key=df0234ee-7451-4189-8d1c-17c8a624b5f1">
+  </script>
+<script>
+      function getPlatformSuffix() {
+        const platform = 'android'
+        switch (platform) {
+          case 'android':         return 'for Android'
+          case 'ios':             return 'for iOS'
+          case 'cordova':         return 'for Cordova'
+          case 'react-native':    return 'for React Native'
+          case 'xamarin.ios':     return 'for Xamarin.iOS'
+          case 'xamarin.android': return 'for Xamarin.Android'
+          case 'xamarin.forms':   return 'for Xamarin.Forms'
+          case 'flutter':         return 'for Flutter'
+          case 'capacitor':       return 'for Capacitor'
+          case 'titanium':        return 'for Titanium'
+          case 'web':             return 'for the Web'
+          case 'dotnet.ios':      return 'for .NET for iOS'
+          case 'dotnet.android':  return 'for .NET for Android'
+          default:                return ''
+        }
+      }
+
+      const platformSuffix = getPlatformSuffix()
+      const headerTitle = document.querySelector(".icon-home")
+      headerTitle.insertAdjacentHTML('beforeend', ` ${platformSuffix}`)
+
+      const [major, minor] = DOCUMENTATION_OPTIONS.VERSION.split('.')
+      const version = document.querySelector(".version")
+      version.innerHTML = `
+        <div class="version">
+          <a href="${DOCUMENTATION_OPTIONS.URL_ROOT}release-notes/${major}.${minor}.html">Release Notes</a> 
+        </div>
+        <br>
+      `
+  </script>
+  <!-- End of scandit Zendesk Widget script -->
+
+</body>
+</html>

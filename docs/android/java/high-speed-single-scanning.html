@@ -1,0 +1,704 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>High-Speed Single Scanning &mdash; Data Capture SDK 6.24.0-rc.2 documentation</title>
+      <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+    <link rel="stylesheet" href="_static/custom.css" type="text/css" />
+  <!--[if lt IE 9]>
+    <script src="_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
+        <script src="_static/jquery.js"></script>
+        <script src="_static/underscore.js"></script>
+        <script src="_static/doctools.js"></script>
+    <script src="_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="Batch Counting And Receiving" href="batch-counting-and-receiving.html" />
+    <link rel="prev" title="Best Practices for Usability" href="best-practices-for-usability.html" />
+  <!-- Google Tag Manager -->
+  <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+  new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+  j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+  'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+  })(window,document,'script','dataLayer','GTM-THQQFD7');</script>
+  <!-- End Google Tag Manager -->
+</head>
+
+<body class="wy-body-for-nav">
+  <!-- Google Tag Manager (noscript) -->
+  <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-THQQFD7"
+  height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+  <!-- End Google Tag Manager (noscript) -->
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+            <a href="index.html" class="icon icon-home"> Data Capture SDK
+          </a>
+              <div class="version">
+                6.24.0-rc.2
+              </div>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">First Steps</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="samples/run-samples.html">Run Samples</a></li>
+<li class="toctree-l1"><a class="reference internal" href="add-sdk.html">Add the SDK to Your App</a></li>
+<li class="toctree-l1"><a class="reference internal" href="best-practices-for-usability.html">Best Practices for Usability</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Pre-Built Components</span></p>
+<ul class="current">
+<li class="toctree-l1 current"><a class="current reference internal" href="#">High-Speed Single Scanning</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#what-is-sparkscan">What is SparkScan?</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#run-sparkscan-samples">Run SparkScan Samples</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#sparkscan-quick-start-guide">SparkScan Quick Start Guide</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#add-the-sdk-to-your-app">Add the SDK to your App</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#prerequisites">Prerequisites</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#add-the-sdk">Add the SDK</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#get-a-license-key">Get a License Key</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#additional-information">Additional Information</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="batch-counting-and-receiving.html">Batch Counting And Receiving</a></li>
+<li class="toctree-l1"><a class="reference internal" href="selecting-one-of-many.html">Selecting One Of Many Barcodes</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ar-assisted-search-and-find.html">AR-Assisted Search And Find</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Fully-Customizable API</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="id-scanning-and-verification.html">ID Scanning And Verification</a></li>
+<li class="toctree-l1"><a class="reference internal" href="batch-scanning-and-ar.html">Batch Scanning And AR</a></li>
+<li class="toctree-l1"><a class="reference internal" href="single-scanning.html">Single Scanning</a></li>
+<li class="toctree-l1"><a class="reference internal" href="text-capture.html">Text Capture</a></li>
+<li class="toctree-l1"><a class="reference internal" href="parse-barcode-data.html">Parse Barcode Data</a></li>
+<li class="toctree-l1"><a class="reference internal" href="advanced-topics.html">Advanced Topics</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">API Reference</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="core/overview.html">ScanditCaptureCore</a></li>
+<li class="toctree-l1"><a class="reference internal" href="barcode-capture/overview.html">ScanditBarcodeCapture</a></li>
+<li class="toctree-l1"><a class="reference internal" href="id-capture/overview.html">ScanditIdCapture</a></li>
+<li class="toctree-l1"><a class="reference internal" href="text-capture/overview.html">ScanditTextCapture</a></li>
+<li class="toctree-l1"><a class="reference internal" href="label-capture/overview.html">ScanditLabelCapture</a></li>
+<li class="toctree-l1"><a class="reference internal" href="parser/overview.html">ScanditParser</a></li>
+<li class="toctree-l1"><a class="reference internal" href="genindex.html">Index</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">More Resources</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="release-notes.html">Release Notes</a></li>
+<li class="toctree-l1"><a class="reference internal" href="barcode-symbologies.html">Barcode Symbologies</a></li>
+<li class="toctree-l1"><a class="reference internal" href="requirements.html">System Requirements</a></li>
+<li class="toctree-l1"><a class="reference internal" href="support.html">Support &amp; FAQ</a></li>
+<li class="toctree-l1"><a class="reference internal" href="features-by-platform.html">Features By Framework</a></li>
+<li class="toctree-l1"><a class="reference external" href="https://docs.scandit.com/barcode-scanner-sdk.html">SDK 5.x Documentation [Deprecated]</a></li>
+<li class="toctree-l1"><a class="reference internal" href="migrate-to-6.html">Migrate from Barcode Scanner 5.x</a></li>
+<li class="toctree-l1"><a class="reference external" href="http://ssl.scandit.com">Your Developer Dashboard</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">Data Capture SDK</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation" class="navbar">
+  <ul class="wy-breadcrumbs">
+      <li><a href="index.html" class="icon icon-home" aria-label="Home"></a></li>
+      <li class="breadcrumb-item active">High-Speed Single Scanning</li>
+      <li class="wy-breadcrumbs-aside">
+      </li>
+  </ul>
+  <div class="auth-link-container">
+    <a class="signup-link signup-link--mobile" rel="noopener" target="_blank" href="https://ssl.scandit.com/dashboard/sign-up?p=test&utm_source=documentation">Sign up</a>
+    <a class="signup-link" target="_blank" rel="noopener" href="https://ssl.scandit.com/dashboard/sign-up?p=test&utm_source=documentation">Sign up for your developer account</a>
+    <a class="signin-link" target="_blank" rel="noopener" href="https://ssl.scandit.com/dashboard/sign-in">Log in</a>
+  </div>
+</div>
+<hr/>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <div class="section" id="high-speed-single-scanning">
+<h1>High-Speed Single Scanning<a class="headerlink" href="#high-speed-single-scanning" title="Permalink to this headline"></a></h1>
+<div class="section" id="what-is-sparkscan">
+<h2>What is SparkScan?<a class="headerlink" href="#what-is-sparkscan" title="Permalink to this headline"></a></h2>
+<p>For most people integrating scanning for the first time our pre-built component SparkScan is the best and quickest place to start. It includes a pre-built scanning interface that floats on top of any native application.</p>
+<p>This bundles multiple scanning features together and addresses many common challenges associated with scanning on smart devices.</p>
+<ul class="simple">
+<li><p><a class="reference internal" href="#sparkscan-quickstart-guide"><span class="std std-ref">SparkScan Quickstart Guide</span></a></p></li>
+<li><p><a class="reference internal" href="#run-sparkscan-samples"><span class="std std-ref">Run SparkScan Samples</span></a></p></li>
+<li><p><a class="reference internal" href="#learn-more-about-sparkscan"><span class="std std-ref">Learn More About SparkScan</span></a></p></li>
+</ul>
+<img alt="_images/intro.gif" src="_images/intro.gif" />
+<div class="section" id="run-sparkscan-samples">
+<span id="id1"></span><h3>Run SparkScan Samples<a class="headerlink" href="#run-sparkscan-samples" title="Permalink to this headline"></a></h3>
+<p>There are simple and advanced SparkScan samples available on our Github repository.</p>
+<table class="colwidths-given docutils align-center">
+<colgroup>
+<col style="width: 33%" />
+<col style="width: 33%" />
+<col style="width: 33%" />
+</colgroup>
+<tbody>
+<tr class="row-odd"><td><p><a class="reference external" href="https://github.com/Scandit/datacapture-android-samples/tree/master/ListBuildingSample">ListBuildingSample</a></p></td>
+<td><p><a class="reference external" href="https://github.com/Scandit/datacapture-android-samples/tree/master/ReceivingSample">ReceivingSample</a></p></td>
+<td><p><a class="reference external" href="https://github.com/Scandit/datacapture-android-samples/tree/master/ExpiryManagementSample">ExpiryManagementSample</a></p></td>
+</tr>
+<tr class="row-even"><td><video src="./_static/sparkscan/list_building_sample.mp4" controls width="200" loop></video></td>
+<td><video src="./_static/getting-started/common/sample-ms-receiving.mp4" controls width="200" loop></video></td>
+<td><video src="./_static/getting-started/common/sample-ss-expiry.mp4" controls width="200" loop></video></td>
+</tr>
+<tr class="row-odd"><td><p>A <strong>simple sample</strong> that demonstrates how to populate a list of scanned barcodes using the Scandit SparkScan API.</p></td>
+<td><p>An <strong>advanced sample</strong> that shows how to share scan data between MatrixScan Count and Spark Scan to populate an item list.</p></td>
+<td><p>An <strong>advanced sample</strong> that shows how to share scan data between MatrixScan Count and Spark Scan to show the expiration status of scanned items.</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<div class="section" id="sparkscan-quick-start-guide">
+<span id="sparkscan-quickstart-guide"></span><h2>SparkScan Quick Start Guide<a class="headerlink" href="#sparkscan-quick-start-guide" title="Permalink to this headline"></a></h2>
+<div class="section" id="add-the-sdk-to-your-app">
+<h3>Add the SDK to your App<a class="headerlink" href="#add-the-sdk-to-your-app" title="Permalink to this headline"></a></h3>
+<div class="section" id="prerequisites">
+<h4>Prerequisites<a class="headerlink" href="#prerequisites" title="Permalink to this headline"></a></h4>
+<ul class="simple">
+<li><p>The latest stable version of the Android SDK (for example through the latest Android Studio).</p></li>
+<li><p>An Android project with target SDK version 23 (Android 6, Marshmallow) or higher.</p></li>
+<li><p>A valid Scandit Data Capture SDK license key. You can sign up for a free test account at <a class="reference external" href="https://ssl.scandit.com/dashboard/sign-up?p=test&amp;utm_source=documentation">ssl.scandit.com</a>.</p></li>
+</ul>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Devices running the Scandit Data Capture SDK need to have a GPU or the performance will drastically decrease.</p>
+</div>
+</div>
+<div class="section" id="add-the-sdk">
+<h4>Add the SDK<a class="headerlink" href="#add-the-sdk" title="Permalink to this headline"></a></h4>
+<p>Scandit Data Capture SDK is distributed as <a class="reference external" href="https://developer.android.com/studio/projects/android-library#aar-contents">AAR libraries</a> in the <a class="reference external" href="https://s01.oss.sonatype.org/content/repositories/releases/com/scandit/datacapture/">official Scandit maven repository</a>.</p>
+<p>You will always need to add a reference to <cite>com.scandit.datacapture:core</cite>, which contains the shared functionality used by the other data capture modules.
+If you’re using textcapture-related functionalities, make sure to also add a reference to <cite>com.scandit.datacapture:text-base</cite>.
+In addition, depending on the data capture task, you will need a reference to:</p>
+<ul class="simple">
+<li><p><cite>com.scandit.datacapture:barcode</cite> (<a class="reference internal" href="barcode-capture/api.html"><span class="doc">ScanditBarcodeCapture API</span></a>) if you want to use barcode-related functionality such as barcode capture or MatrixScan.</p></li>
+<li><p><cite>com.scandit.datacapture:parser</cite> (<a class="reference internal" href="parser/api.html"><span class="doc">ScanditParser API</span></a>) if you want to parse data strings, e.g. as found in barcodes, into a set of key-value mappings.</p></li>
+<li><p><cite>com.scandit.datacapture:text</cite> (<a class="reference internal" href="text-capture/api.html"><span class="doc">ScanditTextCapture API</span></a>) if you want to use text recognition (OCR) functionality, often combined with barcode scanning to deliver simultaneous barcode and text capture.</p></li>
+<li><p><cite>com.scandit.datacapture:id</cite> (<a class="reference internal" href="id-capture/api.html"><span class="doc">ScanditIdCapture API</span></a>) if you want to scan personal identification documents such as identity cards, passports or visas.</p></li>
+</ul>
+<p>You can safely remove <cite>barcode</cite>, <cite>parser</cite>, <cite>text</cite> or <cite>id</cite> dependencies if you are not going to use their features.</p>
+<div class="section" id="gradle">
+<h5>Gradle<a class="headerlink" href="#gradle" title="Permalink to this headline"></a></h5>
+<p>Add <cite>mavenCentral()</cite> repository in <cite>build.gradle</cite> file:</p>
+<div class="highlight-groovy notranslate"><div class="highlight"><pre><span></span><span class="n">repositories</span><span class="w"> </span><span class="o">{</span>
+<span class="w">  </span><span class="n">mavenCentral</span><span class="o">()</span>
+<span class="o">}</span>
+</pre></div>
+</div>
+<p>Add the necessary artifacts as dependencies to the app’s <cite>build.gradle</cite>:</p>
+<div class="highlight-groovy notranslate"><div class="highlight"><pre><span></span><span class="n">dependencies</span><span class="w"> </span><span class="o">{</span>
+<span class="w">  </span><span class="n">implementation</span><span class="w"> </span><span class="s2">&quot;com.scandit.datacapture:core:[version]&quot;</span>
+<span class="w">  </span><span class="n">implementation</span><span class="w"> </span><span class="s2">&quot;com.scandit.datacapture:barcode:[version]&quot;</span>
+<span class="w">  </span><span class="n">implementation</span><span class="w"> </span><span class="s2">&quot;com.scandit.datacapture:parser:[version]&quot;</span>
+<span class="w">  </span><span class="n">implementation</span><span class="w"> </span><span class="s2">&quot;com.scandit.datacapture:text-base:[version]&quot;</span>
+<span class="w">  </span><span class="n">implementation</span><span class="w"> </span><span class="s2">&quot;com.scandit.datacapture:text:[version]&quot;</span>
+<span class="w">  </span><span class="n">implementation</span><span class="w"> </span><span class="s2">&quot;com.scandit.datacapture:id:[version]&quot;</span>
+<span class="o">}</span>
+</pre></div>
+</div>
+<p>Latest [version] is 6.24.0-rc.2 and can be found on <a class="reference external" href="https://s01.oss.sonatype.org/content/repositories/releases/com/scandit/datacapture/">Sonatype</a>.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p><strong>Up to version 6.21.x</strong> the core module depends on okhttp version 4.9.2. If your project already implements a different version of okhttp (within the supported version range specified in the requirements page), make sure to exclude the group from the gradle implementation of the core module.</p>
+<div class="highlight-groovy notranslate"><div class="highlight"><pre><span></span><span class="n">implementation</span><span class="o">(</span><span class="s2">&quot;com.scandit.datacapture:core:[version]&quot;</span><span class="o">)</span><span class="w"> </span><span class="o">{</span>
+<span class="w">  </span><span class="n">exclude</span><span class="w"> </span><span class="nl">group:</span><span class="w"> </span><span class="s2">&quot;com.squareup.okhttp3&quot;</span>
+<span class="o">}</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="section" id="maven">
+<h5>Maven<a class="headerlink" href="#maven" title="Permalink to this headline"></a></h5>
+<p>Add the <cite>mavenCentral</cite> repository in <cite>pom.xml</cite> file:</p>
+<div class="highlight-xml notranslate"><div class="highlight"><pre><span></span><span class="nt">&lt;repositories&gt;</span>
+<span class="w">  </span><span class="nt">&lt;repository&gt;</span>
+<span class="w">      </span><span class="nt">&lt;snapshots&gt;</span>
+<span class="w">        </span><span class="nt">&lt;enabled&gt;</span>false<span class="nt">&lt;/enabled&gt;</span>
+<span class="w">      </span><span class="nt">&lt;/snapshots&gt;</span>
+<span class="w">      </span><span class="nt">&lt;id&gt;</span>central<span class="nt">&lt;/id&gt;</span>
+<span class="w">      </span><span class="nt">&lt;name&gt;</span>Maven<span class="w"> </span>Central<span class="nt">&lt;/name&gt;</span>
+<span class="w">      </span><span class="nt">&lt;url&gt;</span>https://repo1.maven.org/maven2<span class="nt">&lt;/url&gt;</span>
+<span class="w">  </span><span class="nt">&lt;/repository&gt;</span>
+<span class="nt">&lt;/repositories&gt;</span>
+</pre></div>
+</div>
+<p>Add the necessary artifacts as dependencies:</p>
+<div class="highlight-xml notranslate"><div class="highlight"><pre><span></span><span class="nt">&lt;dependency&gt;</span>
+<span class="w">  </span><span class="nt">&lt;groupId&gt;</span>com.scandit.datacapture<span class="nt">&lt;/groupId&gt;</span>
+<span class="w">  </span><span class="nt">&lt;artifactId&gt;</span>core<span class="nt">&lt;/artifactId&gt;</span>
+<span class="w">  </span><span class="nt">&lt;version&gt;</span>[version]<span class="nt">&lt;/version&gt;</span>
+<span class="nt">&lt;/dependency&gt;</span>
+
+<span class="nt">&lt;dependency&gt;</span>
+<span class="w">  </span><span class="nt">&lt;groupId&gt;</span>com.scandit.datacapture<span class="nt">&lt;/groupId&gt;</span>
+<span class="w">  </span><span class="nt">&lt;artifactId&gt;</span>barcode<span class="nt">&lt;/artifactId&gt;</span>
+<span class="w">  </span><span class="nt">&lt;version&gt;</span>[version]<span class="nt">&lt;/version&gt;</span>
+<span class="nt">&lt;/dependency&gt;</span>
+
+<span class="nt">&lt;dependency&gt;</span>
+<span class="w">  </span><span class="nt">&lt;groupId&gt;</span>com.scandit.datacapture<span class="nt">&lt;/groupId&gt;</span>
+<span class="w">  </span><span class="nt">&lt;artifactId&gt;</span>parser<span class="nt">&lt;/artifactId&gt;</span>
+<span class="w">  </span><span class="nt">&lt;version&gt;</span>[version]<span class="nt">&lt;/version&gt;</span>
+<span class="nt">&lt;/dependency&gt;</span>
+
+<span class="nt">&lt;dependency&gt;</span>
+<span class="w">  </span><span class="nt">&lt;groupId&gt;</span>com.scandit.datacapture<span class="nt">&lt;/groupId&gt;</span>
+<span class="w">  </span><span class="nt">&lt;artifactId&gt;</span>text-base<span class="nt">&lt;/artifactId&gt;</span>
+<span class="w">  </span><span class="nt">&lt;version&gt;</span>[version]<span class="nt">&lt;/version&gt;</span>
+<span class="nt">&lt;/dependency&gt;</span>
+
+<span class="nt">&lt;dependency&gt;</span>
+<span class="w">  </span><span class="nt">&lt;groupId&gt;</span>com.scandit.datacapture<span class="nt">&lt;/groupId&gt;</span>
+<span class="w">  </span><span class="nt">&lt;artifactId&gt;</span>text<span class="nt">&lt;/artifactId&gt;</span>
+<span class="w">  </span><span class="nt">&lt;version&gt;</span>[version]<span class="nt">&lt;/version&gt;</span>
+<span class="nt">&lt;/dependency&gt;</span>
+
+<span class="nt">&lt;dependency&gt;</span>
+<span class="w">  </span><span class="nt">&lt;groupId&gt;</span>com.scandit.datacapture<span class="nt">&lt;/groupId&gt;</span>
+<span class="w">  </span><span class="nt">&lt;artifactId&gt;</span>id<span class="nt">&lt;/artifactId&gt;</span>
+<span class="w">  </span><span class="nt">&lt;version&gt;</span>[version]<span class="nt">&lt;/version&gt;</span>
+<span class="nt">&lt;/dependency&gt;</span>
+</pre></div>
+</div>
+<p><a class="reference external" href="https://s01.oss.sonatype.org/content/repositories/releases/com/scandit/datacapture/">Latest [version] can be found here</a>.</p>
+</div>
+</div>
+<div class="section" id="get-a-license-key">
+<h4>Get a License Key<a class="headerlink" href="#get-a-license-key" title="Permalink to this headline"></a></h4>
+<ol class="arabic simple">
+<li><p><a class="reference external" href="https://ssl.scandit.com/dashboard/sign-up?p=test">Sign up</a> or <a class="reference external" href="https://ssl.scandit.com/dashboard/sign-in">Sign in</a> to your Scandit account</p></li>
+<li><p>Create a project</p></li>
+<li><p>Create a license key</p></li>
+</ol>
+<p>If you have a paid subscription, please reach out to <a class="reference external" href="mailto:support&#37;&#52;&#48;scandit&#46;com">support<span>&#64;</span>scandit<span>&#46;</span>com</a> if you need a new license key.</p>
+</div>
+<div class="section" id="additional-information">
+<h4>Additional Information<a class="headerlink" href="#additional-information" title="Permalink to this headline"></a></h4>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>If you’re using <cite>androidx.fragments</cite> dependency and have the situation where a scanning fragment navigates to another scanning fragment with an incompatible mode, make sure you’re using version 1.3.0+ of the dependency.
+If not, you may run into an incompatible modes error, as the new fragment gets resumed before the previous is paused and for some time incompatible modes may be enabled in the DataCaptureContext at the same time. This results in sessions being empty of any result.</p>
+</div>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>On Android, the Scandit SDK uses content providers to initialize the scanning capabilities properly.
+If your own content providers depend on the Scandit SDK, choose an <strong>initOrder</strong> lower than 10 to make sure the SDK is ready first.</p>
+<p>If not specified, <strong>initOrder</strong> is zero by default and you have nothing to worry about.</p>
+<p>Check <a class="reference external" href="https://developer.android.com/guide/topics/manifest/provider-element">the official &lt;provider&gt; documentation</a>.</p>
+</div>
+<div class="section" id="get-started-with-sparkscan">
+<h5>Get Started With SparkScan<a class="headerlink" href="#get-started-with-sparkscan" title="Permalink to this headline"></a></h5>
+<p>In this guide you will learn step by step how to add SparkScan to your application.</p>
+<p>Roughly, the steps are:</p>
+<ol class="arabic simple">
+<li><p>Create a new Data Capture Context instance.</p></li>
+<li><p>Configure the Spark Scan Mode.</p></li>
+<li><p>Create the SparkScanView with the desired settings and bind it to the application’s lifecycle.</p></li>
+<li><p>Register the listener to be informed when new barcodes are scanned and update your data whenever this event occurs.</p></li>
+</ol>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>If you’re looking to integrate SparkScan into a Compose view hierarchy, there are additional steps you need to follow:</p>
+<blockquote>
+<div><ol class="arabic simple">
+<li><p>Create an AndroidView to wrap the SparkScanView instance, initialized as described in the rest of this section.</p></li>
+<li><p>Monitor the view lifecycle so you can call the view lifecycle methods in SparkScanView when necessary. This can be done using a combination of DisposableEffect and the onRelease callback of AndroidView.</p></li>
+</ol>
+</div></blockquote>
+</div>
+<div class="section" id="create-a-new-data-capture-context-instance">
+<h6>1. Create a New Data Capture Context Instance<a class="headerlink" href="#create-a-new-data-capture-context-instance" title="Permalink to this headline"></a></h6>
+<p>The first step to add capture capabilities to your application is to create a new <a class="reference internal" href="core/api/data-capture-context.html#class-scandit.datacapture.core.DataCaptureContext" title="Data Capture Context class">Data Capture Context</a>. The context expects a valid Scandit Data Capture SDK license key during construction.</p>
+<div class="highlight-java notranslate"><div class="highlight"><pre><span></span><span class="n">DataCaptureContext</span><span class="w"> </span><span class="n">dataCaptureContext</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">DataCaptureContext</span><span class="p">.</span><span class="na">forLicenseKey</span><span class="p">(</span><span class="s">&quot;-- ENTER YOUR SCANDIT LICENSE KEY HERE --&quot;</span><span class="p">);</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="configure-the-sparkscan-mode">
+<h6>2. Configure the SparkScan Mode<a class="headerlink" href="#configure-the-sparkscan-mode" title="Permalink to this headline"></a></h6>
+<p>The SparkScan Mode is configured through SparkScanSettings and allows you to register one or more listeners that are informed whenever a new barcode is scanned.</p>
+<p>For this tutorial, we will set up SparkScan for scanning EAN13 codes. Change this to the correct symbologies for your use case (for example, Code 128, Code 39…).</p>
+<div class="highlight-java notranslate"><div class="highlight"><pre><span></span><span class="n">SparkScanSettings</span><span class="w"> </span><span class="n">settings</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">SparkScanSettings</span><span class="p">();</span>
+<span class="n">HashSet</span><span class="o">&lt;</span><span class="n">Symbology</span><span class="o">&gt;</span><span class="w"> </span><span class="n">symbologies</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">HashSet</span><span class="o">&lt;&gt;</span><span class="p">();</span>
+<span class="n">symbologies</span><span class="p">.</span><span class="na">add</span><span class="p">(</span><span class="n">Symbology</span><span class="p">.</span><span class="na">EAN13_UPCA</span><span class="p">);</span>
+<span class="n">settings</span><span class="p">.</span><span class="na">enableSymbologies</span><span class="p">(</span><span class="n">symbologies</span><span class="p">);</span>
+</pre></div>
+</div>
+<p>Next, create a SparkScan instance with the settings initialized in the previous step:</p>
+<div class="highlight-java notranslate"><div class="highlight"><pre><span></span><span class="n">SparkScan</span><span class="w"> </span><span class="n">sparkScan</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">SparkScan</span><span class="p">(</span><span class="n">settings</span><span class="p">);</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="setup-the-spark-scan-view">
+<h6>3. Setup the Spark Scan View<a class="headerlink" href="#setup-the-spark-scan-view" title="Permalink to this headline"></a></h6>
+<p>The SparkScan built-in user interface includes the camera preview and scanning UI elements. These guide the user through the scanning process.</p>
+<p>The SparkScanView appearance can be customized through SparkScanViewSettings.</p>
+<div class="highlight-java notranslate"><div class="highlight"><pre><span></span><span class="n">SparkScanViewSettings</span><span class="w"> </span><span class="n">viewSettings</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">SparkScanViewSettings</span><span class="p">();</span>
+<span class="c1">// setup the desired appearance settings by updating the fields in the object above</span>
+</pre></div>
+</div>
+<p>By adding a SparkScanView, the scanning interface (camera preview and scanning UI elements) will be added automatically to your application.</p>
+<p>Add a SparkScanView to your view hierarchy:</p>
+<p>Construct a new SparkScan view. The SparkScan view is automatically added to the provided parentView (preferably an instance of <a class="reference internal" href="barcode-capture/api/ui/spark-scan-view.html#class-scandit.datacapture.barcode.spark.ui.SparkScanCoordinatorLayout" title="SparkScanCoordinatorLayout class">SparkScanCoordinatorLayout</a>):</p>
+<div class="highlight-java notranslate"><div class="highlight"><pre><span></span><span class="n">SparkScanView</span><span class="w"> </span><span class="n">sparkScanView</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">SparkScanView</span><span class="p">.</span><span class="na">newInstance</span><span class="p">(</span><span class="n">parentView</span><span class="p">,</span><span class="w"> </span><span class="n">dataCaptureContext</span><span class="p">,</span><span class="w"> </span><span class="n">sparkScan</span><span class="p">,</span><span class="w"> </span><span class="n">viewSettings</span><span class="p">);</span>
+</pre></div>
+</div>
+<p>Additionally, make sure to call sparkScanView.onPause() and sparkScanView.onResume() in your Fragment/Activity onPause and onResume callbacks. You have to call these for the correct functioning of the SparkScanView.</p>
+<div class="highlight-java notranslate"><div class="highlight"><pre><span></span><span class="nd">@Override</span>
+<span class="kd">protected</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="nf">onPause</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="n">sparkScanView</span><span class="p">.</span><span class="na">onPause</span><span class="p">();</span>
+<span class="w">    </span><span class="kd">super</span><span class="p">.</span><span class="na">onPause</span><span class="p">();</span>
+<span class="p">}</span>
+
+<span class="nd">@Override</span>
+<span class="kd">protected</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="nf">onResume</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="n">sparkScanView</span><span class="p">.</span><span class="na">onResume</span><span class="p">();</span>
+<span class="w">    </span><span class="kd">super</span><span class="p">.</span><span class="na">onResume</span><span class="p">();</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="register-the-listener-to-be-informed-when-a-new-barcode-is-scanned">
+<h6>4. Register the Listener to Be Informed When a New Barcode Is Scanned<a class="headerlink" href="#register-the-listener-to-be-informed-when-a-new-barcode-is-scanned" title="Permalink to this headline"></a></h6>
+<p>To keep track of the barcodes that have been scanned, implement the <a class="reference internal" href="barcode-capture/api/spark-scan-listener.html#interface-scandit.datacapture.barcode.spark.ISparkScanListener" title="SparkScanListener interface">SparkScanListener</a> interface and register the listener to the SparkScan mode.</p>
+<div class="highlight-java notranslate"><div class="highlight"><pre><span></span><span class="c1">// Register self as a listener to monitor the spark scan session.</span>
+<span class="n">sparkScan</span><span class="p">.</span><span class="na">addListener</span><span class="p">(</span><span class="k">this</span><span class="p">);</span>
+</pre></div>
+</div>
+<p><a class="reference internal" href="barcode-capture/api/spark-scan-listener.html#method-scandit.datacapture.barcode.spark.ISparkScanListener.OnBarcodeScanned" title="SparkScanListener.onBarcodeScanned() method">SparkScanListener.onBarcodeScanned()</a> is called when a new barcode has been scanned.
+This result can be retrieved from the first object in the provided barcodes list: <a class="reference internal" href="barcode-capture/api/spark-scan-session.html#property-scandit.datacapture.barcode.spark.SparkScanSession.NewlyRecognizedBarcodes" title="SparkScanSession.newlyRecognizedBarcodes property">SparkScanSession.newlyRecognizedBarcodes</a>.
+Please note that this list only contains one barcode entry.</p>
+<div class="highlight-java notranslate"><div class="highlight"><pre><span></span><span class="nd">@Override</span>
+<span class="kd">public</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="nf">onBarcodeScanned</span><span class="p">(</span>
+<span class="w">    </span><span class="nd">@NonNull</span><span class="w"> </span><span class="n">SparkScan</span><span class="w"> </span><span class="n">sparkScan</span><span class="p">,</span><span class="w"> </span><span class="nd">@NonNull</span><span class="w"> </span><span class="n">SparkScanSession</span><span class="w"> </span><span class="n">session</span><span class="p">,</span><span class="w"> </span><span class="nd">@Nullable</span><span class="w"> </span><span class="n">FrameData</span><span class="w"> </span><span class="n">data</span>
+<span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="c1">// Gather the recognized barcode</span>
+<span class="w">    </span><span class="n">Barcode</span><span class="w"> </span><span class="n">barcode</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">session</span><span class="p">.</span><span class="na">getNewlyRecognizedBarcodes</span><span class="p">().</span><span class="na">get</span><span class="p">(</span><span class="mi">0</span><span class="p">);</span>
+
+<span class="w">    </span><span class="c1">// This method is invoked from a recognition internal thread.</span>
+<span class="w">    </span><span class="c1">// Run the specified action in the UI thread to update the internal barcode list.</span>
+<span class="w">    </span><span class="n">runOnUiThread</span><span class="p">(()</span><span class="w"> </span><span class="o">-&gt;</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="c1">// Update the internal list and the UI with the barcode retrieved above</span>
+<span class="w">        </span><span class="k">this</span><span class="p">.</span><span class="na">latestBarcode</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">barcode</span>
+<span class="w">    </span><span class="p">});</span>
+<span class="w">  </span><span class="p">}</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="scan-some-barcodes">
+<h6>5. Scan Some Barcodes<a class="headerlink" href="#scan-some-barcodes" title="Permalink to this headline"></a></h6>
+<p>Now that you’re up and running, go find some barcodes to scan.
+Don’t feel like getting up from your desk?
+Here’s a <a class="reference external" href="https://github.com/Scandit/.github/blob/main/images/PrintTheseBarcodes.pdf">handy pdf of barcodes</a> you can print out.</p>
+</div>
+</div>
+<div class="section" id="learn-more-about-sparkscan">
+<span id="id2"></span><h5>Learn More About SparkScan<a class="headerlink" href="#learn-more-about-sparkscan" title="Permalink to this headline"></a></h5>
+<div class="section" id="ui-overview">
+<h6><strong>UI overview</strong><a class="headerlink" href="#ui-overview" title="Permalink to this headline"></a></h6>
+<p>The SparkScan UI is minimal, meant to be overlayed on top of any application without the need to adapt the existing app, while offering the best user experience.</p>
+<p>Three main elements compose the UI:</p>
+<img alt="_images/features.png" src="_images/features.png" />
+<p><strong>NOTE</strong>: Additional UI elements are available for developers to use if their app logic requires displaying errors or additional feedback while scanning. More information in <a class="reference internal" href="#customization-advanced-capabilities"><span class="std std-ref">Customisation and advanced capabilities</span></a>.</p>
+</div>
+<div class="section" id="workflow-options">
+<h6><strong>Workflow Options</strong><a class="headerlink" href="#workflow-options" title="Permalink to this headline"></a></h6>
+<p>The workflow here is based on the default configuration of SparkScan, carefully picked as a result of extensive user testing and customer feedback from the field.</p>
+<p>But not all workflows look the same, and your needs may differ. That’s why SparkScan comes with a set of options to configure the scanner and to best fit in the desired workflow.</p>
+<p>Scanning modes:</p>
+<ul class="simple">
+<li><p><strong>Default mode</strong>: Ideal for close-range and fast paced scanning. This mode will display a small camera preview to aid with aiming. The preview size and zoom level can be adjusted as needed.</p></li>
+<li><p><strong>Target mode</strong>: Ideal for scanning scenarios where precision is important. This mode will add an aimer to the preview, to precisely select the barcode to scan. This is useful when multiple barcodes are in view (e.g. long range scanning).</p>
+<ul>
+<li><p>Users can enable the target mode by toggling the dedicated icon in the setting toolbar, shown by default (<a class="reference internal" href="barcode-capture/api/ui/spark-scan-view.html#property-scandit.datacapture.barcode.spark.ui.SparkScanView.TargetModeButtonVisible" title="SparkScanView.targetModeButtonVisible property">SparkScanView.targetModeButtonVisible</a>). Hiding this button will remove the possibility to toggle scanning mode for the end-user.</p></li>
+</ul>
+</li>
+</ul>
+<p>Scanning behaviors:</p>
+<ul class="simple">
+<li><p><strong>Single scan</strong>: Scan one barcode at a time. The user needs to trigger the scanner every time to scan a barcode. This allows for a more controlled scanning and lower battery consumption.</p></li>
+<li><p><strong>Continuous scan</strong>: Scan barcodes consecutively. The user needs to trigger the scanner once and barcodes will be scanned without any further interaction before each scan. This allows for a smoother experience when multiple barcodes need to be scanned consecutively.</p>
+<ul>
+<li><p>Users can enable continuous scanning by holding down the trigger button (<a class="reference internal" href="barcode-capture/api/ui/spark-scan-view-settings.html#property-scandit.datacapture.barcode.spark.ui.SparkScanViewSettings.HoldToScanEnabled" title="SparkScanViewSettings.holdToScanEnabled property">SparkScanViewSettings.holdToScanEnabled</a>). This gesture can be disabled.</p></li>
+<li><p>Developers can show a dedicated setting in the toolbar to let the user enable continuous scan mode (<a class="reference internal" href="barcode-capture/api/ui/spark-scan-view.html#property-scandit.datacapture.barcode.spark.ui.SparkScanView.ScanningBehaviorButtonVisible" title="SparkScanView.scanningBehaviorButtonVisible property">SparkScanView.scanningBehaviorButtonVisible</a>), which is hidden by default.</p></li>
+</ul>
+</li>
+</ul>
+<p>Camera preview behaviors:</p>
+<ul class="simple">
+<li><p><strong>Default</strong>: Preview fades aways when the scanner is off. This lets the user check important information displayed by the app and reduces battery consumption.</p></li>
+<li><p><strong>Persistent</strong>: Preview remains visible, but darkened, even when the scanner is off. This is useful for scenarios where you want to select a barcode (among many) or need to look through the preview at all times (to ensure the right scan) - especially if used in conjunction with the target mode.</p></li>
+</ul>
+<p>Developers can set a combination of scanning mode, scanning behavior and camera preview behavior - defining the initial state of the scanner. This can be done by setting the default scanning mode (<a class="reference internal" href="barcode-capture/api/ui/spark-scan-view-settings.html#property-scandit.datacapture.barcode.spark.ui.SparkScanViewSettings.DefaultScanningMode" title="SparkScanViewSettings.defaultScanningMode property">SparkScanViewSettings.defaultScanningMode</a>).</p>
+</div>
+<div class="section" id="workflow-description">
+<h6><strong>Workflow Description</strong><a class="headerlink" href="#workflow-description" title="Permalink to this headline"></a></h6>
+<ul class="simple">
+<li><p>When SparkScan is started, the UI presents just the trigger button, collapsed on the side.</p></li>
+<li><p>To start scanning, the user can:</p>
+<ul>
+<li><p>swipe to open the button, then tap on it.</p></li>
+<li><p>tap on the collapsed trigger button.</p></li>
+</ul>
+</li>
+<li><p>When the scanner is active the mini preview is shown.</p></li>
+<li><p>Depending on the scanning mode enabled, the workflow will behave differently:</p></li>
+<li><p>Upon scan the user will receive audio/haptic feedback confirming the scan, and the mini preview will display the scanned barcode for a small amount of time before fading away.</p></li>
+<li><p>Tapping on the trigger button will restart immediately the scanner.</p></li>
+<li><p>Upon completing the scanning process (or to interact with the customer app layer), the user can tap in any area outside the trigger button and the mini preview. This collapses the scanner button back to the side, going back to the initial state.</p></li>
+</ul>
+<table class="docutils align-center">
+<colgroup>
+<col style="width: 100%" />
+</colgroup>
+<tbody>
+<tr class="row-odd"><td><img alt="_images/workflow-example.gif" src="_images/workflow-example.gif" />
+</td>
+</tr>
+<tr class="row-even"><td><p>Workflow example.</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="section" id="supported-devices">
+<h6><strong>Supported Devices</strong><a class="headerlink" href="#supported-devices" title="Permalink to this headline"></a></h6>
+<p>Runs on iOS and Android devices.</p>
+</div>
+<div class="section" id="supported-symbologies">
+<h6><strong>Supported Symbologies</strong><a class="headerlink" href="#supported-symbologies" title="Permalink to this headline"></a></h6>
+<p>SparkScan supports all of the major symbologies listed here: <a class="reference internal" href="barcode-symbologies.html"><span class="doc">Barcode Symbologies</span></a> except DotCode, MaxiCode, ArUco, and postal codes (KIX, RM4SCC, LAPA 4SC, USPS Intelligent Mail, etc.).</p>
+<p>If you are not familiar with the symbologies that are relevant for your use case, you can use <a class="reference internal" href="barcode-capture/api/capture-preset.html#enum-scandit.datacapture.barcode.CapturePreset" title="capture presets enum">capture presets</a> that are tailored for different verticals (e.g. retail, logistics, etc.).</p>
+<p>For more symbology specific information, please refer to <a class="reference internal" href="barcode-symbologies.html"><span class="doc">this link</span></a>.</p>
+</div>
+</div>
+<div class="section" id="customisation-and-advanced-capabilities">
+<span id="customization-advanced-capabilities"></span><h5>Customisation and advanced capabilities<a class="headerlink" href="#customisation-and-advanced-capabilities" title="Permalink to this headline"></a></h5>
+<p>SparkScan offers an out-of-the-box experience optimized for efficiency and a frictionless worker experience. This experience has been crafted after many user testing and with the product knowledge gained in the many years of Scandit. <br>
+While this out-of-the-box experience will suit most use-cases, we understand there are some special cases in which some configuration is still needed. <br>
+In this page, we collect the main customization and advanced settings you may need to customize SparkScan to obtain the best experience possible.</p>
+<div class="section" id="advanced-capabilities">
+<h6><strong>Advanced capabilities</strong><a class="headerlink" href="#advanced-capabilities" title="Permalink to this headline"></a></h6>
+<div class="section" id="control-the-scanner-through-a-hardware-button">
+<h7>Control the Scanner through a Hardware Button<a class="headerlink" href="#control-the-scanner-through-a-hardware-button" title="Permalink to this headline"></a></h7>
+<p>Allowing the end user to control the scanner with hardware buttons can be useful if your users typically wear gloves. It can also improve ergonomics in some workflows.</p>
+<p>SparkScan offers a built-in API to let you do this via <a class="reference internal" href="barcode-capture/api/ui/spark-scan-view-settings.html#property-scandit.datacapture.barcode.spark.ui.SparkScanViewSettings.HardwareTriggerEnabled" title="SparkScanViewSettings.hardwareTriggerEnabled property">SparkScanViewSettings.hardwareTriggerEnabled</a>.</p>
+</div>
+<div class="section" id="trigger-the-error-state">
+<h7>Trigger the Error State<a class="headerlink" href="#trigger-the-error-state" title="Permalink to this headline"></a></h7>
+<p>You may want to introduce logic in your app to show an error message when scanning specific barcodes (e.g. barcodes already added to the list, barcodes from the wrong lot etc.). SparkScan offers a built-in error state you can easily set to trigger an error feedback prompt to the user. You will be able to customize:</p>
+<ul class="simple">
+<li><p>The text message</p></li>
+<li><p>The timeout of the error message: the scanner will be paused for the specified amount of time, but the user can quickly restart the scanning process by tapping the trigger button</p></li>
+<li><p>The color of the flashing screen upon scan. You can enable or disable the visual feedback via <a class="reference internal" href="barcode-capture/api/ui/spark-scan-view-settings.html#property-scandit.datacapture.barcode.spark.ui.SparkScanViewSettings.VisualFeedbackEnabled" title="SparkScanViewSettings.visualFeedbackEnabled property">SparkScanViewSettings.visualFeedbackEnabled</a> and you can control the color via <a class="reference internal" href="barcode-capture/api/ui/spark-scan-view-feedback.html#class-scandit.datacapture.barcode.spark.ui.SparkScanViewFeedback" title="SparkScanViewFeedback class">SparkScanViewFeedback</a>.</p></li>
+<li><p>The color of the highlight for the scanned barcode.</p></li>
+<li><p>The feedback (sound, vibration).</p></li>
+</ul>
+<p>To emit an error, you have to implement a <a class="reference internal" href="barcode-capture/api/spark-scan-feedback-delegate.html#interface-scandit.datacapture.barcode.spark.feedback.ISparkScanFeedbackDelegate" title="SparkScanFeedbackDelegate interface">SparkScanFeedbackDelegate</a> and set it to the <a class="reference internal" href="barcode-capture/api/ui/spark-scan-view.html#property-scandit.datacapture.barcode.spark.ui.SparkScanView.FeedbackDelegate" title="SparkScanView property">SparkScanView</a>:</p>
+<div class="highlight-java notranslate"><div class="highlight"><pre><span></span><span class="n">sparkScanView</span><span class="p">.</span><span class="na">setFeedbackDelegate</span><span class="p">(</span><span class="k">this</span><span class="p">);</span>
+</pre></div>
+</div>
+<p>In the <a class="reference internal" href="barcode-capture/api/spark-scan-feedback-delegate.html#method-scandit.datacapture.barcode.spark.feedback.ISparkScanFeedbackDelegate.GetFeedbackForBarcode" title="SparkScanFeedbackDelegate.getFeedbackForBarcode() method">SparkScanFeedbackDelegate.getFeedbackForBarcode()</a> you can then return an error or a success feedback:</p>
+<div class="highlight-java notranslate"><div class="highlight"><pre><span></span><span class="nd">@Nullable</span>
+<span class="nd">@Override</span>
+<span class="kd">public</span><span class="w"> </span><span class="n">SparkScanBarcodeFeedback</span><span class="w"> </span><span class="nf">getFeedbackForBarcode</span><span class="p">(</span><span class="nd">@NonNull</span><span class="w"> </span><span class="n">Barcode</span><span class="w"> </span><span class="n">barcode</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">isValidBarcode</span><span class="p">(</span><span class="n">barcode</span><span class="p">))</span><span class="w"> </span><span class="p">{</span>
+<span class="w">      </span><span class="k">return</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">SparkScanBarcodeFeedback</span><span class="p">.</span><span class="na">Success</span><span class="p">();</span>
+<span class="w">  </span><span class="p">}</span><span class="w"> </span><span class="k">else</span><span class="w"> </span><span class="p">{</span>
+<span class="w">      </span><span class="k">return</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">SparkScanBarcodeFeedback</span><span class="p">.</span><span class="na">Error</span><span class="p">(</span><span class="s">&quot;This code should not have been scanned&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">TimeInterval</span><span class="p">.</span><span class="na">seconds</span><span class="p">(</span><span class="mi">60</span><span class="n">f</span><span class="p">));</span>
+<span class="w">  </span><span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p><strong>NOTE</strong>: You can have different error states triggered by different logic conditions. For example you can trigger an error state when a wrong barcode is scanned, and another one when a duplicate barcode is scanned. These errors can show different colors and have different timeouts.</p>
+<table class="docutils align-center">
+<colgroup>
+<col style="width: 50%" />
+<col style="width: 50%" />
+</colgroup>
+<tbody>
+<tr class="row-odd"><td><img alt="_images/error-duplicate.png" src="_images/error-duplicate.png" />
+</td>
+<td><img alt="_images/error-wrong.png" src="_images/error-wrong.png" />
+</td>
+</tr>
+</tbody>
+</table>
+<p><strong>NOTE</strong>: A high timeout (e.g. &gt;10s) typically requires the users to interact with the UI to start scanning again. This is a good choice when you want to interrupt the scanning workflow (e.g. because a wrong barcode is scanned and some actions need to be performed). A small timeout (e.g. &lt;2s) could allow the user to scan again without having to interact with the app, just momentarily pausing the workflow to acknowledge that a “special” barcode has been scanned. If timeout is set to 0 workflow is not paused at all.</p>
+</div>
+<div class="section" id="reject-barcodes">
+<h7>Reject barcodes<a class="headerlink" href="#reject-barcodes" title="Permalink to this headline"></a></h7>
+<p>To prevent scanning unwanted barcodes (like those already listed or from incorrect lots), use SparkScan’s built-in error state. Setting the <a class="reference internal" href="barcode-capture/api/ui/spark-scan-barcode-feedback.html#property-scandit.datacapture.barcode.spark.feedback.Error.ResumeCapturingDelay" title="Error.resumeCapturingDelay property">Error.resumeCapturingDelay</a> parameter to <cite>0</cite> allows the user to continue scanning immediately without pausing on rejected codes.</p>
+</div>
+<div class="section" id="add-more-advanced-scanning-modes-to-the-setting-toolbar">
+<h7>Add More Advanced Scanning Modes to the Setting Toolbar<a class="headerlink" href="#add-more-advanced-scanning-modes-to-the-setting-toolbar" title="Permalink to this headline"></a></h7>
+<p>SparkScan is our best solution for high-speed single scanning and scan-intensive workflows. Depending on your use case, you can use SparkScan scan in conjunction with other Scandit advanced scanning modes, such as MatrixScan Find or MatrixScan Count, to speed up your workflows. <br>
+SparkScan offers pre-build buttons you can add to the setting toolbar to easily move to different scan modes from within the SparkScan UI.</p>
+<p>First you will need to show these buttons:</p>
+<div class="highlight-java notranslate"><div class="highlight"><pre><span></span><span class="c1">// Show the MatrixScan Count and MatrixScan Find buttons</span>
+<span class="n">sparkScanView</span><span class="p">.</span><span class="na">setBarcodeCountButtonVisible</span><span class="p">(</span><span class="kc">true</span><span class="p">);</span>
+<span class="n">sparkScanView</span><span class="p">.</span><span class="na">setFastFindButtonVisible</span><span class="p">(</span><span class="kc">true</span><span class="p">);</span>
+</pre></div>
+</div>
+<table class="docutils align-center">
+<colgroup>
+<col style="width: 50%" />
+<col style="width: 50%" />
+</colgroup>
+<tbody>
+<tr class="row-odd"><td><img alt="_images/icons-default.png" src="_images/icons-default.png" />
+</td>
+<td><img alt="_images/toolbar-advanced.png" src="_images/toolbar-advanced.png" />
+</td>
+</tr>
+<tr class="row-even"><td><p>Standard toolbar.</p></td>
+<td><p>Toolbar with advanced modes icons shown.</p></td>
+</tr>
+</tbody>
+</table>
+<p>In addition you have to add a listener to the <a class="reference internal" href="barcode-capture/api/ui/spark-scan-view.html#class-scandit.datacapture.barcode.spark.ui.SparkScanView" title="SparkScanView class">SparkScanView</a> via <a class="reference internal" href="barcode-capture/api/ui/spark-scan-view.html#method-scandit.datacapture.barcode.spark.ui.SparkScanView.SetListener" title="SparkScanView.setListener() method">SparkScanView.setListener()</a>. After that you will receive callbacks when MatrixScan Find button or MatrixScan Count button is tapped from the toolbar.</p>
+<div class="highlight-java notranslate"><div class="highlight"><pre><span></span><span class="n">sparkScanView</span><span class="p">.</span><span class="na">setListener</span><span class="p">(</span><span class="k">this</span><span class="p">);</span>
+
+<span class="c1">//...</span>
+
+<span class="nd">@Override</span>
+<span class="kd">public</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="nf">onFastFindButtonTap</span><span class="p">(</span>
+<span class="w">        </span><span class="nd">@NonNull</span><span class="w"> </span><span class="n">SparkScanView</span><span class="w"> </span><span class="n">view</span>
+<span class="p">)</span><span class="w"> </span><span class="p">{</span>
+
+<span class="p">}</span>
+
+<span class="nd">@Override</span>
+<span class="kd">public</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="nf">onBarcodeCountButtonTap</span><span class="p">(</span>
+<span class="w">        </span><span class="nd">@NonNull</span><span class="w"> </span><span class="n">SparkScanView</span><span class="w"> </span><span class="n">view</span>
+<span class="p">)</span><span class="w"> </span><span class="p">{</span>
+
+<span class="p">}</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="section" id="customization">
+<h6><strong>Customization</strong><a class="headerlink" href="#customization" title="Permalink to this headline"></a></h6>
+<div class="section" id="customize-colors-and-texts">
+<h7>Customize colors and texts<a class="headerlink" href="#customize-colors-and-texts" title="Permalink to this headline"></a></h7>
+<p>All texts (guidance inside the trigger button and hints’ messages), colors and opacity of the SparkScan UI elements (trigger button, setting toolbar, toasts) can be customized to match the desired language and color scheme.</p>
+<p>Please refer to <a class="reference internal" href="barcode-capture/api/ui/spark-scan-view.html#class-scandit.datacapture.barcode.spark.ui.SparkScanView" title="SparkScanView class">SparkScanView</a> for the full list of available parameters.</p>
+</div>
+<div class="section" id="add-controls-to-the-setting-toolbar">
+<h7>Add Controls to the Setting Toolbar<a class="headerlink" href="#add-controls-to-the-setting-toolbar" title="Permalink to this headline"></a></h7>
+<p>The Setting Toolbar comes with default buttons included, but the full list of available controls includes:</p>
+<ul class="simple">
+<li><p>Target Mode (visible by default)</p></li>
+<li><p>Continuous Mode</p></li>
+<li><p>Torch Control (visible by default)</p></li>
+<li><p>Audio Feedback Control</p></li>
+<li><p>Haptics Control</p></li>
+<li><p>Left-handed Mode</p></li>
+</ul>
+<p>In some cases you want to avoid end users from accessing these controls, for example:</p>
+<ul class="simple">
+<li><p>to prevent them disabling audio feedback on scan, as the work environment is always noisy</p></li>
+<li><p>to prevent them toggling the continuous mode, as you want them to pick items one by one</p></li>
+<li><p>etc.</p></li>
+</ul>
+<p>To add controls to the settings toolbar, just change the visibility of these buttons. Please refer to <a class="reference internal" href="barcode-capture/api/ui/spark-scan-view.html#class-scandit.datacapture.barcode.spark.ui.SparkScanView" title="SparkScanView class">SparkScanView</a> for the full list of parameters.</p>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+
+
+           </div>
+          </div>
+          <footer>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2024, Scandit AG.</p>
+  </div>
+
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+  <!-- Start of scandit Zendesk Widget script -->
+  <script id="ze-snippet" src="https://static.zdassets.com/ekr/snippet.js?key=df0234ee-7451-4189-8d1c-17c8a624b5f1">
+  </script>
+<script>
+      function getPlatformSuffix() {
+        const platform = 'android'
+        switch (platform) {
+          case 'android':         return 'for Android'
+          case 'ios':             return 'for iOS'
+          case 'cordova':         return 'for Cordova'
+          case 'react-native':    return 'for React Native'
+          case 'xamarin.ios':     return 'for Xamarin.iOS'
+          case 'xamarin.android': return 'for Xamarin.Android'
+          case 'xamarin.forms':   return 'for Xamarin.Forms'
+          case 'flutter':         return 'for Flutter'
+          case 'capacitor':       return 'for Capacitor'
+          case 'titanium':        return 'for Titanium'
+          case 'web':             return 'for the Web'
+          case 'dotnet.ios':      return 'for .NET for iOS'
+          case 'dotnet.android':  return 'for .NET for Android'
+          default:                return ''
+        }
+      }
+
+      const platformSuffix = getPlatformSuffix()
+      const headerTitle = document.querySelector(".icon-home")
+      headerTitle.insertAdjacentHTML('beforeend', ` ${platformSuffix}`)
+
+      const [major, minor] = DOCUMENTATION_OPTIONS.VERSION.split('.')
+      const version = document.querySelector(".version")
+      version.innerHTML = `
+        <div class="version">
+          <a href="${DOCUMENTATION_OPTIONS.URL_ROOT}release-notes/${major}.${minor}.html">Release Notes</a> 
+        </div>
+        <br>
+      `
+  </script>
+  <!-- End of scandit Zendesk Widget script -->
+
+</body>
+</html>

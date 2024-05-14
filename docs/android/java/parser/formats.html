@@ -1,0 +1,261 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Supported Data Formats &mdash; Data Capture SDK 6.24.0-rc.2 documentation</title>
+      <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/custom.css" type="text/css" />
+  <!--[if lt IE 9]>
+    <script src="../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
+        <script src="../_static/jquery.js"></script>
+        <script src="../_static/underscore.js"></script>
+        <script src="../_static/doctools.js"></script>
+    <script src="../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="HIBC" href="hibc.html" />
+    <link rel="prev" title="ScanditParser" href="overview.html" />
+  <!-- Google Tag Manager -->
+  <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+  new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+  j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+  'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+  })(window,document,'script','dataLayer','GTM-THQQFD7');</script>
+  <!-- End Google Tag Manager -->
+</head>
+
+<body class="wy-body-for-nav">
+  <!-- Google Tag Manager (noscript) -->
+  <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-THQQFD7"
+  height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+  <!-- End Google Tag Manager (noscript) -->
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+            <a href="../index.html" class="icon icon-home"> Data Capture SDK
+          </a>
+              <div class="version">
+                6.24.0-rc.2
+              </div>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">First Steps</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../samples/run-samples.html">Run Samples</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../add-sdk.html">Add the SDK to Your App</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../best-practices-for-usability.html">Best Practices for Usability</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Pre-Built Components</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../high-speed-single-scanning.html">High-Speed Single Scanning</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../batch-counting-and-receiving.html">Batch Counting And Receiving</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../selecting-one-of-many.html">Selecting One Of Many Barcodes</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../ar-assisted-search-and-find.html">AR-Assisted Search And Find</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Fully-Customizable API</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../id-scanning-and-verification.html">ID Scanning And Verification</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../batch-scanning-and-ar.html">Batch Scanning And AR</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../single-scanning.html">Single Scanning</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../text-capture.html">Text Capture</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../parse-barcode-data.html">Parse Barcode Data</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../advanced-topics.html">Advanced Topics</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">API Reference</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../core/overview.html">ScanditCaptureCore</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../barcode-capture/overview.html">ScanditBarcodeCapture</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../id-capture/overview.html">ScanditIdCapture</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../text-capture/overview.html">ScanditTextCapture</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../label-capture/overview.html">ScanditLabelCapture</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="overview.html">ScanditParser</a><ul class="current">
+<li class="toctree-l2 current"><a class="current reference internal" href="#">Supported Data Formats</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="hibc.html">HIBC</a></li>
+<li class="toctree-l3"><a class="reference internal" href="gs1ai.html">GS1 AI</a></li>
+<li class="toctree-l3"><a class="reference internal" href="gs1-digital-link.html">GS1 Digital Link</a></li>
+<li class="toctree-l3"><a class="reference internal" href="swissqr.html">Swiss QR</a></li>
+<li class="toctree-l3"><a class="reference internal" href="vin.html">VIN</a></li>
+<li class="toctree-l3"><a class="reference internal" href="iata-bcbp.html">IATA BCBP</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="result-object.html">Result Object Structure</a></li>
+<li class="toctree-l2"><a class="reference internal" href="api.html">API</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../genindex.html">Index</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">More Resources</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../release-notes.html">Release Notes</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../barcode-symbologies.html">Barcode Symbologies</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../requirements.html">System Requirements</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../support.html">Support &amp; FAQ</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../features-by-platform.html">Features By Framework</a></li>
+<li class="toctree-l1"><a class="reference external" href="https://docs.scandit.com/barcode-scanner-sdk.html">SDK 5.x Documentation [Deprecated]</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../migrate-to-6.html">Migrate from Barcode Scanner 5.x</a></li>
+<li class="toctree-l1"><a class="reference external" href="http://ssl.scandit.com">Your Developer Dashboard</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">Data Capture SDK</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation" class="navbar">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../index.html" class="icon icon-home" aria-label="Home"></a></li>
+          <li class="breadcrumb-item"><a href="overview.html">ScanditParser</a></li>
+      <li class="breadcrumb-item active">Supported Data Formats</li>
+      <li class="wy-breadcrumbs-aside">
+      </li>
+  </ul>
+  <div class="auth-link-container">
+    <a class="signup-link signup-link--mobile" rel="noopener" target="_blank" href="https://ssl.scandit.com/dashboard/sign-up?p=test&utm_source=documentation">Sign up</a>
+    <a class="signup-link" target="_blank" rel="noopener" href="https://ssl.scandit.com/dashboard/sign-up?p=test&utm_source=documentation">Sign up for your developer account</a>
+    <a class="signin-link" target="_blank" rel="noopener" href="https://ssl.scandit.com/dashboard/sign-in">Log in</a>
+  </div>
+</div>
+<hr/>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <div class="section" id="supported-data-formats">
+<h1>Supported Data Formats<a class="headerlink" href="#supported-data-formats" title="Permalink to this headline"></a></h1>
+<div class="toctree-wrapper compound">
+</div>
+<p>This pages gives a short overview of supported data formats that the parser understands and links to further information.</p>
+<p><strong>HIBC (Health Industry Bar Code)</strong></p>
+<p>HIBC is an industrial standard used in the medical space. HIBC data is encoded in Code 128, Code 39, Aztec, Data Matrix ECC200 or QR codes. HIBC data always starts with a <cite>+</cite> character.</p>
+<p><em>Example Codes:</em></p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="s2">&quot;+HIBCMED121/$1728/S87V&quot;</span>
+</pre></div>
+</div>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="s2">&quot;+$A1234GU&quot;</span>
+</pre></div>
+</div>
+<p>For further details, take a look at the <a class="reference internal" href="hibc.html"><span class="doc">HIBC format docs</span></a>.</p>
+<p><strong>GS1 AI</strong></p>
+<p>The GS1 Application Identifier (AI) system defines a comprehensive set of numeric keys for compact data representation. GS1 AI data may be encoded in a large number of different barcode symbologies, including ITF, Code 128, DataBar, Data Matrix and QR.</p>
+<p><em>Example Code:</em></p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="s2">&quot;1719060010SCANDIT123&quot;</span>
+</pre></div>
+</div>
+<p>For further details, take a look at the <a class="reference internal" href="gs1ai.html"><span class="doc">GS1 AI format docs</span></a>.</p>
+<p><strong>GS1 Digital Link</strong></p>
+<p>The GS1 Digital Link (DL) system defines a standard method for encoding GS1 application identifiers in a way that they can be encoded in a barcode and scanned and used to connect to online information. GS1 Digital Link URIs may be encoded in a large number of different barcode symbologies, including Data Matrix, and QR.</p>
+<p><em>Example Code:</em></p>
+<dl class="simple">
+<dt>::</dt><dd><p>“<a class="reference external" href="https://id.gs1.org/01/09506000134352/10/PX8L/21/1BAAAA2BB3?17=141100">https://id.gs1.org/01/09506000134352/10/PX8L/21/1BAAAA2BB3?17=141100</a>”</p>
+</dd>
+</dl>
+<p>For further details, refer to the <a class="reference internal" href="gs1-digital-link.html"><span class="doc">GS1 Digital Link format docs</span></a>.</p>
+<p><strong>Swiss QR</strong></p>
+<p>The ISO 20022 standard defines how payment information is encoded in a specific type of QR codes, called Swiss QR codes. Swiss QR codes can be recognized by their swiss cross in the centre of the code.</p>
+<p><em>Example Code:</em></p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="s2">&quot;SPC</span><span class="se">\r\n</span><span class="s2">0100</span><span class="se">\r\n</span><span class="s2">1</span><span class="se">\r\n</span><span class="s2">CH6812345678901234567</span><span class="se">\r\n</span><span class="s2">Scandit AG</span><span class="se">\r\n</span><span class="s2">Limmatstrasse</span><span class="se">\r\n</span><span class="s2">73</span><span class="se">\r\n</span><span class="s2">8005</span><span class="se">\r\n</span><span class="s2">Zuerich</span><span class="se">\r\n</span><span class="s2">CH</span><span class="se">\r\n\r\n\r\n\r\n\r\n\r\n\r\n</span><span class="s2">1234.00</span><span class="se">\r\n</span><span class="s2">CHF</span><span class="se">\r\n</span><span class="s2">2020-01-01</span><span class="se">\r\n\r\n\r\n\r\n\r\n\r\n\r\n</span><span class="s2">NON</span><span class="se">\r\n\r\n</span><span class="s2">test code</span><span class="se">\r\n</span><span class="s2">&quot;</span>
+</pre></div>
+</div>
+<p>For further details, take a look at the <a class="reference internal" href="swissqr.html"><span class="doc">SwissQR format docs</span></a>.</p>
+<p><strong>VIN (Vehicle Identification Number)</strong></p>
+<p>VIN (Vehicle Identification Number) is a unique code used by the automotive industry to identify vehicles (please refer to <a class="reference external" href="https://en.wikipedia.org/wiki/Vehicle_identification_number">Wikipedia</a> for more details).
+The structure of the code is defined by <a class="reference external" href="https://www.iso.org/standard/52200.html">ISO 3779</a>, though there are variations
+of the standards in use that differ based on the region (e.g., North America or EU).</p>
+<p><em>Example Codes:</em></p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="s2">&quot;5UXFG2C50DL782277&quot;</span>
+</pre></div>
+</div>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="s2">&quot;WVWZZZ1JZ3W386752&quot;</span>
+</pre></div>
+</div>
+<p>For further details, take a look at the <a class="reference internal" href="vin.html"><span class="doc">VIN format docs</span></a>.</p>
+<p><strong>IATA BCBP</strong></p>
+<p>The IATA BCBP (Bar Coded Boarding Pass) standard defines a format for representing boarding pass related data such that it can be encoded using PDF417, Aztec, Datamatrix or QR symbologies.</p>
+<p><em>Example Code:</em></p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="s2">&quot;M1DESMARAIS/LUC       EABC123 YULFRAAC 0834 226F001A0025 100&quot;</span>
+</pre></div>
+</div>
+<p>For further details, please refer to <a class="reference internal" href="iata-bcbp.html"><span class="doc">IATA BCBP docs</span></a>.</p>
+</div>
+
+
+           </div>
+          </div>
+          <footer>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2024, Scandit AG.</p>
+  </div>
+
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+  <!-- Start of scandit Zendesk Widget script -->
+  <script id="ze-snippet" src="https://static.zdassets.com/ekr/snippet.js?key=df0234ee-7451-4189-8d1c-17c8a624b5f1">
+  </script>
+<script>
+      function getPlatformSuffix() {
+        const platform = 'android'
+        switch (platform) {
+          case 'android':         return 'for Android'
+          case 'ios':             return 'for iOS'
+          case 'cordova':         return 'for Cordova'
+          case 'react-native':    return 'for React Native'
+          case 'xamarin.ios':     return 'for Xamarin.iOS'
+          case 'xamarin.android': return 'for Xamarin.Android'
+          case 'xamarin.forms':   return 'for Xamarin.Forms'
+          case 'flutter':         return 'for Flutter'
+          case 'capacitor':       return 'for Capacitor'
+          case 'titanium':        return 'for Titanium'
+          case 'web':             return 'for the Web'
+          case 'dotnet.ios':      return 'for .NET for iOS'
+          case 'dotnet.android':  return 'for .NET for Android'
+          default:                return ''
+        }
+      }
+
+      const platformSuffix = getPlatformSuffix()
+      const headerTitle = document.querySelector(".icon-home")
+      headerTitle.insertAdjacentHTML('beforeend', ` ${platformSuffix}`)
+
+      const [major, minor] = DOCUMENTATION_OPTIONS.VERSION.split('.')
+      const version = document.querySelector(".version")
+      version.innerHTML = `
+        <div class="version">
+          <a href="${DOCUMENTATION_OPTIONS.URL_ROOT}release-notes/${major}.${minor}.html">Release Notes</a> 
+        </div>
+        <br>
+      `
+  </script>
+  <!-- End of scandit Zendesk Widget script -->
+
+</body>
+</html>

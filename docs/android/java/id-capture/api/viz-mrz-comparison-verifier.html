@@ -1,0 +1,441 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>VIZ MRZ Comparison Verifier &mdash; Data Capture SDK 6.24.0-rc.2 documentation</title>
+      <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
+    <link rel="stylesheet" href="../../_static/custom.css" type="text/css" />
+  <!--[if lt IE 9]>
+    <script src="../../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script data-url_root="../../" id="documentation_options" src="../../_static/documentation_options.js"></script>
+        <script src="../../_static/jquery.js"></script>
+        <script src="../../_static/underscore.js"></script>
+        <script src="../../_static/doctools.js"></script>
+    <script src="../../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
+    <link rel="next" title="VIZ Result" href="viz-result.html" />
+    <link rel="prev" title="US Visa VIZ Result" href="us-visa-viz-result.html" />
+  <!-- Google Tag Manager -->
+  <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+  new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+  j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+  'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+  })(window,document,'script','dataLayer','GTM-THQQFD7');</script>
+  <!-- End Google Tag Manager -->
+</head>
+
+<body class="wy-body-for-nav">
+  <!-- Google Tag Manager (noscript) -->
+  <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-THQQFD7"
+  height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+  <!-- End Google Tag Manager (noscript) -->
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+            <a href="../../index.html" class="icon icon-home"> Data Capture SDK
+          </a>
+              <div class="version">
+                6.24.0-rc.2
+              </div>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">First Steps</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../samples/run-samples.html">Run Samples</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../add-sdk.html">Add the SDK to Your App</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../best-practices-for-usability.html">Best Practices for Usability</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Pre-Built Components</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../high-speed-single-scanning.html">High-Speed Single Scanning</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../batch-counting-and-receiving.html">Batch Counting And Receiving</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../selecting-one-of-many.html">Selecting One Of Many Barcodes</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../ar-assisted-search-and-find.html">AR-Assisted Search And Find</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Fully-Customizable API</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../id-scanning-and-verification.html">ID Scanning And Verification</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../batch-scanning-and-ar.html">Batch Scanning And AR</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../single-scanning.html">Single Scanning</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../text-capture.html">Text Capture</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../parse-barcode-data.html">Parse Barcode Data</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../advanced-topics.html">Advanced Topics</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">API Reference</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../../core/overview.html">ScanditCaptureCore</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../barcode-capture/overview.html">ScanditBarcodeCapture</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../overview.html">ScanditIdCapture</a><ul class="current">
+<li class="toctree-l2 current"><a class="reference internal" href="../api.html">API</a><ul class="current">
+<li class="toctree-l3"><a class="reference internal" href="aamva-barcode-result.html">AAMVA Barcode Result</a></li>
+<li class="toctree-l3"><a class="reference internal" href="aamva-barcode-verifier.html">AAMVA Barcode Verifier</a></li>
+<li class="toctree-l3"><a class="reference internal" href="aamva-viz-barcode-comparison-verifier.html">AAMVA VIZ Barcode Comparison Verifier</a></li>
+<li class="toctree-l3"><a class="reference internal" href="apec-business-travel-card-mrz-result.html">APEC Business Travel Card MRZ Result</a></li>
+<li class="toctree-l3"><a class="reference internal" href="argentina-id-barcode-result.html">Argentina ID Barcode Result</a></li>
+<li class="toctree-l3"><a class="reference internal" href="captured-id.html">Captured ID</a></li>
+<li class="toctree-l3"><a class="reference internal" href="captured-result-type.html">Captured Result Type</a></li>
+<li class="toctree-l3"><a class="reference internal" href="china-exit-entry-permit-mrz-result.html">China Exit-Entry Permit MRZ Result</a></li>
+<li class="toctree-l3"><a class="reference internal" href="china-mainland-travel-permit-mrz-result.html">China Mainland Travel Permit MRZ Result</a></li>
+<li class="toctree-l3"><a class="reference internal" href="china-one-way-permit-back-mrz-result.html">China One-Way Permit to Hong Kong/Macau Back MRZ Result</a></li>
+<li class="toctree-l3"><a class="reference internal" href="china-one-way-permit-front-mrz-result.html">China One-Way Permit to Hong Kong/Macau Front MRZ Result</a></li>
+<li class="toctree-l3"><a class="reference internal" href="colombia-dl-barcode-result.html">Colombia DL Barcode Result</a></li>
+<li class="toctree-l3"><a class="reference internal" href="colombia-id-barcode-result.html">Colombia ID Barcode Result</a></li>
+<li class="toctree-l3"><a class="reference internal" href="common-access-card-barcode-result.html">Common Access Card Barcode Result</a></li>
+<li class="toctree-l3"><a class="reference internal" href="date-result.html">Date Result</a></li>
+<li class="toctree-l3"><a class="reference internal" href="document-type.html">Document Type</a></li>
+<li class="toctree-l3"><a class="reference internal" href="id-anonymization-mode.html">ID Anonymization Mode</a></li>
+<li class="toctree-l3"><a class="reference internal" href="id-capture-exception.html">ID Capture Exception</a></li>
+<li class="toctree-l3"><a class="reference internal" href="id-capture-feedback.html">Id Capture Feedback</a></li>
+<li class="toctree-l3"><a class="reference internal" href="id-capture-listener.html">ID Capture Listener</a></li>
+<li class="toctree-l3"><a class="reference internal" href="id-capture-session.html">ID Capture Session</a></li>
+<li class="toctree-l3"><a class="reference internal" href="id-capture-settings.html">ID Capture Settings</a></li>
+<li class="toctree-l3"><a class="reference internal" href="id-capture.html">ID Capture</a></li>
+<li class="toctree-l3"><a class="reference internal" href="id-document-type.html">ID Document Type</a></li>
+<li class="toctree-l3"><a class="reference internal" href="id-image-type.html">ID Image Type</a></li>
+<li class="toctree-l3"><a class="reference internal" href="id-supported-document-sides.html">ID Supported Sides</a></li>
+<li class="toctree-l3"><a class="reference internal" href="localized-only-id.html">Localized Only ID</a></li>
+<li class="toctree-l3"><a class="reference internal" href="mrz-result.html">MRZ Result</a></li>
+<li class="toctree-l3"><a class="reference internal" href="rejected-id.html">Rejected ID</a></li>
+<li class="toctree-l3"><a class="reference internal" href="rejection-reason.html">Rejection Reason</a></li>
+<li class="toctree-l3"><a class="reference internal" href="south-africa-dl-barcode-result.html">South Africa DL Barcode Result</a></li>
+<li class="toctree-l3"><a class="reference internal" href="south-africa-id-barcode-result.html">South Africa ID Barcode Result</a></li>
+<li class="toctree-l3"><a class="reference internal" href="us-uniformed-services-barcode-result.html">Us Uniformed Services Barcode Result</a></li>
+<li class="toctree-l3"><a class="reference internal" href="us-visa-viz-result.html">US Visa VIZ Result</a></li>
+<li class="toctree-l3 current"><a class="current reference internal" href="#">VIZ MRZ Comparison Verifier</a></li>
+<li class="toctree-l3"><a class="reference internal" href="viz-result.html">VIZ Result</a></li>
+<li class="toctree-l3"><a class="reference internal" href="ui/id-capture-overlay.html">ID Capture Overlay</a></li>
+<li class="toctree-l3"><a class="reference internal" href="ui/id-layout.html">ID Layout</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../text-capture/overview.html">ScanditTextCapture</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../label-capture/overview.html">ScanditLabelCapture</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../parser/overview.html">ScanditParser</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../genindex.html">Index</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">More Resources</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../release-notes.html">Release Notes</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../barcode-symbologies.html">Barcode Symbologies</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../requirements.html">System Requirements</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../support.html">Support &amp; FAQ</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../features-by-platform.html">Features By Framework</a></li>
+<li class="toctree-l1"><a class="reference external" href="https://docs.scandit.com/barcode-scanner-sdk.html">SDK 5.x Documentation [Deprecated]</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../migrate-to-6.html">Migrate from Barcode Scanner 5.x</a></li>
+<li class="toctree-l1"><a class="reference external" href="http://ssl.scandit.com">Your Developer Dashboard</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../index.html">Data Capture SDK</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation" class="navbar">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../../index.html" class="icon icon-home" aria-label="Home"></a></li>
+          <li class="breadcrumb-item"><a href="../overview.html">ScanditIdCapture</a></li>
+          <li class="breadcrumb-item"><a href="../api.html">ScanditIdCapture API</a></li>
+      <li class="breadcrumb-item active">VIZ MRZ Comparison Verifier</li>
+      <li class="wy-breadcrumbs-aside">
+      </li>
+  </ul>
+  <div class="auth-link-container">
+    <a class="signup-link signup-link--mobile" rel="noopener" target="_blank" href="https://ssl.scandit.com/dashboard/sign-up?p=test&utm_source=documentation">Sign up</a>
+    <a class="signup-link" target="_blank" rel="noopener" href="https://ssl.scandit.com/dashboard/sign-up?p=test&utm_source=documentation">Sign up for your developer account</a>
+    <a class="signin-link" target="_blank" rel="noopener" href="https://ssl.scandit.com/dashboard/sign-in">Log in</a>
+  </div>
+</div>
+<hr/>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <div class="section" id="viz-mrz-comparison-verifier">
+<h1>VIZ MRZ Comparison Verifier<a class="headerlink" href="#viz-mrz-comparison-verifier" title="Permalink to this headline"></a></h1>
+<p>Defined in package <em>com.scandit.datacapture.id.verification.vizmrz</em></p>
+<dl>
+<dt class="sig sig-object unilang" id="enum-scandit.datacapture.id.VizMrzComparisonCheckResult">
+<span class="sig-name descname"><span class="pre">VizMrzComparisonCheckResult</span></span><a class="headerlink" href="#enum-scandit.datacapture.id.VizMrzComparisonCheckResult" title="Permalink to this definition"></a></dt>
+<dd><p><span class="versionmodified versionadded">Added in version 6.18.0</span></p>
+<p>The result of a comparison done by <a class="reference internal" href="#class-scandit.datacapture.id.VizMrzComparisonVerifier" title="VizMrzComparisonVerifier class">VizMrzComparisonVerifier</a> of a single piece of data from a personal identification document with a VIZ and an MRZ.</p>
+<dl>
+<dt class="sig sig-object unilang" id="value-scandit.datacapture.id.VizMrzComparisonCheckResult.Passed">
+<span class="sig-name descname"><span class="pre">PASSED</span></span><a class="headerlink" href="#value-scandit.datacapture.id.VizMrzComparisonCheckResult.Passed" title="Permalink to this definition"></a></dt>
+<dd><p><span class="versionmodified versionadded">Added in version 6.18.0</span></p>
+<p>The compared data matches. In some instances the check may permit minor data divergence, to compensate, for example, for a single character misread by OCR.</p>
+</dd></dl>
+
+<dl>
+<dt class="sig sig-object unilang" id="value-scandit.datacapture.id.VizMrzComparisonCheckResult.Failed">
+<span class="sig-name descname"><span class="pre">FAILED</span></span><a class="headerlink" href="#value-scandit.datacapture.id.VizMrzComparisonCheckResult.Failed" title="Permalink to this definition"></a></dt>
+<dd><p><span class="versionmodified versionadded">Added in version 6.18.0</span></p>
+<p>Some suspicious differences detected. This doesn’t automatically mean that the document is fraudulent, but such document should be inspected more carefully.</p>
+</dd></dl>
+
+<dl>
+<dt class="sig sig-object unilang" id="value-scandit.datacapture.id.VizMrzComparisonCheckResult.Skipped">
+<span class="sig-name descname"><span class="pre">SKIPPED</span></span><a class="headerlink" href="#value-scandit.datacapture.id.VizMrzComparisonCheckResult.Skipped" title="Permalink to this definition"></a></dt>
+<dd><p><span class="versionmodified versionadded">Added in version 6.18.0</span></p>
+<p>The data necessary to perform the check is missing and thus it is skipped.</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl>
+<dt class="sig sig-object unilang" id="interface-scandit.datacapture.id.VizMrzComparisonCheck">
+<span class="sig-name descname"><span class="pre">VizMrzComparisonCheck</span></span><a class="headerlink" href="#interface-scandit.datacapture.id.VizMrzComparisonCheck" title="Permalink to this definition"></a></dt>
+<dd><pre class="full-signature"><span class="sig-name descname">interface VizMrzComparisonCheck</span>&lt;&#64;NonNull <code class="docutils literal notranslate"><span class="pre">T</span></code>&gt;</pre><p><span class="versionmodified versionadded">Added in version 6.18.0</span></p>
+<p>A comparison done by <a class="reference internal" href="#class-scandit.datacapture.id.VizMrzComparisonVerifier" title="VizMrzComparisonVerifier class">VizMrzComparisonVerifier</a> of a single piece of data from a personal identification document with a VIZ and an MRZ.</p>
+<dl>
+<dt class="sig sig-object unilang" id="property-scandit.datacapture.id.VizMrzComparisonCheck.CheckResult">
+<span class="sig-name descname"><span class="pre">checkResult</span></span><a class="headerlink" href="#property-scandit.datacapture.id.VizMrzComparisonCheck.CheckResult" title="Permalink to this definition"></a></dt>
+<dd><pre class="full-signature"><a class="reference internal" href="#enum-scandit.datacapture.id.VizMrzComparisonCheckResult" title="VizMrzComparisonCheckResult enum">VizMrzComparisonCheckResult</a> <span class="sig-name descname">getCheckResult</span>()
+</pre><p><span class="versionmodified versionadded">Added in version 6.18.0</span></p>
+<p>Whether any suspicious divergence in data is detected.</p>
+</dd></dl>
+
+<dl>
+<dt class="sig sig-object unilang" id="property-scandit.datacapture.id.VizMrzComparisonCheck.ResultDescription">
+<span class="sig-name descname"><span class="pre">resultDescription</span></span><a class="headerlink" href="#property-scandit.datacapture.id.VizMrzComparisonCheck.ResultDescription" title="Permalink to this definition"></a></dt>
+<dd><pre class="full-signature">&#64;NonNull <a class="reference external" href="https://developer.android.com/reference/java/lang/String.html" title="String">String</a> <span class="sig-name descname">getResultDescription</span>()
+</pre><p><span class="versionmodified versionadded">Added in version 6.18.0</span></p>
+<p>The human-readable result of the comparison.</p>
+</dd></dl>
+
+<dl>
+<dt class="sig sig-object unilang" id="property-scandit.datacapture.id.VizMrzComparisonCheck.VizValue">
+<span class="sig-name descname"><span class="pre">vizValue</span></span><a class="headerlink" href="#property-scandit.datacapture.id.VizMrzComparisonCheck.VizValue" title="Permalink to this definition"></a></dt>
+<dd><pre class="full-signature">&#64;NonNull <code class="docutils literal notranslate"><span class="pre">T</span></code> <span class="sig-name descname">getVizValue</span>()
+</pre><p><span class="versionmodified versionadded">Added in version 6.18.0</span></p>
+<p>The piece of data extracted from the human-readable zone of a personal identification document with a VIZ and an MRZ.</p>
+</dd></dl>
+
+<dl>
+<dt class="sig sig-object unilang" id="property-scandit.datacapture.id.VizMrzComparisonCheck.MrzValue">
+<span class="sig-name descname"><span class="pre">mrzValue</span></span><a class="headerlink" href="#property-scandit.datacapture.id.VizMrzComparisonCheck.MrzValue" title="Permalink to this definition"></a></dt>
+<dd><pre class="full-signature">&#64;NonNull <code class="docutils literal notranslate"><span class="pre">T</span></code> <span class="sig-name descname">getMrzValue</span>()
+</pre><p><span class="versionmodified versionadded">Added in version 6.18.0</span></p>
+<p>The piece of data extracted from the MRZ present at the front or the back side of a personal identification document with a VIZ and an MRZ.</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl>
+<dt class="sig sig-object unilang" id="class-scandit.datacapture.id.VizMrzComparisonResult">
+<span class="sig-name descname"><span class="pre">VizMrzComparisonResult</span></span><a class="headerlink" href="#class-scandit.datacapture.id.VizMrzComparisonResult" title="Permalink to this definition"></a></dt>
+<dd><pre class="full-signature"><span class="sig-name descname">class VizMrzComparisonResult</span></pre><p><span class="versionmodified versionadded">Added in version 6.18.0</span></p>
+<p>The result of a personal identification document with a VIZ and an MRZ verification conducted by <a class="reference internal" href="#class-scandit.datacapture.id.VizMrzComparisonVerifier" title="VizMrzComparisonVerifier class">VizMrzComparisonVerifier</a>.</p>
+<dl>
+<dt class="sig sig-object unilang" id="property-scandit.datacapture.id.VizMrzComparisonResult.ChecksPassed">
+<span class="sig-name descname"><span class="pre">checksPassed</span></span><a class="headerlink" href="#property-scandit.datacapture.id.VizMrzComparisonResult.ChecksPassed" title="Permalink to this definition"></a></dt>
+<dd><pre class="full-signature"><code class="docutils literal notranslate"><span class="pre">boolean</span></code> <span class="sig-name descname">getChecksPassed</span>()
+</pre><p><span class="versionmodified versionadded">Added in version 6.18.0</span></p>
+<p>Whether all the checks conducted by the verifier passed. Only the check that were run count, so <em>true</em> is returned even if some of the checks were skipped.</p>
+</dd></dl>
+
+<dl>
+<dt class="sig sig-object unilang" id="property-scandit.datacapture.id.VizMrzComparisonResult.FullNamesMatch">
+<span class="sig-name descname"><span class="pre">fullNamesMatch</span></span><a class="headerlink" href="#property-scandit.datacapture.id.VizMrzComparisonResult.FullNamesMatch" title="Permalink to this definition"></a></dt>
+<dd><pre class="full-signature">&#64;NonNull <a class="reference internal" href="#interface-scandit.datacapture.id.VizMrzComparisonCheck" title="VizMrzComparisonCheck interface">VizMrzComparisonCheck</a>&lt;&#64;NonNull <a class="reference external" href="https://developer.android.com/reference/java/lang/String.html" title="String">String</a>&gt; <span class="sig-name descname">getFullNamesMatch</span>()
+</pre><p><span class="versionmodified versionadded">Added in version 6.18.0</span></p>
+<p>Whether the holder’s full names extracted from both sources of the data match. This check may permit minor data divergence, to compensate, for example, for a single character misread by OCR.</p>
+</dd></dl>
+
+<dl>
+<dt class="sig sig-object unilang" id="property-scandit.datacapture.id.VizMrzComparisonResult.DocumentNumbersMatch">
+<span class="sig-name descname"><span class="pre">documentNumbersMatch</span></span><a class="headerlink" href="#property-scandit.datacapture.id.VizMrzComparisonResult.DocumentNumbersMatch" title="Permalink to this definition"></a></dt>
+<dd><pre class="full-signature">&#64;NonNull <a class="reference internal" href="#interface-scandit.datacapture.id.VizMrzComparisonCheck" title="VizMrzComparisonCheck interface">VizMrzComparisonCheck</a>&lt;&#64;NonNull <a class="reference external" href="https://developer.android.com/reference/java/lang/String.html" title="String">String</a>&gt; <span class="sig-name descname">getDocumentNumbersMatch</span>()
+</pre><p><span class="versionmodified versionadded">Added in version 6.18.0</span></p>
+<p>Whether the document numbers extracted from both sources of the data match. This check may permit minor data divergence, to compensate, for example, for a single character misread by OCR.</p>
+</dd></dl>
+
+<dl>
+<dt class="sig sig-object unilang" id="property-scandit.datacapture.id.VizMrzComparisonResult.DatesOfBirthMatch">
+<span class="sig-name descname"><span class="pre">datesOfBirthMatch</span></span><a class="headerlink" href="#property-scandit.datacapture.id.VizMrzComparisonResult.DatesOfBirthMatch" title="Permalink to this definition"></a></dt>
+<dd><pre class="full-signature">&#64;NonNull <a class="reference internal" href="#interface-scandit.datacapture.id.VizMrzComparisonCheck" title="VizMrzComparisonCheck interface">VizMrzComparisonCheck</a>&lt;&#64;NonNull <a class="reference internal" href="date-result.html#class-scandit.datacapture.id.DateResult" title="DateResult class">DateResult</a>&gt; <span class="sig-name descname">getDatesOfBirthMatch</span>()
+</pre><p><span class="versionmodified versionadded">Added in version 6.18.0</span></p>
+<p>Whether the holder’s dates of birth extracted from both sources of the data are the same.</p>
+</dd></dl>
+
+<dl>
+<dt class="sig sig-object unilang" id="property-scandit.datacapture.id.VizMrzComparisonResult.DatesOfExpiryMatch">
+<span class="sig-name descname"><span class="pre">datesOfExpiryMatch</span></span><a class="headerlink" href="#property-scandit.datacapture.id.VizMrzComparisonResult.DatesOfExpiryMatch" title="Permalink to this definition"></a></dt>
+<dd><pre class="full-signature">&#64;NonNull <a class="reference internal" href="#interface-scandit.datacapture.id.VizMrzComparisonCheck" title="VizMrzComparisonCheck interface">VizMrzComparisonCheck</a>&lt;&#64;NonNull <a class="reference internal" href="date-result.html#class-scandit.datacapture.id.DateResult" title="DateResult class">DateResult</a>&gt; <span class="sig-name descname">getDatesOfExpiryMatch</span>()
+</pre><p><span class="versionmodified versionadded">Added in version 6.18.0</span></p>
+<p>Whether the document’s dates of expiry extracted from both sources of the data are the same.</p>
+</dd></dl>
+
+<dl>
+<dt class="sig sig-object unilang" id="property-scandit.datacapture.id.VizMrzComparisonResult.IssuingCountryIsoMatch">
+<span class="sig-name descname"><span class="pre">issuingCountryIsoMatch</span></span><a class="headerlink" href="#property-scandit.datacapture.id.VizMrzComparisonResult.IssuingCountryIsoMatch" title="Permalink to this definition"></a></dt>
+<dd><pre class="full-signature">&#64;NonNull <a class="reference internal" href="#interface-scandit.datacapture.id.VizMrzComparisonCheck" title="VizMrzComparisonCheck interface">VizMrzComparisonCheck</a>&lt;&#64;NonNull <a class="reference external" href="https://developer.android.com/reference/java/lang/String.html" title="String">String</a>&gt; <span class="sig-name descname">getIssuingCountryIsoMatch</span>()
+</pre><p><span class="versionmodified versionadded">Added in version 6.18.0</span></p>
+<p>Whether the issuing countries extracted from both sources of the data are the same.</p>
+</dd></dl>
+
+<dl>
+<dt class="sig sig-object unilang" id="property-scandit.datacapture.id.VizMrzComparisonResult.ResultDescription">
+<span class="sig-name descname"><span class="pre">resultDescription</span></span><a class="headerlink" href="#property-scandit.datacapture.id.VizMrzComparisonResult.ResultDescription" title="Permalink to this definition"></a></dt>
+<dd><pre class="full-signature">&#64;NonNull <a class="reference external" href="https://developer.android.com/reference/java/lang/String.html" title="String">String</a> <span class="sig-name descname">getResultDescription</span>()
+</pre><p><span class="versionmodified versionadded">Added in version 6.18.0</span></p>
+<p>The human-readable result of the verification.</p>
+</dd></dl>
+
+<dl>
+<dt class="sig sig-object unilang" id="method-scandit.datacapture.id.VizMrzComparisonResult.ToJson">
+<span class="sig-name descname"><span class="pre">toJson()</span></span><a class="headerlink" href="#method-scandit.datacapture.id.VizMrzComparisonResult.ToJson" title="Permalink to this definition"></a></dt>
+<dd><pre class="full-signature">&#64;NonNull <a class="reference external" href="https://developer.android.com/reference/java/lang/String.html" title="String">String</a> <span class="sig-name descname">toJson</span>()</pre><p><span class="versionmodified versionadded">Added in version 6.18.0</span></p>
+<p>Returns the JSON representation of this object.</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl>
+<dt class="sig sig-object unilang" id="class-scandit.datacapture.id.VizMrzComparisonVerifier">
+<span class="sig-name descname"><span class="pre">VizMrzComparisonVerifier</span></span><a class="headerlink" href="#class-scandit.datacapture.id.VizMrzComparisonVerifier" title="Permalink to this definition"></a></dt>
+<dd><pre class="full-signature"><span class="sig-name descname">class VizMrzComparisonVerifier</span></pre><p><span class="versionmodified versionadded">Added in version 6.18.0</span></p>
+<p>Verifies a personal identification document with a VIZ and an MRZ by comparing the human-readable data of the document with the data encoded in the MRZ, and signals any suspicious differences.</p>
+<p>The verifier may permit minor data divergence, to compensate, for example, for a single character misread by OCR. Thus, while it automatically detects many fraudulent documents, a failed check does not necessary mean that the document is invalid. It is up to the user to subject such documents to additional scrutiny.</p>
+<p>Create the verifier and initialize <a class="reference internal" href="id-capture.html#class-scandit.datacapture.id.IdCapture" title="IdCapture class">IdCapture</a> with the following settings:</p>
+<div class="highlight-java notranslate"><div class="highlight"><pre><span></span><span class="n">DataCaptureContext</span><span class="w"> </span><span class="n">dataCaptureContext</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">DataCaptureContext</span><span class="p">.</span><span class="na">forLicenseKey</span><span class="p">(</span><span class="s">&quot;-- ENTER YOUR SCANDIT LICENSE KEY HERE --&quot;</span><span class="p">);</span>
+
+<span class="n">VizMrzComparisonVerifier</span><span class="w"> </span><span class="n">verifier</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">VizMrzComparisonVerifier</span><span class="p">.</span><span class="na">create</span><span class="p">();</span>
+
+<span class="n">IdCaptureSettings</span><span class="w"> </span><span class="n">settings</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">IdCaptureSettings</span><span class="p">();</span>
+<span class="n">settings</span><span class="p">.</span><span class="na">setSupportedDocuments</span><span class="p">(</span><span class="n">IdDocumentType</span><span class="p">.</span><span class="na">ID_CARD_VIZ</span><span class="p">);</span>
+<span class="n">settings</span><span class="p">.</span><span class="na">setSupportedSides</span><span class="p">(</span><span class="n">SupportedSides</span><span class="p">.</span><span class="na">FRONT_AND_BACK</span><span class="p">);</span>
+
+<span class="n">IdCapture</span><span class="w"> </span><span class="n">idCapture</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">IdCapture</span><span class="p">.</span><span class="na">create</span><span class="p">(</span><span class="n">dataCaptureContext</span><span class="p">,</span><span class="w"> </span><span class="n">settings</span><span class="p">);</span>
+</pre></div>
+</div>
+<p>Then proceed to capture the front side &amp; the back side of a document as usual. After you capture the back side and receive the combined result for both sides, you may run the verifier as follows:</p>
+<div class="highlight-java notranslate"><div class="highlight"><pre><span></span><span class="nd">@override</span>
+<span class="kt">void</span><span class="w"> </span><span class="nf">didCaptureId</span><span class="p">(</span><span class="n">IdCapture</span><span class="w"> </span><span class="n">idCapture</span><span class="p">,</span><span class="w"> </span><span class="n">IdCaptureSession</span><span class="w"> </span><span class="n">session</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="n">CapturedId</span><span class="w"> </span><span class="n">capturedId</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">session</span><span class="p">.</span><span class="na">getNewlyCapturedId</span><span class="p">();</span>
+<span class="w">    </span><span class="n">VizResult</span><span class="w"> </span><span class="n">viz</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">capturedId</span><span class="p">.</span><span class="na">getViz</span><span class="p">();</span>
+<span class="w">    </span><span class="n">MrzResult</span><span class="w"> </span><span class="n">mrz</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">capturedId</span><span class="p">.</span><span class="na">getMrz</span><span class="p">();</span>
+
+<span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">viz</span><span class="w"> </span><span class="o">!=</span><span class="w"> </span><span class="kc">null</span><span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="n">viz</span><span class="p">.</span><span class="na">getCapturedSides</span><span class="p">()</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="n">SupportedSides</span><span class="p">.</span><span class="na">FRONT_AND_BACK</span><span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="n">mrz</span><span class="w"> </span><span class="o">!=</span><span class="w"> </span><span class="kc">null</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="n">VizMrzComparisonResult</span><span class="w"> </span><span class="n">result</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">verifier</span><span class="p">.</span><span class="na">verify</span><span class="p">(</span><span class="n">capturedId</span><span class="p">);</span>
+
+<span class="w">        </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">result</span><span class="p">.</span><span class="na">checksPassed</span><span class="p">())</span><span class="w"> </span><span class="p">{</span>
+<span class="w">            </span><span class="c1">// Nothing suspicious was detected.</span>
+<span class="w">        </span><span class="p">}</span><span class="w"> </span><span class="k">else</span><span class="w"> </span><span class="p">{</span>
+<span class="w">            </span><span class="c1">// You may inspect the results of individual checks, if you wish:</span>
+
+<span class="w">            </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">result</span><span class="p">.</span><span class="na">datesOfBirthMatch</span><span class="p">.</span><span class="na">checkResult</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="n">FAILED</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">                </span><span class="c1">// The holder’s date of birth from the VIZ does not match the one encoded in the MRZ.</span>
+<span class="w">            </span><span class="p">}</span>
+<span class="w">        </span><span class="p">}</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p>The return value allows you to query both the overall result of the verification and the results of individual checks. See <a class="reference internal" href="#class-scandit.datacapture.id.VizMrzComparisonResult" title="VizMrzComparisonResult class">VizMrzComparisonResult</a> for details.</p>
+<dl>
+<dt class="sig sig-object unilang" id="method-scandit.datacapture.id.VizMrzComparisonVerifier.Create">
+<span class="sig-name descname"><span class="pre">create()</span></span><a class="headerlink" href="#method-scandit.datacapture.id.VizMrzComparisonVerifier.Create" title="Permalink to this definition"></a></dt>
+<dd><pre class="full-signature">static &#64;NonNull <a class="reference internal" href="#class-scandit.datacapture.id.VizMrzComparisonVerifier" title="VizMrzComparisonVerifier class">VizMrzComparisonVerifier</a> <span class="sig-name descname">create</span>()</pre><p><span class="versionmodified versionadded">Added in version 6.18.0</span></p>
+<p>Creates a new instance of this verifier.</p>
+</dd></dl>
+
+<dl>
+<dt class="sig sig-object unilang">
+<span class="sig-name descname"><span class="pre">create(context)</span></span></dt>
+<dd><pre class="full-signature">static &#64;NonNull <a class="reference internal" href="#class-scandit.datacapture.id.VizMrzComparisonVerifier" title="VizMrzComparisonVerifier class">VizMrzComparisonVerifier</a> <span class="sig-name descname">create</span>(&#64;NonNull <a class="reference internal" href="../../core/api/data-capture-context.html#class-scandit.datacapture.core.DataCaptureContext" title="DataCaptureContext class">DataCaptureContext</a> <em>context</em>)</pre><p><span class="versionmodified versionadded">Added in version 6.22.0</span></p>
+<p>Creates a new instance of this verifier.</p>
+</dd></dl>
+
+<dl>
+<dt class="sig sig-object unilang" id="method-scandit.datacapture.id.VizMrzComparisonVerifier.Verify">
+<span class="sig-name descname"><span class="pre">verify(capturedId)</span></span><a class="headerlink" href="#method-scandit.datacapture.id.VizMrzComparisonVerifier.Verify" title="Permalink to this definition"></a></dt>
+<dd><pre class="full-signature">&#64;NonNull <a class="reference internal" href="#class-scandit.datacapture.id.VizMrzComparisonResult" title="VizMrzComparisonResult class">VizMrzComparisonResult</a> <span class="sig-name descname">verify</span>(&#64;NonNull <a class="reference internal" href="captured-id.html#class-scandit.datacapture.id.CapturedId" title="CapturedId class">CapturedId</a> <em>capturedId</em>)</pre><p><span class="versionmodified versionadded">Added in version 6.18.0</span></p>
+<p>Compares the human-readable data of the document with the data encoded in the MRZ, and signals any suspicious differences.</p>
+</dd></dl>
+
+</dd></dl>
+
+</div>
+
+
+           </div>
+          </div>
+          <footer>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2024, Scandit AG.</p>
+  </div>
+
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+  <!-- Start of scandit Zendesk Widget script -->
+  <script id="ze-snippet" src="https://static.zdassets.com/ekr/snippet.js?key=df0234ee-7451-4189-8d1c-17c8a624b5f1">
+  </script>
+<script>
+      function getPlatformSuffix() {
+        const platform = 'android'
+        switch (platform) {
+          case 'android':         return 'for Android'
+          case 'ios':             return 'for iOS'
+          case 'cordova':         return 'for Cordova'
+          case 'react-native':    return 'for React Native'
+          case 'xamarin.ios':     return 'for Xamarin.iOS'
+          case 'xamarin.android': return 'for Xamarin.Android'
+          case 'xamarin.forms':   return 'for Xamarin.Forms'
+          case 'flutter':         return 'for Flutter'
+          case 'capacitor':       return 'for Capacitor'
+          case 'titanium':        return 'for Titanium'
+          case 'web':             return 'for the Web'
+          case 'dotnet.ios':      return 'for .NET for iOS'
+          case 'dotnet.android':  return 'for .NET for Android'
+          default:                return ''
+        }
+      }
+
+      const platformSuffix = getPlatformSuffix()
+      const headerTitle = document.querySelector(".icon-home")
+      headerTitle.insertAdjacentHTML('beforeend', ` ${platformSuffix}`)
+
+      const [major, minor] = DOCUMENTATION_OPTIONS.VERSION.split('.')
+      const version = document.querySelector(".version")
+      version.innerHTML = `
+        <div class="version">
+          <a href="${DOCUMENTATION_OPTIONS.URL_ROOT}release-notes/${major}.${minor}.html">Release Notes</a> 
+        </div>
+        <br>
+      `
+  </script>
+  <!-- End of scandit Zendesk Widget script -->
+
+</body>
+</html>

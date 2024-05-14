@@ -1,0 +1,462 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>ScanditBarcodeCapture API &mdash; Data Capture SDK 6.24.0-rc.2 documentation</title>
+      <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/custom.css" type="text/css" />
+  <!--[if lt IE 9]>
+    <script src="../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
+        <script src="../_static/jquery.js"></script>
+        <script src="../_static/underscore.js"></script>
+        <script src="../_static/doctools.js"></script>
+    <script src="../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="ArucoDictionary" href="api/aruco-dictionary.html" />
+    <link rel="prev" title="Barcode Tracking Scenarios" href="barcode-tracking-scenarios.html" />
+  <!-- Google Tag Manager -->
+  <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+  new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+  j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+  'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+  })(window,document,'script','dataLayer','GTM-THQQFD7');</script>
+  <!-- End Google Tag Manager -->
+</head>
+
+<body class="wy-body-for-nav">
+  <!-- Google Tag Manager (noscript) -->
+  <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-THQQFD7"
+  height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+  <!-- End Google Tag Manager (noscript) -->
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+            <a href="../index.html" class="icon icon-home"> Data Capture SDK
+          </a>
+              <div class="version">
+                6.24.0-rc.2
+              </div>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">First Steps</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../samples/run-samples.html">Run Samples</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../add-sdk.html">Add the SDK to Your App</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../best-practices-for-usability.html">Best Practices for Usability</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Pre-Built Components</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../high-speed-single-scanning.html">High-Speed Single Scanning</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../batch-counting-and-receiving.html">Batch Counting And Receiving</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../selecting-one-of-many.html">Selecting One Of Many Barcodes</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../ar-assisted-search-and-find.html">AR-Assisted Search And Find</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Fully-Customizable API</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../id-scanning-and-verification.html">ID Scanning And Verification</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../batch-scanning-and-ar.html">Batch Scanning And AR</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../single-scanning.html">Single Scanning</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../text-capture.html">Text Capture</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../parse-barcode-data.html">Parse Barcode Data</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../advanced-topics.html">Advanced Topics</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">API Reference</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../core/overview.html">ScanditCaptureCore</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="overview.html">ScanditBarcodeCapture</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="symbology-properties.html">Symbology Properties</a></li>
+<li class="toctree-l2"><a class="reference internal" href="scan-add-on-codes.html">Scan Add-On/Extension Codes</a></li>
+<li class="toctree-l2"><a class="reference internal" href="scan-composite-codes.html">Scan Composite Codes</a></li>
+<li class="toctree-l2"><a class="reference internal" href="barcode-tracking-scenarios.html">Barcode Tracking Scenarios</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">API</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="api/aruco-dictionary.html">ArucoDictionary</a></li>
+<li class="toctree-l3"><a class="reference internal" href="api/aruco-marker.html">ArucoMarker</a></li>
+<li class="toctree-l3"><a class="reference internal" href="api/barcode.html">Barcode</a></li>
+<li class="toctree-l3"><a class="reference internal" href="api/barcode-capture.html">Barcode Capture</a></li>
+<li class="toctree-l3"><a class="reference internal" href="api/barcode-capture-feedback.html">Barcode Capture Feedback</a></li>
+<li class="toctree-l3"><a class="reference internal" href="api/barcode-capture-listener.html">Barcode Capture Listener</a></li>
+<li class="toctree-l3"><a class="reference internal" href="api/barcode-capture-listener.html#barcode-capture-advanced-listener">Barcode Capture Advanced Listener</a></li>
+<li class="toctree-l3"><a class="reference internal" href="api/barcode-capture-session.html">Barcode Capture Session</a></li>
+<li class="toctree-l3"><a class="reference internal" href="api/barcode-capture-settings.html">Barcode Capture Settings</a></li>
+<li class="toctree-l3"><a class="reference internal" href="api/barcode-count.html">Barcode Count</a></li>
+<li class="toctree-l3"><a class="reference internal" href="api/barcode-count-capture-list.html">Barcode Count Capture List</a></li>
+<li class="toctree-l3"><a class="reference internal" href="api/barcode-count-capture-list-listener.html">Barcode Count Capture List Listener</a></li>
+<li class="toctree-l3"><a class="reference internal" href="api/barcode-count-capture-list-session.html">Barcode Count Capture List Session</a></li>
+<li class="toctree-l3"><a class="reference internal" href="api/barcode-count-feedback.html">Barcode Count Feedback</a></li>
+<li class="toctree-l3"><a class="reference internal" href="api/barcode-count-listener.html">Barcode Count Listener</a></li>
+<li class="toctree-l3"><a class="reference internal" href="api/barcode-count-session.html">Barcode Count Session</a></li>
+<li class="toctree-l3"><a class="reference internal" href="api/barcode-count-settings.html">Barcode Count Settings</a></li>
+<li class="toctree-l3"><a class="reference internal" href="api/barcode-count-status.html">Barcode Count Status</a></li>
+<li class="toctree-l3"><a class="reference internal" href="api/barcode-count-status-item.html">Barcode Count Status Item</a></li>
+<li class="toctree-l3"><a class="reference internal" href="api/barcode-count-status-provider.html">Barcode Count Status Provider</a></li>
+<li class="toctree-l3"><a class="reference internal" href="api/barcode-count-status-provider-callback.html">Barcode Count Status Provider Callback</a></li>
+<li class="toctree-l3"><a class="reference internal" href="api/barcode-count-status-result.html">Barcode Count Status Result</a></li>
+<li class="toctree-l3"><a class="reference internal" href="api/barcode-filter-settings.html">Barcode Filter Settings</a></li>
+<li class="toctree-l3"><a class="reference internal" href="api/barcode-find.html">Barcode Find</a></li>
+<li class="toctree-l3"><a class="reference internal" href="api/barcode-find-feedback.html">Barcode Find Feedback</a></li>
+<li class="toctree-l3"><a class="reference internal" href="api/barcode-find-item.html">Barcode Find Item</a></li>
+<li class="toctree-l3"><a class="reference internal" href="api/barcode-find-listener.html">Barcode Find Listener</a></li>
+<li class="toctree-l3"><a class="reference internal" href="api/barcode-find-session.html">Barcode Find Session</a></li>
+<li class="toctree-l3"><a class="reference internal" href="api/barcode-find-settings.html">Barcode Find Settings</a></li>
+<li class="toctree-l3"><a class="reference internal" href="api/barcode-find-transformer.html">Barcode Find Transformer</a></li>
+<li class="toctree-l3"><a class="reference internal" href="api/barcode-generator.html">Barcode Generator</a></li>
+<li class="toctree-l3"><a class="reference internal" href="api/barcode-generator-builder.html">Barcode Generator Builder</a></li>
+<li class="toctree-l3"><a class="reference internal" href="api/barcode-info.html">Barcode Info</a></li>
+<li class="toctree-l3"><a class="reference internal" href="api/barcode-pick.html">Barcode Pick</a></li>
+<li class="toctree-l3"><a class="reference internal" href="api/barcode-pick-action-callback.html">Barcode Pick Action Callback</a></li>
+<li class="toctree-l3"><a class="reference internal" href="api/barcode-pick-action-listener.html">Barcode Pick Action Listener</a></li>
+<li class="toctree-l3"><a class="reference internal" href="api/barcode-pick-async-mapper-product-provider.html">Barcode Pick Async Mapper Product Provider</a></li>
+<li class="toctree-l3"><a class="reference internal" href="api/barcode-pick-async-mapper-product-provider-callback.html">Barcode Pick Async Mapper Product Provider Callback</a></li>
+<li class="toctree-l3"><a class="reference internal" href="api/barcode-pick-listener.html">Barcode Pick Listener</a></li>
+<li class="toctree-l3"><a class="reference internal" href="api/barcode-pick-product.html">Barcode Pick Product</a></li>
+<li class="toctree-l3"><a class="reference internal" href="api/barcode-pick-product-provider.html">Barcode Pick Product Provider</a></li>
+<li class="toctree-l3"><a class="reference internal" href="api/barcode-pick-product-provider-callback.html">Barcode Pick Product Provider Callback</a></li>
+<li class="toctree-l3"><a class="reference internal" href="api/barcode-pick-product-provider-callback-item.html">Barcode Pick Product Provider Callback Item</a></li>
+<li class="toctree-l3"><a class="reference internal" href="api/barcode-pick-scanning-listener.html">Barcode Pick Scanning Listener</a></li>
+<li class="toctree-l3"><a class="reference internal" href="api/barcode-pick-scanning-session.html">Barcode Pick Scanning Session</a></li>
+<li class="toctree-l3"><a class="reference internal" href="api/barcode-pick-session.html">Barcode Pick Session</a></li>
+<li class="toctree-l3"><a class="reference internal" href="api/barcode-pick-settings.html">Barcode Pick Settings</a></li>
+<li class="toctree-l3"><a class="reference internal" href="api/barcode-pick-state.html">Barcode Pick State</a></li>
+<li class="toctree-l3"><a class="reference internal" href="api/barcode-selection.html">Barcode Selection</a></li>
+<li class="toctree-l3"><a class="reference internal" href="api/barcode-selection-aimer-selection.html">Barcode Selection Automatic Aimer Selection</a></li>
+<li class="toctree-l3"><a class="reference internal" href="api/barcode-selection-feedback.html">Barcode Selection Feedback</a></li>
+<li class="toctree-l3"><a class="reference internal" href="api/barcode-selection-listener.html">Barcode Selection Listener</a></li>
+<li class="toctree-l3"><a class="reference internal" href="api/barcode-selection-listener.html#barcode-selection-advanced-listener">Barcode Selection Advanced Listener</a></li>
+<li class="toctree-l3"><a class="reference internal" href="api/barcode-selection-session.html">Barcode Selection Session</a></li>
+<li class="toctree-l3"><a class="reference internal" href="api/barcode-selection-settings.html">Barcode Selection Settings</a></li>
+<li class="toctree-l3"><a class="reference internal" href="api/barcode-selection-strategy.html">Barcode Selection Strategy</a></li>
+<li class="toctree-l3"><a class="reference internal" href="api/barcode-selection-tap-selection.html">Barcode Selection Tap Selection</a></li>
+<li class="toctree-l3"><a class="reference internal" href="api/barcode-selection-type.html">Barcode Selection Type</a></li>
+<li class="toctree-l3"><a class="reference internal" href="api/barcode-spatial-grid.html">Barcode Spatial Grid</a></li>
+<li class="toctree-l3"><a class="reference internal" href="api/barcode-tracking.html">Barcode Tracking</a></li>
+<li class="toctree-l3"><a class="reference internal" href="api/barcode-tracking-listener.html">Barcode Tracking Listener</a></li>
+<li class="toctree-l3"><a class="reference internal" href="api/barcode-tracking-listener.html#barcode-tracking-advanced-listener">Barcode Tracking Advanced Listener</a></li>
+<li class="toctree-l3"><a class="reference internal" href="api/barcode-tracking-scenario.html">Barcode Tracking Scenario</a></li>
+<li class="toctree-l3"><a class="reference internal" href="api/barcode-tracking-session.html">Barcode Tracking Session</a></li>
+<li class="toctree-l3"><a class="reference internal" href="api/barcode-tracking-settings.html">Barcode Tracking Settings</a></li>
+<li class="toctree-l3"><a class="reference internal" href="api/capture-preset.html">CapturePreset</a></li>
+<li class="toctree-l3"><a class="reference internal" href="api/checksum.html">Checksum</a></li>
+<li class="toctree-l3"><a class="reference internal" href="api/composite-flag.html">Composite Flag</a></li>
+<li class="toctree-l3"><a class="reference internal" href="api/composite-type.html">CompositeType</a></li>
+<li class="toctree-l3"><a class="reference internal" href="api/composite-type-description.html">Composite Type Description</a></li>
+<li class="toctree-l3"><a class="reference internal" href="api/coordinate-2d.html">Coordinate 2D</a></li>
+<li class="toctree-l3"><a class="reference internal" href="api/ean13-upca-classification.html">EAN13 &amp; UPCA Classification</a></li>
+<li class="toctree-l3"><a class="reference internal" href="api/localized-only-barcode.html">Localized Only Barcode</a></li>
+<li class="toctree-l3"><a class="reference internal" href="api/qrcode-error-correction-level.html">QrCode Error Correction Level</a></li>
+<li class="toctree-l3"><a class="reference internal" href="api/spark-scan.html">SparkScan</a></li>
+<li class="toctree-l3"><a class="reference internal" href="api/spark-scan-feedback.html">SparkScan Feedback</a></li>
+<li class="toctree-l3"><a class="reference internal" href="api/spark-scan-feedback-delegate.html">SparkScan Feedback Delegate</a></li>
+<li class="toctree-l3"><a class="reference internal" href="api/spark-scan-license-info.html">SparkScan License Info</a></li>
+<li class="toctree-l3"><a class="reference internal" href="api/spark-scan-listener.html">SparkScan Listener</a></li>
+<li class="toctree-l3"><a class="reference internal" href="api/spark-scan-session.html">SparkScan Session</a></li>
+<li class="toctree-l3"><a class="reference internal" href="api/spark-scan-settings.html">SparkScan Settings</a></li>
+<li class="toctree-l3"><a class="reference internal" href="api/structured-append.html">Structured Append</a></li>
+<li class="toctree-l3"><a class="reference internal" href="api/symbology.html">Symbology</a></li>
+<li class="toctree-l3"><a class="reference internal" href="api/symbology-description.html">Symbology Description</a></li>
+<li class="toctree-l3"><a class="reference internal" href="api/symbology-settings.html">Symbology Settings</a></li>
+<li class="toctree-l3"><a class="reference internal" href="api/target-barcode.html">Target Barcode</a></li>
+<li class="toctree-l3"><a class="reference internal" href="api/tracked-barcode.html">Tracked Barcode</a></li>
+<li class="toctree-l3"><a class="reference internal" href="api/tracked-barcode-info.html">TrackedBarcodeInfo</a></li>
+<li class="toctree-l3"><a class="reference internal" href="api/ui/barcode-capture-overlay.html">Barcode Capture Overlay</a></li>
+<li class="toctree-l3"><a class="reference internal" href="api/ui/barcode-count-toolbar-defaults.html">Barcode Count Toolbar Defaults</a></li>
+<li class="toctree-l3"><a class="reference internal" href="api/ui/barcode-count-toolbar-settings.html">Barcode Count Toolbar Settings</a></li>
+<li class="toctree-l3"><a class="reference internal" href="api/ui/barcode-count-view.html">Barcode Count View</a></li>
+<li class="toctree-l3"><a class="reference internal" href="api/ui/barcode-count-view-ui-listener.html">Barcode Count Basic Overlay UI Listener</a></li>
+<li class="toctree-l3"><a class="reference internal" href="api/ui/barcode-count-view-listener.html">Barcode Count View Listener</a></li>
+<li class="toctree-l3"><a class="reference internal" href="api/ui/barcode-filter-highlight-settings.html">Barcode Filter Highlight Settings</a></li>
+<li class="toctree-l3"><a class="reference internal" href="api/ui/barcode-filter-highlight-type.html">Barcode Filter Highlight Type</a></li>
+<li class="toctree-l3"><a class="reference internal" href="api/ui/barcode-find-view.html">Barcode Find View</a></li>
+<li class="toctree-l3"><a class="reference internal" href="api/ui/barcode-find-view-settings.html">Barcode Find View Settings</a></li>
+<li class="toctree-l3"><a class="reference internal" href="api/ui/barcode-pick-icon-style.html">Barcode Pick Icon Style</a></li>
+<li class="toctree-l3"><a class="reference internal" href="api/ui/barcode-pick-view.html">Barcode Pick View</a></li>
+<li class="toctree-l3"><a class="reference internal" href="api/ui/barcode-pick-view-highlight-style.html">Barcode Pick View Highlight Style</a></li>
+<li class="toctree-l3"><a class="reference internal" href="api/ui/barcode-pick-view-highlight-style-async-callback.html">Barcode Pick View Highlight Style Async Callback</a></li>
+<li class="toctree-l3"><a class="reference internal" href="api/ui/barcode-pick-view-highlight-style-async-provider.html">Barcode Pick View Highlight Style Async Provider</a></li>
+<li class="toctree-l3"><a class="reference internal" href="api/ui/barcode-pick-view-highlight-style-custom-view.html">Barcode Pick View Highlight Style Custom View</a></li>
+<li class="toctree-l3"><a class="reference internal" href="api/ui/barcode-pick-view-highlight-style-custom-view-async-callback.html">Barcode Pick View Highlight Style Custom View Response</a></li>
+<li class="toctree-l3"><a class="reference internal" href="api/ui/barcode-pick-view-highlight-style-custom-view-provider.html">Barcode Pick View Highlight Style Custom View Provider</a></li>
+<li class="toctree-l3"><a class="reference internal" href="api/ui/barcode-pick-view-highlight-style-custom-view-response.html">Barcode Pick View Highlight Style Custom View Response</a></li>
+<li class="toctree-l3"><a class="reference internal" href="api/ui/barcode-pick-view-highlight-style-dot.html">Barcode Pick View Highlight Style Dot</a></li>
+<li class="toctree-l3"><a class="reference internal" href="api/ui/barcode-pick-view-highlight-style-dot-with-icons.html">Barcode Pick View Highlight Style Dot With Icons</a></li>
+<li class="toctree-l3"><a class="reference internal" href="api/ui/barcode-pick-view-highlight-style-rectangular.html">Barcode Pick View Highlight Style Rectangular</a></li>
+<li class="toctree-l3"><a class="reference internal" href="api/ui/barcode-pick-view-highlight-style-rectangular-with-icons.html">Barcode Pick View Highlight Style Rectangular With Icons</a></li>
+<li class="toctree-l3"><a class="reference internal" href="api/ui/barcode-pick-view-highlight-style-request.html">Barcode Pick View Highlight Style Request</a></li>
+<li class="toctree-l3"><a class="reference internal" href="api/ui/barcode-pick-view-highlight-style-response.html">Barcode Pick View Highlight Style Response</a></li>
+<li class="toctree-l3"><a class="reference internal" href="api/ui/barcode-pick-view-listener.html">Barcode Pick View Listener</a></li>
+<li class="toctree-l3"><a class="reference internal" href="api/ui/barcode-pick-view-settings.html">Barcode Pick View Settings</a></li>
+<li class="toctree-l3"><a class="reference internal" href="api/ui/barcode-selection-basic-overlay.html">Barcode Selection Basic Overlay</a></li>
+<li class="toctree-l3"><a class="reference internal" href="api/ui/barcode-tracking-advanced-overlay.html">Barcode Tracking Advanced Overlay</a></li>
+<li class="toctree-l3"><a class="reference internal" href="api/ui/barcode-tracking-advanced-overlay-listener.html">Barcode Tracking Advanced Overlay Listener</a></li>
+<li class="toctree-l3"><a class="reference internal" href="api/ui/barcode-tracking-basic-overlay.html">Barcode Tracking Basic Overlay</a></li>
+<li class="toctree-l3"><a class="reference internal" href="api/ui/barcode-tracking-basic-overlay-listener.html">Barcode Tracking Basic Overlay Listener</a></li>
+<li class="toctree-l3"><a class="reference internal" href="api/ui/spark-scan-barcode-feedback.html">SparkScan Barcode Feedback</a></li>
+<li class="toctree-l3"><a class="reference internal" href="api/ui/spark-scan-toast-settings.html">SparkScan Toast Settings</a></li>
+<li class="toctree-l3"><a class="reference internal" href="api/ui/spark-scan-view.html">SparkScan View</a></li>
+<li class="toctree-l3"><a class="reference internal" href="api/ui/spark-scan-view-feedback.html">SparkScan View Feedback</a></li>
+<li class="toctree-l3"><a class="reference internal" href="api/ui/spark-scan-view-settings.html">SparkScan View Settings</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../id-capture/overview.html">ScanditIdCapture</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../text-capture/overview.html">ScanditTextCapture</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../label-capture/overview.html">ScanditLabelCapture</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../parser/overview.html">ScanditParser</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../genindex.html">Index</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">More Resources</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../release-notes.html">Release Notes</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../barcode-symbologies.html">Barcode Symbologies</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../requirements.html">System Requirements</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../support.html">Support &amp; FAQ</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../features-by-platform.html">Features By Framework</a></li>
+<li class="toctree-l1"><a class="reference external" href="https://docs.scandit.com/barcode-scanner-sdk.html">SDK 5.x Documentation [Deprecated]</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../migrate-to-6.html">Migrate from Barcode Scanner 5.x</a></li>
+<li class="toctree-l1"><a class="reference external" href="http://ssl.scandit.com">Your Developer Dashboard</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">Data Capture SDK</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation" class="navbar">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../index.html" class="icon icon-home" aria-label="Home"></a></li>
+          <li class="breadcrumb-item"><a href="overview.html">ScanditBarcodeCapture</a></li>
+      <li class="breadcrumb-item active">ScanditBarcodeCapture API</li>
+      <li class="wy-breadcrumbs-aside">
+      </li>
+  </ul>
+  <div class="auth-link-container">
+    <a class="signup-link signup-link--mobile" rel="noopener" target="_blank" href="https://ssl.scandit.com/dashboard/sign-up?p=test&utm_source=documentation">Sign up</a>
+    <a class="signup-link" target="_blank" rel="noopener" href="https://ssl.scandit.com/dashboard/sign-up?p=test&utm_source=documentation">Sign up for your developer account</a>
+    <a class="signin-link" target="_blank" rel="noopener" href="https://ssl.scandit.com/dashboard/sign-in">Log in</a>
+  </div>
+</div>
+<hr/>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <div class="section" id="scanditbarcodecapture-api">
+<h1>ScanditBarcodeCapture API<a class="headerlink" href="#scanditbarcodecapture-api" title="Permalink to this headline"></a></h1>
+<div class="toctree-wrapper compound">
+</div>
+<p><strong>Traditional Barcode Scanning</strong></p>
+<table class="hlist"><tr><td><ul class="simple">
+<li><p><a class="reference internal" href="api/barcode-capture.html#class-scandit.datacapture.barcode.BarcodeCapture" title="BarcodeCapture class">BarcodeCapture</a></p></li>
+<li><p><a class="reference internal" href="api/barcode-capture-session.html#class-scandit.datacapture.barcode.BarcodeCaptureSession" title="BarcodeCaptureSession class">BarcodeCaptureSession</a></p></li>
+<li><p><a class="reference internal" href="api/barcode-capture-listener.html#interface-scandit.datacapture.barcode.IBarcodeCaptureListener" title="BarcodeCaptureListener interface">BarcodeCaptureListener</a></p></li>
+<li><p><a class="reference internal" href="api/barcode-capture-settings.html#class-scandit.datacapture.barcode.BarcodeCaptureSettings" title="BarcodeCaptureSettings class">BarcodeCaptureSettings</a></p></li>
+<li><p><a class="reference internal" href="api/ui/barcode-capture-overlay.html#class-scandit.datacapture.barcode.ui.BarcodeCaptureOverlay" title="BarcodeCaptureOverlay class">BarcodeCaptureOverlay</a></p></li>
+<li><p><a class="reference internal" href="api/barcode-capture-feedback.html#class-scandit.datacapture.barcode.BarcodeCaptureFeedback" title="BarcodeCaptureFeedback class">BarcodeCaptureFeedback</a></p></li>
+</ul>
+</td><td><ul class="simple">
+<li><p><a class="reference internal" href="api/barcode.html#class-scandit.datacapture.barcode.Barcode" title="Barcode class">Barcode</a></p></li>
+<li><p><a class="reference internal" href="api/checksum.html#enum-scandit.datacapture.barcode.Checksum" title="Checksum enum">Checksum</a></p></li>
+<li><p><a class="reference internal" href="api/composite-flag.html#enum-scandit.datacapture.barcode.CompositeFlag" title="CompositeFlag enum">CompositeFlag</a></p></li>
+<li><p><a class="reference internal" href="api/composite-type.html#enum-scandit.datacapture.barcode.CompositeType" title="CompositeType enum">CompositeType</a></p></li>
+<li><p><a class="reference internal" href="api/symbology.html#enum-scandit.datacapture.barcode.Symbology" title="Symbology enum">Symbology</a></p></li>
+<li><p><a class="reference internal" href="api/symbology-settings.html#class-scandit.datacapture.barcode.SymbologySettings" title="SymbologySettings class">SymbologySettings</a></p></li>
+</ul>
+</td></tr></table>
+<p><strong>SparkScan</strong></p>
+<table class="hlist"><tr><td><ul class="simple">
+<li><p><a class="reference internal" href="api/spark-scan.html#class-scandit.datacapture.barcode.spark.SparkScan" title="SparkScan class">SparkScan</a></p></li>
+<li><p><a class="reference internal" href="api/spark-scan-feedback.html#class-scandit.datacapture.barcode.spark.SparkScanFeedback" title="SparkScanFeedback class">SparkScanFeedback</a></p></li>
+<li><p><a class="reference internal" href="api/spark-scan-listener.html#interface-scandit.datacapture.barcode.spark.ISparkScanListener" title="SparkScanListener interface">SparkScanListener</a></p></li>
+<li><p><a class="reference internal" href="api/spark-scan-session.html#class-scandit.datacapture.barcode.spark.SparkScanSession" title="SparkScanSession class">SparkScanSession</a></p></li>
+<li><p><a class="reference internal" href="api/spark-scan-settings.html#class-scandit.datacapture.barcode.spark.SparkScanSettings" title="SparkScanSettings class">SparkScanSettings</a></p></li>
+</ul>
+</td><td><ul class="simple">
+<li><p><a class="reference internal" href="api/ui/spark-scan-view.html#class-scandit.datacapture.barcode.spark.ui.SparkScanView" title="SparkScanView class">SparkScanView</a></p></li>
+<li><p><a class="reference internal" href="api/ui/spark-scan-view.html#interface-scandit.datacapture.barcode.spark.ui.ISparkScanViewUiListener" title="SparkScanViewUiListener interface">SparkScanViewUiListener</a></p></li>
+<li><p><a class="reference internal" href="api/ui/spark-scan-view-feedback.html#class-scandit.datacapture.barcode.spark.ui.SparkScanViewFeedback" title="SparkScanViewFeedback class">SparkScanViewFeedback</a></p></li>
+<li><p><a class="reference internal" href="api/ui/spark-scan-view-settings.html#class-scandit.datacapture.barcode.spark.ui.SparkScanViewSettings" title="SparkScanViewSettings class">SparkScanViewSettings</a></p></li>
+<li><p><a class="reference internal" href="api/ui/spark-scan-toast-settings.html#class-scandit.datacapture.barcode.spark.ui.SparkScanToastSettings" title="SparkScanToastSettings class">SparkScanToastSettings</a></p></li>
+</ul>
+</td></tr></table>
+<p><strong>MatrixScan (Barcode Tracking)</strong></p>
+<table class="hlist"><tr><td><ul class="simple">
+<li><p><a class="reference internal" href="api/barcode-tracking.html#class-scandit.datacapture.barcode.tracking.BarcodeTracking" title="BarcodeTracking class">BarcodeTracking</a></p></li>
+<li><p><a class="reference internal" href="api/barcode-tracking-scenario.html#enum-scandit.datacapture.barcode.tracking.BarcodeTrackingScenario" title="BarcodeTrackingScenario enum">BarcodeTrackingScenario</a></p></li>
+<li><p><a class="reference internal" href="api/barcode-tracking-session.html#class-scandit.datacapture.barcode.tracking.BarcodeTrackingSession" title="BarcodeTrackingSession class">BarcodeTrackingSession</a></p></li>
+<li><p><a class="reference internal" href="api/barcode-tracking-settings.html#class-scandit.datacapture.barcode.tracking.BarcodeTrackingSettings" title="BarcodeTrackingSettings class">BarcodeTrackingSettings</a></p></li>
+<li><p><a class="reference internal" href="api/barcode-tracking-listener.html#interface-scandit.datacapture.barcode.tracking.IBarcodeTrackingListener" title="BarcodeTrackingListener interface">BarcodeTrackingListener</a></p></li>
+</ul>
+</td><td><ul class="simple">
+<li><p><a class="reference internal" href="api/tracked-barcode.html#class-scandit.datacapture.barcode.tracking.TrackedBarcode" title="TrackedBarcode class">TrackedBarcode</a></p></li>
+<li><p><a class="reference internal" href="api/ui/barcode-tracking-basic-overlay.html#class-scandit.datacapture.barcode.tracking.ui.BarcodeTrackingBasicOverlay" title="BarcodeTrackingBasicOverlay class">BarcodeTrackingBasicOverlay</a></p></li>
+<li><p><a class="reference internal" href="api/ui/barcode-tracking-basic-overlay-listener.html#interface-scandit.datacapture.barcode.tracking.ui.IBarcodeTrackingBasicOverlayListener" title="BarcodeTrackingBasicOverlayListener interface">BarcodeTrackingBasicOverlayListener</a></p></li>
+<li><p><a class="reference internal" href="api/ui/barcode-tracking-advanced-overlay.html#class-scandit.datacapture.barcode.tracking.ui.BarcodeTrackingAdvancedOverlay" title="BarcodeTrackingAdvancedOverlay class">BarcodeTrackingAdvancedOverlay</a></p></li>
+<li><p><a class="reference internal" href="api/ui/barcode-tracking-advanced-overlay-listener.html#interface-scandit.datacapture.barcode.tracking.ui.IBarcodeTrackingAdvancedOverlayListener" title="BarcodeTrackingAdvancedOverlayListener interface">BarcodeTrackingAdvancedOverlayListener</a></p></li>
+</ul>
+</td></tr></table>
+<p><strong>Barcode Selection</strong></p>
+<table class="hlist"><tr><td><ul class="simple">
+<li><p><a class="reference internal" href="api/barcode-selection.html#class-scandit.datacapture.barcode.selection.BarcodeSelection" title="BarcodeSelection class">BarcodeSelection</a></p></li>
+<li><p><a class="reference internal" href="api/barcode-selection-aimer-selection.html#class-scandit.datacapture.barcode.selection.BarcodeSelectionAimerSelection" title="BarcodeSelectionAimerSelection class">BarcodeSelectionAimerSelection</a></p></li>
+<li><p><a class="reference internal" href="api/barcode-selection-feedback.html#class-scandit.datacapture.barcode.selection.BarcodeSelectionFeedback" title="BarcodeSelectionFeedback class">BarcodeSelectionFeedback</a></p></li>
+<li><p><a class="reference internal" href="api/barcode-selection-listener.html#interface-scandit.datacapture.barcode.selection.IBarcodeSelectionListener" title="BarcodeSelectionListener interface">BarcodeSelectionListener</a></p></li>
+<li><p><a class="reference internal" href="api/barcode-selection-session.html#class-scandit.datacapture.barcode.selection.BarcodeSelectionSession" title="BarcodeSelectionSession class">BarcodeSelectionSession</a></p></li>
+</ul>
+</td><td><ul class="simple">
+<li><p><a class="reference internal" href="api/barcode-selection-settings.html#class-scandit.datacapture.barcode.selection.BarcodeSelectionSettings" title="BarcodeSelectionSettings class">BarcodeSelectionSettings</a></p></li>
+<li><p><a class="reference internal" href="api/barcode-selection-strategy.html#interface-scandit.datacapture.barcode.selection.IBarcodeSelectionStrategy" title="BarcodeSelectionStrategy interface">BarcodeSelectionStrategy</a></p></li>
+<li><p><a class="reference internal" href="api/barcode-selection-tap-selection.html#class-scandit.datacapture.barcode.selection.BarcodeSelectionTapSelection" title="BarcodeSelectionTapSelection class">BarcodeSelectionTapSelection</a></p></li>
+<li><p><a class="reference internal" href="api/barcode-selection-type.html#interface-scandit.datacapture.barcode.selection.IBarcodeSelectionType" title="BarcodeSelectionType interface">BarcodeSelectionType</a></p></li>
+<li><p><a class="reference internal" href="api/ui/barcode-selection-basic-overlay.html#class-scandit.datacapture.barcode.selection.ui.BarcodeSelectionBasicOverlay" title="BarcodeSelectionBasicOverlay class">BarcodeSelectionBasicOverlay</a></p></li>
+</ul>
+</td></tr></table>
+<p><strong>MatrixScan Count (Barcode Count)</strong></p>
+<table class="hlist"><tr><td><ul class="simple">
+<li><p><a class="reference internal" href="api/barcode-count.html#class-scandit.datacapture.barcode.count.BarcodeCount" title="BarcodeCount class">BarcodeCount</a></p></li>
+<li><p><a class="reference internal" href="api/barcode-count-feedback.html#class-scandit.datacapture.barcode.count.BarcodeCountFeedback" title="BarcodeCountFeedback class">BarcodeCountFeedback</a></p></li>
+<li><p><a class="reference internal" href="api/barcode-count-listener.html#interface-scandit.datacapture.barcode.count.IBarcodeCountListener" title="BarcodeCountListener interface">BarcodeCountListener</a></p></li>
+<li><p><a class="reference internal" href="api/barcode-count-session.html#class-scandit.datacapture.barcode.count.BarcodeCountSession" title="BarcodeCountSession class">BarcodeCountSession</a></p></li>
+<li><p><a class="reference internal" href="api/barcode-count-settings.html#class-scandit.datacapture.barcode.count.BarcodeCountSettings" title="BarcodeCountSettings class">BarcodeCountSettings</a></p></li>
+</ul>
+</td><td><ul class="simple">
+<li><p><a class="reference internal" href="api/ui/barcode-count-view.html#class-scandit.datacapture.barcode.count.ui.BarcodeCountView" title="BarcodeCountView class">BarcodeCountView</a></p></li>
+<li><p><a class="reference internal" href="api/ui/barcode-count-view-listener.html#interface-scandit.datacapture.barcode.count.ui.IBarcodeCountViewListener" title="BarcodeCountViewListener interface">BarcodeCountViewListener</a></p></li>
+<li><p><a class="reference internal" href="api/ui/barcode-count-view.html#enum-scandit.datacapture.barcode.count.ui.BarcodeCountViewStyle" title="BarcodeCountViewStyle enum">BarcodeCountViewStyle</a></p></li>
+<li><p><a class="reference internal" href="api/ui/barcode-count-view-ui-listener.html#interface-scandit.datacapture.barcode.count.ui.IBarcodeCountViewUiListener" title="BarcodeCountViewUiListener interface">BarcodeCountViewUiListener</a></p></li>
+</ul>
+</td></tr></table>
+<p><strong>MatrixScan Find (Barcode Find)</strong></p>
+<table class="hlist"><tr><td><ul class="simple">
+<li><p><a class="reference internal" href="api/barcode-find.html#class-scandit.datacapture.barcode.find.BarcodeFind" title="BarcodeFind class">BarcodeFind</a></p></li>
+<li><p><a class="reference internal" href="api/barcode-find-item.html#class-scandit.datacapture.barcode.find.BarcodeFindItem" title="BarcodeFindItem class">BarcodeFindItem</a></p></li>
+<li><p><a class="reference internal" href="api/barcode-find-settings.html#class-scandit.datacapture.barcode.find.BarcodeFindSettings" title="BarcodeFindSettings class">BarcodeFindSettings</a></p></li>
+<li><p><a class="reference internal" href="api/barcode-find-listener.html#interface-scandit.datacapture.barcode.find.IBarcodeFindListener" title="BarcodeFindListener interface">BarcodeFindListener</a></p></li>
+<li><p><a class="reference internal" href="api/barcode-find-feedback.html#class-scandit.datacapture.barcode.find.BarcodeFindFeedback" title="BarcodeFindFeedback class">BarcodeFindFeedback</a></p></li>
+</ul>
+</td><td><ul class="simple">
+<li><p><a class="reference internal" href="api/barcode-find-transformer.html#interface-scandit.datacapture.barcode.find.IBarcodeFindTransformer" title="BarcodeFindTransformer interface">BarcodeFindTransformer</a></p></li>
+<li><p><a class="reference internal" href="api/ui/barcode-find-view.html#class-scandit.datacapture.barcode.find.ui.BarcodeFindView" title="BarcodeFindView class">BarcodeFindView</a></p></li>
+<li><p><a class="reference internal" href="api/ui/barcode-find-view-settings.html#class-scandit.datacapture.barcode.find.ui.BarcodeFindViewSettings" title="BarcodeFindViewSettings class">BarcodeFindViewSettings</a></p></li>
+<li><p><a class="reference internal" href="api/ui/barcode-find-view.html#interface-scandit.datacapture.barcode.find.ui.IBarcodeFindViewUiListener" title="BarcodeFindViewUiListener interface">BarcodeFindViewUiListener</a></p></li>
+</ul>
+</td></tr></table>
+<p><strong>MatrixScan Pick (Barcode Pick)</strong></p>
+<table class="hlist"><tr><td><ul class="simple">
+<li><p><a class="reference internal" href="api/barcode-pick.html#class-scandit.datacapture.barcode.pick.BarcodePick" title="BarcodePick class">BarcodePick</a></p></li>
+<li><p><a class="reference internal" href="api/barcode-pick-settings.html#class-scandit.datacapture.barcode.pick.BarcodePickSettings" title="BarcodePickSettings class">BarcodePickSettings</a></p></li>
+<li><p><a class="reference internal" href="api/barcode-pick-async-mapper-product-provider.html#class-scandit.datacapture.barcode.pick.BarcodePickAsyncMapperProductProvider" title="BarcodePickAsyncMapperProductProvider class">BarcodePickAsyncMapperProductProvider</a></p></li>
+<li><p><a class="reference internal" href="api/barcode-pick-product.html#class-scandit.datacapture.barcode.pick.BarcodePickProduct" title="BarcodePickProduct class">BarcodePickProduct</a></p></li>
+<li><p><a class="reference internal" href="api/barcode-pick-state.html#enum-scandit.datacapture.barcode.pick.BarcodePickState" title="BarcodePickState enum">BarcodePickState</a></p></li>
+</ul>
+</td><td><ul class="simple">
+<li><p><a class="reference internal" href="api/ui/barcode-pick-view.html#class-scandit.datacapture.barcode.pick.ui.BarcodePickView" title="BarcodePickView class">BarcodePickView</a></p></li>
+<li><p><a class="reference internal" href="api/ui/barcode-pick-view-settings.html#class-scandit.datacapture.barcode.pick.ui.BarcodePickViewSettings" title="BarcodePickViewSettings class">BarcodePickViewSettings</a></p></li>
+<li><p><a class="reference internal" href="api/ui/barcode-pick-view-highlight-style.html#interface-scandit.datacapture.barcode.pick.ui.BarcodePickViewHighlightStyle" title="BarcodePickViewHighlightStyle interface">BarcodePickViewHighlightStyle</a></p></li>
+<li><p><a class="reference internal" href="api/ui/barcode-pick-view-highlight-style-dot-with-icons.html#class-scandit.datacapture.barcode.pick.ui.DotWithIcons" title="DotWithIcons class">DotWithIcons</a></p></li>
+<li><p><a class="reference internal" href="api/ui/barcode-pick-view-highlight-style-rectangular-with-icons.html#class-scandit.datacapture.barcode.pick.ui.RectangularWithIcons" title="RectangularWithIcons class">RectangularWithIcons</a></p></li>
+</ul>
+</td></tr></table>
+<p><strong>Deserialization</strong></p>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>The deserialization API is not yet stable and will still change over the coming releases.</p>
+</div>
+<table class="hlist"><tr><td><ul class="simple">
+<li><p><a class="reference internal" href="api/deserialization/barcode-capture-deserializer.html#class-scandit.datacapture.barcode.BarcodeCaptureDeserializer" title="BarcodeCaptureDeserializer class">BarcodeCaptureDeserializer</a></p></li>
+</ul>
+</td><td><ul class="simple">
+<li><p><a class="reference internal" href="api/deserialization/barcode-tracking-deserializer.html#class-scandit.datacapture.barcode.tracking.BarcodeTrackingDeserializer" title="BarcodeTrackingDeserializer class">BarcodeTrackingDeserializer</a></p></li>
+</ul>
+</td></tr></table>
+<p><strong>Barcode Generator</strong></p>
+<table class="hlist"><tr><td><ul class="simple">
+<li><p><a class="reference internal" href="api/barcode-generator.html#class-scandit.datacapture.barcode.generator.BarcodeGenerator" title="BarcodeGenerator class">BarcodeGenerator</a></p></li>
+</ul>
+</td><td><ul class="simple">
+<li><p><a class="reference internal" href="api/barcode-generator-builder.html#class-scandit.datacapture.barcode.generator.BarcodeGeneratorBuilder" title="BarcodeGeneratorBuilder class">BarcodeGeneratorBuilder</a></p></li>
+</ul>
+</td></tr></table>
+</div>
+
+
+           </div>
+          </div>
+          <footer>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2024, Scandit AG.</p>
+  </div>
+
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+  <!-- Start of scandit Zendesk Widget script -->
+  <script id="ze-snippet" src="https://static.zdassets.com/ekr/snippet.js?key=df0234ee-7451-4189-8d1c-17c8a624b5f1">
+  </script>
+<script>
+      function getPlatformSuffix() {
+        const platform = 'android'
+        switch (platform) {
+          case 'android':         return 'for Android'
+          case 'ios':             return 'for iOS'
+          case 'cordova':         return 'for Cordova'
+          case 'react-native':    return 'for React Native'
+          case 'xamarin.ios':     return 'for Xamarin.iOS'
+          case 'xamarin.android': return 'for Xamarin.Android'
+          case 'xamarin.forms':   return 'for Xamarin.Forms'
+          case 'flutter':         return 'for Flutter'
+          case 'capacitor':       return 'for Capacitor'
+          case 'titanium':        return 'for Titanium'
+          case 'web':             return 'for the Web'
+          case 'dotnet.ios':      return 'for .NET for iOS'
+          case 'dotnet.android':  return 'for .NET for Android'
+          default:                return ''
+        }
+      }
+
+      const platformSuffix = getPlatformSuffix()
+      const headerTitle = document.querySelector(".icon-home")
+      headerTitle.insertAdjacentHTML('beforeend', ` ${platformSuffix}`)
+
+      const [major, minor] = DOCUMENTATION_OPTIONS.VERSION.split('.')
+      const version = document.querySelector(".version")
+      version.innerHTML = `
+        <div class="version">
+          <a href="${DOCUMENTATION_OPTIONS.URL_ROOT}release-notes/${major}.${minor}.html">Release Notes</a> 
+        </div>
+        <br>
+      `
+  </script>
+  <!-- End of scandit Zendesk Widget script -->
+
+</body>
+</html>

@@ -1,0 +1,11 @@
+<resources>
+    <string name="app_name">IdCaptureExtended Sample</string>
+    <string name="menu_barcode">Barcode</string>
+    <string name="menu_mrz">MRZ</string>
+    <string name="menu_viz">VIZ</string>
+    <string name="error">Error</string>
+    <string name="ok">OK</string>
+    <string name="scan_result">Scan Result</string>
+    <string name="result_button_resume">Resume</string>
+    <string name="document_not_supported_message">Document not supported</string>
+</resources>
